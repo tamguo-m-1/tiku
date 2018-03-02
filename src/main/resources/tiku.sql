@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : tcz-dev
+Source Server         : tamguo-beta
 Source Server Version : 50610
-Source Host           : 127.0.0.1:3306
+Source Host           : localhost:3306
 Source Database       : tiku
 
 Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2018-03-01 18:08:00
+Date: 2018-03-02 18:47:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -363,14 +363,17 @@ CREATE TABLE `tiku_question` (
   `answer` varchar(255) NOT NULL DEFAULT '' COMMENT '答案',
   `analysis` varchar(255) NOT NULL DEFAULT '' COMMENT '解析',
   `fallibility` varchar(255) NOT NULL DEFAULT '' COMMENT '易错点',
+  `review_point` varchar(100) NOT NULL DEFAULT '' COMMENT '考察知识点',
+  `year` varchar(5) NOT NULL DEFAULT '' COMMENT '年份',
+  `score` int(10) NOT NULL DEFAULT '0' COMMENT '分数',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tiku_question
 -- ----------------------------
-INSERT INTO `tiku_question` VALUES ('1', '3', '2', '33', '<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>', '<p>见解析。</p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>');
-INSERT INTO `tiku_question` VALUES ('2', '3', '2', '33', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p>无。</p>');
+INSERT INTO `tiku_question` VALUES ('1', '3', '2', '33', '<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>', '<p>见解析。</p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>', '西方社会工作在不同发展阶段的特点,马克思思想', '2017', '5');
+INSERT INTO `tiku_question` VALUES ('2', '3', '2', '33', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p>无。</p>', '集合的含义', '2018', '13');
 
 -- ----------------------------
 -- Table structure for tiku_school
