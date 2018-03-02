@@ -358,6 +358,10 @@
 .hover-quescontainer .view-analyse a {
     color: #11a68d!important;
 }
+.selected-quescontainer {
+    cursor: pointer;
+    border-color: #11a68d!important; 
+}
 .bdjson p {
     line-height: 1.5;
 }

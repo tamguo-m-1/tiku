@@ -34,9 +34,9 @@
         
         	<div class="bd-content" style="visibility: visible;">
 	        	<div class="quelist-wrap">
-	                  <div th:attr="data-id=${q.uid},data-index=${q.uid}" th:class="${qStat.size == (qStat.index + 1)} ? 'question-box que-multi  selected-quescontainer last' : 'question-box que-multi  selected-quescontainer'" th:each="q,qStat:${questionList}">
+	                  <div th:attr="data-id=${q.uid},data-index=${q.uid}" th:class="${qStat.size == (qStat.index + 1)} ? 'question-box que-multi  last' : 'question-box que-multi'" th:each="q,qStat:${questionList}">
 						    <div class="question-box-inner">
-						        <span class="queindex-wrap"><span class="queindex">1</span></span>
+						        <span class="queindex-wrap"><span class="queindex" th:text="${qStat.index + 1}">1</span></span>
 						        <span class="pieces">
 						                多选题
 						        </span>
@@ -104,7 +104,7 @@
 			        <ul class="toolbar-ul">
 			            <li class="pre-li disable"><span class="pre">上一题</span></li>
 			            <li class="center-li">
-			                <span class="current">1</span>/<span class="total">2</span>
+			                <span class="current">0</span>/<span class="total" th:text="${questionList.total}">0</span>
 			            </li>
 			            <li class="next-li"><span class="next">下一题</span></li>
 			        </ul>

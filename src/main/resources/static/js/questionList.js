@@ -41,20 +41,28 @@ $(function(){
 	
 	$(".question-box").bind("click",function(event){
 		$(".quelist-wrap").css("left","0px");
+		$(".question-box").removeClass("selected-quescontainer");
+		$(this).addClass("selected-quescontainer");
+		$(".queanalyse-wrap").show(800);
+		var dataIndex = $(this).attr("data-index");
 		$.ajax({
 			type : "get", 
-			url : "./../../../getQuestion/" + $(this).attr("data-id")
-					+ ".html",
+			url : mainHttp + "question/getQuestion/" + $(this).attr("data-id")+ ".html",
 			async : true,
 			dataType : "json",
 			success : function(data) {// 返回数据根据结果进行相应的处理,无论请求成功还是失败，都会走这个方法的
-				$(".dt-index").text($(this).attr("data-index"));
+				$(".dt-index").text(dataIndex);
+				$(".ui-border-top .center-li .current").text(dataIndex);
 				$(".exam-answer-content").html(data.result.answer);
 				$(".exam-analysis-content").html(data.result.analysis);
-				$(".queanalyse-wrap").show();
 			}
 		});
-		event.stopPropagation();
+	});
+	
+	$(".queanalyse-wrap .close-btn").bind("click",function(event){
+		$(".queanalyse-wrap").hide(200);
+		$(".quelist-wrap").css("left","");
+		$(".question-box").removeClass("selected-quescontainer");
 	});
 	
 })
