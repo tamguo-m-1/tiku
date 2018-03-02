@@ -21,7 +21,7 @@
 			<div class="main-contain">
 				<div class="single">
 					<div class="question">
-						<div class="que-title"> <span class="op">填空题</span> <span>2016年</span> </div>
+						<div class="que-title"> <span class="op">填空题</span> <span th:if="${question.score != null}" th:text="${question.score + '分'}">5</span> <span th:if="${question.year != null}" th:text="${question.year + '年'}">2016</span> </div>
 						<div class="question-box que-blank" id="undefined" data-index="NaN">
 							<div class="question-box-inner">
 								<div class="question-top">
@@ -37,7 +37,7 @@
 					<div class="recommend-que">
 						<div class="kpoint-contain">
 							<h3 class="point-title">考察知识点</h3>
-							<p class="point"> <span class="point-item">社会工作的含义与特点</span> <span class="point-item">社会工作的目标</span> <span class="point-item">社会工作的对象</span> <span class="point-item">中国社会工作在不同发展阶段的特点</span> <span class="point-item">社会工作领域</span> </p>
+							<p class="point"> <span class="point-item" th:each="p,pStat:${#strings.arraySplit(question.reviewPoint,',')}" th:text="${p}">社会工作的含义与特点</span></p>
 							<h3 class="point-title">相关例题</h3>
 							<ul class="recq-contain">
 								<li class="recq bdjson">
@@ -70,7 +70,7 @@
 							</div>
 							<div class="exam-analysis exam-info">
 								<h3 class="exam-analysis-title"><span class="ic analysis-ic">答案解析</span></h3>
-								<div class="content exam-analysis-content bdjson" th:utext="${question.answer}">
+								<div class="content exam-analysis-content bdjson" th:utext="${question.analysis}">
 									<p><span>[解析] 社会工作作为一个专业是在长期的社会服务实践、对实践经验的总结和不断借用其他学科的新的研究成果等多种因素的共同影响下形成的。在其专业化过程中，专业方法的发展、目标模式的变化、工作对象的拓展、理论派别的形成成为社会工作发展的重要特点。</span></p>
 								</div>
 							</div>

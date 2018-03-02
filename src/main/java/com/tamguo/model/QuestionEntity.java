@@ -27,6 +27,7 @@ public class QuestionEntity implements Serializable {
 	@Column(name="chapter_id")
 	private BigInteger chapterId;
 
+	@Column(name="fallibility")
 	private String fallibility;
 
 	@Column(name="question_type")
@@ -37,6 +38,15 @@ public class QuestionEntity implements Serializable {
 
 	@Column(name="subject_id")
 	private BigInteger subjectId;
+	
+	@Column(name="review_point")
+	private String reviewPoint;
+	
+	@Column(name="year")
+	private String year;
+	
+	@Column(name="score")
+	private Integer score;
 
 	public QuestionEntity() {
 	}
@@ -103,6 +113,30 @@ public class QuestionEntity implements Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getReviewPoint() {
+		return reviewPoint;
+	}
+
+	public void setReviewPoint(String reviewPoint) {
+		this.reviewPoint = reviewPoint;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
 	}
 
 }

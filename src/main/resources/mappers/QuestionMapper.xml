@@ -11,7 +11,10 @@
 			q.content,
 			q.fallibility,
 			q.question_type,
-			q.subject_id
+			q.subject_id,
+			q.review_point,
+			q.year,
+			q.score
 		FROM
 			tiku_question q
 		WHERE
