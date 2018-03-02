@@ -47,6 +47,7 @@ public class QuestionContrller {
 	@RequestMapping(value = {"/question/{uid}.html"}, method = RequestMethod.GET)
 	public ModelAndView question(@PathVariable String uid , ModelAndView model){
 		model.setViewName("question");
+		model.addObject("question", iQuestionService.findById(uid));
 		return model;
 	}
 	

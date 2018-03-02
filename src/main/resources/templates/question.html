@@ -10,163 +10,10 @@
 		<link rel="stylesheet" th:href="${setting.domain + 'css/footer.css'}" />
 	</head>
 	<body>
-		<div class="header">
-		<div class="menu">
-			<div class="menu-contain clearfix">
-				<a><span class="container-logo"></span></a>		
-				<div class="contain-login">
-	                <div class="login-container">
-	                    <i class="login-icon iconfont icon-yonghu"></i>登录
-	                </div>
-	                <ul class="login-option dis-none">
-	                    <li><a href="/">我的首页</a></li>
-	                    <li><a href="/">账号设置</a></li>
-	                    <li><a href="/">退出</a></li>
-	                </ul>
-	            </div>
-				<ul class="contain-ul">
-	                <li class="contain-li contain-li-hashover" data-class="zhiye">
-	                     	职业资格类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="zhiye" style="transform: rotate(0deg);"></i>
-	                </li>
-	                <li class="contain-li contain-li-hashover" data-class="jianzhu">
-	                                        建筑类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="jianzhu" style="transform: rotate(0deg);"></i>
-	                </li>
-	                <li class="contain-li contain-li-hashover" data-class="xueli">
-	                                        学历类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="xueli" style="transform: rotate(0deg);"></i>
-	                </li>
-	                <li class="contain-li contain-li-hashover" data-class="caikuai">
-	                                        财会类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="caikuai" style="transform: rotate(0deg);"></i>
-	                </li>
-	                <li class="contain-li contain-li-hashover" data-class="yiyaolei">
-	                                        医药类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="yiyaolei" style="transform: rotate(0deg);"></i>
-	                </li>
-	                <li class="contain-li contain-li-hashover" data-class="all">
-	                                        全部考试<i class="li-icon iconfont icon-yingyongchengxu-xianxing" data-class="all" style="transform: rotate(0deg);"></i>
-	                </li>
-	            </ul>	
-           </div>
-		</div>
-		<div class="clearfix submenu-container">
-		    <div class="submenu clearfix">
-		        <ul class="subm-ul zhiye dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/3f0c844769eae009581bec05" target="_blank">社会工作师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/ed6527d3240c844769eaee05" target="_blank">企业法律顾问</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/1742a8956bec0975f465e205" target="_blank">教师资格证</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/7e0bbb68a98271fe910ef904" target="_blank">助理社会工作师</a></li>
-		        </ul>
-		        <ul class="subm-ul jianzhu dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/6c020740be1e650e52ea9905" target="_blank">一级建造师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/6840be1e650e52ea55189805" target="_blank">二级建造师</a></li>
-		        </ul>
-		        <ul class="subm-ul xueli dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/f3eb19e8b8f67c1cfad6b805" target="_blank">考研</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/1bfd700abb68a98271fefa04" target="_blank">高考</a></li>
-		        </ul>
-		        <ul class="subm-ul caikuai dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/cd1755270722192e4536f605" target="_blank">会计从业资格</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/0422192e453610661ed9f405" target="_blank">中级会计师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/403610661ed9ad51f01df205" target="_blank">注册会计师CPA</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/16661ed9ad51f01dc281f105" target="_blank">中级经济师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/57270722192e45361066f505" target="_blank">初级会计师</a></li>
-		        </ul>
-		        <ul class="subm-ul jisuanji dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/f83143323968011ca3009105" target="_blank">计算机四级</a></li>
-		        </ul>
-		        <ul class="subm-ul gongwuyuan dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/5e192279168884868762d605" target="_blank">警察招考</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/0079168884868762caaed505" target="_blank">政法干警</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/4bd97f19227916888486d705" target="_blank">国考</a></li>
-		        </ul>
-		        <ul class="subm-ul yiyaolei dis-none">
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/7728915f804d2b160b4ec005" target="_blank">临床执业医师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/a95f804d2b160b4e767fcf05" target="_blank">临床助理医师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/e22c2af90242a8956bece404" target="_blank">执业中药师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/3ef80242a8956bec0975e304" target="_blank">执业西药师</a></li>
-		            <li class="subm-li"><a href="https://tiku.baidu.com/tikupc/homepage/542ded630b1c59eef8c7b405" target="_blank">护士资格</a></li>
-		        </ul>
-		        <div class="all-exm all dis-none">
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                    职业资格类
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/3f0c844769eae009581bec05" target="_blank">社会工作师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/ed6527d3240c844769eaee05" target="_blank">企业法律顾问</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/1742a8956bec0975f465e205" target="_blank">教师资格证</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/7e0bbb68a98271fe910ef904" target="_blank">助理社会工作师</a></li>
-		                </ul>
-		            </div>
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                    建筑类
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/6c020740be1e650e52ea9905" target="_blank">一级建造师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/6840be1e650e52ea55189805" target="_blank">二级建造师</a></li>
-		                </ul>
-		            </div>
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                    学历类
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/f3eb19e8b8f67c1cfad6b805" target="_blank">考研</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/1bfd700abb68a98271fefa04" target="_blank">高考</a></li>
-		                </ul>
-		            </div>
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                    	财会类
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/cd1755270722192e4536f605" target="_blank">会计从业资格</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/0422192e453610661ed9f405" target="_blank">中级会计师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/403610661ed9ad51f01df205" target="_blank">注册会计师CPA</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/16661ed9ad51f01dc281f105" target="_blank">中级经济师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/57270722192e45361066f505" target="_blank">初级会计师</a></li>
-		                </ul>
-		            </div>
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                    	计算机类
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/f83143323968011ca3009105" target="_blank">计算机四级</a></li>
-		                </ul>
-		            </div>
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                    	公务员
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/5e192279168884868762d605" target="_blank">警察招考</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/0079168884868762caaed505" target="_blank">政法干警</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/4bd97f19227916888486d705" target="_blank">国考</a></li>
-		                </ul>
-		            </div>
-		            <div class="all-ul">
-		                <span class="all-ul-title">
-		                    <i class="title-icon iconfont icon-iconfontshu"></i>
-		                   	 	医药类
-		                </span>
-		                <ul class="all-list clearfix">
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/7728915f804d2b160b4ec005" target="_blank">临床执业医师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/a95f804d2b160b4e767fcf05" target="_blank">临床助理医师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/e22c2af90242a8956bece404" target="_blank">执业中药师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/3ef80242a8956bec0975e304" target="_blank">执业西药师</a></li>
-		                    <li class="all-list-li"><a href="https://tiku.baidu.com/tikupc/homepage/542ded630b1c59eef8c7b405" target="_blank">护士资格</a></li>
-		                </ul>
-		            </div>
-		        </div>
-		    </div>
-		    </div>
-	</div>
+		
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>	
+	
 	<div class="content-wp">
 	<div class="main">
 		<div class="main-inner clearfix">
@@ -179,7 +26,7 @@
 							<div class="question-box-inner">
 								<div class="question-top">
 									<div class="que-stem">
-										<div class="questem-inner bdjson">
+										<div class="questem-inner bdjson" th:utext="${question.content}">
 											<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>
 										</div>
 									</div>
@@ -216,14 +63,14 @@
 							<div class="exam-answer">
 								<h3 class="ic answer-ic exam-answer-title">正确答案</h3>
 								<div class="answer-item">
-									<div class="content exam-answer-content bdjson">
+									<div class="content exam-answer-content bdjson" th:utext="${question.answer}">
 										<p><span>B,C,D,E</span></p>
 									</div>
 								</div>
 							</div>
 							<div class="exam-analysis exam-info">
 								<h3 class="exam-analysis-title"><span class="ic analysis-ic">答案解析</span></h3>
-								<div class="content exam-analysis-content bdjson">
+								<div class="content exam-analysis-content bdjson" th:utext="${question.answer}">
 									<p><span>[解析] 社会工作作为一个专业是在长期的社会服务实践、对实践经验的总结和不断借用其他学科的新的研究成果等多种因素的共同影响下形成的。在其专业化过程中，专业方法的发展、目标模式的变化、工作对象的拓展、理论派别的形成成为社会工作发展的重要特点。</span></p>
 								</div>
 							</div>
@@ -273,61 +120,10 @@
 			</div>
 		</div>
 	</div>
-    <div class="footer">
-    <div class="footer-contain clearfix">
-        <div class="intro">
-            <div class="title">百度题库</div>
-            <p>
-                百度题库旨在为考生提供高效的智能备考服务，全面覆盖中小学财会类、建筑工程、职业资格、医卫类、计算机类等领域。拥有优质丰富的学习资料和备考全阶段的高效服务，助您不断前行！
-            </p>
-        </div>
-        <div class="connect">
-            <div class="title">联系我们</div>
-            <p><i class="iconfont icon-yonghu"></i> 胡老师</p>
-            <p><i class="iconfont icon-mail"></i> tiku01@baidu.com</p>
-            <p><i class="iconfont icon-qq"></i> qq群：53811201</p>
-        </div>
-        <div class="suggest">
-            <div class="title">投诉建议</div>
-            <a href="/tikucommon/disclaimer" target="_blank"><p><i class="iconfont icon-icon-test12"></i> <span>使用题库前必读</span></p></a>
-            <a href="//wenku.baidu.com/feedback" target="_blank"><p><i class="iconfont icon-icon-test10"></i> <span>投诉中心</span></p></a>
-            <a href="//wenku.baidu.com/feedback" target="_blank"><p><i class="iconfont icon-icon-test11"></i> <span>意见反馈</span></p></a>
-        </div>
-        <div class="cooperation">
-            
-                <div class="title">合作机构</div>
-<span class="left iconfont icon-xiangzuo1"></span>
-<span class="right iconfont icon-xiangyou1"></span>
-<div class="coo-view clearfix">
-    
-    <ul class="contain-ul dis-none" style="display: block;">
-        
-        <li class="contain-li"><a class="contain-link" href="http://www.zhulong.com" target="_blank"><img src="https://edu-wenku.bdimg.com/v1/pc/PC%E9%A2%98%E5%BA%93/%E6%9B%B4%E6%96%B0xpage%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/%E7%AF%89%E9%BE%99%E7%BD%91-1496371671235.png" alt=""></a></li>
-        
-        <li class="contain-li"><a class="contain-link" href="http://www.mdlaw.net.cn" target="_blank"><img src="https://edu-wenku.bdimg.com/v1/pc/PC%E9%A2%98%E5%BA%93/%E6%9B%B4%E6%96%B0xpage%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/%E6%9C%A8%E8%B1%86%E6%95%99%E8%82%B2-1496371669600.png" alt=""></a></li>
-        
-        <li class="contain-li"><a class="contain-link" href="http://www.wangxiao.cn/" target="_blank"><img src="https://edu-wenku.bdimg.com/v1/pc/PC%E9%A2%98%E5%BA%93/%E6%9B%B4%E6%96%B0xpage%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/%E4%B8%AD%E5%A4%A7%E7%BD%91%E6%A0%A1-1496371670986.png" alt=""></a></li>
-        
-        <li class="contain-li"><a class="contain-link" href="http://www.educity.cn" target="_blank"><img src="https://edu-wenku.bdimg.com/v1/pc/PC%E9%A2%98%E5%BA%93/%E6%9B%B4%E6%96%B0xpage%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/%E5%B8%8C%E8%B5%9B%E7%BD%91-1496371669867.png" alt=""></a></li>
-        
-        <li class="contain-li"><a class="contain-link" href="http://www.yikaotop.com/" target="_blank"><img src="https://edu-wenku.bdimg.com/v1/pc/PC%E9%A2%98%E5%BA%93/%E6%9B%B4%E6%96%B0xpage%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/%E5%A3%B9%E5%8C%BB%E8%80%83-1496371670503.png" alt=""></a></li>
-        
-        <li class="contain-li"><a class="contain-link" href="http://yaoguo.cn/promote/baiduLibrary?act=baiduLibrary&amp;actSrc=pc" target="_blank"><img src="https://edu-wenku.bdimg.com/v1/pc/PC%E9%A2%98%E5%BA%93/%E6%9B%B4%E6%96%B0xpage%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%B0%E5%9D%80/%E8%85%B0%E6%9E%9C%E5%85%AC%E8%80%83-1496371670244.png" alt=""></a></li>
-        
-    </ul>
-    
-</div>
-
-            
-        </div>
-    </div>
-    <p class="bottom">
-        京ICP证<a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">030173</a>号&nbsp;&nbsp;
-        京网文[2013]0934-983号&nbsp;&nbsp;
-        Copyright © 2017 Baidu <a href="//www.baidu.com/duty/" class="duty">使用百度前必读</a>
-    </p>
-</div>
-</div>
+	</div>
+   
+   	<!--尾部-->
+	<div th:replace="include/footer :: footer"></div>
 </body>
 <script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
 <script type="text/javascript" th:src="${setting.domain + 'js/index.js'}" ></script>
