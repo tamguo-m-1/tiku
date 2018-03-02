@@ -41,7 +41,6 @@ $(function(){
 	
 	$(".question-box").bind("click",function(event){
 		$(".quelist-wrap").css("left","0px");
-		$(".queanalyse-wrap").show();
 		$.ajax({
 			type : "get", 
 			url : "./../../../getQuestion/" + $(this).attr("data-id")
@@ -52,6 +51,7 @@ $(function(){
 				$(".dt-index").text($(this).attr("data-index"));
 				$(".exam-answer-content").html(data.result.answer);
 				$(".exam-analysis-content").html(data.result.analysis);
+				$(".queanalyse-wrap").show();
 			}
 		});
 		event.stopPropagation();
