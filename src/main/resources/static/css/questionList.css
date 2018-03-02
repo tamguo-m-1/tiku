@@ -1,0 +1,380 @@
+.content-wp {
+    background-color: #f5f5f5;
+}
+.content-wp {
+    min-height: 500px;
+}
+.main {
+    width: auto;
+    _position: relative;
+    _right: -3px;
+    _margin-left: -3px;
+}
+.title-bar {
+    height: 96px;
+    padding-bottom: 20px;
+    background-color: #364044;
+}
+.title-bar .title-inner {
+    height: 100%;
+    position: relative;
+    width: 1180px;
+    margin: 0 auto;
+}
+.title-bar .title-inner .paper-crumbs {
+    padding-top: 33px;
+}
+.title-bar .title-inner .paper-crumbs li {
+    float: left;
+    color: #ccc;
+}
+.title-bar .title-inner .paper-crumbs li.last {
+    color: #999;
+}
+.title-bar .title-inner .quic-nav {
+    margin-top: 11px;
+}
+.title-bar .title-inner .quic-nav li.title {
+    margin-top: 0;
+    font-size: 20px;
+    padding-left: 0;
+    border-right: 0;
+    font-weight: 700;
+}
+.title-bar .title-inner .quic-nav li {
+    float: left;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 4px;
+    padding: 0 20px;
+    border-right: 1px solid #4c5d66;
+}
+.title-bar .title-inner .quic-nav li {
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 20px;
+}
+.title-bar .title-inner .quic-nav li:last-child {
+    border-right: 0;
+}
+.bd-content {
+    visibility: hidden;
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.quelist-wrap {
+    width: 780px;
+    position: relative;
+    left: 217px;
+    padding-top: 20px;
+}
+.quelist-wrap {
+    width: 780px;
+    position: relative;
+    left: 217px;
+}
+.quelist-wrap {
+    width: 780px;
+    position: relative;
+    left: 217px;
+}
+.quelist-wrap .question-box .question-box-inner {
+    position: relative;
+    padding: 45px 30px 30px;
+    background-color: #FFF;
+}
+.quelist-wrap .question-box .question-box-inner .queindex-wrap {
+    position: absolute;
+    top: 8px;
+    left: -8px;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-color: #4c5d66;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFF;
+    line-height: 35px;
+    text-align: center;
+}
+.quelist-wrap .question-box .question-box-inner .que-stem {
+    font-size: 16px; 
+    color: #333; 
+}
+.selected-quescontainer .queindex-wrap {
+    background-color: #11a68d!important;
+}
+.quelist-wrap .question-box .question-box-inner .queindex-wrap {
+    position: absolute;
+    top: 8px;
+    left: -8px;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-color: #4c5d66;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFF;
+    line-height: 35px;
+    text-align: center;
+}
+.quelist-wrap .question-box .question-box-inner .pieces {
+    position: absolute;
+    top: 7px;
+    left: 30px;
+    line-height: 35px;
+    color: #999;
+}
+.quelist-wrap .question-box .question-box-inner .pieces {
+    position: absolute;
+    top: 7px;
+    left: 30px;
+    line-height: 35px;
+    color: #999;
+}
+.bdjson p {
+    line-height: 1.5;
+}
+.bdjson span, .bdjson img {
+    vertical-align: middle;
+}
+.quelist-wrap .question-box .question-box-inner .view-analyse {
+    padding-top: 30px;
+    text-align: right;
+}
+.quelist-wrap .question-box .question-box-inner .view-analyse a {
+    color: #aaacb0;
+    padding-left: 27px;
+}
+.nexttolearn .next-inner a.nextpoint, .nexttolearn .next-inner a.next-done {
+    margin-left: 20px;
+}
+.quelist-wrap .last {
+    margin-bottom: 0;
+}
+.quelist-wrap .last {
+    margin-bottom: 0;
+}
+.nexttolearn {
+    padding-top: 20px;
+    padding-bottom: 26px;
+    font-size: 14px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.nexttolearn .next-inner {
+    height: 50px;
+    width: 420px;
+    margin: auto;
+}
+.nexttolearn .done {
+    position: absolute;
+    bottom: -7px;
+    left: 290px;
+    background-color: #f5f5f5;
+    color: #999;
+    padding: 0 10px;
+}
+.nexttolearn .next-inner a {
+    display: block;
+    float: left;
+    width: 200px;
+    height: 50px;
+    background-color: #11a68d;
+    color: #fff;
+    line-height: 50px;
+    text-align: center;
+}
+.nexttolearn .next-inner a.next-done, .nexttolearn .next-inner a.tolearn-done {
+    background-color: #ccc;
+}
+.nexttolearn .done {
+    position: absolute;
+    bottom: -7px;
+    left: 290px;
+    background-color: #f5f5f5;
+    color: #999;
+    padding: 0 10px;
+}
+.crumbs {
+    margin-top: 34px;
+    margin-bottom: 14px;
+}
+.crumbs a {
+    color: #333;
+}
+.queanalyse-wrap {
+    display: none;
+    width: 354px;
+    height: 565px;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+    padding: 30px 15px 0 30px;
+    background-color: #FFF;
+    z-index: 5555;
+}
+.queanalyse-wrap .close-btn {
+    position: absolute;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+    background: url(//wkstatic.bdimg.com/static/gaokao/static/miti/tikupc/widget/chapterdetail/queanalyse/images/icon-close_ea002a8.png) center center no-repeat;
+}
+.queanalyse-wrap .content-wrap {
+    height: 100%;
+    overflow-y: auto;
+}
+.queanalyse-wrap .analyse-content {
+    padding: 0 7px 50px 0;
+}
+.que-title-wrap {
+    position: relative;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.que-title-wrap .title {
+    z-index: 19;
+}
+.que-title-wrap .title .content-wrap {
+    background-color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+}
+.que-title-wrap .title .content-wrap .dt-index {
+    display: inline-block;
+    min-width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    color: #333;
+}
+.que-title-wrap .title .content-wrap {
+    background-color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+}
+.que-title-wrap .title .content-wrap {
+    background-color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+}
+.exam-answer {
+    margin: 20px 0;
+}
+.exam-answer .exam-answer-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: url(//wkstatic.bdimg.com/static/gaokao/static/miti/tikupc/widget/chapterdetail/queanalyse/images/answer-ic_e2a51c3.png) left center no-repeat;
+    background-size: 14px 18px;
+    padding-left: 25px;
+}
+.exam-answer .exam-answer-content {
+    font-size: 14px;
+}
+.bdjson p {
+    line-height: 1.5;
+}
+.bdjson span, .bdjson img {
+    vertical-align: middle;
+}
+.exam-info {
+    border-top: 1px solid #f2f2f2;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #333;
+}
+.exam-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.exam-info .analysis-ic {
+    background: url(//wkstatic.bdimg.com/static/gaokao/static/miti/tikupc/widget/chapterdetail/queanalyse/images/analyse-ic_9ed7fd8.png) left center no-repeat;
+    background-size: 18px 18px;
+}
+.exam-info .ic {
+    display: inline-block;
+    padding-left: 25px;
+}
+.queanalyse-wrap .toolbar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #11a68d;
+    z-index: 99999;
+}
+.queanalyse-wrap .toolbar .toolbar-ul {
+    height: 100%;
+    line-height: 50px;
+    font-size: 16px;
+    color: #FFF;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .disable {
+    cursor: default;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .pre-li {
+    cursor: pointer;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .disable {
+    opacity: .4;
+}
+.queanalyse-wrap .toolbar .toolbar-ul li {
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .disable {
+    cursor: default;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .center-li {
+    text-align: center;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .center-li .current {
+    color: #fff;
+    margin-right: 3px;
+}
+.queanalyse-wrap .toolbar .toolbar-ul .next-li:not(.disable) {
+    cursor: pointer;
+}
+.quelist-wrap .question-box {
+    margin-bottom: 20px;
+    border: 1px solid #e3e3e3;
+}
+.hover-quescontainer {
+    cursor: pointer; 
+    box-shadow: 5px 5px 8px #e3e3e3; 
+}
+.hover-quescontainer .view-analyse a {
+    color: #11a68d!important;
+}
+.bdjson p {
+    line-height: 1.5;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.body:after, .main:after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0!important;
+    line-height: 0;
+    font-size: xx-large;
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}

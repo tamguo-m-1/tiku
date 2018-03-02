@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  </head>
+  <body>
+		<div th:fragment="page">
+				<input type="hidden" id="total" name="total" th:value="${page.totalPage}"/>
+				<ul class="pagination">
+					
+					<!-- 第一页 -->
+				    <li th:if="${page.isFirstPage}" class="footable-page-nav disabled" data-page="first">
+				        <a class="footable-page-link" href="#"><font><font class="">首页</font></font></a>
+				    </li>
+				    <li th:if="${not page.isFirstPage}" class="footable-page-nav" data-page="first">
+				        <a class="footable-page-link" th:href="@{'javascript:jump(1);'}"><font><font class="">首页</font></font></a>
+				    </li>
+				    
+				    <!-- 上一页 -->
+				    <li th:if="${page.isFirstPage}" class="footable-page-nav disabled" data-page="prev">
+				        <a class="footable-page-link" href="#"><font><font>上一页</font></font></a>
+				    </li>
+				    
+				    <li th:if="${not page.isFirstPage}" class="footable-page-nav" data-page="prev">
+				        <a class="footable-page-link" th:href="@{'javascript:jump('+ ${page.pageNum-1} +');'}"><font><font>上一页</font></font></a>
+				    </li>
+				    
+				  
+					<!-- 页码-->
+				    <li th:each="p,pStat:${page.pageNumList}" th:class="${p == page.pageNum} ? 'footable-page visible active' : 'footable-page visible'">
+				        <a th:id="'num_' + ${pStat.index}" class="footable-page-link" th:href="@{'javascript:jump('+ ${p} +');'}"><font><font th:text="${p}"></font></font></a>
+				    </li>
+				    
+				   
+				    
+				    <!-- 下一页 -->
+				    <li th:if="${page.isLastPage}" class="footable-page-nav disabled" style="margin-left: 2px;" data-page="next">
+				        <a class="footable-page-link" href="#"><font><font>下一页</font></font></a>
+				    </li>
+				    <li th:if="${not page.isLastPage}" class="footable-page-nav" style="margin-left: 2px;" data-page="next">
+				        <a class="footable-page-link" th:href="@{'javascript:jump('+ ${page.pageNum +1} +');'}"><font><font>下一页</font></font></a>
+				    </li>
+				    
+				    <!-- 尾页 -->
+				    <li th:if="${page.isLastPage}" class="footable-page-nav disabled" data-page="last">
+				        <a class="footable-page-link" href="#"><font><font class="">尾页</font></font></a>
+				    </li>
+				    <li th:if="${not page.isLastPage}" class="footable-page-nav" data-page="last">
+				        <a class="footable-page-link" th:href="@{'javascript:jump('+ ${page.totalPage} +');'}"><font><font class="">尾页</font></font></a>
+				    </li>
+				    
+				    <li><input  type="text" id="pageInput" name="pageInput" style="position: relative; float: left;width:50px; padding: 6px 2px; margin-left: -1px; line-height: 1.42857143; color: #337ab7; text-decoration: none; background-color: #fff; border: 1px solid #ddd;"/></li>
+					<li><a href="javascript:void(0);" onclick="goPage();"><font><font class="">Go</font></font></a></li>
+				</ul>
+				<div class="divider"></div>
+				<span class="label label-default"><font><font class="" th:text="${page.pageNum}+' / '+${page.totalPage}"></font></font></span>
+		</div>
+	</body>
+</html>

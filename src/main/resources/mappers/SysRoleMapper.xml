@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.SysRoleMapper">
+    <insert id="save" parameterType="com.tamguo.model.SysRoleEntity" useGeneratedKeys="true" keyProperty="roleId">
+		insert into sys_role
+		(
+			`role_id`, 
+			`role_name`, 
+			`remark`,
+			`create_time`
+		)
+		values
+		(
+			#{roleId}, 
+			#{roleName}, 
+			#{remark},
+			#{createTime}
+		)
+	</insert>
+</mapper>

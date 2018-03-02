@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>六天在线影院登录 - 六天在线手机影院</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="六天在线,六天在线影院,六天在线WEB版,伦理片影院" />
+<meta name="description" content="六天在线影院是六天在线公司打造的专业在线看伦理片的网站,伦理影片高清在线播放服务,是国内专业电影、电视剧、动漫、综艺等节目视频点播平台" />
+<link rel="Shortcut Icon" type="image/ico" th:href="@{/templates/frontend/frontend-default/img/favicon.ico}"/>
+<link rel="apple-touch-icon" th:href="@{/templates/frontend/frontend-default/img/favicon.ico}">
+<script type="text/javascript" th:src="@{/templates/frontend/frontend-default/js/jquery-1.11.1.min.js?t=2}"></script>
+<script type="text/javascript" th:src="@{/templates/frontend/frontend-default/js/jquery.inputbox.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/bootstrap.min.css?t=2}"/>
+<script type="text/javascript" th:src="@{/templates/frontend/frontend-default/js/jscroller2-1.5.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/colors.css?t=201509121}"/>
+<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/font-awesome.min.css}"/>
+<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/responsive.css?t=201510052}"/>
+<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/style.css?t=201609291}"/>
+<link type="text/css" rel="stylesheet" th:href="@{/css/qq.css?v=20160212093}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/templates/frontend/frontend-default/css/base.css?t=39}">
+</head>
+<body>
+
+<!-- 头部导航 -->
+<div th:replace="include/navbar/toolbar :: toolbar"></div>
+
+<!-- 导航 -->
+<div th:replace="include/navbar/navbar :: navbar"></div>
+
+<div id="wrapper">
+
+<!-- 广告 -->
+<div th:replace="include/navbar/ads :: ads"></div>
+
+<!-- 登录主体开始 -->
+<div class="container">
+	<div class="alert alert-dismissable alert-danger"
+		th:if="${checkMsg != null}" th:utext="${checkMsg}"></div>
+
+	<div class="container">
+		<div class="row login">
+			<div class="col-md-8">
+				<div class="well login-header">
+					<h3 class="mt-0 pl-20 white">登录到琴瑟在线账户！</h3>
+					<h5 class="font-bold mb-20 pl-20 white">登录之后，你将享受如下服务！</h5>
+					<div class="row col-md-8 login-header-icon">
+						<div class="col-sm-6">
+							<ul class="list-unstyled m-l-30">
+								<li><i class="fa fa-upload m-r-10 text-white m-b-5"></i>上传视频</li>
+								<li><i class="fa fa-comments m-r-10 text-white m-b-5"></i>发布评论</li>
+								<li><i class="fa fa-folder m-r-10 text-white m-b-5"></i>添加收藏</li>
+								<li><i class="fa fa-rss m-r-10 text-white m-b-5"></i>订阅用户</li>
+							</ul>
+						</div>
+						<div class="col-sm-6">
+							<ul class="list-unstyled m-l-30">
+								<li><i class="fa fa-th-list m-r-10 text-white m-b-5"></i>创建播放列表</li>
+								<li><i class="fa fa-share-alt m-r-10 text-white m-b-5"></i>分享视频</li>
+								<li><i class="fa fa-user m-r-10 text-white m-b-5"></i>添加朋友</li>
+								<li><i class="fa fa-wrench m-r-10 text-white m-b-5"></i>制订您的设置</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="well bs-component login-inpbox">
+					<form class="form-horizontal" name="login_form" id="login_form"
+						method="post" action="/submitLogin.html">
+						<fieldset>
+							<div class="form-group ">
+								<label for="login_username" class="col-lg-3 control-label">用户名</label>
+								<div class="col-lg-6">
+									<input name="username" type="text" class="form-control"
+										value="" id="login_username" placeholder="用户名" />
+								</div>
+							</div>
+							<div class="form-group ">
+								<label for="login_password" class="col-lg-3 control-label">密码</label>
+								<div class="col-lg-6">
+									<input name="password" type="password" class="form-control"
+										value="" id="login_password" placeholder="密码" />
+									<div class="checkbox">
+										<label> <input name="login_remember" type="checkbox"
+											id="login_remember" /> 还记得我吗？
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-6 col-lg-offset-3 reg-btn">
+									<button name="submit_login" type="submit"
+										class="btn-no btn-primary">登录</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="ad-body">
+					<div class="adv-pc"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 登录主体结束 -->
+
+</div>
+
+<!-- footer -->
+<div th:replace="include/navbar/footer :: footer"></div>
+
+<!-- 右侧工具栏 -->
+<div th:replace="include/navbar/rightTool :: rightTool"></div>
+
+<!--  公告 -->
+<div th:replace="include/navbar/notice :: notice"></div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>会员推广审核列表</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="@{../css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{../css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{../plugins/jqgrid/ui.jqgrid-bootstrap.css}">
+<link rel="stylesheet" th:href="@{../plugins/ztree/css/metroStyle/metroStyle.css}">
+<link rel="stylesheet" th:href="@{../plugins/jquery-tags-input/jquery.tagsinput.css}">
+<link rel="stylesheet" th:href="@{../css/main.css}">
+<script th:src="@{../libs/jquery.min.js}"></script>
+<script th:src="@{../plugins/layer/layer.js}"></script>
+<script th:src="@{../libs/bootstrap.min.js}"></script>
+<script th:src="@{../libs/vue.min.js}"></script>
+<script th:src="@{../plugins/jqgrid/grid.locale-cn.js}"></script>
+<script th:src="@{../plugins/jqgrid/jquery.jqGrid.min.js}"></script>
+<script th:src="@{../plugins/ztree/jquery.ztree.all.min.js}"></script>
+<script th:src="@{../plugins/jquery-tags-input/jquery.tagsinput.js}"></script>
+<script th:src="@{../js/common.js}"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.memberUserName" @keyup.enter="query" placeholder="用户名">
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
+			<a shiro:hasPermission="popularize/audit" class="btn btn-primary" @click="audit"><i class="fa fa-plus"></i>&nbsp;审核</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+    
+    <div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">会员用户名</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="popularize.memberUserName" placeholder="会员用户名" readonly="readonly" disabled="disabled"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">会员等级</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="popularize.groupName" placeholder="会员等级" readonly="readonly" disabled="disabled"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">申请时间</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="popularize.createTime" placeholder="申请时间" readonly="readonly" disabled="disabled"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">图片地址</div>
+			   	<div class="col-sm-10">
+			     <input type="text" class="form-control" v-model="popularize.imageUrl" placeholder="图片地址" readonly="readonly" disabled="disabled"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">状态</div> 
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="0" v-model="popularize.status"/> 审核中
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="1" v-model="popularize.status"/> 通过
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="2" v-model="popularize.status"/> 拒绝
+				</label>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">审核备注</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="popularize.memo" rows="2" placeholder="审核备注"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div> 
+				<input type="button" class="btn btn-primary" @click="auditSubmit" value="审核"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+<script th:src="@{../js/member/popularize.js?v=6}"></script>
+</html>

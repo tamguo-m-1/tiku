@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>摩宝支付</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="@{/admin/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/admin/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/admin/plugins/jqgrid/ui.jqgrid-bootstrap.css}">
+<link rel="stylesheet" th:href="@{/admin/plugins/ztree/css/metroStyle/metroStyle.css}">
+<link rel="stylesheet" th:href="@{/admin/css/main.css}">
+<script th:src="@{/admin/libs/jquery.min.js}"></script>
+<script th:src="@{/admin/plugins/layer/layer.js}"></script>
+<script th:src="@{/admin/libs/bootstrap.min.js}"></script>
+<script th:src="@{/admin/libs/vue.min.js}"></script>
+<script th:src="@{/admin/plugins/jqgrid/grid.locale-cn.js}"></script>
+<script th:src="@{/admin/plugins/jqgrid/jquery.jqGrid.min.js}"></script>
+<script th:src="@{/admin/plugins/ztree/jquery.ztree.all.min.js}"></script>
+<script th:src="@{/admin/js/common.js}"></script>
+</head>
+<body>
+<div class="panel panel-default" id="rrapp" v-cloak>
+	<div class="panel-heading">摩宝支付</div>
+	<form class="form-horizontal">
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">官网</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" placeholder="官网" v-model="settings.siteUrl"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">作者</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" placeholder="作者" v-model="settings.author"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">版本</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" placeholder="版本号" v-model="settings.version"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">商户ID</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" placeholder="商户ID" v-model="settings.attribute.platformId"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">商户帐号</div>
+		   	<div class="col-sm-10">
+		   		<input type="text" class="form-control" placeholder="商户帐号" v-model="settings.attribute.merchantAcc"/>
+			</div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">密钥</div>
+		   	<div class="col-sm-10">
+		   		<input type="text" class="form-control" placeholder="密钥" v-model="settings.attribute.key"/>
+			</div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">排序</div>
+		   	<div class="col-sm-10">
+		   		<input type="text" class="form-control" placeholder="排序" v-model="settings.orders"/>
+			</div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">手续费</div>
+		   	<div class="col-sm-10">
+		   		<input type="text" class="form-control" placeholder="手续费" v-model="settings.attribute.fee"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label">费用类型</div> 
+			<label class="radio-inline">
+			  <input type="radio" name="feeType" value="scale" v-model="settings.attribute.feeType"/> 按比例收费
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="feeType" value="fixed" v-model="settings.attribute.feeType"/> 固定收费
+			</label>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label">是否启用</div> 
+			<label class="radio-inline">
+			  <input type="radio" name="status" value="true" v-model="settings.isEnabled"/> 启用
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="status" value="false" v-model="settings.isEnabled"/> 停用
+			</label>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label"></div> 
+			<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确认"/>
+			&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="back" value="取消"/>
+		</div>
+	</form>
+</div>
+
+<script th:src="@{/admin/js/payment/mobao_setting.js}"></script>
+</body>
+</html>

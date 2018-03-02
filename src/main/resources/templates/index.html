@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>探果-首页</title>
+	<link rel="stylesheet" th:href="${setting.domain + 'css/main.css'}"></link>
+	<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/index.css'}" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/footer.css'}" />
+</head>
+<body>
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>
+	
+	<!--主体-->
+	<div class="content-wp">
+        <div class="main">
+    		<div class="main-container">
+    			<!-- 头部轮播-->
+                <div class="banner">
+					<ul class="banner-list">
+						<li class="img-list" style="opacity: 1; z-index: 9;">
+							<a data-href="http://www.yikaotop.com/hd/ys_zs/?s=bdtk" data-index="1" class="banner-link img-1" href="http://www.yikaotop.com/hd/ys_zs/?s=bdtk" target="_blank">
+								<div style="background-image:url('https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg');" class="banner-pic"></div>
+								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg">-->
+							</a>
+						</li>
+						<li class="img-list" style="opacity: 0; z-index: 1;">
+							<a data-href="https://tiku.baidu.com/topic/gaokao2017/moni?channel=tksy" data-index="2" class="banner-link img-2" href="https://tiku.baidu.com/topic/gaokao2017/moni?channel=tksy" target="_blank">
+								<div style="background-image:url('https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg');" class="banner-pic"></div>
+								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg">-->
+							</a>
+						</li>
+					</ul>
+					<ul class="play-nav">
+						<li data-idx="1" class="cur">
+							<a href="javascript:void(0);">1</a>
+						</li>
+						<li data-idx="2" class="">
+							<a href="javascript:void(0);">2</a>
+						</li>
+					</ul>
+				</div>
+    			<!-- 头部轮播 -->
+    			
+    			<!-- 导航 -->
+    			<div class="navbar-container">
+					<ul class="navbar-list">
+						<li class="navbar-list-item" datatype="gaokao" th:each="m,mStat:${leftMenuList}" th:attr="datatype=${m.pinyin}">
+							<span th:text="${m.name}"></span><span class="navbar-list-item-icon iconfont icon-jiantouyou" th:attr="datatype=${m.pinyin}"></span>
+						</li>
+					</ul>
+					<div class="navbar-list-item-section" th:attr="datatype=${m.pinyin}" style="display: none;" th:each="m,mStat:${leftMenuList}">
+						<ul class="navbar-list-ul">
+							<li class="navbar-list-li">
+								<a th:text="${c.name}" th:each="c,cmStat:${m.childSubjects}" class="navbar-list-item-section-name log-navbar-item" href="/tikupc/homepage/1bfd700abb68a98271fefa04" data-classid="f91dc281e53a580216fcfe05-1bfd700abb68a98271fefa04" target="_blank">高考</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+    			<!--导航结束-->
+    			
+    			<!-- 高考专区  -->
+    			<div class="gaokao-class-container" id="bk-gaokao">
+							  	<p class="container-title">高考专区</p>
+				<div class="title-underline">
+				</div>
+				<div class="gaokao-class-main">
+					<div class="gaokao-class-area">
+						<p class="title">章节学习<span class="detail">考点各个击破，重难点自测</span>
+						</p>
+						<div class="class-box-container">
+							<div class="class-box" th:each="c,cStat:${gaokaoCourseList}">
+								<a th:href="${setting.domain + 'chapter/'+c.subjectId+'/'+c.uid+'.html'}" target="_blank" class="class-link" data-courseid="17">
+									<div class="box-content">
+										<div th:class="${c.icon + ' box-icon'}"></div>
+										<p class="box-classname" course_id="17" th:text="${c.name}">文科数学</p>
+										<p class="box-classnum"><span th:text="${c.pointNum}">495</span>个考点</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="gaokao-alllearn-area">
+							<div class="feed-box-wrap">
+								<h3 class="feed-title">
+												大家都在学
+												<a class="feed-more-link" href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-17-knowpoint-11">我也要学 &gt; </a>
+											</h3>
+								<div class="feed-list-content">
+									<ul class="feed-list" style="top: 0px;">
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901503" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">Tom</span>已学完了70个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/6db44993daef5ef7ba0d3c42-1-10-knowpoint" knowledgeid="6db44993daef5ef7ba0d3c42" data-knowledgeid="6db44993daef5ef7ba0d3c42" target="_blank">光的干涉</a>等<span class="course-num">16</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900425" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">蒙奇D路飞</span>已学完了154个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/91c58862caaedd3383c4d346-1-10-knowpoint" knowledgeid="91c58862caaedd3383c4d346" data-knowledgeid="91c58862caaedd3383c4d346" target="_blank">维护我国的国家利益</a>等<span class="course-num">17</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904110" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">小敏敏一号</span>已学完了124个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/284b8b4769eae009581bec42-1-10-knowpoint" knowledgeid="284b8b4769eae009581bec42" data-knowledgeid="284b8b4769eae009581bec42" target="_blank">质点的认识</a>等<span class="course-num">3</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903229" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">啾啾</span>已学完了151个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/58a5b7f67c1cfad6195fa748-1-10-knowpoint" knowledgeid="58a5b7f67c1cfad6195fa748" data-knowledgeid="58a5b7f67c1cfad6195fa748" target="_blank">椭圆的相关应用</a>等<span class="course-num">8</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905522" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">A韩子真</span>已学完了98个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/aa0a24160b4e767f5acfce42-1-10-knowpoint" knowledgeid="aa0a24160b4e767f5acfce42" data-knowledgeid="aa0a24160b4e767f5acfce42" target="_blank">牛顿第二定律</a>等<span class="course-num">1</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904026" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">某花粉症患者</span>已学完了109个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/3d5556eef8c75fbfc77db24c-1-10-knowpoint" knowledgeid="3d5556eef8c75fbfc77db24c" data-knowledgeid="3d5556eef8c75fbfc77db24c" target="_blank">溴乙烷的化学性质</a>等<span class="course-num">14</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901765" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">夕阳无限好</span>已学完了173个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/4fc8b6d528ea81c758f57849-1-10-knowpoint" knowledgeid="4fc8b6d528ea81c758f57849" data-knowledgeid="4fc8b6d528ea81c758f57849" target="_blank">函数y=Asin（ωx+φ）的图象变换</a>等<span class="course-num">5</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905984" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">不点</span>已学完了224个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/fbdbd5ef5ef7ba0d4a733b4d-1-10-knowpoint" knowledgeid="fbdbd5ef5ef7ba0d4a733b4d" data-knowledgeid="fbdbd5ef5ef7ba0d4a733b4d" target="_blank">化学平衡常数的含义</a>等<span class="course-num">9</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905285" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">女王范</span>已学完了174个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/9b54994bcf84b9d528ea7a49-1-10-knowpoint" knowledgeid="9b54994bcf84b9d528ea7a49" data-knowledgeid="9b54994bcf84b9d528ea7a49" target="_blank">正切函数的奇偶性与对称性</a>等<span class="course-num">4</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903250" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">溏姑</span>已学完了151个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/5ec3670203d8ce2f0066234f-1-10-knowpoint" knowledgeid="5ec3670203d8ce2f0066234f" data-knowledgeid="5ec3670203d8ce2f0066234f" target="_blank">不等式的性质</a>等<span class="course-num">12</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900613" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">墨醉影流殇</span>已学完了106个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/5d400840be1e650e52ea9947-1-10-knowpoint" knowledgeid="5d400840be1e650e52ea9947" data-knowledgeid="5d400840be1e650e52ea9947" target="_blank">风力作用</a>等<span class="course-num">17</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900302" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">Accident</span>已学完了100个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/2268b3d126fff705cc170a4f-1-10-knowpoint" knowledgeid="2268b3d126fff705cc170a4f" data-knowledgeid="2268b3d126fff705cc170a4f" target="_blank">平面与平面之间的位置关系</a>等<span class="course-num">11</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7902444" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">Alwens</span>已学完了47个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/5161560102020740be1e9b46-1-10-knowpoint" knowledgeid="5161560102020740be1e9b46" data-knowledgeid="5161560102020740be1e9b46" target="_blank">意识能动性的特点</a>等<span class="course-num">3</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900320" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">静</span>已学完了102个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/8a564b31b90d6c85ec3ac642-1-10-knowpoint" knowledgeid="8a564b31b90d6c85ec3ac642" data-knowledgeid="8a564b31b90d6c85ec3ac642" target="_blank">矢量和标量</a>等<span class="course-num">10</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904414" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">梁先生</span>已学完了225个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/c57a8cc4bb4cf7ec4afed04c-1-10-knowpoint" knowledgeid="c57a8cc4bb4cf7ec4afed04c" data-knowledgeid="c57a8cc4bb4cf7ec4afed04c" target="_blank">常见有机化合物的结构</a>等<span class="course-num">7</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7902992" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">贼帅</span>已学完了158个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/e763bbdaa58da0116c174949-1-10-knowpoint" knowledgeid="e763bbdaa58da0116c174949" data-knowledgeid="e763bbdaa58da0116c174949" target="_blank">平面向量的基本定理及其意义</a>等<span class="course-num">1</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903240" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">PO</span>已学完了122个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/3f5af5d6195f312b3169a543-1-10-knowpoint" knowledgeid="3f5af5d6195f312b3169a543" data-knowledgeid="3f5af5d6195f312b3169a543" target="_blank">百家争鸣</a>等<span class="course-num">3</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905256" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">喜欢妳的微笑</span>已学完了196个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/6260edbd960590c69ec37648-1-10-knowpoint" knowledgeid="6260edbd960590c69ec37648" data-knowledgeid="6260edbd960590c69ec37648" target="_blank">回归分析</a>等<span class="course-num">12</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901109" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">天狼星</span>已学完了214个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/7488aec7aa00b52acfc7ca42-1-10-knowpoint" knowledgeid="7488aec7aa00b52acfc7ca42" data-knowledgeid="7488aec7aa00b52acfc7ca42" target="_blank">牛顿运动定律的应用-物体的平衡</a>等<span class="course-num">6</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900286" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">啊映</span>已学完了158个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/6096390cba1aa8114431d946-1-10-knowpoint" knowledgeid="6096390cba1aa8114431d946" data-knowledgeid="6096390cba1aa8114431d946" target="_blank">文化的社会作用</a>等<span class="course-num">15</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905952" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">恬恬</span>已学完了236个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/e900c084b9d528ea81c7794e-1-10-knowpoint" knowledgeid="e900c084b9d528ea81c7794e" data-knowledgeid="e900c084b9d528ea81c7794e" target="_blank">散点图</a>等<span class="course-num">9</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904379" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">小希美仪</span>已学完了259个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/c57f8cc4bb4cf7ec4afed049-1-10-knowpoint" knowledgeid="c57f8cc4bb4cf7ec4afed049" data-knowledgeid="c57f8cc4bb4cf7ec4afed049" target="_blank">函数的最值</a>等<span class="course-num">15</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904615" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">欧米咖</span>已学完了185个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/c5798cc4bb4cf7ec4afed04f-1-10-knowpoint" knowledgeid="c5798cc4bb4cf7ec4afed04f" data-knowledgeid="c5798cc4bb4cf7ec4afed04f" target="_blank">指数幂的运算</a>等<span class="course-num">16</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903384" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">Ray</span>已学完了122个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/e58c91c3d5bbfd0a7956734f-1-10-knowpoint" knowledgeid="e58c91c3d5bbfd0a7956734f" data-knowledgeid="e58c91c3d5bbfd0a7956734f" target="_blank">诱导公式的推导</a>等<span class="course-num">4</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7902451" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">好运来</span>已学完了257个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/611aa202de80d4d8d15a4f4f-1-10-knowpoint" knowledgeid="611aa202de80d4d8d15a4f4f" data-knowledgeid="611aa202de80d4d8d15a4f4f" target="_blank">向量在几何中的应用</a>等<span class="course-num">5</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904502" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">悔飞烟灭</span>已学完了39个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/ae2611b91a37f111f1855b4f-1-10-knowpoint" knowledgeid="ae2611b91a37f111f1855b4f" data-knowledgeid="ae2611b91a37f111f1855b4f" target="_blank">平面向量的坐标运算</a>等<span class="course-num">1</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901658" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">DANDAN</span>已学完了249个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/2fb50d42a8956bec0975e349-1-10-knowpoint" knowledgeid="2fb50d42a8956bec0975e349" data-knowledgeid="2fb50d42a8956bec0975e349" target="_blank">命题的真假判断与应用</a>等<span class="course-num">2</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900222" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">阳仔</span>已学完了54个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/73b09e0ef12d2af90242e64b-1-10-knowpoint" knowledgeid="73b09e0ef12d2af90242e64b" data-knowledgeid="73b09e0ef12d2af90242e64b" target="_blank">基因重组及其意义</a>等<span class="course-num">17</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900816" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">hlj</span>已学完了261个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/afdc64ec0975f46527d3e14c-1-10-knowpoint" knowledgeid="afdc64ec0975f46527d3e14c" data-knowledgeid="afdc64ec0975f46527d3e14c" target="_blank">钠的化学性质</a>等<span class="course-num">6</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901244" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">唐笑之</span>已学完了58个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/60250e1ca300a6c30c229f48-1-10-knowpoint" knowledgeid="60250e1ca300a6c30c229f48" data-knowledgeid="60250e1ca300a6c30c229f48" target="_blank">与长度、角度有关的几何概型</a>等<span class="course-num">14</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900352" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">简</span>已学完了238个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/60c76a29647d27284b735148-1-10-knowpoint" knowledgeid="60c76a29647d27284b735148" data-knowledgeid="60c76a29647d27284b735148" target="_blank">复数求模</a>等<span class="course-num">7</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905063" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">兵姐姐联合创始人</span>已学完了128个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/d039fd42336c1eb91a375d4f-1-10-knowpoint" knowledgeid="d039fd42336c1eb91a375d4f" data-knowledgeid="d039fd42336c1eb91a375d4f" target="_blank">平面向量的基本定理及其意义</a>等<span class="course-num">6</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903813" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">脑子呢</span>已学完了200个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/91ca8862caaedd3383c4d349-1-10-knowpoint" knowledgeid="91ca8862caaedd3383c4d349" data-knowledgeid="91ca8862caaedd3383c4d349" target="_blank">函数单调性的判断与证明</a>等<span class="course-num">16</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905934" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">陈文君</span>已学完了299个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/0408a7956bec0975f465e24f-1-10-knowpoint" knowledgeid="0408a7956bec0975f465e24f" data-knowledgeid="0408a7956bec0975f465e24f" target="_blank">函数奇偶性的性质</a>等<span class="course-num">19</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7902944" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">唯美瞬间</span>已学完了208个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/800dc750ad02de80d4d84042-1-10-knowpoint" knowledgeid="800dc750ad02de80d4d84042" data-knowledgeid="800dc750ad02de80d4d84042" target="_blank">交变电流</a>等<span class="course-num">10</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900750" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">W</span>已学完了72个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/9128c5aedd3383c4bb4cd24f-1-10-knowpoint" knowledgeid="9128c5aedd3383c4bb4cd24f" data-knowledgeid="9128c5aedd3383c4bb4cd24f" target="_blank">幂函数的单调性、奇偶性及其应用</a>等<span class="course-num">1</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7904160" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">k</span>已学完了162个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/e155f34ffe4733687e21aa4f-1-10-knowpoint" knowledgeid="e155f34ffe4733687e21aa4f" data-knowledgeid="e155f34ffe4733687e21aa4f" target="_blank">弧度制的应用</a>等<span class="course-num">9</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900004" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">邹丽</span>已学完了101个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/485264d97f1922791688e84c-1-10-knowpoint" knowledgeid="485264d97f1922791688e84c" data-knowledgeid="485264d97f1922791688e84c" target="_blank">铁盐和亚铁盐的相互转变</a>等<span class="course-num">8</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903547" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">初心</span>已学完了85个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/226ab3d126fff705cc170a4d-1-10-knowpoint" knowledgeid="226ab3d126fff705cc170a4d" data-knowledgeid="226ab3d126fff705cc170a4d" target="_blank">氯离子的检验</a>等<span class="course-num">6</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903202" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">刨冰奶茶</span>已学完了292个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/e8b57f0abb68a98271fefa4f-1-10-knowpoint" knowledgeid="e8b57f0abb68a98271fefa4f" data-knowledgeid="e8b57f0abb68a98271fefa4f" target="_blank">函数的单调性及单调区间</a>等<span class="course-num">6</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7900841" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">敛</span>已学完了195个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/d824041c59eef8c75fbfb342-1-10-knowpoint" knowledgeid="d824041c59eef8c75fbfb342" data-knowledgeid="d824041c59eef8c75fbfb342" target="_blank">向心加速度</a>等<span class="course-num">11</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901400" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">方与圆</span>已学完了121个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/da545dd380eb6294dd886c43-1-10-knowpoint" knowledgeid="da545dd380eb6294dd886c43" data-knowledgeid="da545dd380eb6294dd886c43" target="_blank">多极化趋势加强及其影响</a>等<span class="course-num">3</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901876" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">薇波卢Vivian</span>已学完了148个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/c9784c323968011ca300914c-1-10-knowpoint" knowledgeid="c9784c323968011ca300914c" data-knowledgeid="c9784c323968011ca300914c" target="_blank">蒸发、蒸馏与结晶的仪器</a>等<span class="course-num">10</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901703" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">廖德辉</span>已学完了110个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/07490d020740be1e650e9a4d-1-10-knowpoint" knowledgeid="07490d020740be1e650e9a4d" data-knowledgeid="07490d020740be1e650e9a4d" target="_blank">相对分子质量及其计算</a>等<span class="course-num">8</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903551" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">ZhongJiaLing</span>已学完了90个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/198e23c58bd63186bcebbc4e-1-10-knowpoint" knowledgeid="198e23c58bd63186bcebbc4e" data-knowledgeid="198e23c58bd63186bcebbc4e" target="_blank">双曲线的几何性质</a>等<span class="course-num">16</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7903208" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">猫咪老师</span>已学完了71个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/6dbb4993daef5ef7ba0d3c4d-1-10-knowpoint" knowledgeid="6dbb4993daef5ef7ba0d3c4d" data-knowledgeid="6dbb4993daef5ef7ba0d3c4d" target="_blank">化学平衡建立的过程</a>等<span class="course-num">3</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905815" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">levi</span>已学完了171个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/0493aa8da0116c175f0e484c-1-10-knowpoint" knowledgeid="0493aa8da0116c175f0e484c" data-knowledgeid="0493aa8da0116c175f0e484c" target="_blank">探究氢气在氯气中的燃烧</a>等<span class="course-num">9</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905018" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">梁生</span>已学完了168个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/9b50994bcf84b9d528ea7a4d-1-10-knowpoint" knowledgeid="9b50994bcf84b9d528ea7a4d" data-knowledgeid="9b50994bcf84b9d528ea7a4d" target="_blank">物质的结构与性质之间的关系</a>等<span class="course-num">10</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7905727" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">娜娜</span>已学完了101个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/722f773e0912a2161479294e-1-10-knowpoint" knowledgeid="722f773e0912a2161479294e" data-knowledgeid="722f773e0912a2161479294e" target="_blank">柱坐标系与球坐标系</a>等<span class="course-num">10</span>个知识点</p>
+											</div>
+										</li>
+										<li class="feed-list-item list-border">
+											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7902016" class="item-img">
+											<div class="feed-list-detail">
+												<p class="detail-item"><span class="item-name">雪儿444</span>已学完了173个知识点</p>
+												<p class="detail-item">今天学了
+													<a class="item-link" href="/tikupc/chapterdetail/b2850a08763231126edb114e-1-10-knowpoint" knowledgeid="b2850a08763231126edb114e" data-knowledgeid="b2850a08763231126edb114e" target="_blank">参数方程的优越性</a>等<span class="course-num">17</span>个知识点</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+				
+						</div>
+					</div>
+				</div>
+				<div class="gaokao-test-main">
+					<p class="title">试卷资源
+						<span class="detail">一考知底，高分必刷，全面提分</span>
+				
+						<span class="area-content">当前位置：
+										                <span class="area-name" provinceid="37">北京</span>
+						<a class="more-area-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-37-1-download" target="_blank">更多地区 &gt; </a>
+						</span>
+				
+					</p>
+				
+					<div class="paper-main">
+				
+						<div class="paper-box zhenti-box homepage-zhenti-box">
+				
+							<div class="paper-list-wrap">
+								<h3 class="paper-title">历年真题
+												
+												<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-1-0-37-1-download">更多真题试卷 &gt;</a>
+												
+												
+											</h3>
+				
+								<ul class="paper-list paper-list-zhenti">
+				
+									<li class="list-item" th:each="p,pStat:${historyPaperList}">
+										<p class="list-item-name">
+											<a class="list-item-name-link" data-paperid="d08fb966f5335a8102d220a5" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5" th:text="${p.name}">2017年高考真题 语文 (北京卷)</a>
+										</p>
+										<p class="list-item-detail">
+											<a class="list-item-link list-item-link-jiexi" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5?showan=1" data-paperid="d08fb966f5335a8102d220a5" target="_blank">解析</a><span class="item-separate">|</span>
+											<a href="/tikupc/paperdetail/d08fb966f5335a8102d220a5" class=" list-item-link  list-item-link-xiazai" "=" " data-paperid="d08fb966f5335a8102d220a5 " target="_blank ">下载</a><span class="item-separate ">|</span><a href="/gaokaogufen/paperdetail/d08fb966f5335a8102d220a5 " class="list-item-link list-item-link-gufen " data-paperid="d08fb966f5335a8102d220a5 ">估分</a></p>
+													</li>
+								</ul>
+							</div>
+						</div>
+				
+						<div class="paper-box moni-box homepage-moni-box">
+				
+							<div class="paper-list-wrap">
+								<h3 class="paper-title">模拟试卷
+												
+												
+												<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-4-0-37-1-download">更多模拟试卷 &gt;</a>
+												
+											</h3>
+				
+								<ul class="paper-list paper-list-moni">
+				
+									<li class="list-item" th:each="p,pStat:${simulationPaperList}">
+										<p class="list-item-name">
+											<a class="list-item-name-link" data-paperid="19f2517101f69e31433294f3" href="/tikupc/paperdetail/19f2517101f69e31433294f3" th:text="${p.name}">英语 西城区2017年高三期末考试</a>
+										</p>
+										<p class="list-item-detail">
+											<a class="list-item-link list-item-link-jiexi" href="/tikupc/paperdetail/19f2517101f69e31433294f3?showan=1" data-paperid="19f2517101f69e31433294f3" target="_blank">解析</a><span class="item-separate">|</span>
+											<a href="/tikupc/paperdetail/19f2517101f69e31433294f3" class=" list-item-link  list-item-link-xiazai" "=" " data-paperid="19f2517101f69e31433294f3 " target="_blank ">下载</a></p>
+													</li>
+								</ul>
+							</div>
+						</div>
+				
+						<div class="homepage-paper-box shiti-box">
+							<div class="hotpaper-list-wrap">
+								<h3 class="hotpaper-title">热门试卷<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-37-1-download">更多热门试卷 &gt; </a>
+												</h3>
+								<ul class="hotpaper-list">
+				
+									<li class="hotpaper-list-item" th:each="p,pStat:${hotPaperList}">
+										<a class="hotpaper-name" data-paperid="d08fb966f5335a8102d220a5" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5">
+											<span th:class="${'rank-'+(pStat.index+1) + ' hotpaper-rank'}"></span><span th:text="${p.name}">2017年高考真题 语文 (北京卷)</span>
+										</a>
+									</li>
+				
+									
+				
+								</ul>
+							</div>
+						</div>
+				
+					</div>
+				
+					<div class="school-paper-main">
+				
+						<div class="school-paper-container homepage-school-container">
+							<h3 class="school-container-title">名校精品试卷
+												<a class="school-paper-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-7-0-0-1-download">更多名校精品卷 &gt; </a>
+											</h3>
+				
+							<div class="school-list">
+				
+								<div class="school-list-item " th:each="s,sStat:${eliteSchoolPaperList}">
+									<div class="school-wrap school-wrap-bg1">
+										<a class="famous-school-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=924cf7ec4afe04a1b071de05" data-schoolid="924cf7ec4afe04a1b071de05">
+											<div class="school-info">
+												<p class="name" th:text="${s.name}">北京大学附属中学</p>
+												<p class="info">
+													<b>
+												                        	同地区推荐 
+												                        	</b> 共
+				
+													<span class="info-num" th:text="${#lists.size(s.paperList)}">8</span>套试卷
+												</p>
+											</div>
+										</a>
+									</div>
+									<ul class="paper-wrap">
+										<li class="paper-item" th:each="p,pStat:${s.paperList}">
+											<a class="paper-item-name" data-paperid="5ff2971ea76e58fafab0030f" href="/tikupc/paperdetail/5ff2971ea76e58fafab0030f" th:text="${p.name}">
+												语文 海淀区2016年高三期末试卷
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+				
+						</div>
+				
+						<div class="more-school-list">
+				
+							<a class="more-school-name" th:each="s,sStat:${eliteSchoolList}" th:text="${s.name}" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=74c008a1284ac850ad024202" data-schoolid="74c008a1284ac850ad024202">
+								北京市八一学校
+							</a>
+
+						</div>
+
+				        </div>
+				    </div>
+				</div>
+    			<!--高考专区结束-->
+    			
+    			<!--资格考试专区--->
+    			<div class="zige-class-container" id="bk-kaoshi">
+				  	<p class="container-title">
+					    资格考试专区
+				    </p>
+				    <div class="title-underline">
+				    </div>
+				    <div class="zige-test-main">
+				        <div class="zigetest-list">
+							<div class="zigetest-list-detail kuaiji-test">
+								<div class="list-title">
+									<div class="testbg"></div>
+									<div class="title-box">
+										<p class="title-name">财会类</p>
+										<p class="title-num">5门考试</p>
+									</div>
+								</div>
+								<div class="test-list">
+										<a class="item-link log-class-link" href="/tikupc/homepage/cd1755270722192e4536f605" classid="cd1755270722192e4536f605" data-classid="cd1755270722192e4536f605-cd1755270722192e4536f605" target="_blank">会计从业资格</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/57270722192e45361066f505" classid="57270722192e45361066f505" data-classid="cd1755270722192e4536f605-57270722192e45361066f505" target="_blank">初级会计师</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/0422192e453610661ed9f405" classid="0422192e453610661ed9f405" data-classid="cd1755270722192e4536f605-0422192e453610661ed9f405" target="_blank">中级会计师</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/403610661ed9ad51f01df205" classid="403610661ed9ad51f01df205" data-classid="cd1755270722192e4536f605-403610661ed9ad51f01df205" target="_blank">注册会计师CPA</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/16661ed9ad51f01dc281f105" classid="16661ed9ad51f01dc281f105" data-classid="cd1755270722192e4536f605-16661ed9ad51f01dc281f105" target="_blank">中级经济师</a>
+								</div>
+							</div>
+							<div class="zigetest-list-detail jianzhu-test">
+								<div class="list-title">
+									<div class="testbg"></div>
+									<div class="title-box">
+										<p class="title-name">建筑类</p>
+										<p class="title-num">2门考试</p>
+									</div>
+								</div>
+								<div class="test-list">
+										<a class="item-link log-class-link" href="/tikupc/homepage/6c020740be1e650e52ea9905" classid="6c020740be1e650e52ea9905" data-classid="403610661ed9ad51f01df205-6c020740be1e650e52ea9905" target="_blank">一级建造师</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/6840be1e650e52ea55189805" classid="6840be1e650e52ea55189805" data-classid="403610661ed9ad51f01df205-6840be1e650e52ea55189805" target="_blank">二级建造师</a>
+								</div>
+							</div>
+							<div class="zigetest-list-detail zhiye-test">
+								<div class="list-title">
+									<div class="testbg"></div>
+									<div class="title-box">
+										<p class="title-name">职业资格类</p>
+										<p class="title-num">4门考试</p>
+									</div>
+								</div>
+								<div class="test-list">
+										<a class="item-link log-class-link" href="/tikupc/homepage/1742a8956bec0975f465e205" classid="1742a8956bec0975f465e205" data-classid="57270722192e45361066f505-1742a8956bec0975f465e205" target="_blank">教师资格证</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/ed6527d3240c844769eaee05" classid="ed6527d3240c844769eaee05" data-classid="57270722192e45361066f505-ed6527d3240c844769eaee05" target="_blank">企业法律顾问</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/3f0c844769eae009581bec05" classid="3f0c844769eae009581bec05" data-classid="57270722192e45361066f505-3f0c844769eae009581bec05" target="_blank">社会工作师</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/7e0bbb68a98271fe910ef904" classid="7e0bbb68a98271fe910ef904" data-classid="57270722192e45361066f505-7e0bbb68a98271fe910ef904" target="_blank">助理社会工作师</a>
+								</div>
+							</div>
+							<div class="zigetest-list-detail yiwei-test">
+								<div class="list-title">
+									<div class="testbg"></div>
+									<div class="title-box">
+										<p class="title-name">公务员</p>
+										<p class="title-num">2门考试</p>
+									</div>
+								</div>
+								<div class="test-list">
+										<a class="item-link log-class-link" href="/tikupc/homepage/5e192279168884868762d605" classid="5e192279168884868762d605" data-classid="0422192e453610661ed9f405-5e192279168884868762d605" target="_blank">警察招考</a>
+										<a class="item-link log-class-link" href="/tikupc/homepage/0079168884868762caaed505" classid="0079168884868762caaed505" data-classid="0422192e453610661ed9f405-0079168884868762caaed505" target="_blank">政法干警</a>
+								</div>
+							</div>
+						</div>
+				    </div>
+				</div>
+    			<!--资格考试专区结束-->
+    		</div>
+    	</div>
+    </div>
+
+	<!--尾部-->
+	<div th:replace="include/footer :: footer"></div>
+	
+</body>
+<script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/index.js'}" ></script>
+</html>

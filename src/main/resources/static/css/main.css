@@ -1,0 +1,161 @@
+.header {
+	width : 100%;
+	position: relative;
+	font-size: 14px;
+}
+.header .menu {
+	width: 100%;
+	background-color: #0f9982;
+	color: #fff;
+}
+.header .menu .menu-contain {
+    width: 1180px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #0f9982;
+    margin: auto;
+}
+.header .menu .menu-contain .container-logo {
+	float: left;
+	width: 100px;
+	height: 31px;
+	margin-top: 7.5px;
+	background-image: url(../images/logo_731bc32.png);
+}
+.header .menu .menu-contain .contain-login {
+    position: relative;
+    float: right;
+    height: 46px;
+    text-align: center;
+}
+.header .menu .menu-contain .contain-ul {
+    float: right;
+}
+.header .menu .menu-contain .contain-ul .contain-li {
+	float: left;
+	width: 100px;
+	text-align: center;
+	cursor: pointer;
+}
+.header .menu .menu-contain .contain-login .login-container {
+    height: 46px;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 100%;
+}
+.header .menu .menu-contain .contain-login .login-option {
+    font-size: 12px;
+    position: absolute;
+    background-color: #313e45;
+    width: 70px;
+    top: 46px;
+    left: 0px;
+    z-index: 9999;
+}
+.header .menu .menu-contain .contain-login .login-option li {
+    height: 30px;
+    line-height: 30px;
+}
+.header .menu .menu-contain .contain-login .login-option li a {
+    color: #ccc;
+}
+.header .menu .menu-contain .contain-ul li .li-icon {
+    font-size: 12px;
+    margin-left: 4px;
+    display: inline-block;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 50% 50% 0;
+    -ms-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+    -webkit-transition: -webkit-transform .2s ease-in 0s;
+    transition: transform .2s ease-in 0s;
+}
+.header .menu .menu-contain .contain-ul .contain-li:hover {
+    background-color: #fff;
+    color: #11a68d;
+}
+.header .menu .menu-contain .contain-ul .li-hover {
+    background-color: #fff;
+    color: #11a68d;
+}
+.header .menu .menu-contain .contain-login .login-container {
+    height: 46px;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 100%;
+}
+.header .menu .menu-contain .contain-login .login-icon {
+    margin-right: 8px;
+}
+.header .submenu-container {
+    width: 100%;
+    background-color: #fff;
+    filter: alpha(opacity=95);
+    overflow: hidden;
+    position: absolute;
+    z-index: 6666;
+    box-shadow: 2px 3px 5px rgba(0,0,0,.3);
+}
+.header .submenu {
+    width: 1182px!important;
+    margin: 0 auto!important;
+    background-color: #fff;
+    color: #fff;
+}
+.header .submenu .subm-ul {
+    float: left;
+    margin: 3px 0;
+}
+.header .submenu .subm-ul .subm-li {
+    float: left;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.header .submenu .subm-ul .subm-li a {
+    color: #333;
+}
+.dis-none {
+    display: none;
+}
+.header .submenu .all-exm {
+    margin: 3px 0;
+}
+.header .submenu .all-exm .all-ul .all-ul-title {
+    position: relative;
+    float: left;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 22px;
+    color: #999;
+}
+.header .submenu .all-exm .all-ul .all-list {
+    margin-left: 118px;
+}
+.header .submenu .all-exm .all-ul .title-icon {
+    color: #149987;
+    font-size: 12px;
+    margin-right: 5px;
+}
+.header .submenu .all-exm .all-ul .all-list .all-list-li {
+    float: left;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.header .submenu .all-exm .all-ul .all-list .all-list-li a:hover {
+    text-decoration: none;
+    color: #149987;
+}

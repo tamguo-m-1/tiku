@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.ChapterMapper">
+
+	<select id="findByCourseId" resultMap="resultMap">
+		SELECT
+			c.uid,c.course_id , c.parent_id , c.`name` , c.question_num , c.point_num , c.orders
+		FROM
+			tiku_chapter c
+		WHERE c.course_id = #{courseId} and parent_id = 0
+		ORDER BY c.orders asc
+	</select>
+	
+	
+	<select id="findByParentId" resultMap="resultMap">
+		SELECT
+			c.uid,
+			c.course_id,
+			c.parent_id,
+			c.`name`, 
+			c.question_num, 
+			c.point_num,
+			c.orders
+		FROM
+			tiku_chapter c
+		WHERE
+			c.parent_id = #{parentId}
+		ORDER BY c.orders asc
+	</select>
+	
+	<select id="findNextPoint" resultMap="resultMap">
+		SELECT
+			c.uid,
+			c.course_id,
+			c.parent_id,
+			c.`name`, 
+			c.question_num, 
+			c.point_num,
+			c.orders
+		FROM
+			tiku_chapter c
+		WHERE c.parent_id = #{uid}
+		<![CDATA[  
+		and orders > #{orders}
+		]]>
+		ORDER BY orders ASC
+		LIMIT 1
+	</select>
+	
+</mapper>

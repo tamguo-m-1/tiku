@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.SysUserRoleMapper">
+
+  <resultMap id="BaseResultMap" type="com.tamguo.model.SysUserRoleEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, role_id
+  </sql>
+  <!-- 查询用户的所有权限 -->
+  <select id="queryUserAllPerms" resultType="String">
+		select m.perms from sys_user_role ur 
+			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
+			LEFT JOIN sys_menu m on rm.menu_id = m.menu_id 
+		where ur.user_id = #{userId}
+  </select>
+  
+  <!-- 查询用户的所有菜单ID --> 
+  <select id="queryAllMenuId" resultType="Long">
+		select m.menu_id from sys_user_role ur 
+			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
+			LEFT JOIN sys_menu m on rm.menu_id = m.menu_id 
+		where ur.user_id = #{userId}
+  </select>
+  
+  <insert id="saveUserRole">
+		insert into sys_user_role
+		(
+			`user_id`, 
+			`role_id`
+		)
+		values
+		<foreach collection="roleIdList" item="item" index="index" separator="," >
+		(
+			#{userId}, 
+			#{item}
+		)
+		</foreach>
+	</insert>
+  
+  <select id="queryRoleIdList" resultType="Long">
+		select role_id from sys_user_role where user_id = #{value}
+	</select>
+</mapper>

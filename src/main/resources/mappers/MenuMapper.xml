@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.MenuMapper">
+
+	<select id="findFatherMenus" resultMap="resultMap">
+		SELECT
+			uid,name,parent_id,pinyin
+		FROM
+			tiku_menu
+		where parent_id = 0 and is_show = 1 and type = 0
+		order by orders desc
+	</select>
+	
+	<select id="findMenuByParentId" resultMap="resultMap">
+		SELECT
+			uid,name,parent_id,pinyin
+		FROM
+			tiku_menu
+		where parent_id = #{parentId}
+		order by orders desc
+	</select>
+	
+	<select id="findAllFatherMenus" resultMap="resultMap">
+		SELECT
+			uid,name,parent_id,pinyin
+		FROM
+			tiku_menu
+		where parent_id = 0 and type = 0
+		order by orders desc
+	</select>
+	
+	<select id="findLeftFatherMenus" resultMap="resultMap">
+		SELECT
+			uid,name,parent_id,pinyin
+		FROM
+			tiku_menu
+		where parent_id = 0 and type = 1
+		order by orders desc
+	</select>
+    
+</mapper>

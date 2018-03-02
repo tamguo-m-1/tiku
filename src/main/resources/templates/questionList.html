@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>题目列表-探果</title>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/main.css'}"></link>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/questionList.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/footer.css'}" />
+	</head>
+	<body>
+		
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>	
+	
+	<div class="content-wp">
+        <div class="main">
+        	<div class="title-bar">
+			    <div class="title-inner">
+			        <ul class="paper-crumbs clearfix">
+			            <a th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}" class="crumbs-link">
+			                	<li>章节学习</li>
+			                    <li th:text="${'&nbsp;·&nbsp;' + parentChapter.name}">&nbsp;·&nbsp;第一章</li>
+			                	<li class="last" th:text="${'&nbsp;·&nbsp;' + chapter.name}">&nbsp;·&nbsp;社会工作的要素</li>
+			            </a>
+			        </ul>
+			        <ul class="quic-nav clearfix">
+			            <li class="title" th:text="${chapter.name}">社会工作的要素</li>
+			            <li class="count" th:text="${'共' + chapter.questionNum + '题'}"></li>
+			        </ul>
+			    </div>
+			</div>
+        
+        	<div class="bd-content" style="visibility: visible;">
+	        	<div class="quelist-wrap">
+	                  <div th:attr="data-id=${q.uid},data-index=${q.uid}" th:class="${qStat.size == (qStat.index + 1)} ? 'question-box que-multi  selected-quescontainer last' : 'question-box que-multi  selected-quescontainer'" th:each="q,qStat:${questionList}">
+						    <div class="question-box-inner">
+						        <span class="queindex-wrap"><span class="queindex">1</span></span>
+						        <span class="pieces">
+						                多选题
+						        </span>
+						        <div class="que-stem" >
+						            <div class="questem-inner bdjson" th:utext="${q.content}">
+						               <p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>
+						            </div>
+						        </div>
+						        <div class="view-analyse">
+								    <a class="view-link" th:href="${setting.domain + 'question/' + q.uid + '.html'}">查看题目解析 &gt;</a>
+								</div>
+						    </div>	
+					</div>
+			        <div class="nexttolearn">
+					    <div class="next-inner clearfix">
+					    		<a th:if="${questionList.endRow < questionList.total}" href="/tikupc/chapterdetail/afd964ec0975f46527d3e149-31-5-knowpoint" class="tolearn">继续学习</a>
+					            <a th:if="${questionList.endRow >= questionList.total}" th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}" class="tolearn">已学完, 返回章节学习</a>
+					            <a th:if="${nextChapter == null}" class="next-done">棒棒哒，已是最后一个知识点</a>
+					            <a th:if="${nextChapter != null}" th:href="${setting.domain + 'question/'+subjectId+'/'+courseId+'/'+nextChapter.parentId+'/'+nextChapter.uid+'-0-5.html'}" class="nextpoint">学习下一知识点</a>
+					    </div>
+					    <span class="done" style="margin-left: -31px; left: 50%;">
+					            已完结
+					    </span>
+					</div>
+	                <div class="crumbs">
+	                    <a th:href="${setting.domain}">百度题库</a> &gt;
+	                    <a href="/tikupc/chapterlist/3f0c844769eae009581bec05-0-knowpoint-11">社会工作师</a> &gt;
+	                    <a href="/tikupc/chapterlist/3f0c844769eae009581bec05-152-knowpoint-11">综合能力（中级）</a> &gt;
+	                    <span>中国社会工作在不同发展阶段的特点</span>
+	                 </div>
+	
+	        </div>
+	        <div class="queanalyse-wrap" style="position: fixed; left: 1151.5px; top: 162px; height: 757px; display: none;">
+			   <div class="close-btn"></div>
+			   <div class="content-wrap" id="queanalyse-content" tabindex="0" style="overflow: hidden; position: relative; outline: none;">
+			   <div class="analyse-content" style="transform: translate3d(0px, 0px, 0px);">
+			   <div class="que-title-wrap"> 
+			   <div class="title"> 
+				   <span class="content-wrap"> 
+				   	   <span class="dt-index">1</span> 
+					   <span class="content"> 
+					   <span style="display:  none "> 第(0)小题</span>正确答案及相关解析 </span> 
+				   </span> 
+			   </div> 
+			   <hr style="display:  none ">
+			   </div>
+			   <div class="exam-answer"> 
+			   		<h3 class="exam-answer-title">正确答案</h3>  
+			   		<div class="answer-item"> 
+			   		<div class="content exam-answer-content bdjson"> 
+			   			<p><span>B,C,D,E</span></p> 
+			   		</div> 
+			   		</div> 
+			   	</div>
+			   	<div class="exam-analysis exam-info"> 
+			   		<h3 class="exam-analysis-title">
+			   		<span class="ic analysis-ic">解析</span></h3> 
+			   		<div class="content exam-analysis-content bdjson"> 
+			   			<p><span>[解析] 社会工作作为一个专业是在长期的社会服务实践、对实践经验的总结和不断借用其他学科的新的研究成果等多种因素的共同影响下形成的。在其专业化过程中，专业方法的发展、目标模式的变化、工作对象的拓展、理论派别的形成成为社会工作发展的重要特点。</span></p> 
+			   		</div>
+			   	</div> 
+			   	</div>
+			    <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: 5555; cursor: default; position: absolute; top: 0px; right: 0px; touch-action: none; height: 859px; opacity: 0; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(219, 219, 219); border: 0px; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 5px; z-index: 5555; position: absolute; left: 0px; bottom: 0px; cursor: default; width: 354px; opacity: 0; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(219, 219, 219); border: 0px; background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div></div>
+			    <div class="toolbar ui-border-top">
+			        <ul class="toolbar-ul">
+			            <li class="pre-li disable"><span class="pre">上一题</span></li>
+			            <li class="center-li">
+			                <span class="current">1</span>/<span class="total">2</span>
+			            </li>
+			            <li class="next-li"><span class="next">下一题</span></li>
+			        </ul>
+			    </div>
+			</div>
+    </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/questionList.js'}" ></script>
+</html>

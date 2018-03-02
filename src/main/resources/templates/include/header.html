@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div class="header" th:fragment="header">
+	<div class="menu">
+		<div class="menu-contain clearfix">
+			<a><span class="container-logo"></span></a>		
+			<div class="contain-login">
+                <div class="login-container">
+                    <i class="login-icon iconfont icon-yonghu"></i>登录
+                </div>
+                <ul class="login-option dis-none">
+                    <li><a href="/">我的首页</a></li>
+                    <li><a href="/">账号设置</a></li>
+                    <li><a href="/">退出</a></li>
+                </ul>
+            </div>
+			<ul class="contain-ul">
+                <li class="contain-li contain-li-hashover" th:each="m,mStat:${menuList}" th:attr="data-class=${m.pinyin}">
+                	 <span th:text="${m.name}"></span>
+                     <i class="li-icon iconfont icon-xialajiantouxiao" data-class="zhiye" style="transform: rotate(0deg);"></i>
+                </li>
+                <li class="contain-li contain-li-hashover" data-class="all">
+                                        全部考试<i class="li-icon iconfont icon-yingyongchengxu-xianxing" data-class="all" style="transform: rotate(0deg);"></i>
+                </li>
+            </ul>	
+          </div>
+	</div>
+	<div class="clearfix submenu-container">
+	    <div class="submenu clearfix">
+	        <ul th:class="${m.pinyin + ' subm-ul dis-none'}" th:each="m,mStat:${menuList}">
+	            <li class="subm-li" th:each="c,cmStat:${m.childSubjects}"><a href="https://tiku.baidu.com/tikupc/homepage/3f0c844769eae009581bec05" target="_blank" th:text="${c.name}">高考</a></li>
+	        </ul>
+	        <div class="all-exm all dis-none">
+	            <div class="all-ul" th:each="m,mStat:${allMenuList}">
+	                <span class="all-ul-title">
+	                    <i class="title-icon iconfont icon-iconfontshu"></i>
+	                    <span th:text="${m.name}"></span>
+	                </span>
+	                <ul class="all-list clearfix">
+	                    <li class="all-list-li" th:each="c,cmStat:${m.childSubjects}"><a href="https://tiku.baidu.com/tikupc/homepage/3f0c844769eae009581bec05" target="_blank" th:text="${c.name}">高考</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

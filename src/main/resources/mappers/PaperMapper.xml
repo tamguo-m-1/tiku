@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.PaperMapper">
+
+	<select id="findByTypeAndAreaId" resultMap="resultMap">
+		SELECT
+			p.uid,
+			p.area_id,
+			p.course_id,
+			p.`name`,
+			p.type,
+			p.`year`
+		FROM
+			tiku_paper p
+		where p.type = #{type} and p.area_id = #{areaId}
+	</select>	
+	
+	<select id="findByAreaId" resultMap="resultMap">
+		SELECT
+			p.uid,
+			p.area_id,
+			p.course_id,
+			p.`name`,
+			p.type,
+			p.`year`
+		FROM
+			tiku_paper p
+		where p.area_id = #{areaId}
+		order by down_hits desc
+	</select>
+	
+	<select id="findBySchoolId" resultMap="resultMap">
+		SELECT
+			p.uid,
+			p.area_id,
+			p.course_id,
+			p.`name`,
+			p.type,
+			p.`year`
+		FROM
+			tiku_paper p
+		where p.school_id = #{schoolId}
+	</select>
+	
+	<select id="findList" resultMap="resultMap">
+		SELECT
+			p.area_id,
+			p.course_id,
+			p.down_hits,
+			p.`name`,
+			p.open_hits,
+			p.school_id,
+			p.type,
+			p.uid,
+			p.`year`
+		FROM
+			tiku_paper p
+		where 1 = 1
+		<if test="courseId != null and courseId != 0">
+			and p.course_id = #{courseId}
+		</if>
+		<if test="paperType != null and paperType != 0">
+			and p.type = #{paperType}
+		</if>
+		<if test="year != null and year != 0">
+			and p.year = #{year}
+		</if>
+		<if test="area != null and area != 0">
+			and p.area_id = #{area}
+		</if>
+	</select>
+	
+</mapper>

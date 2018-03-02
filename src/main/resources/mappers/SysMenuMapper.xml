@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.SysMenuMapper">
+
+  <resultMap id="BaseResultMap" type="com.tamguo.model.SysMenuEntity" >
+    <id column="menu_id" property="menuId" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="perms" property="perms" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="parentName" property="parentName" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    menu_id, parent_id, name, url, perms, type, icon, order_num
+  </sql>
+  
+  <select id="queryList" resultMap="BaseResultMap">
+		select m.*,(select p.name from sys_menu p where p.menu_id = m.parent_id) as parentName 
+			from sys_menu m order by m.order_num asc 
+  </select>
+	
+  <select id="queryListParentId" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" /> 
+		from sys_menu where parent_id = #{parentId} order by order_num asc 
+  </select>
+  
+  <select id="queryNotButtonList" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> 
+		from sys_menu where type != 2 order by order_num asc 
+  </select>
+    
+</mapper>

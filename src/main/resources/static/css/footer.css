@@ -1,0 +1,114 @@
+.footer {
+    width: 100%;
+    background-color: #343f45;
+}
+.footer .footer-contain {
+    width: 1180px;
+    padding: 40px 0;
+    margin: auto;
+    background-color: #343f45;
+    font-size: 14px;
+}
+.footer .footer-contain .intro {
+    float: left;
+    width: 360px;
+    height: 125px;
+    border-right: 1px solid #39464d;
+}
+.footer .footer-contain .title {
+    height: 40px;
+    line-height: 40px;
+    color: #149987;
+}
+.footer .footer-contain .intro p {
+    padding-right: 30px;
+}
+.footer .footer-contain p {
+    color: #ccc;
+    line-height: 24px;
+}
+.footer .footer-contain .connect, .footer .footer-contain .suggest {
+    box-sizing: border-box;
+    width: 210px;
+    height: 125px;
+    padding-left: 25px;
+    float: left;
+    border-right: 1px solid #39464d;
+}
+.footer .footer-contain .iconfont {
+    font-size: 14px;
+}
+.footer .footer-contain .connect, .footer .footer-contain .suggest {
+    box-sizing: border-box;
+    width: 210px;
+    height: 125px;
+    padding-left: 25px;
+    float: left;
+    border-right: 1px solid #39464d;
+}
+.footer .footer-contain .suggest {
+    width: 190px;
+}
+.footer .footer-contain .cooperation {
+    float: left;
+    padding-left: 50px;
+    position: relative;
+    width: 410px;
+    box-sizing: border-box;
+}
+.footer .footer-contain .cooperation .left, .footer .footer-contain .cooperation .right {
+    position: absolute;
+    top: 13px;
+    left: 140px;
+    display: inline-block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    color: #39464c;
+    text-align: center;
+    cursor: pointer;
+}
+.footer .footer-contain .cooperation .right {
+    left: 155px;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul {
+    width: 366px;
+    position: absolute;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:nth-child(1) {
+    margin-bottom: 10px;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul .contain-li {
+    float: left;
+    width: 75px;
+    height: 30px;
+    margin-right: 22px;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul .contain-li .contain-link {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+}
+.footer .bottom {
+    min-width: 1180px;
+    color: #999;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    background-color: #39464d;
+}
+.footer .footer-contain .cooperation .coo-view {
+    width: 366px;
+    overflow: hidden;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:nth-child(2) {
+    margin-bottom: 10px;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:nth-child(3) {
+    margin-bottom: 10px;
+}
+.footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:first-child+li+li+li, .footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:first-child+li+li+li+li+li+li+li {
+    margin-right: 0;
+}

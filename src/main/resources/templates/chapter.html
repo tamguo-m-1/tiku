@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>探果-科目</title>
+	<link rel="stylesheet" href="../../css/main.css"></link>
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/iconfont.css" />
+	<link rel="stylesheet" href="../../css/chapter.css" />
+	<link rel="stylesheet" href="../../css/footer.css" />
+</head>
+<body>
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>	
+	
+	<!--主体-->	
+	<div class="content-wp">
+        <div class="main">
+        	<!--二级菜单开始-->
+        	<div class="main-submenu">
+			    <div class="submenu-contain clearfix">
+			        <span class="contain-title">
+			            <a th:href="${setting.domain + 'subject/' + subjectId + '.html'}">高考</a>
+			        </span>
+			        <ul class="contain-ul">
+			            <li class="contain-li">
+			                <a th:href="${setting.domain + 'subject/' + subjectId + '.html'}" class="">考试首页</a>
+			            </li>
+			            <li class="contain-li curr">
+			                <a class="curr " th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">章节学习</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" href="//tiku.baidu.com/gaokaogufen">高考估分</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" href="//tiku.baidu.com/zhuanyeceshi">专业评测</a>
+			            </li>
+			        </ul>
+			    </div>
+			</div>
+        	<!--二级菜单结束-->
+        
+        	<!--章节内容开始-->
+        	<div class="main-inner clearfix">
+        <a class="backtotop iconfont icon-xiangshang" href="#" style="display: none;"></a>
+
+        <div class="screening clearfix">
+    <ul class="sc-subject clearfix">
+        <li>科目:</li>
+        
+            <li th:class="${c.uid == courseId} ? 'selected' : ''" th:each="c,cStat:${courseList}">
+                <a th:href="${setting.domain + 'chapter/'+c.subjectId+'/'+c.uid+'.html'}" th:text="${c.name}">
+                    理科数学
+                </a>
+            </li>
+    </ul>
+    <ul class="sc-subject clearfix">
+        <li>结构:</li>
+        
+        <li class="selected">
+            <a href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-16-knowpoint-11">
+                按知识点
+            </a>
+        </li>
+    </ul>
+</div>
+
+        <div class="list-left">
+            <div id="outline" tabindex="0" style="overflow: hidden; position: static; outline: none; height: 697px; top: 0px;">
+    <div class="outline-content" style="transform: translate3d(0px, 0px, 0px);">
+        
+            <div th:class="${cStat.index==0} ? 'out-chapter show' : 'out-chapter'" th:each="c,cStat:${chapterList}">
+                <h3 class="k1" data-class="dct-0" title="第一章 集合与常用逻辑用语">
+                    <i class="iconfont icon-unie047 icon-zhankai"></i> <span th:text="${c.name}">第一章 集合与常用逻辑用语</span>
+                </h3>
+            </div>
+        	<div class="blank" style="height: 70px;"></div>
+    </div>
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 15px; z-index: auto; cursor: default; position: absolute; top: 0px; right: 0px; touch-action: none; height: 697px; opacity: 0; display: block;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 403px; background-color: rgb(219, 219, 219); border: 5px; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 15px; z-index: auto; position: absolute; left: 0px; bottom: 0px; cursor: default; display: none; width: 329px; opacity: 0;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 329px; background-color: rgb(219, 219, 219); border: 5px; background-clip: padding-box; border-radius: 5px;"></div></div></div>
+
+
+        </div>
+        <div class="list-right">
+            <div class="detail">
+    
+    <div class="detail-chapter" th:each="c,cStat:${chapterList}" th:style="${cStat.index==0}? 'display:block;' : 'display: none;'">
+        <div class="detail-chapter-title dct-0" id="dct-0">
+            <h3 th:text="${c.name}">第一章 集合与常用逻辑用语</h3>
+            
+            <a target="_blank" class="fifteen" href="/tikupc/chapterdetail/a9d6195f312b3169a451a405-1-15-knowpoint">随机来
+                
+                    15
+                
+                道题</a>
+            
+            <ul>
+                <li><span th:text="${c.pointNum}">21</span> 知识点</li>
+                <li><span th:text="${c.questionNum}">2317</span> 试题</li>
+            </ul>
+        </div>
+        
+            <div class="detail-kpoint-1" th:each="cc,ccStat:${c.childChapterList}">
+            <div class="kpoint-1-title k1t-0-0" id="k1t-0-0">
+                <h4 text="$">1 集合的概念及运算</h4>
+                <span>1181 试题</span>
+                
+                    <a target="_blank" class="ten" href="/tikupc/chapterdetail/2ffe30b765ce050876321382-1-10-knowpoint">随机来
+                        
+                            10
+                        
+                        道题 &gt;</a>
+                
+            </div>
+            <div class="kpoint-1-content clearfix">
+                
+                    <div class="detail-kpoint-2" th:each="cc,ccStat:${cc.childChapterList}">
+                    <h5 th:text="${cc.name}">1.1 集合的含义</h5>
+                    <p>
+                        <span class="">
+                                <span class="count" th:text="${cc.questionNum}">531</span> 道题
+                        </span>
+                    </p>
+                    
+                        <div class="mask" style="display: none;">
+                            <a target="_blank" th:href="${setting.domain + 'question/' + subjectId +'/'+ courseId + '/' +c.uid +'/'+ cc.uid + '-0-5.html'}" class="do">
+                              	  马上做题
+                            </a>
+                        </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+        	<!--章节内容结束-->
+        </div>
+    </div>
+    
+    <div class="foot">
+	    <div class="crumbs">
+	        <a href="//tiku.baidu.com">百度题库</a> &gt;
+	        <a href="//tiku.baidu.com/tikupc/homepage/1bfd700abb68a98271fefa04">高考</a> &gt;
+	        <span>理科数学</span>
+	     </div>
+    </div>
+    
+</body>
+	
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/index.js" ></script>
+</html>

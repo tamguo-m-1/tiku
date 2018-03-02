@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>探果-试卷</title>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/main.css'}"></link>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/paper.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/footer.css'}" />
+	</head>
+	<body>
+	
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>
+	
+	<!-- 主体 -->
+	<div class="content-wp">
+        <div class="main">
+			<div class="main-submenu">
+			    <div class="submenu-contain clearfix">
+			        <span class="contain-title">
+			            <a th:href="${setting.domain + 'subject/' + subjectId + '.html'}">高考</a>
+			        </span>
+			        <ul class="contain-ul">
+			            <li class="contain-li">
+			                <a th:href="${setting.domain + 'subject/' + subjectId + '.html'}" class="">考试首页</a>
+			            </li>
+			            
+			            <li class="contain-li">
+			                <a class="" th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">章节学习</a>
+			            </li>
+			            <li class="contain-li">
+			                <a th:class="${paperType == setting.PAPER_TYPE_ZHENTI} ? 'curr' : '' " th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
+			            </li>
+			            <li class="contain-li">
+			                <a th:class="${paperType == setting.PAPER_TYPE_MONI} ? 'curr' : '' " th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
+			            </li>
+			            <li class="contain-li">
+			                <a th:class="${paperType == setting.PAPER_TYPE_YATI} ? 'curr' : '' " th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" href="//tiku.baidu.com/gaokaogufen">高考估分</a>
+			            </li>
+			            <li class="contain-li">
+			                <a class="" href="//tiku.baidu.com/zhuanyeceshi">专业评测</a>
+			            </li>
+			            
+			        </ul>
+			    </div>
+			</div>
+			<div class="main-inner clearfix">
+	<a class="backtotop iconfont icon-xiangshang" href="#"></a>
+
+	<div class="screening">
+		<div class="sc-title clearfix">
+			<h3 class="sc-ti">试卷资源库</h3>
+			<p>共<span class="num">4222</span>套试卷</p>
+
+		</div>
+		<div class="sc-list-content">
+			<span class="sub">科目:</span>
+			<ul class="sc-list clearfix">
+				<li th:class="${courseId == '0'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/0-' + paperType + '-' + year + '-' + area + '-1.html'}">
+						全部
+					</a>
+				</li>
+
+				<li th:class="${c.uid == courseId} ? 'selected' : ''" th:each="c,cStat:${courseList}">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+c.uid+'-' + paperType + '-' + year + '-' + area + '-1.html'}" th:text="${c.name}">
+						理科数学
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="sc-list-content">
+			<span class="sub">类型:</span>
+			<ul class="sc-list clearfix">
+				<li th:class="${paperType == '0'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-0-' + year + '-' + area + '-1.html'}">全部</a>
+				</li>
+				<li th:class="${paperType == setting.PAPER_TYPE_ZHENTI} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-' + year + '-' + area + '-1.html'}">真题试卷</a>
+				</li>
+				<li th:class="${paperType == setting.PAPER_TYPE_MONI} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-' + year + '-' + area + '-1.html'}">模拟试卷</a>
+				</li>
+				<li th:class="${paperType == setting.PAPER_TYPE_YATI} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-' + year + '-' + area + '-1.html'}">押题预测</a>
+				</li>
+				<li th:class="${paperType == setting.PAPER_TYPE_MINGXIAO} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MINGXIAO+'-' + year + '-' + area + '-1.html'}">名校精品</a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="sc-list-content">
+			<span class="sub">年份:</span>
+			<ul class="sc-list clearfix">
+				<li th:class="${year == '0'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-0-' + area + '-1.html'}">全部</a>
+				</li>
+				<li th:class="${year == '2017'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2017-' + area + '-1.html'}">2017</a>
+				</li>
+				<li th:class="${year == '2016'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2016-' + area + '-1.html'}">2016</a>
+				</li>
+				<li th:class="${year == '2015'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2015-' + area + '-1.html'}">2015</a>
+				</li>
+				<li th:class="${year == '2014'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2014-' + area + '-1.html'}">2014</a>
+				</li>
+				<li th:class="${year == '2013'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2013-' + area + '-1.html'}">2013</a>
+				</li>
+			</ul>
+		</div>
+		<div class="sc-list-content">
+			<span class="sub">地区:</span>
+			<ul class="sc-list clearfix">
+				<li th:class="${area == '0'} ? 'selected' : ''">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-0-1.html'}">全部</a>
+				</li>
+
+				<li th:class="${area == a.uid} ? 'selected' : ''" th:each="a,aStat:${areaList}">
+					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-'+a.uid+'-1.html'}" th:text="${a.name}">北京</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="list-left">
+		<div class="mainlist">
+			<div class="title">
+				<span class="all">全部试卷</span>
+				<div class="sort">
+					<a class="sort-down current" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-16-1-0-0-1-download?school_id=">下载量<i class="iconfont icon-sort"></i></a>
+					<a class="sort-read " href="/tikupc/paperlist/1bfd700abb68a98271fefa04-16-1-0-0-1-view?school_id=">最新<i class="iconfont icon-sort"></i></a>
+				</div>
+			</div>
+			<div class="paperlist-content">
+
+				<div class="paperlist" th:each="p,pStat:${paperPage.list}">
+					<div class="paper-title-content zhenti">
+						<h3 class="paper-title">
+                    <a href="/tikupc/paperdetail/c772cfeeaeaad1f346933fa4?key=20170214" class="paper-a" th:text="${p.name}">2017年高考真题 理科数学 (全国I卷)</a>
+                </h3>
+						<span class="read" th:text="${p.openHits}">0</span>
+						<span class="down" th:text="${p.downHits}">0</span>
+					</div>
+					<a class="paper-link" href="/tikupc/paperdetail/c772cfeeaeaad1f346933fa4?key=20170214">查看套卷</a>
+				</div>
+
+			</div>
+
+			<div class="paging clearfix">
+				<div class="page-content" style="margin-left: -147.5px; left: 50%;">
+					<ul class="page-list">
+						
+						<li class="page-num pre" th:if="${paperPage.isShowPreBtn}">
+		                    <a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-1.html'}">&lt;</a>
+		                </li>
+                
+						<li th:class="${paperPage.currPageNum == num} ? 'selected page-num' : 'page-num'" th:each="num,numStat:${paperPage.pageNums}">
+							<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-'+num+'.html'}" th:text="${num}">1</a>
+						</li>
+
+						<li class="page-num next" th:if="${paperPage.isShowNextBtn}">
+							<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-'+(paperPage.currPageNum+1)+'.html'}">&gt;</a>
+						</li>
+
+					</ul>
+					<div class="page-sum" th:text="${'共'+paperPage.totalPage+'页/'+paperPage.total+'套试卷'}">
+						共4页/34套试卷
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="list-right">
+
+	</div>
+</div>
+        </div>	
+	</div>
+	
+	<!--尾部 -->
+	<div class="foot">
+	    <div class="crumbs">
+	        <a href="//tiku.baidu.com">百度题库</a> &gt;
+	        <a href="//tiku.baidu.com/tikupc/homepage/1bfd700abb68a98271fefa04">高考</a> &gt;
+	        <span>理科数学</span>
+	     </div>
+    </div>
+    
+    <!--尾部-->
+    <div th:replace="include/footer :: footer"></div>
+    <!-- 尾部结束 -->
+</body>
+<script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/index.js'}" ></script>
+</html>

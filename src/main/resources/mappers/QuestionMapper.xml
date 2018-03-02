@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.QuestionMapper">
+
+	<select id="findByChapterId" resultMap="resultMap">
+		SELECT
+			q.uid,
+			q.analysis,
+			q.answer,
+			q.chapter_id,
+			q.content,
+			q.fallibility,
+			q.question_type,
+			q.subject_id
+		FROM
+			tiku_question q
+		WHERE
+			q.chapter_id = #{chapterId}
+	</select>
+	
+</mapper>

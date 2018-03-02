@@ -1,0 +1,38 @@
+﻿install JDK: 
+
+yum  install  java-1.8.0-openjdk   java-1.8.0-openjdk-devel
+
+install MYSQL：
+
+yum install mysql
+
+yum install mysql-server
+
+yum install mysql-devel
+
+# modify mysql characterset
+
+vi /etc/my.cnf
+[client]
+default-character-set=utf8
+
+[mysqld]
+character-set-server=utf8
+
+
+install REDIS：
+
+yum install epel-release
+
+yum install redis
+
+CREATE DATABASE `sexbar` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+nohup java -jar sexbar-0.0.1-SNAPSHOT.jar > nohup.out 2>&1 &
+
+
+TanMin Tan520min
+
+zengmintan@gmail.com Tan520pig
+
+wutian197 Tan520pig

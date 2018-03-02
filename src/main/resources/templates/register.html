@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="Zh-hans">
+<head>
+<title>六天在线注册_六天在线影院_伦理片电影网 - 六天在线手机影院</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="六天在线,六天在线影院,六天在线WEB版,伦理片影院" />
+<meta name="description" content="六天在线影院是六天在线公司打造的专业在线看伦理片的网站,伦理影片高清在线播放服务,是国内专业电影、电视剧、动漫、综艺等节目视频点播平台" />
+<link rel="Shortcut Icon" type="image/ico" th:href="@{/templates/frontend/frontend-default/img/favicon.ico}"/>
+<link rel="apple-touch-icon" th:href="@{/templates/frontend/frontend-default/img/favicon.ico}">
+<script type="text/javascript" th:src="@{templates/frontend/frontend-default/js/jquery-1.11.1.min.js}"></script>
+<script type="text/javascript" th:src="@{templates/frontend/frontend-default/js/jquery.inputbox.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{templates/frontend/frontend-default/css/bootstrap.min.css}"/>
+<script type="text/javascript" th:src="@{templates/frontend/frontend-default/js/jscroller2-1.5.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{templates/frontend/frontend-default/css/colors.css}"/>
+<link type="text/css" rel="stylesheet" th:href="@{templates/frontend/frontend-default/css/font-awesome.min.css}"/>
+<link type="text/css" rel="stylesheet" th:href="@{templates/frontend/frontend-default/css/responsive.css}"/>
+<link type="text/css" rel="stylesheet" th:href="@{templates/frontend/frontend-default/css/style.css}"/>
+<link type="text/css" rel="stylesheet" th:href="@{css/qq.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{templates/frontend/frontend-default/css/base.css}">
+<link rel="stylesheet" th:href="@{templates/frontend/frontend-default/css/register.css}"/>
+</head>
+<body>
+<div class="ads_121"></div>
+<div id="sebimsg"></div>
+
+<!-- 头部导航 -->
+<div th:replace="include/navbar/toolbar :: toolbar"></div>
+
+<!-- 导航 -->
+<div th:replace="include/navbar/navbar :: navbar"></div>
+
+<div id="wrapper">
+<!-- 广告 -->
+<div th:replace="include/navbar/ads :: ads"></div>
+
+<!-- 注册主体内容开始 -->
+<div class="container">
+	<div class="alert alert-dismissable alert-danger"
+		th:if="${checkMsg != null}" th:utext="${checkMsg}"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="well login-header">
+					<h3 class="mt-0 pl-20 white">注册琴瑟在线账户！</h3>
+					<h5 class="font-bold mb-20 pl-20 white">注册之后，你将享受如下服务！</h5>
+					<div class="row col-md-8 login-header-icon">
+						<div class="col-sm-6">
+							<ul class="list-unstyled m-l-30">
+								<li><i class="fa fa-upload m-r-10 text-white m-b-5"></i>上传视频</li>
+								<li><i class="fa fa-comments m-r-10 text-white m-b-5"></i>发布评论</li>
+								<li><i class="fa fa-folder m-r-10 text-white m-b-5"></i>添加收藏</li>
+								<li><i class="fa fa-rss m-r-10 text-white m-b-5"></i>订阅用户</li>
+							</ul>
+						</div>
+						<div class="col-sm-6">
+							<ul class="list-unstyled m-l-30">
+								<li><i class="fa fa-th-list m-r-10 text-white m-b-5"></i>创建播放列表</li>
+								<li><i class="fa fa-share-alt m-r-10 text-white m-b-5"></i>分享视频</li>
+								<li><i class="fa fa-user m-r-10 text-white m-b-5"></i>添加朋友</li>
+								<li><i class="fa fa-wrench m-r-10 text-white m-b-5"></i>制订您的设置</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="well bs-component login-inpbox">
+					<form class="form-horizontal" name="signup_form" id="signup_form"
+						method="post" action="/register">
+						<fieldset>
+							<div class="form-group ">
+								<label for="username" class="col-lg-3 control-label">用户名</label>
+								<div class="col-lg-6">
+									<input name="username" type="text" class="form-control"
+										value="" id="username" maxlength="14" placeholder="用户名" />
+								</div>
+							</div>
+							<div class="form-group ">
+								<label for="psw" class="col-lg-3 control-label">密码</label>
+								<div class="col-lg-6">
+									<input name="password" type="password" class="form-control"
+										value="" id="psw" placeholder="密码" />
+								</div>
+							</div>
+							<div class="form-group ">
+								<label for="confirm_psw" class="col-lg-3 control-label">重新输入密码</label>
+								<div class="col-lg-6">
+									<input name="passwordConfirm" type="password"
+										class="form-control" value="" id="confirm_psw"
+										placeholder="重新输入密码" />
+								</div>
+							</div>
+							<div class="form-group ">
+								<label for="email" class="col-lg-3 control-label">邮箱</label>
+								<div class="col-lg-6">
+									<input name="email" type="text" class="form-control" value=""
+										id="email" placeholder="邮箱" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="guname" class="col-lg-3 control-label">QQ</label>
+								<div class="col-lg-6">
+									<input name="oicq" type="text" class="form-control" value="" maxlength="10"
+										id="guname" placeholder="QQ(*可填项)" />
+								</div>
+							</div>
+							<div class="form-group ">
+								<label class="col-lg-3 control-label">性别</label>
+								<div class="col-lg-6">
+									<div class="col-lg-3">
+										<div class="radio">
+											<label> <input name="gender" type="radio" value="0"
+												id="signup_gender_male" /> 男
+											</label>
+										</div>
+										<div class="radio">
+											<label> <input name="gender" type="radio" value="1"
+												id="signup_gender_female" /> 女
+											</label>
+										</div>
+									</div>
+									<div class="form-group col-lg-8">
+										<div class="">
+											<div class="checkbox">
+												<label> <input name="age" type="checkbox"
+													id="signup_age" /><span class=""> 我保证我年满18岁!</span>
+												</label>
+											</div>
+										</div>
+										<div class="">
+											<div class="checkbox">
+												<label> <input name="terms" type="checkbox"
+													id="signup_certify" /> <span class=""> 我同意<a
+														href="static/terms">使用条款</a>和<a href="static/privacy">隐私政策</a></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-6 col-lg-offset-3 reg-btn">
+									<button name="submit_signup" type="submit"
+										class="btn-no btn-primary">注册</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="ad-body">
+					<div class="adv-pc">
+						<div style="margin-bottom: 10px">
+							<div class="ads_43"></div>
+						</div>
+						<div style="margin-bottom: 10px">
+							<div class="ads_44"></div>
+						</div>
+						<div style="margin-bottom: 10px">
+							<div class="ads_45"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 注册主体内容结束 -->
+</div>
+
+<!-- footer -->
+<div th:replace="include/navbar/footer :: footer"></div>
+
+<!-- 右侧工具栏 -->
+<div th:replace="include/navbar/rightTool :: rightTool"></div>
+ 
+<!--  公告 -->
+<div th:replace="include/navbar/notice :: notice"></div>
+</body>
+</html>

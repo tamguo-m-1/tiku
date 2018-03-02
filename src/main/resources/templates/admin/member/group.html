@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>会员等级</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="@{../css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{../css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{../plugins/jqgrid/ui.jqgrid-bootstrap.css}">
+<link rel="stylesheet" th:href="@{../plugins/ztree/css/metroStyle/metroStyle.css}">
+<link rel="stylesheet" th:href="@{../plugins/jquery-tags-input/jquery.tagsinput.css}">
+<link rel="stylesheet" th:href="@{../css/main.css}">
+<script th:src="@{../libs/jquery.min.js}"></script>
+<script th:src="@{../plugins/layer/layer.js}"></script>
+<script th:src="@{../libs/bootstrap.min.js}"></script>
+<script th:src="@{../libs/vue.min.js}"></script>
+<script th:src="@{../plugins/jqgrid/grid.locale-cn.js}"></script>
+<script th:src="@{../plugins/jqgrid/jquery.jqGrid.min.js}"></script>
+<script th:src="@{../plugins/ztree/jquery.ztree.all.min.js}"></script>
+<script th:src="@{../plugins/jquery-tags-input/jquery.tagsinput.js}"></script>
+<script th:src="@{../js/common.js}"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.groupName" @keyup.enter="query" placeholder="会员等级名称">
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
+			<a shiro:hasPermission="memberGroup:save" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			<a shiro:hasPermission="memberGroup:update"  class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+    
+    <div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">等级名称</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="memberGroup.groupName" placeholder="等级名称"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">赠送金币</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="memberGroup.presentCoin" placeholder="赠送金币"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">所需金钱</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="memberGroup.needMoney" placeholder="所需金钱"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">过期天数</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="memberGroup.expireDay" placeholder="过期天数"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">排序码</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="memberGroup.sort" placeholder="排序码"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">等级简介</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="memberGroup.groupMemo" placeholder="等级简介"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">状态</div> 
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="0" v-model="memberGroup.status"/> 正常
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="1" v-model="memberGroup.status"/> 禁用
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">类型</div> 
+				<label class="radio-inline">
+				  <input type="radio" name="type" value="0" v-model="memberGroup.type"/> 普通
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="type" value="1" v-model="memberGroup.type"/> 收费
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div> 
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+<script th:src="@{../js/member/group.js?v=6}"></script>
+</html>

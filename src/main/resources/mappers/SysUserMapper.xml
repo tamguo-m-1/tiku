@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.SysUserMapper">
+
+  <resultMap id="BaseResultMap" type="com.tamguo.model.SysUserEntity" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    user_id, username, password, email, mobile, status, create_time , last_login_time
+  </sql>
+  
+  <select id="queryByUserName" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" /> 
+		from sys_user where username = #{username}
+  </select>
+  
+  <select id="listSysUser" parameterType="com.tamguo.model.SysUserEntity" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" /> 
+		from sys_user 
+        <where>
+            <if test="username !=null and username !=''">
+            	and username like CONCAT(CONCAT('%',#{username}),'%')
+            </if>
+            <if test="mobile !=null and mobile !=''">
+            	and mobile = #{mobile}
+            </if>
+        </where>
+  </select>
+  
+  <update id="updatePassword" parameterType="map">
+		update sys_user set `password` = #{newPassword} 
+			where user_id = #{userId} and password = #{password}
+	</update>
+    
+</mapper>

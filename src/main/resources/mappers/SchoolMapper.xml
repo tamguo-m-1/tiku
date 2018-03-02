@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tamguo.dao.SchoolMapper">
+
+	<select id="findByAreaId" resultMap="resultMap">
+		SELECT
+			s.area_id,s.image,s.`name`,s.uid
+		FROM
+			tiku_school s
+		where area_id = #{areaId}
+	</select>
+	
+</mapper>

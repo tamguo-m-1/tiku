@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>插件列表</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="@{../css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{../css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{../plugins/jqgrid/ui.jqgrid-bootstrap.css}">
+<link rel="stylesheet" th:href="@{../plugins/ztree/css/metroStyle/metroStyle.css}">
+<link rel="stylesheet" th:href="@{../plugins/jquery-tags-input/jquery.tagsinput.css}">
+<link rel="stylesheet" th:href="@{../css/main.css}">
+<script th:src="@{../libs/jquery.min.js}"></script>
+<script th:src="@{../plugins/layer/layer.js}"></script>
+<script th:src="@{../libs/bootstrap.min.js}"></script>
+<script th:src="@{../libs/vue.min.js}"></script>
+<script th:src="@{../plugins/jqgrid/grid.locale-cn.js}"></script>
+<script th:src="@{../plugins/jqgrid/jquery.jqGrid.min.js}"></script>
+<script th:src="@{../plugins/ztree/jquery.ztree.all.min.js}"></script>
+<script th:src="@{../plugins/jquery-tags-input/jquery.tagsinput.js}"></script>
+<script th:src="@{../js/common.js}"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div class="grid-btn">
+		<a class="btn btn-default" shiro:hasPermission="sys:pluginConfig:settings" @click="settings"><i class="fa fa-pencil-square-o"></i>&nbsp;设置</a>
+	</div>
+	<div v-show="showList">
+	    <table id="jqGrid"></table>
+    </div>
+</div>
+</body>
+<script th:src="@{../js/payment/paymentPlugin.js?v=6}"></script>
+</html>

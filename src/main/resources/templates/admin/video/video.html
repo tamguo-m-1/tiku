@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>视频列表</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="@{../css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{../css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{../plugins/jqgrid/ui.jqgrid-bootstrap.css}">
+<link rel="stylesheet" th:href="@{../plugins/ztree/css/metroStyle/metroStyle.css}">
+<link rel="stylesheet" th:href="@{../plugins/jquery-tags-input/jquery.tagsinput.css}">
+<link th:href="@{../plugins/fileinput/fileinput.min.css?v=2}" rel="stylesheet">
+<link rel="stylesheet" th:href="@{../css/main.css}">
+<script th:src="@{../libs/jquery.min.js}"></script>
+<script th:src="@{../plugins/layer/layer.js}"></script>
+<script th:src="@{../libs/bootstrap.min.js}"></script>
+<script th:src="@{../libs/vue.min.js}"></script>
+
+<script th:src="@{../plugins/jqgrid/grid.locale-cn.js}"></script>
+<script th:src="@{../plugins/jqgrid/jquery.jqGrid.min.js}"></script>
+
+<script th:src="@{../plugins/ztree/jquery.ztree.all.min.js}"></script>
+
+<script th:src="@{../plugins/jquery-tags-input/jquery.tagsinput.js}"></script>
+
+<script type="text/javascript" charset="utf-8" th:src="@{../plugins/umeditor/ueditor.config.js}"></script>
+<script type="text/javascript" charset="utf-8" th:src="@{../plugins/umeditor/ueditor.all.min.js}"></script>
+<script type="text/javascript" th:src="@{../plugins/umeditor/lang/zh-cn/zh-cn.js}"></script>
+
+<script th:src="@{../js/common.js}"></script>
+
+<style type="text/css">
+        .img_border {
+            border: 1px solid #bbb;
+        }
+
+        @media screen and (min-width: 800px) {
+            .container {
+                width: 800px;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            .center_toaster {
+                right: 35%;
+                width: 30%;
+            }
+        }
+
+        @media screen and (min-width: 400px) and (max-width: 799px) {
+            .center_toaster {
+                right: 25%;
+                width: 50%;
+            }
+        }
+
+        @media screen and (min-width: 200px ) and (max-width: 399px) {
+            .center_toaster {
+                right: 10%;
+                width: 80%;
+            }
+        }
+
+        .change_font {
+            font-size: 1.5em;
+        }
+
+        .button_width {
+            width: 4em;
+        }
+
+        .button_width2 {
+            width: 4em;
+        }
+
+
+        .color_white{
+            background: #ffffff;
+        }        
+</style>  
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.videoName" @keyup.enter="query" placeholder="电影名称">
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
+			<a shiro:hasPermission="video:save" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			<a shiro:hasPermission="video:update"  class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			<a shiro:hasPermission="video:recommend" class="btn btn-primary" @click="recommend"><i class="fa fa-bandcamp"></i>&nbsp;推荐</a>
+			<a shiro:hasPermission="video:delete" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+    
+    <div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal" enctype="multipart/form-data" style="width: 80%;">
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">电影名称</div>
+			   	<div class="col-sm-3">
+			      <input type="text" class="form-control" v-model="video.videoName" maxlength="255" placeholder="电影名称"/>
+			    </div>
+			    <div class="col-sm-2 control-label">标题</div>
+			   	<div class="col-sm-3">
+			      <input type="text" class="form-control" v-model="video.title" maxlength="255" placeholder="SEO标题"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			    <div class="col-sm-2 control-label">关键字</div>
+			   	<div class="col-sm-3">
+			      <input type="text" class="form-control" v-model="video.keywords" maxlength="255" placeholder="SEO关键字"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				   	<div class="col-sm-2 control-label">标签</div>
+				   	<div class="col-sm-3">
+				      <input id="tag" type="text" class="tags"  placeholder="标签"/>
+				    </div>
+				    <div class="col-sm-2 control-label">类目</div>
+				   	<div class="col-sm-3" >
+				      <ul id="menuTree" class="ztree"></ul>
+				    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">播放时长</div>
+			   	<div class="col-sm-3">
+			      <input type="text" class="form-control" v-model="video.playTime" maxlength="10" placeholder="播放时长"/>
+			    </div>
+			    <div class="col-sm-2 control-label">来源</div>
+			   	<div class="col-sm-3">
+			   		<input type="text" class="form-control" v-model="video.source" maxlength="20" placeholder="来源"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">播放地址</div>
+			   	<div class="col-sm-9">
+			      <input type="text" class="form-control" v-model="video.playUrl" placeholder="播放地址"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">简介</div>
+			   	<div class="col-sm-9">
+			      <input type="text" class="form-control" v-model="video.introduction" placeholder="简介"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">缩略图</div> 
+				<div class="col-sm-3">
+				<div class="kv-main">
+		            <div style="padding:10px; ">
+		                    <input id="file-0a" class="file" name="file" type="file" data-min-file-count="1">
+		                    <input type="hidden" id="pics" v-model="video.pics"/>
+		                    <br>
+		            </div>
+			    </div>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">描述</div>
+			   	<div class="col-sm-9">
+			      	<div id="editor"></div>
+			    </div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-2 control-label">状态</div> 
+				
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="0" v-model="video.status"/> 正常
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="status" value="1" v-model="video.status"/> 下架
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div> 
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+<script th:src="@{../plugins/fileinput/fileinput.js}" type="text/javascript"></script>
+<script th:src="@{../plugins/fileinput/fileinput_locale_zh.js}" type="text/javascript"></script>
+<script th:src="@{../js/video/video.js?s=9}"></script>
+<script>
+    
+	$('#file-0a').fileinput({
+	    language: 'zh',
+	    uploadUrl: '../uploadMultipleFile',
+	    allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+	    allowedPreviewTypes : ['image'],
+	    maxFileCount: 1,
+	    maxFileSize:2048,
+	    autoReplace:true
+	});
+    
+
+    $('#file-0a').on('fileuploaderror', function(event, data, previewId, index) {
+        var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+        console.log(data);
+        console.log('File upload error');
+    });
+
+    $('#file-0a').on('fileerror', function(event, data) {
+        console.log(data.id);
+        console.log(data.index);
+        console.log(data.file);
+        console.log(data.reader);
+        console.log(data.files);
+    });
+
+    $('#file-0a').on('fileuploaded', function(event, data, previewId, index) {
+        var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+        $('#pics').val(response.filePath);
+        console.log('File uploaded triggered');
+    });
+</script>
+</body>
+</html>
