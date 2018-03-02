@@ -80,6 +80,10 @@
     background-color: #fff;
     color: #11a68d;
 }
+.header .menu .menu-contain .contain-ul .li-hover {
+    background-color: #fff;
+    color: #11a68d;
+}
 .header .menu .menu-contain .contain-login .login-container {
     height: 46px;
     cursor: pointer;
