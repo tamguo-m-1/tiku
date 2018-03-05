@@ -42,4 +42,10 @@ public class PaperController {
         return model;
     }
 	
+	@RequestMapping(value = {"/paper/{paperId}.html"}, method = RequestMethod.GET)
+	public ModelAndView indexAction(@PathVariable String paperId , ModelAndView model){
+		model.setViewName("paper");
+		return model;
+	}
+	
 }
