@@ -4,7 +4,7 @@
 
 	<select id="findFatherMenus" resultMap="resultMap">
 		SELECT
-			uid,name,parent_id,pinyin
+			uid,name,parent_id,pinyin,is_show,orders,type,url
 		FROM
 			tiku_menu
 		where parent_id = 0 and is_show = 1 and type = 0
@@ -13,7 +13,7 @@
 	
 	<select id="findMenuByParentId" resultMap="resultMap">
 		SELECT
-			uid,name,parent_id,pinyin
+			uid,name,parent_id,pinyin,is_show,orders,type,url
 		FROM
 			tiku_menu
 		where parent_id = #{parentId}
@@ -22,7 +22,7 @@
 	
 	<select id="findAllFatherMenus" resultMap="resultMap">
 		SELECT
-			uid,name,parent_id,pinyin
+			uid,name,parent_id,pinyin,is_show,orders,type,url
 		FROM
 			tiku_menu
 		where parent_id = 0 and type = 0
@@ -31,7 +31,7 @@
 	
 	<select id="findLeftFatherMenus" resultMap="resultMap">
 		SELECT
-			uid,name,parent_id,pinyin
+			uid,name,parent_id,pinyin,is_show,orders,type,url
 		FROM
 			tiku_menu
 		where parent_id = 0 and type = 1

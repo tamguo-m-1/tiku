@@ -62,13 +62,13 @@
 			<span class="sub">科目:</span>
 			<ul class="sc-list clearfix">
 				<li th:class="${courseId == '0'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/0-' + paperType + '-' + year + '-' + area + '-1.html'}">
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/0-' + paperType + '-' + year + '-' + area + '-1.html'}">
 						全部
 					</a>
 				</li>
 
 				<li th:class="${c.uid == courseId} ? 'selected' : ''" th:each="c,cStat:${courseList}">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+c.uid+'-' + paperType + '-' + year + '-' + area + '-1.html'}" th:text="${c.name}">
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+c.uid+'-' + paperType + '-' + year + '-' + area + '-1.html'}" th:text="${c.name}">
 						理科数学
 					</a>
 				</li>
@@ -78,19 +78,19 @@
 			<span class="sub">类型:</span>
 			<ul class="sc-list clearfix">
 				<li th:class="${paperType == '0'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-0-' + year + '-' + area + '-1.html'}">全部</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-0-' + year + '-' + area + '-1.html'}">全部</a>
 				</li>
 				<li th:class="${paperType == setting.PAPER_TYPE_ZHENTI} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-' + year + '-' + area + '-1.html'}">真题试卷</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-' + year + '-' + area + '-1.html'}">真题试卷</a>
 				</li>
 				<li th:class="${paperType == setting.PAPER_TYPE_MONI} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-' + year + '-' + area + '-1.html'}">模拟试卷</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-' + year + '-' + area + '-1.html'}">模拟试卷</a>
 				</li>
 				<li th:class="${paperType == setting.PAPER_TYPE_YATI} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-' + year + '-' + area + '-1.html'}">押题预测</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-' + year + '-' + area + '-1.html'}">押题预测</a>
 				</li>
 				<li th:class="${paperType == setting.PAPER_TYPE_MINGXIAO} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MINGXIAO+'-' + year + '-' + area + '-1.html'}">名校精品</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MINGXIAO+'-' + year + '-' + area + '-1.html'}">名校精品</a>
 				</li>
 
 			</ul>
@@ -99,22 +99,22 @@
 			<span class="sub">年份:</span>
 			<ul class="sc-list clearfix">
 				<li th:class="${year == '0'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-0-' + area + '-1.html'}">全部</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-0-' + area + '-1.html'}">全部</a>
 				</li>
 				<li th:class="${year == '2017'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2017-' + area + '-1.html'}">2017</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-2017-' + area + '-1.html'}">2017</a>
 				</li>
 				<li th:class="${year == '2016'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2016-' + area + '-1.html'}">2016</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-2016-' + area + '-1.html'}">2016</a>
 				</li>
 				<li th:class="${year == '2015'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2015-' + area + '-1.html'}">2015</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-2015-' + area + '-1.html'}">2015</a>
 				</li>
 				<li th:class="${year == '2014'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2014-' + area + '-1.html'}">2014</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-2014-' + area + '-1.html'}">2014</a>
 				</li>
 				<li th:class="${year == '2013'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-2013-' + area + '-1.html'}">2013</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-2013-' + area + '-1.html'}">2013</a>
 				</li>
 			</ul>
 		</div>
@@ -122,11 +122,11 @@
 			<span class="sub">地区:</span>
 			<ul class="sc-list clearfix">
 				<li th:class="${area == '0'} ? 'selected' : ''">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-0-1.html'}">全部</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-0-1.html'}">全部</a>
 				</li>
 
 				<li th:class="${area == a.uid} ? 'selected' : ''" th:each="a,aStat:${areaList}">
-					<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-'+a.uid+'-1.html'}" th:text="${a.name}">北京</a>
+					<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-'+a.uid+'-1.html'}" th:text="${a.name}">北京</a>
 				</li>
 
 			</ul>

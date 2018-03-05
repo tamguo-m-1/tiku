@@ -30,6 +30,18 @@ public class MenuEntity implements Serializable {
 	@Column(name="parent_id")
 	private BigInteger parentId;
 	
+	@Column(name="is_show")
+	private String isShow;
+	
+	@Column(name="orders")
+	private Integer orders;
+	
+	@Column(name="type")
+	private String type;
+
+	@Column(name="url")
+	private String url;
+	
 	// 子类型
 	private List<MenuEntity> childSubjects;
 
@@ -74,6 +86,38 @@ public class MenuEntity implements Serializable {
 
 	public void setPinyin(String pinyin) {
 		this.pinyin = pinyin;
+	}
+
+	public String getIsShow() {
+		return isShow;
+	}
+
+	public void setIsShow(String isShow) {
+		this.isShow = isShow;
+	}
+
+	public Integer getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Integer orders) {
+		this.orders = orders;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

@@ -28,7 +28,7 @@
 	<div class="clearfix submenu-container">
 	    <div class="submenu clearfix" id="submenu">
 	        <ul th:class="${m.pinyin + ' subm-ul dis-none'}" th:each="m,mStat:${menuList}">
-	            <li class="subm-li" th:each="c,cmStat:${m.childSubjects}"><a href="https://tiku.baidu.com/tikupc/homepage/3f0c844769eae009581bec05" target="_blank" th:text="${c.name}">高考</a></li>
+	            <li class="subm-li" th:each="c,cmStat:${m.childSubjects}"><a th:href="${setting.domain + m.url}" target="_blank" th:text="${c.name}">高考</a></li>
 	        </ul>
 	        <div class="all-exm all dis-none">
 	            <div class="all-ul" th:each="m,mStat:${allMenuList}">
