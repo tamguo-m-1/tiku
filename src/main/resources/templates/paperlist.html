@@ -162,15 +162,15 @@
 					<ul class="page-list">
 						
 						<li class="page-num pre" th:if="${paperPage.isShowPreBtn}">
-		                    <a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-1.html'}">&lt;</a>
+		                    <a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-1.html'}">&lt;</a>
 		                </li>
                 
 						<li th:class="${paperPage.currPageNum == num} ? 'selected page-num' : 'page-num'" th:each="num,numStat:${paperPage.pageNums}">
-							<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-'+num+'.html'}" th:text="${num}">1</a>
+							<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-'+num+'.html'}" th:text="${num}">1</a>
 						</li>
 
 						<li class="page-num next" th:if="${paperPage.isShowNextBtn}">
-							<a th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-'+(paperPage.currPageNum+1)+'.html'}">&gt;</a>
+							<a th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+paperType+'-'+year+'-' + area +'-'+(paperPage.currPageNum+1)+'.html'}">&gt;</a>
 						</li>
 
 					</ul>
