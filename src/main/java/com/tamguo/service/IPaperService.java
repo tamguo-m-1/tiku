@@ -15,5 +15,7 @@ public interface IPaperService {
 
 	Page<PaperEntity> findList(String courseId, String paperType,
 			String year, String area , Integer pageNum);
+	
+	PaperEntity find(String paperId);
 
 }

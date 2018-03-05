@@ -152,7 +152,7 @@
 						<span class="read" th:text="${p.openHits}">0</span>
 						<span class="down" th:text="${p.downHits}">0</span>
 					</div>
-					<a class="paper-link" href="/tikupc/paperdetail/c772cfeeaeaad1f346933fa4?key=20170214">查看套卷</a>
+					<a class="paper-link" th:href="${setting.domain + 'paper/'+p.uid + '.html'}">查看套卷</a>
 				</div>
 
 			</div>

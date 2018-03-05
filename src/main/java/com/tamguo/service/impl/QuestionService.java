@@ -1,5 +1,7 @@
 package com.tamguo.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,11 @@ public class QuestionService implements IQuestionService{
 	@Override
 	public QuestionEntity findById(String uid) {
 		return questionMapper.select(uid);
+	}
+
+	@Override
+	public List<QuestionEntity> findPaperQuestion(String paperId) {
+		return questionMapper.findByPaperId(paperId);
 	}
 
 }

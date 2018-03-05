@@ -64,4 +64,9 @@ public class PaperService implements IPaperService{
 		return paperMapper.findList(courseId , paperType , year , area);
 	}
 
+	@Override
+	public PaperEntity find(String paperId) {
+		return paperMapper.select(paperId);
+	}
+
 }

@@ -9,7 +9,8 @@
 			p.course_id,
 			p.`name`,
 			p.type,
-			p.`year`
+			p.`year`,
+			p.question_type
 		FROM
 			tiku_paper p
 		where p.type = #{type} and p.area_id = #{areaId}
@@ -22,7 +23,8 @@
 			p.course_id,
 			p.`name`,
 			p.type,
-			p.`year`
+			p.`year`,
+			p.question_type
 		FROM
 			tiku_paper p
 		where p.area_id = #{areaId}
@@ -36,7 +38,8 @@
 			p.course_id,
 			p.`name`,
 			p.type,
-			p.`year`
+			p.`year`,
+			p.question_type
 		FROM
 			tiku_paper p
 		where p.school_id = #{schoolId}
@@ -52,7 +55,8 @@
 			p.school_id,
 			p.type,
 			p.uid,
-			p.`year`
+			p.`year`,
+			p.question_type
 		FROM
 			tiku_paper p
 		where 1 = 1

@@ -49,4 +49,13 @@ public class TamguoConstant {
 	/** 默认分页大笑*/
 	public static final Integer DEFAULT_PAGE_SIZE = 10;
 	
+	/** 单选题*/
+	public static final String QUESTION_TYOE_DANXUANTI = "1";
+	
+	/** 简答题*/
+	public static final String QUESTION_TYOE_JIANDATI = "2";
+	
+	/** 书面表达*/
+	public static final String QUESTION_TYOE_SHUMIANBIAODA = "3";
+	
 }

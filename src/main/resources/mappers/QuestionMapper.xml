@@ -21,4 +21,24 @@
 			q.chapter_id = #{chapterId}
 	</select>
 	
+	<select id="findByPaperId" resultMap="resultMap">
+		SELECT
+			q.analysis,
+			q.answer,
+			q.chapter_id,
+			q.content,
+			q.fallibility,
+			q.paper_id,
+			q.question_type,
+			q.review_point,
+			q.score,
+			q.subject_id,
+			q.uid,
+			q.`year`
+		FROM
+			tiku_question q
+		WHERE
+			q.paper_id = #{paperId}
+	</select>
+	
 </mapper>

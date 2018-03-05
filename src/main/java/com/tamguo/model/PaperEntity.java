@@ -29,6 +29,9 @@ public class PaperEntity implements Serializable {
 	@Column(name="name")
 	private String name;
 	
+	@Column(name="question_type")
+	private String questionType;
+	
 	@Column(name="type")
 	private String type;
 	
@@ -115,6 +118,14 @@ public class PaperEntity implements Serializable {
 
 	public void setOpenHits(Integer openHits) {
 		this.openHits = openHits;
+	}
+
+	public String getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
 	}
 
 }
