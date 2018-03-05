@@ -31,7 +31,7 @@ public class PaperController {
 	@RequestMapping(value = {"/paperlist/{subjectId}/{courseId}-{paperType}-{year}-{area}-{pageNum}.html"}, method = RequestMethod.GET)
     public ModelAndView indexAction(@PathVariable String subjectId , @PathVariable String courseId , @PathVariable String paperType,
     		@PathVariable String year , @PathVariable String area , @PathVariable Integer pageNum, ModelAndView model) {
-    	model.setViewName("paper");
+    	model.setViewName("paperlist");
     	model.addObject("courseList", iCourseService.findBySubjectId(subjectId));
     	model.addObject("areaList", iAreaService.findAll());
     	model.addObject("paperPage" , PageUtils.getPage(iPaperService.findList(courseId , paperType , year , area , pageNum)));
