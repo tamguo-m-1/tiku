@@ -107,89 +107,66 @@
 				<div class="gaokao-test-main">
 					<p class="title">试卷资源
 						<span class="detail">一考知底，高分必刷，全面提分</span>
-				
 						<span class="area-content">当前位置：
-										                <span class="area-name" provinceid="1">北京</span>
 						<a class="more-area-link" th:href="${setting.domain+'/paperlist/13/0-0-0-1-1.html'}" target="_blank">更多地区 &gt; </a>
 						</span>
-				
 					</p>
-				
 					<div class="paper-main">
-				
 						<div class="paper-box zhenti-box homepage-zhenti-box">
-				
 							<div class="paper-list-wrap">
 								<h3 class="paper-title">历年真题
-												
-												<a class="list-more-link" th:href="${setting.domain+'paperlist/13/0-1-0-0-1.html'}">更多真题试卷 &gt;</a>
-												
-												
-											</h3>
-				
+									<a class="list-more-link" th:href="${setting.domain+'paperlist/13/0-1-0-0-1.html'}">更多真题试卷 &gt;</a>
+								</h3>
 								<ul class="paper-list paper-list-zhenti">
-				
 									<li class="list-item" th:each="p,pStat:${historyPaperList}">
 										<p class="list-item-name">
-											<a class="list-item-name-link" data-paperid="d08fb966f5335a8102d220a5" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5" th:text="${p.name}">2017年高考真题 语文 (北京卷)</a>
+											<a class="list-item-name-link" data-paperid="d08fb966f5335a8102d220a5" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" th:text="${p.name}">2017年高考真题 语文 (北京卷)</a>
 										</p>
 										<p class="list-item-detail">
-											<a class="list-item-link list-item-link-jiexi" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5?showan=1" data-paperid="d08fb966f5335a8102d220a5" target="_blank">解析</a><span class="item-separate">|</span>
-											<a href="/tikupc/paperdetail/d08fb966f5335a8102d220a5" class=" list-item-link  list-item-link-xiazai" "=" " data-paperid="d08fb966f5335a8102d220a5 " target="_blank ">下载</a><span class="item-separate ">|</span><a href="/gaokaogufen/paperdetail/d08fb966f5335a8102d220a5 " class="list-item-link list-item-link-gufen " data-paperid="d08fb966f5335a8102d220a5 ">估分</a></p>
-													</li>
+											<a class="list-item-link list-item-link-jiexi" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" data-paperid="d08fb966f5335a8102d220a5" target="_blank">解析</a><span class="item-separate">|</span>
+											<a th:href="${setting.domain + 'paper/' + p.uid + '.html'}" class=" list-item-link  list-item-link-xiazai" data-paperid="d08fb966f5335a8102d220a5 " target="_blank ">下载</a>
+									</li>
 								</ul>
 							</div>
 						</div>
-				
 						<div class="paper-box moni-box homepage-moni-box">
-				
 							<div class="paper-list-wrap">
 								<h3 class="paper-title">模拟试卷
 									<a class="list-more-link" th:href="${setting.domain+'paperlist/13/0-2-0-0-1.html'}">更多模拟试卷 &gt;</a>
 								</h3>
 								<ul class="paper-list paper-list-moni">
-				
 									<li class="list-item" th:each="p,pStat:${simulationPaperList}">
 										<p class="list-item-name">
-											<a class="list-item-name-link" data-paperid="19f2517101f69e31433294f3" href="/tikupc/paperdetail/19f2517101f69e31433294f3" th:text="${p.name}">英语 西城区2017年高三期末考试</a>
+											<a class="list-item-name-link" data-paperid="19f2517101f69e31433294f3" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" th:text="${p.name}">英语 西城区2017年高三期末考试</a>
 										</p>
 										<p class="list-item-detail">
-											<a class="list-item-link list-item-link-jiexi" href="/tikupc/paperdetail/19f2517101f69e31433294f3?showan=1" data-paperid="19f2517101f69e31433294f3" target="_blank">解析</a><span class="item-separate">|</span>
-											<a href="/tikupc/paperdetail/19f2517101f69e31433294f3" class=" list-item-link  list-item-link-xiazai" "=" " data-paperid="19f2517101f69e31433294f3 " target="_blank ">下载</a></p>
-													</li>
+											<a class="list-item-link list-item-link-jiexi" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" data-paperid="19f2517101f69e31433294f3" target="_blank">解析</a><span class="item-separate">|</span>
+											<a th:href="${setting.domain + 'paper/' + p.uid + '.html'}" class=" list-item-link  list-item-link-xiazai" data-paperid="19f2517101f69e31433294f3 " target="_blank ">下载</a></p>
+									</li>
 								</ul>
 							</div>
 						</div>
-				
 						<div class="homepage-paper-box shiti-box">
 							<div class="hotpaper-list-wrap">
 								<h3 class="hotpaper-title">热门试卷<a class="list-more-link" th:href="${setting.domain+'/paperlist/13/0-0-0-1-1.html'}">更多热门试卷 &gt; </a>
-												</h3>
+								</h3>
 								<ul class="hotpaper-list">
-				
 									<li class="hotpaper-list-item" th:each="p,pStat:${hotPaperList}">
-										<a class="hotpaper-name" data-paperid="d08fb966f5335a8102d220a5" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5">
+										<a class="hotpaper-name" data-paperid="d08fb966f5335a8102d220a5" th:href="${setting.domain + 'paper/' + p.uid + '.html'}">
 											<span th:class="${'rank-'+(pStat.index+1) + ' hotpaper-rank'}"></span><span th:text="${p.name}">2017年高考真题 语文 (北京卷)</span>
 										</a>
 									</li>
-				
-									
-				
 								</ul>
 							</div>
 						</div>
-				
 					</div>
 				
 					<div class="school-paper-main">
-				
 						<div class="school-paper-container homepage-school-container">
 							<h3 class="school-container-title">名校精品试卷
-												<a class="school-paper-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-7-0-0-1-download">更多名校精品卷 &gt; </a>
-											</h3>
-				
+								<a class="school-paper-more-link" th:href="${setting.domain + 'paperlist/13/0-4-0-0-1.html'}">更多名校精品卷 &gt; </a>
+							</h3>
 							<div class="school-list">
-				
 								<div class="school-list-item " th:each="s,sStat:${eliteSchoolPaperList}">
 									<div class="school-wrap school-wrap-bg1">
 										<a class="famous-school-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=924cf7ec4afe04a1b071de05" data-schoolid="924cf7ec4afe04a1b071de05">
@@ -207,7 +184,7 @@
 									</div>
 									<ul class="paper-wrap">
 										<li class="paper-item" th:each="p,pStat:${s.paperList}">
-											<a class="paper-item-name" data-paperid="5ff2971ea76e58fafab0030f" href="/tikupc/paperdetail/5ff2971ea76e58fafab0030f" th:text="${p.name}">
+											<a class="paper-item-name" data-paperid="5ff2971ea76e58fafab0030f" th:href="${setting.domain + 'paper/' +p.uid+'.html'}" th:text="${p.name}">
 												语文 海淀区2016年高三期末试卷
 											</a>
 										</li>
