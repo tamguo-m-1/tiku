@@ -195,13 +195,10 @@
 						</div>
 				
 						<div class="more-school-list">
-				
-							<a class="more-school-name" th:each="s,sStat:${eliteSchoolList}" th:text="${s.name}" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=74c008a1284ac850ad024202" data-schoolid="74c008a1284ac850ad024202">
+							<a class="more-school-name" th:each="s,sStat:${eliteSchoolList}" th:text="${s.name}" th:href="${setting.domain + 'paperlist/13/0-4-0-0-1.html'}" data-schoolid="74c008a1284ac850ad024202">
 								北京市八一学校
 							</a>
-
 						</div>
-
 				        </div>
 				    </div>
 				</div>

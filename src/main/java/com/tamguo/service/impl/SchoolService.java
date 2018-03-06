@@ -33,6 +33,7 @@ public class SchoolService implements ISchoolService {
 			PageHelper.startPage(1, 3);
 			schoolList = schoolMapper.findByAreaId(TamguoConstant.BEIJING_AREA_ID);
 			for(SchoolEntity school : schoolList){
+				PageHelper.startPage(1, 3);
 				List<PaperEntity> paperList = paperMapper.findBySchoolId(school.getUid());
 				school.setPaperList(paperList);
 			}

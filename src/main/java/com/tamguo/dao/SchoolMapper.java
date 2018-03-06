@@ -8,5 +8,5 @@ import com.tamguo.mybatis.dao.BaseDao;
 public interface SchoolMapper extends BaseDao<SchoolEntity>{
 
 	List<SchoolEntity> findByAreaId(String beijingAreaId);
-
+	
 }
