@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : tamguo-beta
+Source Server         : tcz-dev
 Source Server Version : 50610
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : tiku
 
 Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2018-03-02 18:47:58
+Date: 2018-03-06 15:46:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -260,63 +260,64 @@ CREATE TABLE `tiku_menu` (
   `is_show` char(1) NOT NULL DEFAULT '0' COMMENT '是否显示在头部菜单栏目',
   `orders` char(5) NOT NULL DEFAULT '0' COMMENT '排序',
   `type` char(1) NOT NULL DEFAULT '0' COMMENT '菜单类型（0:头部菜单,1:左侧菜单）',
+  `url` varchar(200) NOT NULL DEFAULT '' COMMENT 'URL',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tiku_menu
 -- ----------------------------
-INSERT INTO `tiku_menu` VALUES ('1', '1', '职业资格类', '0', 'zhiye', '1', '1', '0');
-INSERT INTO `tiku_menu` VALUES ('2', '2', '建筑类', '0', 'jianzhu', '1', '2', '0');
-INSERT INTO `tiku_menu` VALUES ('3', '3', '学历类', '0', 'xueli', '1', '3', '0');
-INSERT INTO `tiku_menu` VALUES ('4', '4', '财会类', '0', 'caikuai', '1', '4', '0');
-INSERT INTO `tiku_menu` VALUES ('5', '5', '医药类', '0', 'yiyao', '1', '5', '0');
-INSERT INTO `tiku_menu` VALUES ('6', '6', '社会工作师', '1', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('7', '7', '企业法律顾问', '1', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('8', '8', '教师资格证', '1', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('9', '9', '助理社会工作师', '1', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('10', '10', '一级建造师', '2', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('11', '11', '二级建造师', '2', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('12', '12', '考研', '3', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('13', '13', '高考', '3', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('14', '14', '会计从业资格', '4', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('15', '15', '中级会计师', '4', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('16', '16', '注册会计师', '4', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('17', '17', '中级经济师', '4', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('18', '18', '初级会计师', '4', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('19', '19', '临床执业医师', '5', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('20', '20', '临床助理医师', '5', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('21', '21', '执业中药师', '5', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('22', '22', '执业西药师', '5', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('23', '23', '护士资格', '5', '', '1', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('24', '24', '计算机类', '0', '', '0', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('25', '25', '计算机四级', '24', '', '0', '0', '0');
-INSERT INTO `tiku_menu` VALUES ('26', '13', '高考', '0', 'gaokao', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('27', '13', '高考', '26', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('28', '2', '建筑类', '0', 'jianzhu', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('29', '10', '一级建造师', '28', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('30', '11', '二级建造师', '28', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('31', '4', '财会类', '0', 'caikuai', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('32', '14', '会计从业资格', '31', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('33', '15', '中级会计师', '31', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('34', '26', '注册会计师CPA', '31', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('35', '17', '中级经济师', '31', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('36', '18', '初级会计师', '31', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('37', '24', '计算机类', '0', 'jisuanji', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('38', '25', '计算机四级', '37', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('39', '0', '公务员', '0', 'gongwuyuan', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('40', '0', '警察招考', '39', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('41', '0', '法务干警', '39', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('42', '0', '国考', '39', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('43', '0', '医药类', '0', 'yiyao', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('44', '0', '临床执业医师', '43', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('45', '0', '临床助理医师', '43', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('46', '0', '执业中药师', '43', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('47', '0', '执业西药师', '43', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('48', '0', '护士资格', '43', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('49', '0', '其他', '0', 'qita', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('50', '0', '考研', '49', '', '0', '0', '1');
-INSERT INTO `tiku_menu` VALUES ('51', '0', '高考', '49', '', '0', '0', '1');
+INSERT INTO `tiku_menu` VALUES ('1', '1', '职业资格类', '0', 'zhiye', '1', '1', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('2', '2', '建筑类', '0', 'jianzhu', '1', '2', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('3', '3', '学历类', '0', 'xueli', '1', '3', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('4', '4', '财会类', '0', 'caikuai', '1', '4', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('5', '5', '医药类', '0', 'yiyao', '1', '5', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('6', '6', '社会工作师', '1', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('7', '7', '企业法律顾问', '1', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('8', '8', '教师资格证', '1', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('9', '9', '助理社会工作师', '1', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('10', '10', '一级建造师', '2', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('11', '11', '二级建造师', '2', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('12', '12', '考研', '3', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('13', '13', '高考', '3', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('14', '14', '会计从业资格', '4', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('15', '15', '中级会计师', '4', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('16', '16', '注册会计师', '4', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('17', '17', '中级经济师', '4', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('18', '18', '初级会计师', '4', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('19', '19', '临床执业医师', '5', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('20', '20', '临床助理医师', '5', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('21', '21', '执业中药师', '5', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('22', '22', '执业西药师', '5', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('23', '23', '护士资格', '5', '', '1', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('24', '24', '计算机类', '0', '', '0', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('25', '25', '计算机四级', '24', '', '0', '0', '0', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('26', '13', '高考', '0', 'gaokao', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('27', '13', '高考', '26', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('28', '2', '建筑类', '0', 'jianzhu', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('29', '10', '一级建造师', '28', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('30', '11', '二级建造师', '28', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('31', '4', '财会类', '0', 'caikuai', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('32', '14', '会计从业资格', '31', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('33', '15', '中级会计师', '31', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('34', '26', '注册会计师CPA', '31', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('35', '17', '中级经济师', '31', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('36', '18', '初级会计师', '31', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('37', '24', '计算机类', '0', 'jisuanji', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('38', '25', '计算机四级', '37', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('39', '0', '公务员', '0', 'gongwuyuan', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('40', '0', '警察招考', '39', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('41', '0', '法务干警', '39', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('42', '0', '国考', '39', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('43', '0', '医药类', '0', 'yiyao', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('44', '0', '临床执业医师', '43', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('45', '0', '临床助理医师', '43', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('46', '0', '执业中药师', '43', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('47', '0', '执业西药师', '43', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('48', '0', '护士资格', '43', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('49', '0', '其他', '0', 'qita', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('50', '0', '考研', '49', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('51', '0', '高考', '49', '', '0', '0', '1', 'chapter/13/2.html');
 
 -- ----------------------------
 -- Table structure for tiku_paper
@@ -328,6 +329,7 @@ CREATE TABLE `tiku_paper` (
   `school_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '学校ID',
   `area_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '地区ID',
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `question_info` text NOT NULL COMMENT '题目类型，以逗号分割',
   `type` char(1) NOT NULL DEFAULT '0' COMMENT '类型(0:真题试卷,1:模拟试卷,2:押题预测,3:名校精品)',
   `year` varchar(5) NOT NULL DEFAULT '' COMMENT '年份',
   `down_hits` int(10) NOT NULL DEFAULT '0' COMMENT '下载数量',
@@ -338,17 +340,17 @@ CREATE TABLE `tiku_paper` (
 -- ----------------------------
 -- Records of tiku_paper
 -- ----------------------------
-INSERT INTO `tiku_paper` VALUES ('1', '1', '1', '1', '2017年高考真题 理科数学 (北京卷)', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('2', '1', '1', '1', '理科数学 朝阳区2017年高三第一次模拟考试', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('3', '1', '1', '1', '理科数学 海淀区2017年高三第一次模拟考试', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('4', '1', '2', '1', '理科数学 东城区2017年高三上学期期末考试', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('5', '1', '2', '1', '理科数学 丰台区2017年高三第一次模拟考试', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('6', '1', '2', '1', '理科数学 海淀区2017年高三上学期期末考试', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('7', '3', '3', '1', '2017年高考真题 文科数学 (北京卷)', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('8', '5', '3', '1', '化学 海淀区2017年高三第一次模拟考试', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('9', '9', '3', '8', '2017年高考真题 地理 (江苏卷)', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('10', '9', '3', '24', '2017年高考真题 地理 (海南卷)', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('11', '9', '3', '9', '地理 温州市2017年高三第二次选考', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('1', '1', '1', '1', '2017年高考真题 理科数学 (北京卷)', '[{name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"},{name:\"单选题\",type:\"1\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '2', '100');
+INSERT INTO `tiku_paper` VALUES ('2', '1', '1', '1', '理科数学 朝阳区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('3', '1', '1', '1', '理科数学 海淀区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('4', '1', '2', '1', '理科数学 东城区2017年高三上学期期末考试', '', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('5', '1', '2', '1', '理科数学 丰台区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('6', '1', '2', '1', '理科数学 海淀区2017年高三上学期期末考试', '', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('7', '3', '3', '1', '2017年高考真题 文科数学 (北京卷)', '', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('8', '5', '3', '1', '化学 海淀区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('9', '9', '3', '8', '2017年高考真题 地理 (江苏卷)', '', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('10', '9', '3', '24', '2017年高考真题 地理 (海南卷)', '', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('11', '9', '3', '9', '地理 温州市2017年高三第二次选考', '', '1', '2017', '0', '0');
 
 -- ----------------------------
 -- Table structure for tiku_question
@@ -357,8 +359,9 @@ DROP TABLE IF EXISTS `tiku_question`;
 CREATE TABLE `tiku_question` (
   `uid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `question_type` char(1) NOT NULL DEFAULT '1' COMMENT '题目类型(1.单选题；2.多选题; 3.解答题)',
-  `subject_id` bigint(20) NOT NULL COMMENT '题类型',
-  `chapter_id` bigint(20) NOT NULL COMMENT '章节',
+  `subject_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '题类型',
+  `chapter_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '章节',
+  `paper_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '试卷ID',
   `content` varchar(255) NOT NULL DEFAULT '' COMMENT '题内容',
   `answer` varchar(255) NOT NULL DEFAULT '' COMMENT '答案',
   `analysis` varchar(255) NOT NULL DEFAULT '' COMMENT '解析',
@@ -367,13 +370,14 @@ CREATE TABLE `tiku_question` (
   `year` varchar(5) NOT NULL DEFAULT '' COMMENT '年份',
   `score` int(10) NOT NULL DEFAULT '0' COMMENT '分数',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tiku_question
 -- ----------------------------
-INSERT INTO `tiku_question` VALUES ('1', '3', '2', '33', '<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>', '<p>见解析。</p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>', '西方社会工作在不同发展阶段的特点,马克思思想', '2017', '5');
-INSERT INTO `tiku_question` VALUES ('2', '3', '2', '33', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p>无。</p>', '集合的含义', '2018', '13');
+INSERT INTO `tiku_question` VALUES ('1', '3', '2', '33', '1', '<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>', '<p>见解析。</p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>', '西方社会工作在不同发展阶段的特点,马克思思想', '2017', '5');
+INSERT INTO `tiku_question` VALUES ('2', '3', '2', '33', '1', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p>无。</p>', '集合的含义', '2018', '13');
+INSERT INTO `tiku_question` VALUES ('3', '1', '2', '33', '1', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>', '西方社会工作在不同发展阶段的特点,马克思思想', '2018', '5');
 
 -- ----------------------------
 -- Table structure for tiku_school
