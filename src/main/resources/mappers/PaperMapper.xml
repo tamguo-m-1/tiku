@@ -10,7 +10,7 @@
 			p.`name`,
 			p.type,
 			p.`year`,
-			p.question_type
+			p.question_info
 		FROM
 			tiku_paper p
 		where p.type = #{type} and p.area_id = #{areaId}
@@ -24,7 +24,7 @@
 			p.`name`,
 			p.type,
 			p.`year`,
-			p.question_type
+			p.question_info
 		FROM
 			tiku_paper p
 		where p.area_id = #{areaId}
@@ -39,7 +39,7 @@
 			p.`name`,
 			p.type,
 			p.`year`,
-			p.question_type
+			p.question_info
 		FROM
 			tiku_paper p
 		where p.school_id = #{schoolId}
@@ -56,7 +56,7 @@
 			p.type,
 			p.uid,
 			p.`year`,
-			p.question_type
+			p.question_info
 		FROM
 			tiku_paper p
 		where 1 = 1

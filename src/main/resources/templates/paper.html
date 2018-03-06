@@ -12,708 +12,338 @@
 	<!-- 头部-->
 	<div th:replace="include/header :: header"></div>
 		
-		<div class="content-wp">
-            
-                <div class="main">
+	<div class="content-wp">
+         <div class="main">
                     
-    <div class="title-bar">
-    <div class="title-inner">
-        <ul class="paper-title clearfix">
-            <li class="title" th:text="${paper.name}">物理 丰台区2017年高三第二次模拟考试</li>
-            <li class="learnnum" th:text="${paper.openHits}">77052</li>
-            <li class="down-num" th:text="${paper.downHits}">15921</li>
-            
-        </ul>
-        <ul class="quic-nav clearfix">
-            
-                <li class="first " th:each="qn,qtStat:${#strings.arraySplit(questionNames,',')}">
-                    <a data-type="sc" th:text="${qn}">单选题</a>
-                </li>
-            <!-- 
-                <li class=" last">
-                    <a data-type="qa">简答题</a>
-                </li> -->
-            
-        </ul>
-        
-        <a class="download-btn-wrap">
-            <span class="download-btn">
-                <span class="donwload-text">立即下载</span>
-            </span>
-        </a>
-    </div>
-</div>
-<div class="quic-nav-wrap">
-    <div class="quic-nav-inner">
-        <ul class="quic-nav clearfix">
-            
-                <li class="first " th:each="qn,qtStat:${#strings.arraySplit(questionNames,',')}">
-                    <a data-type="sc" th:text="${qn}">单选题</a>
-                </li>
-            <!-- 
-                <li class=" last">
-                    <a data-type="qa">简答题</a>
-                </li> -->
-            
-        </ul>
-        <a class="download-btn-wrap">
-            <span class="download-btn">
-                <span class="donwload-text">立即下载</span>
-            </span>
-        </a>
-        
-    </div>
-</div>
+		    <div class="title-bar">
+			    <div class="title-inner">
+			        <ul class="paper-title clearfix">
+			            <li class="title" th:text="${paper.name}">物理 丰台区2017年高三第二次模拟考试</li>
+			            <li class="learnnum" th:text="${paper.openHits}">77052</li>
+			            <li class="down-num" th:text="${paper.downHits}">15921</li>
+			            
+			        </ul>
+			        <ul class="quic-nav clearfix">
+			            <li class="first " th:each="qi,qtStat:${paper.queInfo}">
+			                <a data-type="sc" th:text="${qi.name}">单选题</a>
+			            </li>
+			        </ul>
+			        <a class="download-btn-wrap">
+			            <span class="download-btn">
+			                <span class="donwload-text">立即下载</span>
+			            </span>
+			        </a>
+			    </div>
+			</div>
+			<div class="quic-nav-wrap">
+			    <div class="quic-nav-inner">
+			        <ul class="quic-nav clearfix">
+			            <li class="first " th:each="qi,qtStat:${paper.queInfo}">
+			                <a data-type="sc" th:text="${qi}">单选题</a>
+			            </li>
+			        </ul>
+			        <a class="download-btn-wrap">
+			            <span class="download-btn">
+			                <span class="donwload-text">立即下载</span>
+			            </span>
+			        </a>
+			    </div>
+			</div>
+			
+			<!-- 下载模版 -->
+			<div class="downleader">
+			    <span class="download-icon d-ok"></span>
+			    <span class="download-icon d-no-word"></span>
+			    <span class="download-icon d-no-count"></span>
+			    <div class="downleader-hotpaper">
+			        <h1 class="paper-title">物理 热门试卷</h1>
+			        <ul class="paper-ul">
+			            
+			            <li class="paper-li">
+			                <i class="paper-icon paper-1"></i>
+			                <a href="//tiku.baidu.com/tikupc/paperdetail/adf16780d4d8d15abe234ef6" class="paper-contain">
+			                    2017年高考真题 物理 (海南卷)
+			                </a>
+			            </li>
+			            
+			            <li class="paper-li">
+			                <i class="paper-icon paper-4"></i>
+			                <a href="//tiku.baidu.com/tikupc/paperdetail/b95f8c4c2e3f5727a5e9626c" class="paper-contain">
+			                    物理 2017年第二次联考
+			                </a>
+			            </li>
+			            
+			            <li class="paper-li">
+			                <i class="paper-icon paper-1"></i>
+			                <a href="//tiku.baidu.com/tikupc/paperdetail/328976c789eb172ded63b7a1" class="paper-contain">
+			                    2017年高考真题 物理 (江苏卷)
+			                </a>
+			            </li>
+			            
+			            <li class="paper-li">
+			                <i class="paper-icon paper-1"></i>
+			                <a href="//tiku.baidu.com/tikupc/paperdetail/e361936648d7c1c708a14500" class="paper-contain">
+			                    2016年高考真题 物理 (江苏卷)
+			                </a>
+			            </li>
+			            
+			            <li class="paper-li">
+			                <i class="paper-icon paper-4"></i>
+			                <a href="//tiku.baidu.com/tikupc/paperdetail/8b4bdd7d27284b73f2425066" class="paper-contain">
+			                    物理 2017年第三次模拟考试
+			                </a>
+			            </li>
+			            
+			        </ul>
+			    </div>
+			    <span class="downleader-close">X</span>
+			    <!-- <span class="downleader-ok">知道啦</span> -->
+			    <a class="downleader-more" href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-18-0-0-0-1-download">查看更多试卷</a>
+			</div>
 
-<div class="downleader">
-    <span class="download-icon d-ok"></span>
-    <span class="download-icon d-no-word"></span>
-    <span class="download-icon d-no-count"></span>
-    <div class="downleader-hotpaper">
-        <h1 class="paper-title">物理 热门试卷</h1>
-        <ul class="paper-ul">
-            
-            <li class="paper-li">
-                <i class="paper-icon paper-1"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/adf16780d4d8d15abe234ef6" class="paper-contain">
-                    2017年高考真题 物理 (海南卷)
-                </a>
-            </li>
-            
-            <li class="paper-li">
-                <i class="paper-icon paper-4"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/b95f8c4c2e3f5727a5e9626c" class="paper-contain">
-                    物理 2017年第二次联考
-                </a>
-            </li>
-            
-            <li class="paper-li">
-                <i class="paper-icon paper-1"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/328976c789eb172ded63b7a1" class="paper-contain">
-                    2017年高考真题 物理 (江苏卷)
-                </a>
-            </li>
-            
-            <li class="paper-li">
-                <i class="paper-icon paper-1"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/e361936648d7c1c708a14500" class="paper-contain">
-                    2016年高考真题 物理 (江苏卷)
-                </a>
-            </li>
-            
-            <li class="paper-li">
-                <i class="paper-icon paper-4"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/8b4bdd7d27284b73f2425066" class="paper-contain">
-                    物理 2017年第三次模拟考试
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <span class="downleader-close">X</span>
-    <!-- <span class="downleader-ok">知道啦</span> -->
-    <a class="downleader-more" href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-18-0-0-0-1-download">查看更多试卷</a>
+			<!-- 主体内容 -->
+    		<div class="bd-content" style="visibility: visible;">
+	        	<div class="quelist-wrap">
+	        	<div class="ques-container" th:each="p,pStat:${paper.queInfo}">
+	        			<div class="ques-info-wrap">
+			            <span class="que-type">单选题</span>
+			            <span class="que-info" th:text="${p.title}">本大题共<span class="count">15</span>小题，每小题<span class="score">1</span>分，共<span class="total-score">15</span>分。在每小题给出的4个选项中，有且只有一项是符合题目要求。</span>
+			        </div>
+	                <div th:attr="data-id=${q.uid},data-index=${q.uid}" class="question-box que-multi" th:if="${q.questionType == p.type}" th:each="q,qStat:${questionList}">
+						    <div class="question-box-inner" >
+						        <span class="queindex-wrap"><span class="queindex" th:text="${qStat.index + 1}">1</span></span>
+						        <span class="pieces">
+						                多选题
+						        </span>
+						        <div class="que-stem">
+						            <div class="questem-inner bdjson" th:utext="${q.content }"><p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p></div>
+						        </div>
+						        <div class="view-analyse">
+								    <a class="view-link" th:href="${setting.domain + 'question/' + q.uid + '.html'}">查看题目解析 &gt;</a>
+								</div>
+						    </div>	
+					</div>
+				</div>
+				
+				<!-- 推荐试卷 -->
+			    <div class="recpaper">
+				    <ul class="recp-title clearfix">
+				        <li class="recp-li repc-curr" data-class="zhenti">真题试卷</li>
+				        <li class="recp-border"></li>
+				        <li class="recp-li" data-class="moni">模拟试卷</li>
+				        <li class="recp-border"></li>
+				        <li class="recp-li" data-class="yuce">预测试卷</li>
+				    </ul>
+				    <div class="recp-contain recp-dis-zhenti" style="display: block;">
+				        <ul class="clearfix">
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/a23519116c175f0e7cd137bd" class="recp-link" data-class="zhenti">
+				                    2017年高考真题 英语 (浙江卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/96dfb81ca300a6c30c229fbd" class="recp-link" data-class="zhenti">
+				                    2017年高考真题 英语 (天津卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/d67b685abe23482fb4da4ca6" class="recp-link" data-class="zhenti">
+				                    2017年高考真题 英语 (全国III卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/accb1d5177232f60ddcca1a6" class="recp-link" data-class="zhenti">
+				                    2017年高考真题 英语 (江苏卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/4164d837ee06eff9aef807a7" class="recp-link" data-class="zhenti">
+				                    2017年高考真题 英语 (全国II卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/a8a6d5175f0e7cd1842536b2" class="recp-link" data-class="zhenti">
+				                    2017年高考真题 英语 (全国I卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/fe03bcdaa58da0116c174929" class="recp-link" data-class="zhenti">
+				                    2016年高考真题 英语 (江苏卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-zhen"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/48fe3bd4b14e852458fb5729" class="recp-link" data-class="zhenti">
+				                    2016年高考真题 英语 (上海卷)
+				                </a>
+				            </li>
+				            <a href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-24-1-0-0-1-download" class="recp-more" data-class="zhenti">查看更多真题试卷 &gt;</a>
+				        </ul>
+				    </div>
+				    <div class="recp-contain recp-dis-moni" style="display: none;">
+				        <ul class="clearfix">
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/19f2517101f69e31433294f3" class="recp-link" data-class="moni">
+				                    英语 2017年期末考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/451105eb6294dd88d0d26bc7" class="recp-link" data-class="moni">
+				                    英语 2017年第一次模拟考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/d6d8ef0203d8ce2f00662354" class="recp-link" data-class="moni">
+				                    英语 2017年第三次模拟考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/eb4b51d8d15abe23482f4dce" class="recp-link" data-class="moni">
+				                    英语 2017年第一次质检考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/5b27b6f67c1cfad6195fa7ca" class="recp-link" data-class="moni">
+				                    英语 2016年第二次模拟考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/2c870c42a8956bec0975e37b" class="recp-link" data-class="moni">
+				                    英语 2016年第二次模拟考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/659150f7ba0d4a7302763a7b" class="recp-link" data-class="moni">
+				                    英语 2016年第二次模拟考试
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-mo"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/5b40b6f67c1cfad6195fa7ad" class="recp-link" data-class="moni">
+				                    英语 2016年第二次模拟考试
+				                </a>
+				            </li>
+				            <a href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-24-4-0-0-1-download" class="recp-more" data-class="moni">查看更多模拟试卷 &gt;</a>
+				        </ul>
+				    </div>
+				    <div class="recp-contain recp-dis-yuce" style="display: none;">
+				        <ul class="clearfix">
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/676ba1c7aa00b52acfc7caa1" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (大纲全国卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/cf81a5e9856a561252d36fa3" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (江苏卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/14a4de80d4d8d15abe234ea3" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (辽宁卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/988869eae009581b6bd9ebca" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (上海卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/740808a1284ac850ad0242ca" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (安徽卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/14cdde80d4d8d15abe234eca" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (全国新课标卷II)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/644fd4d8d15abe23482f4dca" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (山东卷)
+				                </a>
+				            </li>
+				            <li class="recp-contain-li">
+				                <i class="recp-icon repc-ya"></i>
+				                <a href="//tiku.baidu.com/tikupc/paperdetail/b81e84254b35eefdc8d333ca" class="recp-link" data-class="yuce">
+				                    2015年高考权威预测卷 英语 (湖北卷)
+				                </a>
+				            </li>
+				        </ul>
+				        <a href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-24-2-0-0-1-download" class="recp-more" data-class="yuce">查看更多预测试卷 &gt;</a>
+				    </div>
+				</div>
+                <div class="crumbs">
+                    <a href="http://localhost/">百度题库</a> &gt;
+                    <a href="/tikupc/chapterlist/3f0c844769eae009581bec05-0-knowpoint-11">社会工作师</a> &gt;
+                    <a href="/tikupc/chapterlist/3f0c844769eae009581bec05-152-knowpoint-11">综合能力（中级）</a> &gt;
+                    <span>中国社会工作在不同发展阶段的特点</span>
+                 </div>
+	        </div>
+	        <div class="queanalyse-wrap" style="position: fixed; left: 1151.5px; top: 162px; height: 757px; display: none;">
+			   <div class="close-btn"></div>
+			   <div class="content-wrap" id="queanalyse-content" style="overflow: hidden; position: relative; outline: none;" tabindex="0">
+			   <div class="analyse-content" style="transform: translate3d(0px, 0px, 0px);">
+			   <div class="que-title-wrap"> 
+			   <div class="title"> 
+				   <span class="content-wrap"> 
+				   	   <span class="dt-index">1</span> 
+					   <span class="content"> 
+					   <span style="display:  none "> 第(0)小题</span>正确答案及相关解析 </span> 
+				   </span> 
+			   </div> 
+			   <hr style="display:  none ">
+			   </div>
+			   <div class="exam-answer"> 
+			   		<h3 class="exam-answer-title">正确答案</h3>  
+			   		<div class="answer-item"> 
+			   		<div class="content exam-answer-content bdjson"><p>见解析。</p></div> 
+			   		</div> 
+			   	</div>
+			   	<div class="exam-analysis exam-info"> 
+			   		<h3 class="exam-analysis-title">
+			   		<span class="ic analysis-ic">解析</span></h3> 
+			   		<div class="content exam-analysis-content bdjson"><p><span>设</span></p></div>
+			   	</div> 
+			   	</div>
+			    <div class="nicescroll-rails nicescroll-rails-vr" id="ascrail2000" style="width: 5px; z-index: 5555; cursor: default; position: absolute; top: 0px; right: 0px; touch-action: none; height: 859px; opacity: 0; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(219, 219, 219); border: 0px; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div class="nicescroll-rails nicescroll-rails-hr" id="ascrail2000-hr" style="height: 5px; z-index: 5555; position: absolute; left: 0px; bottom: 0px; cursor: default; width: 354px; opacity: 0; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(219, 219, 219); border: 0px; background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div></div>
+			    <div class="toolbar ui-border-top">
+			        <ul class="toolbar-ul">
+			            <li class="pre-li disable"><span class="pre">上一题</span></li>
+			            <li class="center-li">
+			                <span class="current">1</span>/<span class="total">2</span>
+			            </li>
+			            <li class="next-li"><span class="next">下一题</span></li>
+			        </ul>
+			    </div>
+			</div>
+   	 	</div>
+ 	</div>
 </div>
-
-
-    
-    
-    <div class="bd-content" style="visibility: visible;">
-        <div class="quelist-wrap">
-            
-                
-                
-                    <div class="ques-container sc">
-    <div class="quesct-inner">
-        <div class="ques-info-wrap">
-            <span class="que-type">单选题</span>
-            <span class="que-info">本大题共<span class="count">5</span>小题，每小题<span class="score">6</span>分，共<span class="total-score">30</span>分。在每小题给出的4个选项中，有且只有一项是符合题目要求。</span>
-        </div>
-        <div class="ques-wrap">
-            
-                <div class="question-box que-select" data-id="aa4d8b69a45177232f60a262" data-index="0">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">1</span></span>
-        
-        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>1．下列关于细胞物质组成、结构及代谢的叙述正确的是(      )</span></p> 
-    </div>
-</div>
-<div class="que-options">
-    <div class="queoptions-inner bdjson clearfix">
-        <div class="opt-item" style="display: block;"><p><span class="prefix">A</span><span>组成Ti质粒的化学元素分别为C、H、O、N</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">B</span><span>植物激素和动物的生长激素都属于分泌蛋白</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">C</span><span>同质量的脂肪彻底氧化分解所放能量比糖类多</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">D</span><span>蓝藻和酿酒所用酵母菌的细胞中均不含线粒体</span></p></div> 
-    </div>
-</div>
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 6分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/aa4d8b69a45177232f60a262">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/aa4d8b69a45177232f60a262">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/aa4d8b69a45177232f60a262">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-                <div class="question-box que-select " data-id="76d60a717fd5360cba1adb7d" data-index="1">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">2</span></span>
-        
-        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>2．某些植物在早春开花时，花序细胞的耗氧速率高出其他细胞100倍以上，但单位质量葡萄糖生成ATP的量却只有其他细胞的40％，据此推测，此时的花序细胞(       )</span></p> 
-    </div>
-</div>
-<div class="que-options">
-    <div class="queoptions-inner bdjson clearfix">
-        <div class="opt-item" style="display: block;"><p><span class="prefix">A</span><span>主要通过无氧呼吸生成ATP</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">B</span><span>释放的热量远多于其他细胞</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">C</span><span>线粒体基质不参与有氧呼吸</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">D</span><span>没有进行有氧呼吸第三阶段</span></p></div> 
-    </div>
-</div>
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 6分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/76d60a717fd5360cba1adb7d">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/76d60a717fd5360cba1adb7d">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/76d60a717fd5360cba1adb7d">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-                <div class="question-box que-select " data-id="c306c5d5360cba1aa811da7d" data-index="2">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">3</span></span>
-        
-        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p class="ext_text-align_left"><span>3.栖息地破坏和片段化是诸多野生动物种群数量减少的重要原因之一。当这些野生动物种群数量进一步减少变成小种群时，不会出现(        )</span></p> 
-    </div>
-</div>
-<div class="que-options">
-    <div class="queoptions-inner bdjson clearfix">
-        <div class="opt-item" style="display: block;"><p class="ext_text-align_left"><span class="prefix">A</span><span>等位基因频率往往在世代间发生显著变化</span></p></div> <div class="opt-item" style="display: block;"><p class="ext_text-align_left"><span class="prefix">B</span><span>近亲交配导致有害基因纯合化的概率增加</span></p></div> <div class="opt-item" style="display: block;"><p class="ext_text-align_left"><span class="prefix">C</span><span>基因多样性降低导致适应环境的变异减少</span></p></div> <div class="opt-item" style="display: block;"><p class="ext_text-align_left"><span class="prefix">D</span><span>种内斗争加剧导致种群的出生率明显下降</span></p></div> 
-    </div>
-</div>
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 6分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/c306c5d5360cba1aa811da7d">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/c306c5d5360cba1aa811da7d">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/c306c5d5360cba1aa811da7d">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-                <div class="question-box que-select " data-id="ad0f1e5177232f60ddcca162" data-index="3">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">4</span></span>
-        
-        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>4．G418是一种抗生素，可通过影响核糖体的功能而阻断蛋白质合成，而neo基因的表达产物可使G418失效。下表为G418对不同细胞致死时的最低用量，以下分析不正确的是 （    ）</span></p><p><img data-lazysrc="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/10dfa9ec8a136327f4277d159a8fa0ec09fac7ca.jpg" width="403px" height="93px" class="scale-img"></p> 
-    </div>
-</div>
-<div class="que-options">
-    <div class="queoptions-inner bdjson clearfix">
-        <div class="opt-item" style="display: block;"><p><span class="prefix">A</span><span>G418不干扰neo基因的转录和翻译</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">B</span><span>G418可有效抑制植物愈伤组织的生长</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">C</span><span>不同真核细胞对G418的敏感度不同</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">D</span><span>neo基因可作为基因工程的标记基因</span></p></div> 
-    </div>
-</div>
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 6分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/ad0f1e5177232f60ddcca162">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/ad0f1e5177232f60ddcca162">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/ad0f1e5177232f60ddcca162">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-                <div class="question-box que-select last" data-id="3937cd232f60ddccda38a062" data-index="4">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">5</span></span>
-        
-        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>5．给实验用的大鼠静脉注射大量低渗食盐水后，分别从其膀胱（暂时贮存尿液）和动脉采集血液并进行成分分析，结果如下表。据此结果可以推测注射食盐水后（    ）</span></p><p><img data-lazysrc="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/242dd42a2834349bbc91d1a3c2ea15ce36d3be05.jpg" width="532px" height="155px" class="scale-img"></p> 
-    </div>
-</div>
-<div class="que-options">
-    <div class="queoptions-inner bdjson clearfix">
-        <div class="opt-item" style="display: block;"><p><span class="prefix">A</span><span>细胞外液渗透压升高</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">B</span><span>垂体释放抗利尿激素减少</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">C</span><span>肾小管重吸收水能力增强</span></p></div> <div class="opt-item" style="display: block;"><p><span class="prefix">D</span><span>胰岛B细胞分泌胰岛素增加</span></p></div> 
-    </div>
-</div>
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 6分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/3937cd232f60ddccda38a062">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/3937cd232f60ddccda38a062">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/3937cd232f60ddccda38a062">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-        </div>
-    </div>
-</div>
-                
-            
-                
-                
-                    <div class="ques-container qa">
-    <div class="quesct-inner">
-        <div class="ques-info-wrap">
-            <span class="que-type">简答题（综合题）</span>
-            <span class="que-info">本大题共<span class="total-score">52</span>分。简答应写出文字说明、证明过程或演算步骤。</span>
-        </div>
-        <div class="ques-wrap">
-            
-                
-                <div class="question-box que-multi " data-id="0ba28c0cba1aa8114431d97d" data-index="5">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">6</span></span>
-        
-        <div class="que-stem">
-            <div class="questem-inner bdjson">
-               <p><span>某种南瓜矮生突变体可分为两类：激素合成缺陷型突变体和激素不敏感型突变体。为研究某种矮生南瓜的矮生突变体属于哪种类型，研究者应用赤霉素和生长素溶液进行了相关实验，结果如图所示。请据图分析并回答：</span></p><p><img data-lazysrc="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/8c1001e93901213f50cef1fa5fe736d12f2e9513.jpg" width="548px" height="199px" class="scale-img"></p>
-            </div>
-        </div>
-        
-        <div class="child-ques">
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p class="ext_text-align_left"><span>6.为得到某浓度激素处理后的实验数据，研究者需要测量两种南瓜茎_____的长度，并计算出伸长量；而且需要取每组各株南瓜茎伸长量的__________作为该组的实验结果。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>7.赤霉素对正常南瓜茎有___________作用，而对___________几乎无作用；生长素的生理作用具有______</span><span class="ext_underline">  </span><span>_的特点。南瓜茎对</span><span class="ext_underline">       </span><span>更敏感。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>8.喷施赤霉素或生长素_______（能，不能）使矮生南瓜的茎恢复至正常，由此可推测：该矮生南瓜不属于_____________突变体。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>9.从右显示的结果看，两种南瓜茎中赤霉素和生长素的含量______</span><span class="ext_underline">    </span><span>，该结果</span><span class="ext_underline">           </span><span>（支持/不支持）上述推测。</span></p><p><img data-lazysrc="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/810a19d8bc3eb1352a11089dad1ea8d3fc1f44c5.jpg" width="268px" height="188px" class="scale-img"></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-        </div>
-        
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 18分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/0ba28c0cba1aa8114431d97d">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/0ba28c0cba1aa8114431d97d">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/0ba28c0cba1aa8114431d97d">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-                
-                <div class="question-box que-multi " data-id="e9459560ddccda38376baf62" data-index="6">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">7</span></span>
-        
-        <div class="que-stem">
-            <div class="questem-inner bdjson">
-               <p><span>小鼠的MHC（主要组织相容性复合体）由位于17号染色体上的基因群控制，科学家利用基因群组成为aa 的A品系小鼠和基因群组成为bb的 B品系小鼠进行了如下图所示的杂交实验，并获得了X品系小鼠。请据此图回答：（注：不考虑MHC基因群内各基因通过染色体交叉互换进行基因重组）</span></p><p class="ext_text-align_center"><img data-lazysrc="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/32fa828ba61ea8d3e0f4cb229c0a304e241f58c5.jpg" width="550px" height="158px" class="scale-img"></p>
-            </div>
-        </div>
-        
-        <div class="child-ques">
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>10.小鼠MHC的遗传_</span><span class="ext_underline">        </span><span>（遵循、不遵循）基因的自由组合定律，F</span><span class="ext_valign_sub">1</span><span>的基因群组成为________。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>11.研究表明，器官移植时受体是否对供体器官发生免疫排斥，只取决于两者的MHC是否完全相同。从F</span><span class="ext_valign_sub">2</span><span>、F</span><span class="ext_valign_sub">3</span><span>、……或F</span><span class="ext_valign_sub">20</span><span>中选出基因群组成为ab的小鼠的方法是：将每只小鼠的皮肤移植到A品系小鼠身上，选择___________________</span><span class="ext_underline">  </span><span>。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>12.F</span><span class="ext_valign_sub">21</span><span>中X品系小鼠占的比例是_______，获得的X品系小鼠的遗传物质除了MHC基因群外，其他与_______品系小鼠的基本一致。若将X品系小鼠的皮肤移植到_______品系小鼠时会发生免疫排斥。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>13.已知小鼠对M、N抗原免疫应答由一对等位基因控制，A品系小鼠对M应答，对N不应</span></p><p><span>答；B品系小鼠对M不应答，对N应答；F</span><span class="ext_valign_sub">1</span><span>对M、N均应答。</span></p><p><span>①F</span><span class="ext_valign_sub">21</span><span>小鼠的表现型有________种。</span></p><p><span>②若X品系小鼠的表现型为_______________________________，则能确定小鼠针对M、N免疫应答的基因属于MHC基因群。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-        </div>
-        
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 16分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/e9459560ddccda38376baf62">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/e9459560ddccda38376baf62">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/e9459560ddccda38376baf62">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-                
-                <div class="question-box que-multi last" data-id="b00667ccda38376baf1fae62" data-index="7">
-    <div class="question-box-inner">
-        <span class="queindex-wrap"><span class="queindex">8</span></span>
-        
-        <div class="que-stem">
-            <div class="questem-inner bdjson">
-               <p><span>为探究存在于肿瘤细胞中的逆转录病毒是否能破坏哺乳动物的免疫监测功能，科学家利用RNA干扰技术抑制小鼠黑色素瘤细胞（ERV）中的逆转录病毒关键基因的表达，进行了如图所示的实验，据此回答有关问题：</span></p>
-            </div>
-        </div>
-        
-        <div class="child-ques">
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><img data-lazysrc="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/4e4a20a4462309f737a51234790e0cf3d6cad6ca.jpg" width="554px" height="218px" class="scale-img"><span>14.图甲所示，</span><span class="ext_underline ext_valign_sub">                 </span><span>酶能与表达载体上的启动子结合，该酶来自</span><span class="ext_underline">        </span><span>。以RNA干扰序列为模板经</span><span class="ext_underline">             </span><span>过程生成的干扰RNA，与ERV中逆转录病毒关键基因的mRNA结合，导致该基因无法表达。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>15.被导入表达载体的ERV称为ERV</span><span class="ext_valign_sup">KD</span><span>。将等量的ERV和ERV</span><span class="ext_valign_sup">KD</span><span>分别注射到多只免疫缺陷小鼠体内，结果如图乙所示。从图乙可知，两种肿瘤细胞在免疫缺陷小鼠体内的增长速率</span><span class="ext_underline">        </span><span class="ext_valign_sub"> </span><span>。说明抑制逆转录病毒基因的表达对ERV的成瘤能力</span><span class="ext_underline">                   </span><span>。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-                <div class="child-wrap">
-                    
-                        <div class="que-stem">
-    <div class="questem-inner bdjson">
-       <p><span>16.将等量的ERV和ERV</span><span class="ext_valign_sup">KD</span><span>分别注射到多只正常小鼠体内，一定时间后，计算小鼠的</span><span class="ext_underline">          </span><span>，结果如图丙所示。实验组注射</span><span class="ext_underline">              </span><span> 、小鼠存活率高，证明了</span><span class="ext_underline">                 </span><span>。</span></p> 
-    </div>
-</div>
-                    
-                </div>
-            
-        </div>
-        
-        <div class="view-analyse">
-    
-    	
-        <span class="que-score">分值: 18分</span>
-    	
-    
-    <!-- <a class="view-collect" href="//gaokao.baidu.com/web/singledetail/b00667ccda38376baf1fae62">收藏</a>
-    <a class="view-err" href="//gaokao.baidu.com/web/singledetail/b00667ccda38376baf1fae62">纠错</a> -->
-    <a class="view-link" href="//tiku.baidu.com/tikupc/singledetail/b00667ccda38376baf1fae62">查看题目解析 &gt;</a>
-</div>
-
-    </div>
-</div>
-
-            
-        </div>
-    </div>
-</div>
-                
-            
-
-            
-<div class="recpaper">
-    <ul class="recp-title clearfix">
-        
-        <li class="recp-li repc-curr" data-class="zhenti">真题试卷</li>
-        <li class="recp-border"></li>
-        
-        
-        <li class="recp-li" data-class="moni">模拟试卷</li>
-            
-                <li class="recp-border"></li>
-            
-        
-        
-        <li class="recp-li" data-class="yuce">预测试卷</li>
-        
-    </ul>
-    
-    <div class="recp-contain recp-dis-zhenti" style="display: block;">
-        <ul class="clearfix">
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/adf16780d4d8d15abe234ef6" class="recp-link" data-class="zhenti">
-                    2017年高考真题 物理 (海南卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/328976c789eb172ded63b7a1" class="recp-link" data-class="zhenti">
-                    2017年高考真题 物理 (江苏卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/7c073969a45177232f60a229" class="recp-link" data-class="zhenti">
-                    2016年高考真题 物理 (海南卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/1b06b6d5b9f3f90f76c61b03" class="recp-link" data-class="zhenti">
-                    2016年高考真题 物理 (上海卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/e361936648d7c1c708a14500" class="recp-link" data-class="zhenti">
-                    2016年高考真题 物理 (江苏卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/6cf5d25abe23482fb4da4c28" class="recp-link" data-class="zhenti">
-                    2015年高考真题 物理 (上海卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/691a974bcf84b9d528ea7a07" class="recp-link" data-class="zhenti">
-                    2015年高考真题 物理 (江苏卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-zhen"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/411211661ed9ad51f01df221" class="recp-link" data-class="zhenti">
-                    2015年高考真题 物理 (海南卷)
-                </a>
-            </li>
-            
-            <a href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-18-1-0-0-1-download" class="recp-more" data-class="zhenti">查看更多真题试卷 &gt;</a>
-        </ul>
-    </div>
-    
-    
-    <div class="recp-contain recp-dis-moni" style="display: none;">
-        <ul class="clearfix">
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/0c58c619227916888486d787" class="recp-link" data-class="moni">
-                    物理 2017年第二次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/bb9795a6f524ccbff1218495" class="recp-link" data-class="moni">
-                    物理 2017年第一次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/7a08bf360b4c2e3f57276312" class="recp-link" data-class="moni">
-                    物理 2016年第一次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/581154cfa1c7aa00b52acb6b" class="recp-link" data-class="moni">
-                    物理 2016年第二次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/656cc97da26925c52cc5bfd6" class="recp-link" data-class="moni">
-                    物理 2016年第二次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/9ec52bc52cc58bd63186bda9" class="recp-link" data-class="moni">
-                    物理 2016年第二次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/ab468fc758f5f61fb73666a9" class="recp-link" data-class="moni">
-                    物理 2016年第二次模拟考试
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-mo"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/bedd0ff69e314332396893a9" class="recp-link" data-class="moni">
-                    物理 2016年第二次模拟考试
-                </a>
-            </li>
-            
-            <a href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-18-4-0-0-1-download" class="recp-more" data-class="moni">查看更多模拟试卷 &gt;</a>
-        </ul>
-    </div>
-    
-    
-    <div class="recp-contain recp-dis-yuce" style="display: none;">
-        <ul class="clearfix">
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-ya"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/cb19c02f0066f5335a8121c4" class="recp-link" data-class="yuce">
-                    2016年高考权威预测卷 物理
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-ya"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/dca7856fb84ae45c3b358cb5" class="recp-link" data-class="yuce">
-                    2016年高考权威预测卷 物理
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-ya"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/d4c7a11614791711cc7917d0" class="recp-link" data-class="yuce">
-                    2016年高考权威预测卷 物理
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-ya"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/280eb0717fd5360cba1adbaa" class="recp-link" data-class="yuce">
-                    2015年高考权威预测卷 物理 (江苏卷)
-                </a>
-            </li>
-            
-            <li class="recp-contain-li">
-                <i class="recp-icon repc-ya"></i>
-                <a href="//tiku.baidu.com/tikupc/paperdetail/9098ee06eff9aef8941e06aa" class="recp-link" data-class="yuce">
-                    2015年高考权威预测卷 物理 (上海卷)
-                </a>
-            </li>
-            
-        </ul>
-        <a href="//tiku.baidu.com/tikupc/paperlist/1bfd700abb68a98271fefa04-18-2-0-0-1-download" class="recp-more" data-class="yuce">查看更多预测试卷 &gt;</a>
-    </div>
-    
-</div>
-
-
-
-
-            
-        </div>
-        <div class="queanalyse-wrap" style="position: fixed; left: 1151.5px; top: 162px; height: 757px;">
-   <div class="close-btn"></div>
-   <div class="content-wrap" id="queanalyse-content" tabindex="0" style="overflow: hidden; position: relative; outline: none;">
-      <div class="analyse-content" style="transform: translate3d(0px, 0px, 0px);"><div class="que-title-wrap"> <div class="title"> <span class="content-wrap"> <span class="dt-index">1</span> <span class="content"> <span style="display:  none "> 第(0)小题</span>正确答案及相关解析 </span> </span> </div> <hr style="display:  none "></div><div class="exam-answer"> <h3 class="exam-answer-title">正确答案</h3>  <div class="answer-item"> <div class="content exam-answer-content bdjson"> <span>C</span> </div> </div> </div><div class="exam-analysis exam-info"> <h3 class="exam-analysis-title"><span class="ic analysis-ic">解析</span></h3> <div class="content exam-analysis-content bdjson"> <p><span>Ti质粒实质是DNA，故组成化学元素分别为C、H、O、N 、P ，A错；植物激素种类不同，则化学性质不同，动物的生长激素属于分泌蛋白，B错；脂肪含氢键比例高于糖，同质量的脂肪彻底氧化分解所放能量比糖类多， C正确；酵母菌是真核细胞，含线粒体，蓝藻是原核细胞，不含线粒体，D错．故选</span><span class="ext_bold">C</span><span>．</span></p> </div></div><div class="exam-direction exam-info"> <h3 class="exam-direction-title"><span class="ic direction-ic">考查方向</span></h3> <div class="content exam-direction-content bdjson"> 考查真核细胞原核细胞结构，细胞中的化合物． </div></div><div class="exam-skill exam-info"> <h3 class="exam-skill-title"><span class="ic skill-ic">解题思路</span></h3> <div class="content exam-skill-content bdjson"> <p><span>依据真核细胞原核细胞及细胞中的化合物等相关知识逐项分析．</span></p> </div></div><div class="exam-errorpoint exam-info"> <h3 class="exam-errorpoint-title"><span class="ic errorpoint-ic">易错点</span></h3> <div class="content exam-errortip-content bdjson"> <p class="ext_text-align_left"><span>考生会因对质粒实质或脂肪与糖的区别识记不准而误选．</span></p> </div></div> </div>
-   <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: 5555; cursor: default; position: absolute; top: 0px; right: 0px; touch-action: none; height: 100px; opacity: 0; display: block;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 32px; background-color: rgb(219, 219, 219); border: 0px; background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 5px; z-index: 5555; position: absolute; left: 0px; bottom: 0px; cursor: default; width: 0px; opacity: 0; display: block;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 32px; background-color: rgb(219, 219, 219); border: 0px; background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div></div>
-   <div class="toolbar ui-border-top">
-        <ul class="toolbar-ul">
-            <li class="pre-li disable"><span class="pre">上一题</span></li>
-            <li class="center-li">
-                <span class="current">1</span>/<span class="total">8</span>
-            </li>
-            <li class="next-li"><span class="next">下一题</span></li>
-        </ul>
-    </div>
-</div>
-
-
-    </div>
-
-
-                </div>
-            
-        </div>
-	</body>
+<div class="mask firstleader"></div>
+</body>
+<script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/index.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/paper.js'}" ></script>
 </html>
