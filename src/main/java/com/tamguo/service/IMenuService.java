@@ -20,4 +20,7 @@ public interface IMenuService {
 
 	/** 获取左侧菜单*/
 	public List<MenuEntity> findLeftMenus();
+	
+	/** 资格考试专区*/
+	public List<MenuEntity> findFooterMenus();
 }

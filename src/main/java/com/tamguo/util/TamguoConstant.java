@@ -19,6 +19,9 @@ public class TamguoConstant {
 	/** 首页左侧菜单缓存KEY*/
 	public static final String LEFT_INDEX_MENU = "left_index_menu";
 	
+	/** 首页底部菜单缓存KEY*/
+	public static final String FOOTER_INDEX_MENU = "footer_index_menu";
+	
 	/** 北京地区ID*/
 	public static final String BEIJING_AREA_ID = "1";
 	

@@ -58,6 +58,11 @@ public class MenuInterceptor implements HandlerInterceptor {
     	// 获取左侧菜单
     	List<MenuEntity> leftMenuList = iSubjectService.findLeftMenus();
     	request.setAttribute("leftMenuList", leftMenuList);
+
+    	// 获取底部菜单
+    	List<MenuEntity> footerMenuList = iSubjectService.findFooterMenus();
+    	request.setAttribute("footerMenuList", footerMenuList);
+    	
     	
     	// 获取首页专区
     	List<CourseEntity> courseList = iCourseService.findGaokaoArea(TamguoConstant.GAOKAO_SUBJECT_ID);

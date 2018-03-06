@@ -67,4 +67,20 @@ public class MenuService implements IMenuService{
 		return leftMenuList;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<MenuEntity> findFooterMenus() {
+		List<MenuEntity> footerMenuList = ((List<MenuEntity>) cacheService.getObject(TamguoConstant.FOOTER_INDEX_MENU));
+		footerMenuList = null;
+		if(footerMenuList == null || footerMenuList.isEmpty()){
+			footerMenuList = subjectMapper.findFooterFatherMenus();
+			for(MenuEntity menu : footerMenuList){
+				List<MenuEntity> childSubjects = subjectMapper.findMenuByParentId(menu.getUid());
+				menu.setChildSubjects(childSubjects);
+			}
+			cacheService.setObject(TamguoConstant.FOOTER_INDEX_MENU, footerMenuList , 2 * 60 * 60);
+		}
+		return footerMenuList;
+	}
+
 }

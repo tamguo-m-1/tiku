@@ -213,61 +213,16 @@
 				    </div>
 				    <div class="zige-test-main">
 				        <div class="zigetest-list">
-							<div class="zigetest-list-detail kuaiji-test">
+							<div th:class="${'zigetest-list-detail ' + m.pinyin + '-test'}" th:each="m,mStat:${footerMenuList}">
 								<div class="list-title">
 									<div class="testbg"></div>
 									<div class="title-box">
-										<p class="title-name">财会类</p>
-										<p class="title-num">5门考试</p>
+										<p class="title-name" th:text="${m.name}">财会类</p>
+										<p class="title-num" th:text="${#lists.size(m.childSubjects) + '门考试'}">5门考试</p>
 									</div>
 								</div>
 								<div class="test-list">
-										<a class="item-link log-class-link" href="/tikupc/homepage/cd1755270722192e4536f605" classid="cd1755270722192e4536f605" data-classid="cd1755270722192e4536f605-cd1755270722192e4536f605" target="_blank">会计从业资格</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/57270722192e45361066f505" classid="57270722192e45361066f505" data-classid="cd1755270722192e4536f605-57270722192e45361066f505" target="_blank">初级会计师</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/0422192e453610661ed9f405" classid="0422192e453610661ed9f405" data-classid="cd1755270722192e4536f605-0422192e453610661ed9f405" target="_blank">中级会计师</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/403610661ed9ad51f01df205" classid="403610661ed9ad51f01df205" data-classid="cd1755270722192e4536f605-403610661ed9ad51f01df205" target="_blank">注册会计师CPA</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/16661ed9ad51f01dc281f105" classid="16661ed9ad51f01dc281f105" data-classid="cd1755270722192e4536f605-16661ed9ad51f01dc281f105" target="_blank">中级经济师</a>
-								</div>
-							</div>
-							<div class="zigetest-list-detail jianzhu-test">
-								<div class="list-title">
-									<div class="testbg"></div>
-									<div class="title-box">
-										<p class="title-name">建筑类</p>
-										<p class="title-num">2门考试</p>
-									</div>
-								</div>
-								<div class="test-list">
-										<a class="item-link log-class-link" href="/tikupc/homepage/6c020740be1e650e52ea9905" classid="6c020740be1e650e52ea9905" data-classid="403610661ed9ad51f01df205-6c020740be1e650e52ea9905" target="_blank">一级建造师</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/6840be1e650e52ea55189805" classid="6840be1e650e52ea55189805" data-classid="403610661ed9ad51f01df205-6840be1e650e52ea55189805" target="_blank">二级建造师</a>
-								</div>
-							</div>
-							<div class="zigetest-list-detail zhiye-test">
-								<div class="list-title">
-									<div class="testbg"></div>
-									<div class="title-box">
-										<p class="title-name">职业资格类</p>
-										<p class="title-num">4门考试</p>
-									</div>
-								</div>
-								<div class="test-list">
-										<a class="item-link log-class-link" href="/tikupc/homepage/1742a8956bec0975f465e205" classid="1742a8956bec0975f465e205" data-classid="57270722192e45361066f505-1742a8956bec0975f465e205" target="_blank">教师资格证</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/ed6527d3240c844769eaee05" classid="ed6527d3240c844769eaee05" data-classid="57270722192e45361066f505-ed6527d3240c844769eaee05" target="_blank">企业法律顾问</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/3f0c844769eae009581bec05" classid="3f0c844769eae009581bec05" data-classid="57270722192e45361066f505-3f0c844769eae009581bec05" target="_blank">社会工作师</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/7e0bbb68a98271fe910ef904" classid="7e0bbb68a98271fe910ef904" data-classid="57270722192e45361066f505-7e0bbb68a98271fe910ef904" target="_blank">助理社会工作师</a>
-								</div>
-							</div>
-							<div class="zigetest-list-detail yiwei-test">
-								<div class="list-title">
-									<div class="testbg"></div>
-									<div class="title-box">
-										<p class="title-name">公务员</p>
-										<p class="title-num">2门考试</p>
-									</div>
-								</div>
-								<div class="test-list">
-										<a class="item-link log-class-link" href="/tikupc/homepage/5e192279168884868762d605" classid="5e192279168884868762d605" data-classid="0422192e453610661ed9f405-5e192279168884868762d605" target="_blank">警察招考</a>
-										<a class="item-link log-class-link" href="/tikupc/homepage/0079168884868762caaed505" classid="0079168884868762caaed505" data-classid="0422192e453610661ed9f405-0079168884868762caaed505" target="_blank">政法干警</a>
+										<a th:each="c,cmStat:${m.childSubjects}" class="item-link log-class-link" th:href="${setting.domain + c.url}" target="_blank" th:text="${c.name}">会计从业资格</a>
 								</div>
 							</div>
 						</div>

@@ -14,5 +14,7 @@ public interface MenuMapper extends BaseDao<MenuEntity>{
 	public List<MenuEntity> findAllFatherMenus();
 
 	public List<MenuEntity> findLeftFatherMenus();
+
+	public List<MenuEntity> findFooterFatherMenus();
 	
 }
