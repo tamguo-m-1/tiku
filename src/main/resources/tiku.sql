@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2018-03-06 15:46:44
+Date: 2018-03-07 17:40:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `sys_menu` (
   `icon` varchar(255) NOT NULL DEFAULT '',
   `order_num` int(11) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -43,6 +43,7 @@ INSERT INTO `sys_menu` VALUES ('6', '5', '题库类型', 'tiku/subject.html', 'v
 INSERT INTO `sys_menu` VALUES ('7', '5', '科目管理', 'tiku/course.html', 'video:topVideoList,video:info,video:save,video:update,video:delete,video:create,video:create', '1', '', '2');
 INSERT INTO `sys_menu` VALUES ('8', '5', '章节管理', 'tiku/chapter.html', 'video:topVideoList,video:info,video:save,video:update,video:delete,video:create,video:create', '1', '', '3');
 INSERT INTO `sys_menu` VALUES ('9', '5', '问题管理', 'tiku/question.html', 'video:topVideoList,video:info,video:save,video:update,video:delete,video:create,video:create', '1', '', '4');
+INSERT INTO `sys_menu` VALUES ('10', '5', '菜单管理', 'tiku/menu/list.html', '', '1', '', '1');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -119,7 +120,23 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'TanMin', '7681b79275c1f3e5c82b579f5fe6fa9974fca815b6780bbb65fa34b532ebf16c', '223', '123', '1', '1514256410', '1518157458');
+INSERT INTO `sys_user` VALUES ('1', 'admin', '7681b79275c1f3e5c82b579f5fe6fa9974fca815b6780bbb65fa34b532ebf16c', '223', '123', '1', '1514256410', '1520404497');
+
+-- ----------------------------
+-- Table structure for tiku_ad
+-- ----------------------------
+DROP TABLE IF EXISTS `tiku_ad`;
+CREATE TABLE `tiku_ad` (
+  `uid` bigint(20) NOT NULL COMMENT 'ID_',
+  `name` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `ad_info` text NOT NULL COMMENT '路径',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tiku_ad
+-- ----------------------------
+INSERT INTO `tiku_ad` VALUES ('1', '首页轮播', '[{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:2,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg\",type:1,index:1,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:3,href:\"http://localhost\"}]');
 
 -- ----------------------------
 -- Table structure for tiku_area
@@ -318,6 +335,23 @@ INSERT INTO `tiku_menu` VALUES ('48', '0', '护士资格', '43', '', '0', '0', '
 INSERT INTO `tiku_menu` VALUES ('49', '0', '其他', '0', 'qita', '0', '0', '1', 'chapter/13/2.html');
 INSERT INTO `tiku_menu` VALUES ('50', '0', '考研', '49', '', '0', '0', '1', 'chapter/13/2.html');
 INSERT INTO `tiku_menu` VALUES ('51', '0', '高考', '49', '', '0', '0', '1', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('52', '4', '财会类', '0', 'kuaiji', '0', '0', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('53', '14', '会计从业资格', '52', '', '0', '1', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('54', '18', '初级会计师', '52', '', '0', '2', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('55', '15', '中级会计师', '52', '', '0', '3', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('56', '26', '注册会计师CPA', '52', '', '0', '4', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('57', '17', '中级经济师', '52', '', '0', '5', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('58', '2', '建筑类', '0', 'jianzhu', '0', '0', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('59', '10', '一级建造师', '58', '', '0', '1', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('60', '11', '二级建造师', '58', '', '0', '2', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('61', '1', '职业资格类', '0', 'zhiye', '0', '0', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('62', '8', '教师资格证', '61', '', '0', '1', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('63', '7', '企业法律顾问', '61', '', '0', '2', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('64', '6', '社会工作师', '61', '', '0', '3', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('65', '9', '助理社会工作师', '61', '', '0', '5', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('66', '0', '公务员', '0', 'yiwei', '0', '0', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('67', '0', '警察招考', '66', '', '0', '1', '2', 'chapter/13/2.html');
+INSERT INTO `tiku_menu` VALUES ('68', '0', '法务干警', '66', '', '0', '2', '2', 'chapter/13/2.html');
 
 -- ----------------------------
 -- Table structure for tiku_paper
@@ -402,8 +436,6 @@ INSERT INTO `tiku_school` VALUES ('5', '1', '北京师范大学第二附属中�
 INSERT INTO `tiku_school` VALUES ('6', '1', '东北师范大学附属中学', 'school-wrap-bg3_9b3e217.png');
 INSERT INTO `tiku_school` VALUES ('7', '1', '上海中学', 'school-wrap-bg3_9b3e217.png');
 INSERT INTO `tiku_school` VALUES ('8', '1', '衡水中学', 'school-wrap-bg3_9b3e217.png');
-INSERT INTO `tiku_school` VALUES ('9', '1', '南京外国语学校', 'school-wrap-bg3_9b3e217.png');
-INSERT INTO `tiku_school` VALUES ('10', '1', '成都市第七中学', 'school-wrap-bg3_9b3e217.png');
 
 -- ----------------------------
 -- Table structure for tiku_subject
