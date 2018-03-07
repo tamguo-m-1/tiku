@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2018-03-07 17:40:01
+Date: 2018-03-07 18:28:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -128,6 +128,7 @@ INSERT INTO `sys_user` VALUES ('1', 'admin', '7681b79275c1f3e5c82b579f5fe6fa9974
 DROP TABLE IF EXISTS `tiku_ad`;
 CREATE TABLE `tiku_ad` (
   `uid` bigint(20) NOT NULL COMMENT 'ID_',
+  `business_key` varchar(20) NOT NULL DEFAULT '' COMMENT '业务键',
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
   `ad_info` text NOT NULL COMMENT '路径',
   PRIMARY KEY (`uid`)
@@ -136,7 +137,8 @@ CREATE TABLE `tiku_ad` (
 -- ----------------------------
 -- Records of tiku_ad
 -- ----------------------------
-INSERT INTO `tiku_ad` VALUES ('1', '首页轮播', '[{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:2,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg\",type:1,index:1,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:3,href:\"http://localhost\"}]');
+INSERT INTO `tiku_ad` VALUES ('1', 'indexBanner', '首页轮播', '[{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:2,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg\",type:1,index:1,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:3,href:\"http://localhost\"}]');
+INSERT INTO `tiku_ad` VALUES ('2', 'subject_13', '高考轮播', '[{bgimage:\"https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg\",type:1,index:2,href:\"http://localhost\"},{bgimage:\"https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg\",type:1,index:1,href:\"http://localhost\"}]');
 
 -- ----------------------------
 -- Table structure for tiku_area
