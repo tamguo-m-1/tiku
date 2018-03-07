@@ -20,6 +20,9 @@ public class AdEntity implements Serializable {
 
 	@Id
 	private String uid;
+	
+	@Column(name="business_key")
+	private String businessKey;
 
 	@Column(name="name")
 	private String name;
@@ -60,6 +63,14 @@ public class AdEntity implements Serializable {
 			return null;
 		}
 		return JSONArray.parseArray(getAdInfo());
+	}
+
+	public String getBusinessKey() {
+		return businessKey;
+	}
+
+	public void setBusinessKey(String businessKey) {
+		this.businessKey = businessKey;
 	}
 
 }

@@ -32,19 +32,13 @@
 				                <a class="" th:href="${setting.domain + 'chapter/' + subjectId + '/'+course.uid+'.html'}">章节学习</a>
 				            </li>
 				            <li class="contain-li">
-				                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
+				                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
 				            </li>
 				            <li class="contain-li">
-				                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
+				                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
 				            </li>
 				            <li class="contain-li">
-				                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
-				            </li>
-				            <li class="contain-li">
-				                <a class="" href="/gaokaogufen">高考估分</a>
-				            </li>
-				            <li class="contain-li">
-				                <a class="" href="/zhuanyeceshi">专业评测</a>
+				                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
 				            </li>
 				        </ul>
 				    </div>
@@ -52,27 +46,18 @@
     			<!--二级导航结束-->
     			
     			<!--头部轮播开始-->
-				<div class="banner">
+				<div class="banner" th:if="${a.businessKey == 'subject_' + subjectId}" th:each="a,aStat:${adList}">
 					<ul class="banner-list">
-						<li class="img-list" style="opacity: 1; z-index: 9;">
-							<a data-href="http://www.yikaotop.com/hd/ys_zs/?s=bdtk" data-index="1" class="banner-link img-1" href="http://www.yikaotop.com/hd/ys_zs/?s=bdtk" target="_blank">
-								<div style="background-image:url('https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg');" class="banner-pic"></div>
+						<li class="img-list" th:style="${ad.index == 1} ? 'opacity: 1; z-index: 9;' : 'opacity: 1; z-index: 1;'" th:each="ad,adStat:${a.ads}">
+							<a th:attr="data-href=${ad.href},data-index=${ad.index}" class="banner-link img-1" th:href="${ad.href}" target="_blank">
+								<div th:style="${'background-image:url(' + ad.bgimage + ');'}" class="banner-pic"></div>
 								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg">-->
-							</a>
-						</li>
-						<li class="img-list" style="opacity: 0; z-index: 1;">
-							<a data-href="https://tiku.baidu.com/topic/gaokao2017/moni?channel=tksy" data-index="2" class="banner-link img-2" href="https://tiku.baidu.com/topic/gaokao2017/moni?channel=tksy" target="_blank">
-								<div style="background-image:url('https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg');" class="banner-pic"></div>
-								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg">-->
 							</a>
 						</li>
 					</ul>
 					<ul class="play-nav">
-						<li data-idx="1" class="cur">
-							<a href="javascript:void(0);">1</a>
-						</li>
-						<li data-idx="2" class="">
-							<a href="javascript:void(0);">2</a>
+						<li th:attr="data-idx=${ad.index}" th:class="${ad.index == 1} ? 'cur' : ''" th:each="ad,adStat:${a.ads}">
+							<a href="javascript:void(0);" th:text="${ad.index}">1</a>
 						</li>
 					</ul>
 				</div>
@@ -726,4 +711,5 @@
 	
 <script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
 <script type="text/javascript" th:src="${setting.domain + 'js/main.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/subject.js'}" ></script>
 </html>

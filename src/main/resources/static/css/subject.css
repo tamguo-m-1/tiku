@@ -58,6 +58,16 @@
 .banner .banner-list {
     width: 100%;
 }
+.banner .banner-list li {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.banner .play-nav li.cur a {
+    opacity: .8;
+    filter: alpha(opacity=80)
+}
 .banner .banner-list li:first-child {
     z-index: 2;
 }

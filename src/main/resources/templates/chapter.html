@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>探果-科目</title>
-	<link rel="stylesheet" href="../../css/main.css"></link>
-	<link rel="stylesheet" href="../../css/reset.css" />
-	<link rel="stylesheet" href="../../css/iconfont.css" />
-	<link rel="stylesheet" href="../../css/chapter.css" />
-	<link rel="stylesheet" href="../../css/footer.css" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/main.css'}"></link>
+	<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/chapter.css'}" />
+	<link rel="stylesheet" th:href="${setting.domain + 'css/footer.css'}" />
 </head>
 <body>
 	<!-- 头部-->
@@ -30,19 +30,13 @@
 			                <a class="curr " th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">章节学习</a>
 			            </li>
 			            <li class="contain-li">
-			                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
+			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
 			            </li>
 			            <li class="contain-li">
-			                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
+			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
 			            </li>
 			            <li class="contain-li">
-			                <a class="" th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
-			            </li>
-			            <li class="contain-li">
-			                <a class="" href="//tiku.baidu.com/gaokaogufen">高考估分</a>
-			            </li>
-			            <li class="contain-li">
-			                <a class="" href="//tiku.baidu.com/zhuanyeceshi">专业评测</a>
+			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
 			            </li>
 			        </ul>
 			    </div>

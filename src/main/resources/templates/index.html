@@ -18,7 +18,7 @@
         <div class="main">
     		<div class="main-container">
     			<!-- 头部轮播-->
-                <div class="banner" th:if="${a.uid == '1'}" th:each="a,aStat:${adList}">
+                <div class="banner" th:if="${a.businessKey == 'indexBanner'}" th:each="a,aStat:${adList}">
 					<ul class="banner-list">
 						<li class="img-list" th:style="${ad.index == 1} ? 'opacity: 1; z-index: 9;' : 'opacity: 1; z-index: 1;'" th:each="ad,adStat:${a.ads}">
 							<a th:attr="data-href=${ad.href},data-index=${ad.index}" class="banner-link img-1" th:href="${ad.href}" target="_blank">
