@@ -169,7 +169,7 @@
 							<div class="school-list">
 								<div class="school-list-item " th:each="s,sStat:${eliteSchoolPaperList}">
 									<div class="school-wrap school-wrap-bg1">
-										<a class="famous-school-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=924cf7ec4afe04a1b071de05" data-schoolid="924cf7ec4afe04a1b071de05">
+										<a class="famous-school-link" th:href="${setting.domain + 'paperlist/13/0-4-0-0-1.html'}" data-schoolid="924cf7ec4afe04a1b071de05">
 											<div class="school-info">
 												<p class="name" th:text="${s.name}">北京大学附属中学</p>
 												<p class="info">
