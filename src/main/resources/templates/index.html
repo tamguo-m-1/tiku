@@ -18,27 +18,17 @@
         <div class="main">
     		<div class="main-container">
     			<!-- 头部轮播-->
-                <div class="banner">
+                <div class="banner" th:if="${a.uid == '1'}" th:each="a,aStat:${adList}">
 					<ul class="banner-list">
-						<li class="img-list" style="opacity: 1; z-index: 9;">
-							<a data-href="http://www.yikaotop.com/hd/ys_zs/?s=bdtk" data-index="1" class="banner-link img-1" href="http://www.yikaotop.com/hd/ys_zs/?s=bdtk" target="_blank">
-								<div style="background-image:url('https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg');" class="banner-pic"></div>
-								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg">-->
-							</a>
-						</li>
-						<li class="img-list" style="opacity: 0; z-index: 1;">
-							<a data-href="https://tiku.baidu.com/topic/gaokao2017/moni?channel=tksy" data-index="2" class="banner-link img-2" href="https://tiku.baidu.com/topic/gaokao2017/moni?channel=tksy" target="_blank">
-								<div style="background-image:url('https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg');" class="banner-pic"></div>
-								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/pc/hushuang01/1920x350-1493812791774.jpg">-->
+						<li class="img-list" th:style="${ad.index == 1} ? 'opacity: 1; z-index: 9;' : 'opacity: 1; z-index: 1;'" th:each="ad,adStat:${a.ads}">
+							<a th:attr="data-href=${ad.href},data-index=${ad.index}" class="banner-link img-1" th:href="${ad.href}" target="_blank">
+								<div th:style="${'background-image:url(' + ad.bgimage + ');'}" class="banner-pic"></div>
 							</a>
 						</li>
 					</ul>
 					<ul class="play-nav">
-						<li data-idx="1" class="cur">
-							<a href="javascript:void(0);">1</a>
-						</li>
-						<li data-idx="2" class="">
-							<a href="javascript:void(0);">2</a>
+						<li th:attr="data-idx=${ad.index}" th:class="${ad.index == 1} ? 'cur' : ''" th:each="ad,adStat:${a.ads}">
+							<a href="javascript:void(0);" th:text="${ad.index}">1</a>
 						</li>
 					</ul>
 				</div>
@@ -238,5 +228,6 @@
 	
 </body>
 <script type="text/javascript" th:src="${setting.domain + 'js/jquery-3.3.1.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/main.js'}"></script>
 <script type="text/javascript" th:src="${setting.domain + 'js/index.js'}"></script>
 </html>

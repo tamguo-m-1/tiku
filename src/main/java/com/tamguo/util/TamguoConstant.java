@@ -43,6 +43,9 @@ public class TamguoConstant {
 	/** 名校试卷缓存KEY*/
 	public static final String ELITE_SCHOOL_PAPER = "EliteSchoolPaper:";
 	
+	/** 所有广告缓存KEY*/
+	public static final String ALL_AD = "AllAd:";
+	
 	/** 名校缓存KEY*/
 	public static final String ELITE_PAPER = "ElitePaper:";
 	
