@@ -84,7 +84,7 @@ public class MenuInterceptor implements HandlerInterceptor {
     	request.setAttribute("hotPaperList", hotPaperList);
     	
     	// 获取首页名校试卷
-    	List<SchoolEntity> eliteSchoolPaperList = iSchoolService.findEliteSchoolPaper();
+    	List<SchoolEntity> eliteSchoolPaperList = iSchoolService.findEliteSchoolPaper(TamguoConstant.BEIJING_AREA_ID);
     	request.setAttribute("eliteSchoolPaperList", eliteSchoolPaperList);
     	
     	// 获取首页名校列表

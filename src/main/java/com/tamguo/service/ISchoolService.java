@@ -6,7 +6,7 @@ import com.tamguo.model.SchoolEntity;
 
 public interface ISchoolService {
 
-	public List<SchoolEntity> findEliteSchoolPaper();
+	public List<SchoolEntity> findEliteSchoolPaper(String shcoolId);
 	
 	public List<SchoolEntity> findEliteSchool();
 	

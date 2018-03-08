@@ -26,12 +26,13 @@ public class SchoolService implements ISchoolService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<SchoolEntity> findEliteSchoolPaper() {
+	public List<SchoolEntity> findEliteSchoolPaper(String shcoolId) {
 		List<SchoolEntity> schoolList = (List<SchoolEntity>) cacheService.getObject(TamguoConstant.ELITE_SCHOOL_PAPER);
+		schoolList = null;
 		// 获取名校试卷
 		if(schoolList == null || schoolList.isEmpty()){
 			PageHelper.startPage(1, 3);
-			schoolList = schoolMapper.findByAreaId(TamguoConstant.BEIJING_AREA_ID);
+			schoolList = schoolMapper.findByAreaId(shcoolId);
 			for(SchoolEntity school : schoolList){
 				PageHelper.startPage(1, 3);
 				List<PaperEntity> paperList = paperMapper.findBySchoolId(school.getUid());

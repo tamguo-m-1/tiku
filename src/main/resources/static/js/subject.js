@@ -112,5 +112,43 @@ $(function(){
 				$(".gaokaopaper-container .paper-main .hotpaper-list").html(html);
 			}
 		});
+		
+		// 获取学校
+		$.ajax({
+			type : "get", 
+			url : mainHttp + "school/area/"+areaId+".html",
+			async : true,
+			dataType : "json",
+			success : function(data) {// 返回数据根据结果进行相应的处理,无论请求成功还是失败，都会走这个方法的
+				
+				var html = '';
+				for(var i=0 ; i<data.length ; i++){
+					if(i == 2){
+						html += '<div class="school-list-item school-list-item-lastchild">';
+					}else{
+						html += '<div class="school-list-item">';	
+					}
+					html += '<div class="school-wrap school-wrap-bg1">';
+					html += '<a class="famous-school-link" data-schoolid="924cf7ec4afe04a1b071de05" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=924cf7ec4afe04a1b071de05">';
+					html += '<div class="school-info">';
+					html += '<p class="name">'+data[i].name+'</p>';
+					html += '<p class="info">';
+					html += '<b>同地区推荐 </b> 共<span class="info-num">3</span>套试卷';
+					html += '</p>';
+					html += '</div>';
+					html += '</a>';
+					html += '</div>';
+					html += '<ul class="paper-wrap">';
+					for(var n=0 ; n<data[i].paperList.length ; n++){
+						html += '<li class="paper-item">';
+						html += '<a class="paper-item-name" data-paperid="5ff2971ea76e58fafab0030f" href="/tikupc/paperdetail/5ff2971ea76e58fafab0030f">'+data[i].paperList[n].name+'</a>';
+						html += '</li>';
+					}
+					html += '</ul>';
+					html += '</div>';
+				}
+				$(".gaokaopaper-container .school-paper-main .school-list").html(html);
+			}
+		});
 	});
 })
