@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2018-03-07 18:28:13
+Date: 2018-03-08 18:03:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -237,6 +237,11 @@ INSERT INTO `tiku_chapter` VALUES ('31', '2', '0', '第十六章 选修部分', 
 INSERT INTO `tiku_chapter` VALUES ('32', '2', '16', '1 集合的概念及运算', '2', '1', '17');
 INSERT INTO `tiku_chapter` VALUES ('33', '2', '32', '1.1 集合的含义', '2', '1', '1');
 INSERT INTO `tiku_chapter` VALUES ('34', '2', '32', '1.2 元素与集合关系的判断', '2', '1', '2');
+INSERT INTO `tiku_chapter` VALUES ('35', '3', '0', '第一章 集合与常用逻辑用语', '3', '1', '0');
+INSERT INTO `tiku_chapter` VALUES ('36', '3', '0', '第二章 函数的概念与基本初等函数', '3', '2', '0');
+INSERT INTO `tiku_chapter` VALUES ('37', '3', '0', '第三章 导数及其应用', '5', '0', '0');
+INSERT INTO `tiku_chapter` VALUES ('38', '3', '0', '第四章 三角函数与三角恒等变换', '8', '0', '0');
+INSERT INTO `tiku_chapter` VALUES ('39', '3', '0', '第五章 平面向量', '9', '0', '0');
 
 -- ----------------------------
 -- Table structure for tiku_course
@@ -366,7 +371,7 @@ CREATE TABLE `tiku_paper` (
   `area_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '地区ID',
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
   `question_info` text NOT NULL COMMENT '题目类型，以逗号分割',
-  `type` char(1) NOT NULL DEFAULT '0' COMMENT '类型(0:真题试卷,1:模拟试卷,2:押题预测,3:名校精品)',
+  `type` varchar(10) NOT NULL DEFAULT '0' COMMENT '类型(0:真题试卷,1:模拟试卷,2:押题预测,3:名校精品)',
   `year` varchar(5) NOT NULL DEFAULT '' COMMENT '年份',
   `down_hits` int(10) NOT NULL DEFAULT '0' COMMENT '下载数量',
   `open_hits` int(10) NOT NULL DEFAULT '0' COMMENT '打开数量',
