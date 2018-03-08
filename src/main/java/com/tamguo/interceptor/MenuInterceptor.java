@@ -80,7 +80,7 @@ public class MenuInterceptor implements HandlerInterceptor {
     	request.setAttribute("simulationPaperList", simulationPaperList);
     	
     	// 获取热门试卷
-    	List<PaperEntity> hotPaperList = iPaperService.findHotPaper();
+    	List<PaperEntity> hotPaperList = iPaperService.findHotPaper(TamguoConstant.BEIJING_AREA_ID);
     	request.setAttribute("hotPaperList", hotPaperList);
     	
     	// 获取首页名校试卷

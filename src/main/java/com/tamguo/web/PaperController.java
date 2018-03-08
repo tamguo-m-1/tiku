@@ -1,10 +1,13 @@
 package com.tamguo.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tamguo.model.PaperEntity;
@@ -53,6 +56,12 @@ public class PaperController {
 		model.addObject("paper", paper);
 		model.addObject("questionList", iQuestionService.findPaperQuestion(paperId));
 		return model;
+	}
+	
+	@RequestMapping(value = {"/paper/area/{areaId}-{type}.html"}, method = RequestMethod.GET)
+	@ResponseBody
+	public List<PaperEntity> findPaperByAreaId(@PathVariable String areaId ,@PathVariable String type){
+		return iPaperService.findPaperByAreaId(areaId , type);
 	}
 	
 }

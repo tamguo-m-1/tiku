@@ -47,11 +47,12 @@ public class PaperService implements IPaperService{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PaperEntity> findHotPaper() {
+	public List<PaperEntity> findHotPaper(String areaId) {
 		PageHelper.startPage(1, 10);
 		List<PaperEntity> paperList = (List<PaperEntity>) cacheService.getObject(TamguoConstant.HOT_PAPER);
+		paperList = null;
 		if(paperList == null || paperList.isEmpty()){
-			paperList = paperMapper.findByAreaId(TamguoConstant.BEIJING_AREA_ID);
+			paperList = paperMapper.findByAreaId(areaId);
 			cacheService.setObject(TamguoConstant.HOT_PAPER, paperList , 2 * 60 * 60);
 		}
 		return paperList;
@@ -67,6 +68,15 @@ public class PaperService implements IPaperService{
 	@Override
 	public PaperEntity find(String paperId) {
 		return paperMapper.select(paperId);
+	}
+
+	@Override
+	public List<PaperEntity> findPaperByAreaId(String areaId , String type) {
+		if("n".equals(type)){
+			return this.findHotPaper(areaId);
+		}
+		PageHelper.startPage(1, 8);
+		return paperMapper.findPaperByAreaId(areaId , type);
 	}
 
 }

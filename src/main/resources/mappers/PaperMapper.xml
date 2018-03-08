@@ -74,4 +74,26 @@
 		</if>
 	</select>
 	
+	<select id="findPaperByAreaId" resultMap="resultMap">
+		SELECT
+			p.uid,
+			p.course_id,
+			p.school_id,
+			p.area_id,
+			p. NAME,
+			p.question_info,
+			p.type,
+			p.`year`,
+			p.down_hits,
+			p.open_hits
+		FROM
+			tiku_paper p
+		WHERE
+			p.area_id = #{areaId}
+		<if test="type != null and type != ''">
+			AND p.type = #{type}
+		</if>
+		order by down_hits desc
+	</select>
+	
 </mapper>

@@ -71,7 +71,7 @@
 				    	<div class="title-underline">
 				        </div>
 				        <div class="withyou-main">
-				        	<a class="withyou-box withyou-box-learn log-withyou-box " href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-0-knowpoint-11" data-info="kp">
+				        	<a class="withyou-box withyou-box-learn log-withyou-box " th:href="${setting.domain + 'chapter/' + subjectId + '/'+course.uid+'.html'}" data-info="kp">
 				        		<div class="box-title">
 				        			<p class="box-title-name">章节学习</p>
 				        			<p class="box-title-detail">考点各个击破</p>
@@ -79,7 +79,7 @@
 				        		</div>
 				        		<p class="box-content">串考点<span class="box-content-icon iconfont icon-right"></span></p>
 				        	</a>
-				        	<a class="withyou-box withyou-box-paper log-withyou-box " href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-1-0-0-1-download" data-info="zhenti">
+				        	<a class="withyou-box withyou-box-paper log-withyou-box " th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}" data-info="zhenti">
 				        		<div class="withyou-box-mod-triangle">
 				        			<div class="triangle-border"></div>
 				        			<div class="triangle-inset"></div>
@@ -91,7 +91,7 @@
 				        		</div>
 				        		<p class="box-content">练重点<span class="box-content-icon iconfont icon-right"></span></p>
 				        	</a> 
-				        	<a class="withyou-box withyou-box-score log-withyou-box " href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-2-0-0-1-download" data-info="yuce">
+				        	<a class="withyou-box withyou-box-score log-withyou-box " th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}" data-info="yuce">
 				        		<div class="withyou-box-mod-triangle">
 				        			<div class="triangle-border"></div>
 				        			<div class="triangle-inset"></div>
@@ -117,7 +117,7 @@
 					<p class="container-title">章节学习</p>
 					<div class="course-list-container">
 						<div class="course-list">
-							<a th:class="${cStat.index == 0} ? 'course-item  course-item-select' : 'course-item'" courseid="16" data-courseid="16" th:each="c,cStat:${courseList}" th:text="${c.name}">
+							<a th:class="${cStat.index == 0} ? 'course-item  course-item-select' : 'course-item'" th:attr="courseid=${c.uid},data-courseid=${c.uid}"  th:each="c,cStat:${courseList}" th:text="${c.name}">
 								理科数学
 							</a>
 						</div>
@@ -136,7 +136,7 @@
 							
 						</ul>
 						<p class="more-chapterlist-item">
-							<a class="more-item" href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-16-knowpoint">更多章节 &gt; </a>
+							<a class="more-item" th:href="${setting.domain + 'chapter/' + subjectId + '/'+course.uid+'.html'}">更多章节 &gt; </a>
 						</p>
 					</div>
 				
@@ -564,26 +564,15 @@
 					<p class="title-detail">一考知底，高分必刷，全面提分</p>
 					<div class="title-underline"></div>
 					<div class="cityArea">
-				
-						<a class="cityname" provinceid="37" data-provinceid="37" th:each="a,aStat:${areaList}" th:text="${a.name}">北京</a>
-				
-						
-				
+						<a th:class="${a.uid == '1'} ? 'cityname selected' : 'cityname'" th:attr="provinceid=${a.uid},data-provinceid=${a.uid}" th:each="a,aStat:${areaList}" th:text="${a.name}">北京</a>
 					</div>
 					<div class="paper-main">
-				
 						<div class="paper-box zhenti-box homepage-zhenti-box">
-				
 							<div class="paper-list-wrap">
 								<h3 class="paper-title">历年真题
-						
-						<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-1-0-37-1-download">更多真题试卷 &gt;</a>
-						
-						
-					</h3>
-				
+									<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-1-0-37-1-download">更多真题试卷 &gt;</a>
+								</h3>
 								<ul class="paper-list paper-list-zhenti">
-				
 									<li class="list-item" th:each="h,hStat:${historyPaperList}">
 										<p class="list-item-name">
 											<a class="list-item-name-link" data-paperid="d08fb966f5335a8102d220a5" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5" th:text="${h.name}">2017年高考真题 语文 (北京卷)</a>
@@ -591,24 +580,16 @@
 										<p class="list-item-detail">
 											<a class="list-item-link list-item-link-jiexi" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5?showan=1" data-paperid="d08fb966f5335a8102d220a5" target="_blank">解析</a><span class="item-separate">|</span>
 											<a href="/tikupc/paperdetail/d08fb966f5335a8102d220a5" class=" list-item-link  list-item-link-xiazai" "=" " data-paperid="d08fb966f5335a8102d220a5 " target="_blank ">下载</a><span class="item-separate ">|</span><a href="/gaokaogufen/paperdetail/d08fb966f5335a8102d220a5 " class="list-item-link list-item-link-gufen " data-paperid="d08fb966f5335a8102d220a5 ">估分</a></p>
-							</li>
-							
+										</li>
 								</ul>
 							</div>
 						</div>
-				
 						<div class="paper-box moni-box homepage-moni-box">
-				
 							<div class="paper-list-wrap">
 								<h3 class="paper-title">模拟试卷
-						
-						
-						<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-4-0-37-1-download">更多模拟试卷 &gt;</a>
-						
-					</h3>
-				
+									<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-4-0-37-1-download">更多模拟试卷 &gt;</a>
+								</h3>
 								<ul class="paper-list paper-list-moni">
-				
 									<li class="list-item" th:each="s,sStat:${simulationPaperList}">
 										<p class="list-item-name">
 											<a class="list-item-name-link" data-paperid="19f2517101f69e31433294f3" href="/tikupc/paperdetail/19f2517101f69e31433294f3" th:text="${s.name}">英语 西城区2017年高三期末考试</a>
@@ -616,17 +597,15 @@
 										<p class="list-item-detail">
 											<a class="list-item-link list-item-link-jiexi" href="/tikupc/paperdetail/19f2517101f69e31433294f3?showan=1" data-paperid="19f2517101f69e31433294f3" target="_blank">解析</a><span class="item-separate">|</span>
 											<a href="/tikupc/paperdetail/19f2517101f69e31433294f3" class=" list-item-link  list-item-link-xiazai" "=" " data-paperid="19f2517101f69e31433294f3 " target="_blank ">下载</a></p>
-							</li>
+									</li>
 								</ul>
 							</div>
 						</div>
-				
 						<div class="homepage-paper-box shiti-box">
 							<div class="hotpaper-list-wrap">
 								<h3 class="hotpaper-title">热门试卷<a class="list-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-37-1-download">更多热门试卷 &gt; </a>
-						</h3>
+								</h3>
 								<ul class="hotpaper-list">
-				
 									<li class="hotpaper-list-item" th:each="h,hStat:${hotPaperList}">
 										<a class="hotpaper-name" data-paperid="d08fb966f5335a8102d220a5" href="/tikupc/paperdetail/d08fb966f5335a8102d220a5">
 											<span th:class="${'rank-'+(hStat.index+1) + ' hotpaper-rank'}"></span><span th:text="${h.name}">2017年高考真题 语文 (北京卷)</span>
@@ -635,55 +614,41 @@
 								</ul>
 							</div>
 						</div>
-				
 					</div>
 					<div class="school-paper-main">
-				
 						<div class="school-paper-container homepage-school-container">
 							<h3 class="school-container-title">名校精品试卷
-						<a class="school-paper-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-7-0-0-1-download">更多名校精品卷 &gt; </a>
-					</h3>
-				
+								<a class="school-paper-more-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-7-0-0-1-download">更多名校精品卷 &gt; </a>
+							</h3>
 							<div class="school-list">
-				
 								<div th:class="${sStat.index == 2} ? 'school-list-item school-list-item-lastchild':'school-list-item'" th:each="s,sStat:${eliteSchoolPaperList}">
 									<div class="school-wrap school-wrap-bg1">
 										<a class="famous-school-link" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=924cf7ec4afe04a1b071de05" data-schoolid="924cf7ec4afe04a1b071de05">
 											<div class="school-info">
 												<p class="name" th:text="${s.name}">北京大学附属中学</p>
 												<p class="info">
-				
 													<b>
 						                        	同地区推荐 
 						                        	</b> 共
-				
 													<span class="info-num" th:text="${#lists.size(s.paperList)}">8</span>套试卷
 												</p>
 											</div>
 										</a>
 									</div>
-				
 									<ul class="paper-wrap">
-				
 										<li class="paper-item" th:each="p,pStat:${s.paperList}">
 											<a class="paper-item-name" data-paperid="5ff2971ea76e58fafab0030f" href="/tikupc/paperdetail/5ff2971ea76e58fafab0030f" th:text="${p.name}">
 												语文 海淀区2016年高三期末试卷
 											</a>
 										</li>
-				
 									</ul>
-				
 								</div>
 							</div>
-				
 						</div>
-				
 						<div class="more-school-list">
-				
 							<a class="more-school-name" th:each="s,sStat:${eliteSchoolList}" th:text="${s.name}" href="/tikupc/paperlist/1bfd700abb68a98271fefa04-0-0-0-0-1-download?school_id=74c008a1284ac850ad024202" data-schoolid="74c008a1284ac850ad024202">
 								北京市八一学校
 							</a>
-				
 						</div>
 				
 					</div>

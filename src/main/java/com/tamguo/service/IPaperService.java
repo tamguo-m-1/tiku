@@ -11,11 +11,13 @@ public interface IPaperService {
 
 	List<PaperEntity> findSimulationPaper();
 
-	List<PaperEntity> findHotPaper();
+	List<PaperEntity> findHotPaper(String areaId);
 
 	Page<PaperEntity> findList(String courseId, String paperType,
 			String year, String area , Integer pageNum);
 	
 	PaperEntity find(String paperId);
+
+	List<PaperEntity> findPaperByAreaId(String areaId , String type);
 
 }

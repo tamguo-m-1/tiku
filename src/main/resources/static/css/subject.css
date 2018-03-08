@@ -447,7 +447,7 @@
     padding: 29px;
     border: 1px solid #e6e6e6;
     background-color: #fafafa;
-    padding-bottom: 5px;
+    padding-bottom: 24px;
     padding-bottom: 29px\0;
 }
 .gaokaopaper-container .paper-main .homepage-paper-box .hotpaper-list-wrap {
@@ -466,6 +466,16 @@
     height: 20px;
     padding-bottom: 20px;
 }
+.course-container .course-container-main .course-list .course-item:hover {
+    cursor: pointer;
+    color: #ccc;
+    border-bottom: 4px solid #ccc
+}
+
+.course-container .course-container-main .course-list .course-item:active {
+    color: #11a68d;
+    border-bottom: 4px solid #11a68d
+}
 .gaokaopaper-container .paper-main .homepage-paper-box .hotpaper-list-wrap .hotpaper-title .list-more-link {
     font-weight: 400;
 }
@@ -473,6 +483,9 @@
     float: right;
     font-size: 12px;
     color: #666;
+}
+.gaokaopaper-container .cityArea .selected {
+    color: #11a68d;
 }
 .hotpaper-list-wrap .hotpaper-list .hotpaper-list-item {
     height: 16px;
