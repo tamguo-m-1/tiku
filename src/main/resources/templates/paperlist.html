@@ -31,13 +31,13 @@
 			                <a class="" th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">章节学习</a>
 			            </li>
 			            <li class="contain-li">
-			                <a th:class="${paperType == setting.PAPER_TYPE_ZHENTI} ? 'curr' : '' " th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
+			                <a th:class="${paperType == setting.PAPER_TYPE_ZHENTI} ? 'curr' : '' " th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
 			            </li>
 			            <li class="contain-li">
-			                <a th:class="${paperType == setting.PAPER_TYPE_MONI} ? 'curr' : '' " th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
+			                <a th:class="${paperType == setting.PAPER_TYPE_MONI} ? 'curr' : '' " th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
 			            </li>
 			            <li class="contain-li">
-			                <a th:class="${paperType == setting.PAPER_TYPE_YATI} ? 'curr' : '' " th:href="${setting.domain + 'paper/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
+			                <a th:class="${paperType == setting.PAPER_TYPE_YATI} ? 'curr' : '' " th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
 			            </li>
 			        </ul>
 			    </div>
