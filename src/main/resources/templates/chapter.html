@@ -61,7 +61,7 @@
         <li>结构:</li>
         
         <li class="selected">
-            <a href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-16-knowpoint-11">
+            <a th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">
                 按知识点
             </a>
         </li>
@@ -72,7 +72,7 @@
             <div id="outline" tabindex="0" style="overflow: hidden; position: static; outline: none; height: 697px; top: 0px;">
     <div class="outline-content" style="transform: translate3d(0px, 0px, 0px);">
         
-            <div th:class="${cStat.index==0} ? 'out-chapter show' : 'out-chapter'" th:each="c,cStat:${chapterList}">
+            <div th:class="${cStat.index==0} ? 'out-chapter show' : 'out-chapter'" th:attr="data-chapterId=${c.uid}" th:each="c,cStat:${chapterList}">
                 <h3 class="k1" data-class="dct-0" title="第一章 集合与常用逻辑用语">
                     <i class="iconfont icon-unie047 icon-zhankai"></i> <span th:text="${c.name}">第一章 集合与常用逻辑用语</span>
                 </h3>
@@ -86,11 +86,11 @@
         <div class="list-right">
             <div class="detail">
     
-    <div class="detail-chapter" th:each="c,cStat:${chapterList}" th:style="${cStat.index==0}? 'display:block;' : 'display: none;'">
+    <div class="detail-chapter" th:attr="data-chapterId=${c.uid}" th:each="c,cStat:${chapterList}" th:style="${cStat.index==0}? 'display:block;' : 'display: none;'">
         <div class="detail-chapter-title dct-0" id="dct-0">
             <h3 th:text="${c.name}">第一章 集合与常用逻辑用语</h3>
             
-            <a target="_blank" class="fifteen" href="/tikupc/chapterdetail/a9d6195f312b3169a451a405-1-15-knowpoint">随机来
+            <a target="_blank" class="fifteen" th:href="${setting.domain + 'question/' + subjectId +'/'+ courseId + '/' +c.uid +'/0-0-15.html'}">随机来
                 
                     15
                 
@@ -107,7 +107,7 @@
                 <h4 text="$">1 集合的概念及运算</h4>
                 <span>1181 试题</span>
                 
-                    <a target="_blank" class="ten" href="/tikupc/chapterdetail/2ffe30b765ce050876321382-1-10-knowpoint">随机来
+                    <a target="_blank" class="ten" th:href="${setting.domain + 'question/' + subjectId +'/'+ courseId + '/' +c.uid +'/'+cc.uid+'-0-15.html'}">随机来
                         
                             10
                         

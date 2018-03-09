@@ -126,7 +126,7 @@
 						<ul class="chapterlist-container">
 							<li class="chapterlist-item" th:each="c,cStat:${chapterList}" th:if="${cStat.index < 5}">
 								<p class="chapterlist-item-name">
-									<a class="chapterlist-item-name-link" data-kp="a9d6195f312b3169a451a405" href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-16-knowpoint-11#dct-0">
+									<a class="chapterlist-item-name-link" data-kp="a9d6195f312b3169a451a405" th:href="${setting.domain + 'chapter/' + subjectId + '/'+course.uid+'.html'}">
 										<span th:text="${c.name}">第一章 集合与常用逻辑用语</span>
 									</a>
 								</p>

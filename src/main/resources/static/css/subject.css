@@ -697,6 +697,12 @@
 .homepage-crumbs .cur-crumbs {
     color: #999;
 }
+.chapterlist-container .chapterlist-item .chapterlist-item-btn:hover {
+    cursor: pointer;
+    color: #fff;
+    background: #11a68d;
+    border: 1px solid transparant
+}
 .body:after, .main:after {
     clear: both;
     display: block;
