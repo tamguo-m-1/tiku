@@ -21,4 +21,6 @@ public interface PaperMapper extends BaseDao<PaperEntity>{
 
 	List<PaperEntity> findPaperByAreaId(@Param(value="areaId")String areaId , @Param(value="type")String type);
 
+	Long getPaperTotal();
+
 }

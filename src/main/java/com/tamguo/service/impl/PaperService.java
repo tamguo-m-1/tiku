@@ -79,4 +79,9 @@ public class PaperService implements IPaperService{
 		return paperMapper.findPaperByAreaId(areaId , type);
 	}
 
+	@Override
+	public Long getPaperTotal() {
+		return paperMapper.getPaperTotal();
+	}
+
 }

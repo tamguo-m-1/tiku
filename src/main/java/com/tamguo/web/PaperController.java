@@ -42,6 +42,7 @@ public class PaperController {
     	model.addObject("courseList", iCourseService.findBySubjectId(subjectId));
     	model.addObject("areaList", iAreaService.findAll());
     	model.addObject("paperPage" , PageUtils.getPage(iPaperService.findList(courseId , paperType , year , area , pageNum)));
+    	model.addObject("total" , iPaperService.getPaperTotal());
     	model.addObject("courseId", courseId);
     	model.addObject("paperType", paperType);
     	model.addObject("year", year);

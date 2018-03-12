@@ -96,4 +96,8 @@
 		order by down_hits desc
 	</select>
 	
+	<select id="getPaperTotal" resultType="java.lang.Long">
+		select count(1) from tiku_paper
+	</select>
+	
 </mapper>

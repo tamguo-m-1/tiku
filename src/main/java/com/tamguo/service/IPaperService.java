@@ -20,4 +20,5 @@ public interface IPaperService {
 
 	List<PaperEntity> findPaperByAreaId(String areaId , String type);
 
+	Long getPaperTotal();
 }
