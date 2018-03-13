@@ -1,0 +1,87 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div id="passport-login-pop" class="tang-pass-pop-login-merge tang-pass-pop-login-tpl-do tang-pass-pop-login-color-blue tang-pass-pop-login" style="left:40%;top:30%;z-index: 60001;display:none;" th:fragment="minilogin">
+	<div class="tang-foreground" id="TANGRAM__PSP_19__foreground" style="width: 356px;">
+		<div class="tang-title tang-title-dragable" id="TANGRAM__PSP_19__title">
+			<div class="buttons" id="TANGRAM__PSP_19__titleButtons">
+				<a id="TANGRAM__PSP_19__closeBtn" class="close-btn" href="###" onmousedown="event.stopPropagation &amp;&amp; event.stopPropagation(); event.cancelBubble = true; return false;" onclick="return false;"></a>
+			</div><span id="TANGRAM__PSP_19__titleText">&nbsp;</span></div>
+		<div class="tang-body" id="TANGRAM__PSP_19__body">
+			<div class="tang-content" id="TANGRAM__PSP_19__content">
+				<div id="passport-login-pop-dialog">
+					<div class="clearfix">
+						<div class="pass-login-pop-content">
+							<div class="pass-login-pop-form">
+								<div id="passport-login-pop-api" class="tang-pass-login" style="display: block; visibility: visible; opacity: 1;">
+									<form id="TANGRAM__PSP_25__form" class="pass-form pass-form-normal" method="POST" autocomplete="off">
+										<p class="pass-form-logo">用户名密码登录</p>
+										<p id="TANGRAM__PSP_25__errorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_25__error" class="pass-generalError pass-generalError-error"></span></p>
+										<p id="TANGRAM__PSP_25__MakeTextWrapper" class="pass-make-text" style="display:none;"></p>
+										<p id="TANGRAM__PSP_25__hiddenFields" style="display:none"><input type="hidden" id="TANGRAM__PSP_25__codeString" name="codeString" value=""><input type="hidden" id="TANGRAM__PSP_25__safeFlag" name="safeFlag" value="0"><input type="hidden" id="TANGRAM__PSP_25__u" name="u" value="https://tiku.baidu.com/tikupc/homepage/1bfd700abb68a98271fefa04"><input type="hidden" id="TANGRAM__PSP_25__isPhone" name="isPhone" value="false"><input type="hidden" id="TANGRAM__PSP_25__detect" name="detect" value="1"><input type="hidden" id="TANGRAM__PSP_25__gid" name="gid" value="526B53B-9A68-476F-9971-D1091BAC80E4"><input type="hidden" id="TANGRAM__PSP_25__staticPage" name="staticPage" value="https://tiku.baidu.com/static/miti/tikucommon/static/html/v3Jump.html"><input type="hidden" id="TANGRAM__PSP_25__quick_user" name="quick_user" value="0"><input type="hidden" id="TANGRAM__PSP_25__logintype" name="logintype" value="dialogLogin"><input type="hidden" id="TANGRAM__PSP_25__logLoginType" name="logLoginType" value="pc_loginDialog"><input type="hidden" id="TANGRAM__PSP_25__subpro" name="subpro" value=""><input type="hidden" id="TANGRAM__PSP_25__idc" name="idc" value=""><input type="hidden" id="TANGRAM__PSP_25__loginMerge" name="loginMerge" value="true"></p>
+										<p id="TANGRAM__PSP_25__userNameWrapper" class="pass-form-item pass-form-item-userName" style="display:">
+											<input type="text" style="display:none;">
+											<input id="TANGRAM__PSP_25__userName" type="text" name="userName" class="pass-text-input pass-text-input-userName open" autocomplete="new-password" value="" placeholder="手机/邮箱/用户名">
+											<span id="TANGRAM__PSP_25__userName_clearbtn" class="pass-clearbtn pass-clearbtn-userName" style="display: none; visibility: hidden; opacity: 1;"></span><span id="TANGRAM__PSP_25__userNameTip" class="pass-item-tip pass-item-tip-userName" style="display:none"><span id="TANGRAM__PSP_25__userNameTipText" class="pass-item-tiptext pass-item-tiptext-userName"></span></span>
+											</p>
+										<p id="TANGRAM__PSP_25__passwordWrapper" class="pass-form-item pass-form-item-password" style="display:"><input type="password" style="display: none;"><input id="TANGRAM__PSP_25__password" type="password" name="password" class="pass-text-input pass-text-input-password" autocomplete="new-password" value="" placeholder="密码"><span id="TANGRAM__PSP_25__password_clearbtn" class="pass-clearbtn pass-clearbtn-password" style="display: none; visibility: hidden;"></span><span id="TANGRAM__PSP_25__passwordTip" class="pass-item-tip pass-item-tip-password" style="display:none"><span id="TANGRAM__PSP_25__passwordTipText" class="pass-item-tiptext pass-item-tiptext-password"></span></span>
+										</p>
+										<p id="TANGRAM__PSP_25__verifyCodeImgWrapper" class="pass-form-item pass-form-item-verifyCode" style="display:none"><input id="TANGRAM__PSP_25__verifyCode" type="text" name="verifyCode" class="pass-text-input pass-text-input-verifyCode" maxlength="6" placeholder="验证码"><span id="TANGRAM__PSP_25__verifyCode_clearbtn" class="pass-clearbtn pass-clearbtn-verifyCode" style="display:none;"></span><span id="TANGRAM__PSP_25__verifyCodeImgParent" class="pass-verifyCodeImgParent"><img id="TANGRAM__PSP_25__verifyCodeImg" class="pass-verifyCode" src="https://passport.baidu.com/passApi/img/small_blank.gif"></span>
+											<a id="TANGRAM__PSP_25__verifyCodeChange" href="#" class="pass-change-verifyCode">换一张</a><span id="TANGRAM__PSP_25__verifyCodeError" class="pass-error pass-error-verifyCode"></span><span id="TANGRAM__PSP_25__verifyCodeTip" class="pass-tip pass-tip-verifyCode"></span><span id="TANGRAM__PSP_25__verifyCodeSuccess" class="pass-success pass-success-verifyCode"></span></p>
+										<p id="TANGRAM__PSP_25__memberPassWrapper" class="pass-form-item pass-form-item-memberPass"><input id="TANGRAM__PSP_25__memberPass" type="checkbox" name="memberPass" class="pass-checkbox-input pass-checkbox-memberPass" checked="checked"><label for="TANGRAM__PSP_25__memberPass" id="TANGRAM__PSP_25__memberPassLabel" class="">下次自动登录</label></p>
+										<p id="TANGRAM__PSP_25__submitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_25__submit" type="submit" value="登录" class="pass-button pass-button-submit">
+											<a class="pass-fgtpwd pass-link" href="https://passport.baidu.com/?getpassindex&amp;tt=1520587497825&amp;gid=526B53B-9A68-476F-9971-D1091BAC80E4&amp;tpl=do&amp;u=https%3A%2F%2Ftiku.baidu.com%2Ftikupc%2Fhomepage%2F1bfd700abb68a98271fefa04" target="_blank">忘记密码？</a>
+											<a class="pass-sms-btn pass-link" title="短信快捷登录" data-type="sms" id="TANGRAM__PSP_25__smsSwitchWrapper">短信快捷登录</a>
+										</p>
+									</form>
+								</div>
+								<div id="TANGRAM__PSP_25__sms" class="tang-pass-login tang-pass-sms" style="display: none; visibility: hidden; opacity: 1;">
+									<p class="pass-form-logo">短信快捷登录</p>
+									<p class="tang-pass-sms-tip">验证即登录，未注册将自动创建百度帐号</p>
+									<form id="TANGRAM__PSP_25__smsForm" method="POST">
+										<p id="TANGRAM__PSP_25__smsHiddenFields" style="display:none"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_u" name="u" value="https://tiku.baidu.com/tikupc/homepage/1bfd700abb68a98271fefa04"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_staticPage" name="staticPage" value="https://tiku.baidu.com/static/miti/tikucommon/static/html/v3Jump.html"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_tpl" name="tpl" value="do"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_idc" name="idc" value=""><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_isdpass" name="isdpass" value="1"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_gid" name="gid" value="526B53B-9A68-476F-9971-D1091BAC80E4"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_switchuname" name="switchuname" value=""><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_smsCodeString" name="smsCodeString" value=""><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_smsVcodesign" name="smsVcodesign" value=""><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_smsVcodestr" name="smsVcodestr" value=""><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_subpro" name="subpro" value=""><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_is_voice_sms" name="is_voice_sms" value="0"><input type="hidden" id="TANGRAM__PSP_25__smsHiddenFields_voice_sms_flag" name="voice_sms_flag" value="0"></p>
+										<p id="TANGRAM__PSP_25__smsErrorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_25__smsError" class="pass-generalError"></span></p>
+										<div id="TANGRAM__PSP_25__smsPhoneWrapper" class="pass-form-item pass-form-item-smsPhone"><input id="TANGRAM__PSP_25__smsPhone" type="text" name="username" class="pass-text-input pass-text-input-smsPhone" placeholder="请输入手机号"><span id="TANGRAM__PSP_25__smsPhone_clearbtn" class="pass-clearbtn pass-clearbtn-smsPhone" style="display:none;"></span><span id="TANGRAM__PSP_25__smsPhoneTip" class="pass-item-tip pass-item-tip-smsPhone" style="display:none"><span id="TANGRAM__PSP_25__smsPhoneTipText"></span></span>
+										</div>
+										<p id="TANGRAM__PSP_25__smsVerifyCodeWrapper" class="pass-form-item pass-form-item-smsVerifyCode"><input id="TANGRAM__PSP_25__smsVerifyCode" type="text" name="password" class="pass-text-input pass-text-input-smsVerifyCode" placeholder="验证码"><span id="TANGRAM__PSP_25__smsVerifyCode_clearbtn" class="pass-clearbtn pass-clearbtn-smsVerifyCode" style="display:none;"></span><button id="TANGRAM__PSP_25__smsTimer" class="pass-item-timer">发送验证码</button><span id="TANGRAM__PSP_25__smsVerifyCodeTip" class="pass-item-tip pass-item-tip-smsVerifyCode" style="display:none"><span id="TANGRAM__PSP_25__smsVerifyCodeTipText"></span></span>
+										</p>
+										<p id="TANGRAM__PSP_25__smsSubmitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_25__smsSubmit" type="submit" value="登录" class="pass-button pass-button-submit"><span class="tang-pass-sms-agreement pass-link">阅读并接受<a target="_blank" href="http://passport.baidu.com/static/passpc-account/html/protocal.html">《百度用户协议》</a></span>
+											<a id="TANGRAM__PSP_25__sms_btn_back" class="pass-sms-link pass-sms-link-back pass-link">用户名密码登录</a>
+										</p>
+									</form>
+								</div>
+								<div class="tang-pass-footerBar">
+									<p class="tang-pass-footerBarQrcode pass-link" title="扫码登录" data-type="qrcode" id="TANGRAM__PSP_25__footerQrcodeBtn" style="display: block;">扫码登录</p>
+									<p class="tang-pass-footerBarULogin pass-link" title="用户名登录" data-type="normal" id="TANGRAM__PSP_25__footerULoginBtn" style="display: none;">用户名登录</p>
+									<div class="tang-pass-footerBarPhoenix"><span class="tang-pass-footerBarPhoenixSplit"></span>
+										<div class="tang-pass-footerBarPhoenixItem" id="TANGRAM__PSP_25__PhoenixItem">
+											<div id="pass-phoenix-login" class="tang-pass-login-phoenix">
+												<div id="pass-phoenix-list-login" class="pass-phoenix-list clearfix">
+													<div class="pass-phoenix-btn clearfix" id="pass_phoenix_btn">
+														<ul class="bd-acc-list">
+															<li class="bd-acc-tsina" data-dialog="1" data-acc="2" data-height="669" data-width="800">
+																<a class="phoenix-btn-item" href="#" data-title="tsina" title="新浪微博">新浪微博</a>
+															</li>
+															<li class="bd-acc-weixin" data-dialog="1" data-acc="42" data-height="450" data-width="850">
+																<a class="phoenix-btn-item" href="#" data-title="weixin" title="微信">微信</a>
+															</li>
+															<li class="bd-acc-qzone" data-dialog="1" data-acc="15" data-height="450" data-width="750">
+																<a class="phoenix-btn-item" href="#" data-title="qzone" title="QQ帐号">QQ帐号</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="clear"></div>
+											</div>
+										</div>
+									</div>
+									<a class="pass-reglink pass-link" href="//passport.baidu.com/v2/?reg&amp;tpl=&amp;u=" target="_blank">立即注册</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mask firstleader" th:fragment="minilogin"></div>

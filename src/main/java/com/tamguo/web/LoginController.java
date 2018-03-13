@@ -1,0 +1,25 @@
+package com.tamguo.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.tamguo.service.IMemberService;
+import com.tamguo.util.Result;
+
+@Controller
+public class LoginController {
+	
+	@Autowired
+	private IMemberService iMemberService;
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@ResponseBody
+    public Result login(String username , String password , ModelAndView model) {
+		return iMemberService.login(username, password);
+    }
+
+}
