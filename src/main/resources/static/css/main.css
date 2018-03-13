@@ -183,3 +183,6 @@
     -webkit-transition: -webkit-transform .2s ease-in 0s;
     transition: transform .2s ease-in 0s;
 }
+.header .menu .menu-contain .contain-login .login-container:hover {
+    opacity: .8
+}
