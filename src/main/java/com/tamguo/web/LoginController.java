@@ -1,5 +1,7 @@
 package com.tamguo.web;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +20,13 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	@ResponseBody
-    public Result login(String username , String password , ModelAndView model) {
-		return iMemberService.login(username, password);
+    public Result login(String username , String password , ModelAndView model , HttpSession session) {
+		Result result = iMemberService.login(username, password);
+		session.getAttribute("currMember");
+		if(result.getCode() == 200){
+			session.setAttribute("currMember", result.getResult());
+		}
+		return result;
     }
 
 }

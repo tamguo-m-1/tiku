@@ -163,3 +163,23 @@
     text-decoration: none;
     color: #149987;
 }
+.header .menu .menu-contain .contain-login .user-photo {
+    margin-top: 8px;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+}
+.header .menu .menu-contain .contain-login .photo-icon {
+	font-size: 22px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 50% 50% 0;
+    -ms-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+    -webkit-transition: -webkit-transform .2s ease-in 0s;
+    transition: transform .2s ease-in 0s;
+}
