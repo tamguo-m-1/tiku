@@ -7,8 +7,10 @@ $(function(){
 	});
 	
 	$(".header .login-container").bind("click",function(event){
-		$(".mask").css("display","block");
-		$("#passport-login-pop").css("display","block");
+		if($(this).find("span").length == 1){
+			$(".mask").css("display","block");
+			$("#passport-login-pop").css("display","block");
+		}
 	});
 	
 	$("#TANGRAM__PSP_19__closeBtn").bind("click",function(event){
