@@ -24,27 +24,32 @@ public class MemberService implements IMemberService{
 		if(member == null){
 			return Result.result(201, member, "用户名或密码有误，请重新输入或找回密码");
 		}
-		Integer loginFailureCount = member.getLoginFailureCount();
-		if(new Sha256Hash(password).toHex().equals(member.getPassword())){
-			loginFailureCount = 0;
-		}else {
-			loginFailureCount ++;
+		Integer loginFailureCount = member.getLoginFailureCount();		
+		if(loginFailureCount == 3 && !new Sha256Hash(password).toHex().equals(member.getPassword())){
+			this.loginUpdateMember(member , loginFailureCount++);
+			return Result.result(203, member, "用户名或密码有误，错误次数超过三次，启用验证码！");
 		}
-		member.setLoginFailureCount(loginFailureCount);
-		memberMapper.update(member);
-		if(!new Sha256Hash(password).toHex().equals(member.getPassword())){
-			if(loginFailureCount >= 5){
-				return Result.result(203, member, "用户名或密码有误，错误次数超过五次，启用验证码");
-			}
-			return Result.result(202, member, "用户名或密码有误，请重新输入或找回密码");
+		if(loginFailureCount > 3 && StringUtils.isEmpty(captcha)){
+			this.loginUpdateMember(member , loginFailureCount++);
+			return Result.result(204, member, "请输入验证码！");
 		}
-		if(!StringUtils.isEmpty(captcha)){
+		if(loginFailureCount > 3){
 			String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
 			if (!captcha.equalsIgnoreCase(kaptcha)) {
-				return Result.result(204, member, "验证码错误");
+				return Result.result(205, member, "验证码错误");
 			}
 		}
+		if(!new Sha256Hash(password).toHex().equals(member.getPassword())){
+			this.loginUpdateMember(member , loginFailureCount++);
+			return Result.result(202, member, "用户名或密码有误，请重新输入或找回密码");
+		}
+		this.loginUpdateMember(member , 0);
 		return Result.result(200, member, "登录成功");
+	}
+	
+	private void loginUpdateMember(MemberEntity member , Integer loginFailureCount){
+		member.setLoginFailureCount(loginFailureCount);
+		memberMapper.update(member);
 	}
 	
 }
