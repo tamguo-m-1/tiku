@@ -20,8 +20,8 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	@ResponseBody
-    public Result login(String username , String password , ModelAndView model , HttpSession session) {
-		Result result = iMemberService.login(username, password);
+    public Result login(String username , String password , String captcha, ModelAndView model , HttpSession session) {
+		Result result = iMemberService.login(username, password , captcha);
 		session.getAttribute("currMember");
 		if(result.getCode() == 200){
 			session.setAttribute("currMember", result.getResult());

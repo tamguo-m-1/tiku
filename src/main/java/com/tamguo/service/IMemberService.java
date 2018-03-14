@@ -4,6 +4,6 @@ import com.tamguo.util.Result;
 
 public interface IMemberService {
 
-	public Result login(String username , String password);
+	public Result login(String username , String password , String captcha);
 	
 }

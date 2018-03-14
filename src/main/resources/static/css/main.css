@@ -186,3 +186,9 @@
 .header .menu .menu-contain .contain-login .login-container:hover {
     opacity: .8
 }
+.header .menu .menu-contain .contain-login .black {
+    background-color: #313e45;
+}
+.header .menu .menu-contain .contain-login .login-option li a:hover {
+    color: #11a68d
+}

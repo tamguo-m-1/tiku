@@ -459,6 +459,27 @@ a.pass-reglink {
 .pass-login-pop-content .pass-text-input-hover {
 	border-color:#488ee7;
 }
+.tang-pass-pop-login .pass-text-input-verifyCode {
+    width: 130px;
+    float: left;
+}
+.tang-pass-pop-login .pass-verifyCodeImgParent {
+    display: block;
+    float: left;
+    height: 42px;
+}
+.tang-pass-pop-login img.pass-verifyCode {
+    width: 90px;
+    height: 40px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    background: url(https://passport.baidu.com/passApi/img/loading.gif) center center no-repeat;
+}
+.tang-pass-pop-login .pass-change-verifyCode {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
 .mask {
     position: fixed;
     left: 0;

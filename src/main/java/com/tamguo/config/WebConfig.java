@@ -45,7 +45,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public DefaultKaptcha getKaptchaBean(){  
         DefaultKaptcha defaultKaptcha=new DefaultKaptcha();  
         Properties properties=new Properties();  
-        properties.setProperty("kaptcha.border.color", "105,179,90");
+  //      properties.setProperty("kaptcha.border.color", "105,179,90");
+        properties.setProperty("kaptcha.border", "no");
         properties.setProperty("kaptcha.image.width", "125");  
         properties.setProperty("kaptcha.image.height", "45");  
         properties.setProperty("kaptcha.session.key", "code");  

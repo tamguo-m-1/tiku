@@ -121,7 +121,7 @@ $(function(){
 			type : "get", 
 			url : mainHttp + "login.html",
 			async : true,
-			data:{username:username,password:password},
+			data:{username:username,password:password,captcha:$("#TANGRAM__PSP_25__verifyCode").val()},
 			dataType : "json",
 			success : function(data) {// 返回数据根据结果进行相应的处理,无论请求成功还是失败，都会走这个方法的
 				if(data.code == 201){
@@ -134,11 +134,41 @@ $(function(){
 					$("#TANGRAM__PSP_25__password").removeClass("pass-text-input-hover");
 					$("#TANGRAM__PSP_25__password").val("");
 					$("#TANGRAM__PSP_25__error").html('帐号或密码错误，请重新输入或者<a href="http://passport.baidu.com/?getpassindex&amp;account=smiletocandy&amp;tpl=do&amp;u=https://tiku.baidu.com/" target="_blank">找回密码</a>');
-				}else if(data.code == 200){
+				}else if(data.code == 203){
+					$("#TANGRAM__PSP_25__verifyCodeImgWrapper").css("display","block");
+					$("#TANGRAM__PSP_25__password").addClass("pass-text-input-error").focus();
+					$("#TANGRAM__PSP_25__password").removeClass("pass-text-input-hover");
+					$("#TANGRAM__PSP_25__password").val("");
+					$("#TANGRAM__PSP_25__error").html('帐号或密码错误，请重新输入或者<a href="http://passport.baidu.com/?getpassindex&amp;account=smiletocandy&amp;tpl=do&amp;u=https://tiku.baidu.com/" target="_blank">找回密码</a>');
+				} else if(data.code == 204){
+					$("#TANGRAM__PSP_25__verifyCode").addClass("pass-text-input-error").focus();
+					$("#TANGRAM__PSP_25__verifyCode").removeClass("pass-text-input-hover");
+					$("#TANGRAM__PSP_25__verifyCode").val("");
+					$("#TANGRAM__PSP_25__error").html('验证码错误，请重新输入！');
+				} else if(data.code == 200){
 					window.location.reload();
 				}
 			}
 		});
 		return false;
 	});
+	
+	$(".header .login-container").bind("mouseover",function(){
+		$(this).addClass("black");
+		$(".header .login-option").removeClass("dis-none");
+	}).bind("mouseleave",function(event){
+		$(this).removeClass("black");
+		$(".header .login-option").addClass("dis-none");
+	});
+	
+	$("#TANGRAM__PSP_25__smsSwitchWrapper").bind("click",function(){
+		$("#passport-login-pop-api").css("display","none").css("visibility","hidden");
+		$("#TANGRAM__PSP_25__sms").css("display","block").css("visibility","visible");
+	});
+	
+	$("#TANGRAM__PSP_25__sms_btn_back").bind("click",function(){
+		$("#passport-login-pop-api").css("display","block").css("visibility","visible");
+		$("#TANGRAM__PSP_25__sms").css("display","none").css("visibility","hidden");
+	});
+	
 })
