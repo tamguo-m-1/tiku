@@ -11,9 +11,9 @@
                     <i th:if="${session.currMember != null}" class="photo-icon iconfont icon-down" style="transform: rotate(0deg);"></i>
                 </div>
                 <ul th:class="${currMember == null} ? 'login-option dis-none' : 'login-option'">
-                    <li><a href="/">我的首页</a></li>
-                    <li><a href="/">账号设置</a></li>
-                    <li><a href="/logout.html">退出</a></li>
+                    <li><a th:href="${setting.domain + 'member/index.html'}">我的首页</a></li>
+                    <li><a th:href="${setting.domain + 'member/index.html'}">账号设置</a></li>
+                    <li><a th:href="${setting.domain + 'logout.html'}">退出</a></li>
                 </ul>
             </div>
 			<ul class="contain-ul">

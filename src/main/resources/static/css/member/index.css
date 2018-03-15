@@ -1,0 +1,209 @@
+.content-wp{
+	background-color: #f0f0f0!important;
+	min-height: 95%;
+	min-width: 100%;
+	position: absolute;
+}
+.user-center-wrapper{
+	padding: 80px 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1170px;
+}
+.left-container{
+	background-color: #fff;
+	width:240px;
+	float: left;
+	height:auto;
+	padding: 0;
+	text-align: center;
+}
+.left-content-wrapper{
+	height: auto;
+    min-height: 508px;
+    padding: 35px 0 45px;
+}
+.user-logo{
+	display: block;
+	width: 100px;	
+	height:100px;
+	position: relative;
+	border-radius: 50%;
+	background-size: contain;
+	margin: 0 auto 20px;
+	cursor: pointer;
+	transition: all .5s;
+}
+.user-logo .set-btn{
+	position: absolute;
+    display: inline-block;
+    width: 35px;
+    line-height: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    bottom: 0;
+    right: -2px;
+    box-shadow: 0 2px 4px rgba(67,72,84,.3);
+    color: #718fc5;
+    text-align: center;
+    font-size: 15px;
+}
+.member-menu-list li a{
+	font-size: 15px;
+	color: #666;
+	line-height: 50px;
+}
+.member-menu-list li a i{
+	margin-right: 15px;
+}
+.left-container .bottom-layer{
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #f1f1f1;
+    font-size: 13px;
+    color: #aaa;
+    cursor: pointer;
+}
+.left-container .bottom-layer:hover{
+	background-color: #eaeaea;
+}
+.left-container .bottom-layer i{
+	margin-right: 10px;
+}
+
+.right-container{
+	width: 76%;
+    padding: 0 0 0 30px;
+    float: left;
+}
+.user-info-nav{
+	border-bottom: 30px;
+	border-bottom: 1px solid #ddd;
+	width:900px;
+	height:43px;
+}
+.user-info-nav ul{
+	width:1000px;
+}
+.user-info-nav li{
+	float: left;
+	margin-bottom: -1px;
+}
+.user-info-nav li a{
+    margin-right: 2px;
+    color: #999;
+    line-height: 1.42857143;
+    height: 1.42857143;
+    overflow: hidden;
+    border: 0;
+    border-radius: 2px 2px 0 0;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+.user-info-container{
+	margin-bottom: 18px;
+    background-color: #fff;
+    border: 1px solid transparent;
+}
+.user-info-nav .active {
+	color: #333;
+    background: 0 0;
+    border: 0;
+    border-bottom: solid 2px #78bcec;
+}
+.account-basic-wrapper .section{
+	padding: 15px 15px;
+    border-bottom: solid 1px #efefef;
+    height:60px;
+}
+.account-basic-wrapper .basic{
+    height:75px;
+}
+.account-basic-wrapper .section .info{
+	float: left;
+}
+.account-basic-wrapper .section .info .name {
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.account-basic-wrapper .section .info .avatar{
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-shadow: 0 0 1px rgba(0,0,0,.6);
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.account-basic-wrapper .section .action {
+    float: right;
+    padding-top: 10px;
+}
+.account-basic-wrapper .section:before {
+    content: " ";
+    display: table;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #178fe6;
+    border-color: #178fe6;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    -ms-user-select: none;
+    user-select: none;
+}
+.account-basic-wrapper .section .info .avatar img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+.account-basic-wrapper .section .prop-info {
+	float:left;
+}
+.account-basic-wrapper .section .prop-info .highlight {
+    color: #f60;
+}
+.account-basic-wrapper .section .prop-info h4 {
+    color: #333;
+}
+h4 {
+    font-size: 17px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.account-basic-wrapper .section .prop-info h4 span {
+    color: #178fe6;
+}
+.btn-primary.active.focus,.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active.focus,.btn-primary:active:focus,.btn-primary:active:hover,.open>.dropdown-toggle.btn-primary.focus,.open>.dropdown-toggle.btn-primary:focus,.open>.dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: #0f5e97;
+    border-color: #0b4772
+}

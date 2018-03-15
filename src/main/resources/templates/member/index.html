@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>探果-科目</title>
+		<link rel="stylesheet" th:href="${setting.domain+'css/main.css'}"></link>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/member/index.css'}" />
+	</head>
+	<body>
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>
+	
+	<!--主体-->	
+    <div class="content-wp">
+    	<div class="user-center-wrapper">
+	    	<div class="left-container">
+	    		<div class="left-content-wrapper">
+	    		<a class="user-logo" style="background-image:url(http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJIRYjBHvrO592ZhSwVZzjyIseIa86ksUDfkXtus8Y8xBzkpfAtJLxRxYpUKWxmKd9yJInWwDNJw/132)" company-link="{type:'INDIVIDUAL',id:uid}" href="//rong.36kr.com/userinfo/1455872271">
+	                <span class="set-btn" ui-sref="uc.account.basic" ng-click="$event.stopPropagation();" href="#/uc/account/basic">
+	                    <i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>
+	                </span>
+	            </a>
+	    		<ul class="member-menu-list">
+	    			<li><a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>我的订单</a></li>
+	    			<li><a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>我的消息</a></li>
+	    			<li><a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>我的收藏</a></li>
+	    		</ul>
+	    		</div>
+	    		<div class="bottom-layer">
+	    			<a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>退出登录</a>
+	    		</div>
+	    	</div>
+	    	
+    		<div class="right-container">
+    			<div class="right-content-wrapper">
+    				<ul class="user-info-nav"><li><a class="active">帐号信息</a></li><li><a>社交权限授权</a></li></ul>
+    				<div class="user-info-container">
+    					<div class="account-basic-wrapper">
+    						<div class="section basic">
+						        <div class="info">
+						            <div class="avatar" ng-click="avatarEdit()">
+						                <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJIRYjBHvrO592ZhSwVZzjyIseIa86ksUDfkXtus8Y8xBzkpfAtJLxRxYpUKWxmKd9yJInWwDNJw/132" alt="">
+						            </div>
+						            <div class="name ng-binding">
+						                谭果
+						            </div>
+						        </div>
+						        <div class="action">
+						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="basicInfoEdit()">
+						                修改
+						            </a>
+						        </div>
+						    </div>
+    						
+    						<div class="section">
+						        <div class="prop-info">
+						            <i></i>
+						
+						            <div class="desc highlight" ng-class="{'highlight':!formData.email}">
+						                <h4>安全邮箱: <span class="ng-binding">暂无安全邮箱 </span> <!-- ngIf: formData.unconfirmed_email --></h4>
+						                安全邮箱可以用于登录36氪账号，重置密码或其它安全验证
+						            </div>
+						        </div>
+						        <div class="action">
+						            <!-- ngIf: formData.unconfirmed_email -->
+						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="emailInfoEdit()">
+						                修改
+						            </a>
+						        </div>
+						    </div>
+						    
+						    <div class="section">
+						        <div class="prop-info">
+						            <i></i>
+						
+						            <div class="desc" ng-class="{'highlight':!formData.phone}">
+						                <h4>安全手机: <span class="ng-binding">156****0786</span></h4>
+						                安全手机可以用于登录36氪账号，重置密码或其它安全验证
+						            </div>
+						        </div>
+						        <div class="action">
+						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="phoneInfoEdit()">
+						                修改
+						            </a>
+						        </div>
+						    </div>
+						    
+						    <div class="section">
+						        <div class="prop-info">
+						            <i></i>
+						
+						            <div class="desc" ng-class="{'highlight':!formData.has_password}">
+						                <h4>账号密码</h4>
+						                用于保护账号信息和登录安全
+						            </div>
+						        </div>
+						        <div class="action">
+						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="passwordInfoEdit()">
+						                修改
+						            </a>
+						        </div>
+						    </div>
+						    
+						    <div class="section">
+						        <div class="prop-info">
+						            <i></i>
+						
+						            <div class="desc" ng-class="{'highlight':!formData.has_password}">
+						                <h4>
+						                    跟投人认证
+						                    <!-- ngIf: !userRoles.coInvestor --><span ng-if="!userRoles.coInvestor" class="ng-scope">未认证</span><!-- end ngIf: !userRoles.coInvestor -->
+						                    <!-- ngIf: userRoles.coInvestor -->
+						                </h4>
+						                1分钟成为36氪认证跟投人，享受众多特权与服务
+						            </div>
+						        </div>
+						        <!-- ngIf: !userRoles.coInvestor --><div class="action ng-scope" ng-if="!userRoles.coInvestor">
+						            <a class="btn btn-primary" href="//z.36kr.com/investorValidate">
+						                去认证
+						            </a>
+						        </div><!-- end ngIf: !userRoles.coInvestor -->
+						    </div>
+						    
+						    <div class="section">
+						        <div class="prop-info">
+						            <i></i>
+						            <div class="desc highlight" ng-class="{ 'highlight': !(auditData.copies.length &amp;&amp; auditData.status == 2) }">
+						                <h4>
+						                    上传身份证:
+						                    <!-- ngIf: !auditData.copies.length --><span ng-if="!auditData.copies.length" class="ng-scope">未上传</span><!-- end ngIf: !auditData.copies.length -->
+						                    <!-- ngIf: auditData.copies.length && auditData.status == 1 -->
+						                    <!-- ngIf: auditData.copies.length && auditData.status == 2 -->
+						                    <!-- ngIf: auditData.copies.length && auditData.status == 3 -->
+						                </h4>
+						                为了缩短办理入资手续的时间，建议您提前上传身份证
+						            </div>
+						        </div>
+						        <div class="action">
+						            <!-- ngIf: !auditData.copies.length --><a class="btn btn-primary ng-scope" href="#/uc/idupload" ui-sref="uc.idupload" ng-if="!auditData.copies.length">
+						                去上传
+						            </a><!-- end ngIf: !auditData.copies.length -->
+						            <!-- ngIf: auditData.copies.length && auditData.status == 1 -->
+						            <!-- ngIf: auditData.copies.length && auditData.status == 3 -->
+						        </div>
+						    </div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+</body>
+	
+<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/main.js'}"></script>
+</html>
