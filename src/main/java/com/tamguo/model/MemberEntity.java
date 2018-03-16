@@ -28,6 +28,9 @@ public class MemberEntity implements Serializable {
 	@Column(name="login_failure_count")
 	private Integer loginFailureCount;
 	
+	@Column(name="mobile")
+	private String mobile;
+	
 	public String getUid() {
 		return uid;
 	}
@@ -66,6 +69,14 @@ public class MemberEntity implements Serializable {
 
 	public void setLoginFailureCount(Integer loginFailureCount) {
 		this.loginFailureCount = loginFailureCount;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 

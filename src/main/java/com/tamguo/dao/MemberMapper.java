@@ -7,4 +7,6 @@ public interface MemberMapper extends BaseDao<MemberEntity>{
 
 	MemberEntity findByUsername(String username);
 
+	MemberEntity findByMobile(String mobile);
+
 }
