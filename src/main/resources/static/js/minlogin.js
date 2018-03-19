@@ -115,11 +115,15 @@ $(function(){
 	$("#TANGRAM__PSP_25__smsSwitchWrapper").bind("click",function(){
 		$("#passport-login-pop-api").css("display","none").css("visibility","hidden");
 		$("#TANGRAM__PSP_25__sms").css("display","block").css("visibility","visible");
+		$("#TANGRAM__PSP_25__footerQrcodeBtn").show();
+		$("#TANGRAM__PSP_25__footerULoginBtn").hide();
 	});
 	
 	$("#TANGRAM__PSP_25__sms_btn_back").bind("click",function(){
 		$("#passport-login-pop-api").css("display","block").css("visibility","visible");
 		$("#TANGRAM__PSP_25__sms").css("display","none").css("visibility","hidden");
+		$("#TANGRAM__PSP_25__footerULoginBtn").show();
+		$("#TANGRAM__PSP_25__footerQrcodeBtn").hide();
 	});
 	
 	$("#TANGRAM__PSP_25__verifyCodeChange").bind("click",function(){

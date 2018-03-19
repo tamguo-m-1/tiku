@@ -59,7 +59,6 @@
     text-align: left;
     margin: 0;
     font-size: 14px;
-    cursor: pointer;
 }
 .tang-pass-pop-login .clearfix:after, .tang-pass-pop-login .pass-form-item:after {
     visibility: hidden;
