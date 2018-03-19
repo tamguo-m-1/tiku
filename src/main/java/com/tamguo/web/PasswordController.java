@@ -36,6 +36,17 @@ public class PasswordController {
 		return model;
 	}
 	
+	@RequestMapping(value = "password/securityCheck", method = RequestMethod.POST)
+	public ModelAndView securityCheck(String vcode , ModelAndView model){
+		Result result = iMemberService.securityCheck(vcode);
+		if(result.getCode() == 200){
+			model.setViewName("password/resetPassword");
+		}else{
+			model.setViewName("password/securityCheck");
+		}
+		return model;
+	}
+	
 	@RequestMapping(value = "password/checkAccount", method = RequestMethod.GET)
 	@ResponseBody
 	public Result checkAccount(String account){

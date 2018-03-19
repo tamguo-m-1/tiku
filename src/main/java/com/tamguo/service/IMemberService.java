@@ -15,4 +15,6 @@ public interface IMemberService {
 	public Result checkAccount(String account);
 	
 	public Result confirmAccount(String account , String veritycode);
+
+	public Result securityCheck(String vcode);
 }

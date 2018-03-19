@@ -385,3 +385,6 @@ label {
     visibility: hidden;
     overflow: hidden;
 }
+.pass-input-focus {
+    border-color: #377bcb
+}

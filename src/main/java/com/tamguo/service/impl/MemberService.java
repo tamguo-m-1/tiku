@@ -119,5 +119,10 @@ public class MemberService implements IMemberService{
 		}
 		return Result.result(200, null, "该帐号存在");
 	}
+
+	@Override
+	public Result securityCheck(String vcode) {
+		return Result.result(200, null, "安全验证通过");
+	}
 	
 }
