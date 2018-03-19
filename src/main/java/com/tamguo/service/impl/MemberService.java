@@ -91,5 +91,33 @@ public class MemberService implements IMemberService{
 		memberMapper.insert(member);
 		return Result.result(200, member, "注册成功");
 	}
+
+	@Override
+	public Result checkAccount(String account) {
+		if(StringUtils.isEmpty(account)){
+			return Result.result(201, null, "帐号不存在！");
+		}
+		MemberEntity member = memberMapper.findByUsernameOrEmailOrMobile(account);
+		if(member == null){
+			return Result.result(201, null, "帐号不存在！");
+		}
+		return Result.result(200, null, "该帐号存在");
+	}
+
+	@Override
+	public Result confirmAccount(String account, String veritycode) {
+		if(StringUtils.isEmpty(account)){
+			return Result.result(201, null, "帐号不存在！");
+		}
+		MemberEntity member = memberMapper.findByUsernameOrEmailOrMobile(account);
+		if(member == null){
+			return Result.result(201, null, "帐号不存在！");
+		}
+		String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
+		if (!veritycode.equalsIgnoreCase(kaptcha)) {
+			return Result.result(202, null, "验证码错误");
+		}
+		return Result.result(200, null, "该帐号存在");
+	}
 	
 }

@@ -31,6 +31,9 @@ public class MemberEntity implements Serializable {
 	@Column(name="mobile")
 	private String mobile;
 	
+	@Column(name="email")
+	private String email;
+	
 	public String getUid() {
 		return uid;
 	}
@@ -77,6 +80,14 @@ public class MemberEntity implements Serializable {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 

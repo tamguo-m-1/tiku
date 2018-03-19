@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>探果-找回密码</title>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/member/password.css'}" />
+	</head>
+	<body>
+		<div id="wrapper" class="">
+			<div id="head">
+				<div class="mod-header">
+					<a href="https://passport.baidu.com/"><img src="https://passport.baidu.com/static/passpc-base/img/logo/logo.gif" alt="logo"></a>
+				</div>
+				<ul class="mod-userbar">
+					<li>
+						<a id="mod-userbar-login" href="###">登录</a>
+					</li>
+					<li>|</li>
+					<li>
+						<a href="https://passport.baidu.com/v2/?reg&amp;tpl=&amp;u=">注册</a>
+					</li>
+				</ul>
+			</div>
+			<div id="nav">
+				<div class="nav-2">
+					<div class="mod-nav clearfix">
+						<h1 class="page-type-notab">找回密码</h1>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+				<div class="mod-forgot">
+					<ul class="mod-sub-nav">
+						<li class="mod-sub-list1 list1-active">确认帐号</li>
+						<li class="mod-sub-list2">安全验证</li>
+						<li class="mod-sub-list3">重置密码</li>
+					</ul>
+					<form th:action="${setting.domain + 'password/confirmAccount.html'}" method="post" id="forgotsel">
+						<div class="mod-step-detail">
+							<p class="step-email-info">请填写您需要找回的帐号,海外用户请点击
+								<a id="overseas">海外手机号找回密码</a>
+							</p>
+							<div class="pass-input-container clearfix" id="pass-auth-select">
+								<input type="text" th:class="${code == 201 ? 'pass-input pass-input-forgot pass-input-error':'pass-input pass-input-forgot'}" name="username" value="" id="account" placeholder="手机/邮箱/用户名">
+								<span class="fix-clear userName-clearbtn" id="userName_clearBtn"></span>
+								<span class="pass-input-msg l-h40" th:text="${code == '201' ? '用户名不存在，请重新输入' : ''}"></span>
+							</div>
+							<div class="pass-account-slect clearfix m_b15 hide" style="position: relative; display: none;">
+								<p>请协助我们确认一下您输入的内容，便于更快的定位您的信息：</p>
+								<p class="pass-radio pass-radio-list" s="username">我输入的是用户名</p>
+								<p class="pass-radio pass-radio-list pass-radion-active" s="securemobil">我输入的是手机号</p>
+							</div>
+							<div class="pass-input-container vcode-container clearfix">
+								<input type="text" th:class="${code == 202 ? 'pass-input pass-input-forgot vcode-input vcode-input-width pass-input-error' : 'pass-input pass-input-forgot vcode-input vcode-input-width'}" name="veritycode" value="" id="veritycode" placeholder="请输入验证码">
+								<img class="vcode-img vcode-img-big hide" alt="验证码图片" title="验证码图片" th:src="${setting.domain + 'admin/captcha.jpg'}" style="display: inline;">
+								<a href="###" class="vcode-img-change p-t13">换一张</a>
+								<input type="hidden" name="captcha_str" value="njG8e06e2331ddbe2c802901568de01e914376cde064e011359">
+								<span class="pass-input-msg l-h40" th:text="${code == 202 ? '验证码错误，请重新输入' : ''}"></span>
+							</div>
+							<div>
+								<input type="hidden" name="bdstoken" value="2de9aaddd3ae6958ccee8eb3503ed83f">
+								<input type="hidden" name="tpl" value="do">
+								<input type="hidden" name="index" value="">
+								<input type="hidden" name="countrycode" value="" id="countrycode">
+								<input type="submit" name="" value="下一步" class="pass-button-submit" id="submit">
+								<input type="hidden" value="" id="error">
+								<input type="hidden" value="" id="username">
+								<input type="hidden" value="" id="veritycode">
+								<input type="hidden" value="" id="bdErrMsg">
+								<input type="hidden" value="tk0.70863526646873211521429360989@m~XXMCXw-iwPvhwvhBA-w7kDlIvo5ue-7TE-CkDy0npz0T4zCkEyBTtc0npc0kp~ByD-CnU~BvlBm--7kt~BkBe0TUc7kt~BTqeBnqgBm-cCnp-7kt~BTqeBnqWBq__yv0iXBm-Y7kp-7kpY7kBl7k3w7k3z7k3Y7k3g7kt-0m-cBTUeBnUg7kt~Cm-w0kteBTJ~7kpYCA-wCk3eBT3g7kByBA-y0TDeByUc" name="dv" id="dv_Input">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="foot">
+				<div class="mod-footer">
+					<div class="copy-box">2018&nbsp;©Baidu</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部结束-->
+	</body>
+	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}"></script>
+	<script type="text/javascript" th:src="${setting.domain + 'js/member/password/find.js'}"></script>
+</html>

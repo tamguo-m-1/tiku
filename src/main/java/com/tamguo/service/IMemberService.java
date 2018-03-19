@@ -11,4 +11,8 @@ public interface IMemberService {
 	public Result checkMobile(String mobile);
 	
 	public Result register(String username , String mobile , String password , String verifyCode);
+
+	public Result checkAccount(String account);
+	
+	public Result confirmAccount(String account , String veritycode);
 }
