@@ -1,0 +1,211 @@
+#wrapper {
+    width: 100%;
+}
+#head, #content, #foot {
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#head {
+    height: 75px;
+    z-index: 100;
+}
+.mod-header {
+    display: inline;
+    font-size: 66px;
+}
+a {
+    text-decoration: none;
+    color: #2b78e4;
+}
+.mod-userbar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 300;
+    font-family: "Microsoft yahei", Arial, Helvetica, STHeiti, 宋体;
+}
+.mod-userbar li {
+    float: left;
+    margin: 0 5px;
+    color: #ccc;
+    height: 24px;
+}
+.mod-userbar li a {
+    color: #000;
+    text-decoration: underline;
+}
+.mod-userbar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 300;
+    font-family: "Microsoft yahei", Arial, Helvetica, STHeiti, 宋体;
+}
+.mod-userbar li {
+    float: left;
+    margin: 0 5px;
+    color: #ccc;
+    height: 24px;
+}
+.mod-userbar li a {
+    color: #000;
+    text-decoration: underline;
+}
+#nav {
+    height: 42px;
+}
+.nav-2 {
+    height: 46px;
+    background: url(https://passport.baidu.com/static/passpc-base/img/hdbg.png) repeat-x 0 0;
+    width: 100%;
+}
+.mod-nav {
+    position: relative;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page-type-notab {
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    float: left;
+    margin-left: 70px;
+    line-height: 46px;
+    display: inline;
+}
+.clearfix:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
+#content {
+    height: auto;
+}
+#content .mod-forgot {
+    min-height: 500px;
+    height: auto;
+}
+.mod-forgot {
+    height: 450px;
+    margin-left: 70px;
+    width: 910px;
+}
+.mod-sub-nav {
+    height: 34px;
+    background: url(https://passport.baidu.com/static/passpc-security/img/mod/mod_sub_nav.png) no-repeat 0 0;
+    margin: 30px 0;
+    line-height: 34px;
+    color: #666;
+    font-size: 16px;
+    font-family: "Microsoft Yahei",\5fae\8f6f\96c5\9ed1,\9ed1\4f53;
+}
+.mod-sub-nav li {
+    float: left;
+    padding-left: 66px;
+}
+.mod-sub-list1 {
+    width: 175px;
+}
+.mod-sub-list2 {
+    width: 163px;
+}
+.mod-sub-nav li.list3-active {
+    background: url(https://passport.baidu.com/static/passpc-security/img/mod/sub_nav_3.png) no-repeat 0 0;
+    color: #2e82ff;
+    margin-left: -12px;
+    padding-left: 78px;
+    width: 163px;
+}
+.mod-step-detail .result-info {
+    text-align: center;
+    padding-top: 60px;
+    width: 695px;
+}
+.mod-step-detail .result-info .result-message {
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 40px;
+}
+.result-message span, .result-message2 span {
+    position: relative;
+    top: -8px;
+    left: 8px;
+}
+.mod-setinfo .button, .mod-layer-body .button, .mod-step-detail .button {
+    display: block;
+    float: left;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    line-height: 30px;
+    width: 77px;
+    height: 30px;
+    background: #3f89ec;
+    border-radius: 3px;
+}
+.mod-setinfo .result-title-btn, .mod-step-detail .result-title-btn {
+    float: none;
+    height: 40px;
+    width: 140px;
+    line-height: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.result-content-msg {
+    font-size: 12px;
+    margin: 10px 0;
+    color: #999;
+    text-align: left;
+    display: block;
+}
+.result-content-table {
+    width: 700px;
+}
+.result-content-link {
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.result-content-title {
+    width: 700px;
+    height: 30px;
+    text-align: center;
+    font-size: 12px;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.result-content-title th {
+    color: #666;
+    border-top: 1px solid #dfdfdf;
+    background: #f3f3f3;
+    text-align: center;
+}
+.result-content-list td {
+    border-bottom: 1px dotted #dcdcdc;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 5px 0;
+    text-align: center;
+}
+#foot {
+    text-align: center;
+    color: #7a77c8;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

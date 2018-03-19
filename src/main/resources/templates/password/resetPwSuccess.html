@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/password/resetPwSuccess.css'}" />
+	</head>
+	<body>
+		<div id="wrapper" class="">
+			<div id="head">
+				<div class="mod-header">
+					<a href="https://passport.baidu.com/"><img src="https://passport.baidu.com/static/passpc-base/img/logo/logo.gif" alt="logo"></a>
+				</div>
+				<ul class="mod-userbar">
+					<li>
+						<a id="mod-userbar-login" href="###">登录</a>
+					</li>
+					<li>|</li>
+					<li>
+						<a href="https://passport.baidu.com/v2/?reg&amp;tpl=&amp;u=">注册</a>
+					</li>
+				</ul>
+			</div>
+			<div id="nav">
+				<div class="nav-2">
+					<div class="mod-nav clearfix">
+						<h1 class="page-type-notab">找回密码</h1>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+				<div class="mod-forgot">
+					<ul class="mod-sub-nav">
+						<li class="mod-sub-list1">确认帐号</li>
+						<li class="mod-sub-list2">安全验证</li>
+						<li class="mod-sub-list3 list3-active">重置密码</li>
+					</ul>
+					<div class="mod-step-detail">
+						<div class="result-info">
+							<div class="result-message">
+								<img src="https://passport.baidu.com/static/passpc-base/img/success_icon.png">
+								<span>恭喜，百度帐号喜欢吃鱼的果果重置密码成功</span>
+								<a class="button result-title-btn" href="http://passport.baidu.com/center">直接登录</a>
+							</div>
+							<div class="result-list-content">
+								<span class="result-content-msg">以下为您最近2次的操作记录，请仔细检查手机及邮箱，如非本人所有，可通过帐号申诉更换。</span>
+								<table class="result-content-table">
+									<tbody>
+										<tr class="result-content-title">
+											<th width="120px">时间</th>
+											<th width="120">操作记录</th>
+											<th width="130">IP</th>
+										</tr>
+										<tr class="result-content-list">
+											<td>2018-03-19 </td>
+											<td>找回密码</td>
+											<td>220.248.*.*</td>
+										</tr>
+										<tr class="result-content-list">
+											<td>2018-03-13 </td>
+											<td>设置用户名:喜欢吃鱼的果果</td>
+											<td>220.248.*.*</td>
+										</tr>
+									</tbody>
+								</table>
+								<a href="http://passport.baidu.com/v2/?accountsensinfo" class="result-content-link">查看更多</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="foot">
+				<div class="mod-footer">
+					<div class="copy-box">2018&nbsp;©Baidu</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
