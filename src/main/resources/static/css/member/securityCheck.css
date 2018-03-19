@@ -1,0 +1,387 @@
+#wrapper {
+    width: 100%;
+}
+#head, #content, #foot {
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#head {
+    height: 75px;
+    z-index: 100;
+}
+.mod-header {
+    display: inline;
+    font-size: 66px;
+}
+a {
+    text-decoration: none;
+    color: #2b78e4;
+}
+.mod-userbar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 300;
+    font-family: "Microsoft yahei", Arial, Helvetica, STHeiti, ËÎÌו;
+}
+.mod-userbar li {
+    float: left;
+    margin: 0 5px;
+    color: #ccc;
+    height: 24px;
+}
+.mod-userbar li a {
+    color: #000;
+    text-decoration: underline;
+}
+#nav {
+    height: 42px;
+}
+#nav {
+    width: 100%;
+    background: #fafafa;
+    z-index: 1;
+}
+.nav-2 {
+    height: 46px;
+    background: url(https://passport.baidu.com/static/passpc-base/img/hdbg.png) repeat-x 0 0;
+    width: 100%;
+}
+.mod-nav {
+    position: relative;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page-type-notab {
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    float: left;
+    margin-left: 70px;
+    line-height: 46px;
+    display: inline;
+}
+#content {
+    height: auto;
+}
+#content .mod-forgot {
+    min-height: 500px;
+    height: auto;
+}
+.mod-forgot {
+    height: 450px;
+    margin-left: 70px;
+    width: 910px;
+}
+.mod-sub-nav {
+    height: 34px;
+    background: url(https://passport.baidu.com/static/passpc-security/img/mod/mod_sub_nav.png) no-repeat 0 0;
+    margin: 30px 0;
+    line-height: 34px;
+    color: #666;
+    font-size: 16px;
+    font-family: "Microsoft Yahei",\5fae\8f6f\96c5\9ed1,\9ed1\4f53;
+}
+.mod-sub-nav li {
+    float: left;
+    padding-left: 66px;
+}
+.mod-sub-list1 {
+    width: 175px;
+}
+.mod-sub-nav li.list2-active {
+    background: url(https://passport.baidu.com/static/passpc-security/img/mod/sub_nav_2.png) no-repeat 0 0;
+    color: #2e82ff;
+    margin-left: -12px;
+    padding-left: 78px;
+}
+.forgot-auth-container {
+    width: 520px;
+}
+.mod-step-detail .step-email-info, .mod-step-detail .step-form-info {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.mod-step-detail .step-email-info, .mod-step-detail .step-form-info {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.forgot-auth-type {
+    position: relative;
+    z-index: 1;
+}
+.m-t10 {
+    margin-top: 10px;
+}
+form {
+    position: relative;
+}
+.forgot-auth-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.pass-input-container, .m-b15 {
+    margin-bottom: 15px;
+}
+.pass-input-container {
+    position: relative;
+}
+.form-2-label {
+    width: 70px;
+    font-size: 14px;
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    line-height: 32px;
+}
+label {
+    cursor: default;
+}
+.line-32 {
+    line-height: 32px;
+}
+.form-2-content {
+    font-size: 14px;
+    position: relative;
+    float: left;
+}
+.verify-method {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+}
+.mod-step-detail .m-b-mobile {
+    margin-bottom: 8px;
+}
+.mod-step-detail .vcode-container {
+    margin-bottom: 30px;
+}
+.form-2-content {
+    font-size: 14px;
+    position: relative;
+    float: left;
+}
+.mod-step-detail .vcode-container .vcode-input {
+    float: left;
+    width: 97px;
+}
+.mod-step-detail .vcode-container .pass-input-new {
+    width: 220px;
+    height: 22px;
+    background: #fff;
+}
+.pass-input {
+    border: 1px solid #CCC;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    vertical-align: middle;
+    font-size: 12px;
+    _margin-top: 1px;
+    padding: 7px 0 7px 8px;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    color: #333;
+    font-size: 14px;
+    background: url(https://passport.baidu.com/static/passpc-base/img/ui/form_input_261.png) no-repeat left top;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: .3s;
+    -moz-transition-property: all;
+    -moz-transition-duration: .3s;
+    -o-transition-property: all;
+    -o-transition-duration: .3s;
+    transition-property: all;
+    transition-duration: .3s;
+    outline: 0;
+    resize: none;
+    width: 253px;
+    float: left;
+}
+.input-label-new1 {
+    top: 6px;
+    left: 10px;
+    font-size: 14px;
+}
+.pass-input-label {
+    position: absolute;
+    left: 13px;
+    top: 3px;
+    _top: 5px;
+    color: #ccc;
+    height: 28px;
+    line-height: 28px;
+    cursor: text;
+    -webkit-transition-property: color;
+    -webkit-transition-duration: .3s;
+    -moz-transition-property: all;
+    -moz-transition-duration: .3s;
+    -o-transition-property: all;
+    -o-transition-duration: .3s;
+    transition-property: all;
+    transition-duration: .3s;
+}
+#pass-button-new1 {
+    width: 120px;
+    height: 36px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    color: #666;
+    line-height: 36px;
+}
+.form-2-content .pass-button-timer {
+    margin: 0 0 0 10px;
+}
+.pass-button-timer, .mod-btn2 {
+    height: 29px;
+    width: 107px;
+    color: #333;
+    cursor: pointer;
+    border: 0;
+    line-height: 29px;
+    text-align: center;
+    background: url(https://passport.baidu.com/static/passpc-base/img/ui/button_icon.png) no-repeat 0 -138px;
+    float: left;
+}
+.pass-input-stip {
+    line-height: 40px;
+    float: left;
+    font-size: 12px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.pass-input-stip {
+    line-height: 40px;
+    float: left;
+    font-size: 12px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.form-2-content .pass-input-msg {
+    clear: both;
+    margin-left: 0;
+    height: 32px;
+    width: 420px;
+}
+.pass-input-msg {
+    line-height: 32px;
+    float: left;
+    color: #da1111;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.m-b30 {
+    margin-bottom: 30px;
+}
+.m-b30 .pass-button-new1 {
+    width: 360px;
+    height: 40px;
+    background: #2e82ff;
+    color: #fff;
+    font-weight: 700;
+}
+.mod-step-detail .pass-button-submit {
+    display: block;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background-image: none;
+    border-radius: 3px;
+    border: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
+    background-color: #3f89ec;
+    width: 350px;
+}
+.pass-button-submit, .pass-button-timer2, .mod-btn1 {
+    height: 34px;
+    width: 109px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border: 0;
+    background: url(https://passport.baidu.com/static/passpc-base/img/ui/button_icon.png) no-repeat 0 0;
+    line-height: 32px;
+}
+.forgot-auth-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.mod-step-detail .step-email-info, .mod-step-detail .step-form-info {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.mod-step-detail .step-email-info, .mod-step-detail .step-form-info {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.upsms-auth-content {
+    width: 400px;
+    height: 130px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+.upsms-auth-left {
+    background: #f9f9f9;
+    width: 209px;
+    height: 100px;
+    float: left;
+    padding: 20px 20px 10px;
+    border-right: 1px solid #ccc;
+}
+.upsms-auth-left p {
+    margin-bottom: 10px;
+}
+.upsms-auth-left p {
+    margin-bottom: 10px;
+}
+.mod-step-detail .step-tip {
+    border-top: 1px dotted #e5e5e5;
+    margin: 70px 0 140px;
+    width: 910px;
+}
+.mod-step-detail .m-t0 {
+    margin-top: 0;
+}
+.mod-step-detail .step-tip li {
+    font-family: ËÎÌו, Arial, Helvetica, STHeiti;
+}
+.mod-step-detail .step-tip li {
+    margin-top: 12px;
+}
+.img-info {
+    padding-right: 5px;
+}
+.left {
+    float: left;
+}
+.hide {
+    display: none;
+}
+#foot {
+    text-align: center;
+    color: #7a77c8;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.mod-sub-list2 {
+    width: 163px;
+}
+.clearfix:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
