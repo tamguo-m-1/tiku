@@ -1,5 +1,7 @@
 package com.tamguo.service.impl;
 
+import java.util.UUID;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.code.kaptcha.Constants;
 import com.tamguo.dao.MemberMapper;
+import com.tamguo.dao.redis.CacheService;
 import com.tamguo.model.MemberEntity;
 import com.tamguo.service.IMemberService;
 import com.tamguo.util.Result;
@@ -18,6 +21,8 @@ public class MemberService implements IMemberService{
 	
 	@Autowired
 	private MemberMapper memberMapper;
+	@Autowired
+	private CacheService cacheService;
 
 	@Override
 	public Result login(String username, String password , String captcha) {
@@ -117,12 +122,27 @@ public class MemberService implements IMemberService{
 		if (!veritycode.equalsIgnoreCase(kaptcha)) {
 			return Result.result(202, null, "验证码错误");
 		}
-		return Result.result(200, null, "该帐号存在");
+		return Result.result(200, member, "该帐号存在");
 	}
 
 	@Override
-	public Result securityCheck(String vcode) {
-		return Result.result(200, null, "安全验证通过");
+	public Result securityCheck(String username , String vcode) {
+		// TODO 安全验证
+		String key = UUID.randomUUID().toString();
+		cacheService.setObject(key,  username , 2 * 60 * 60);
+		return Result.result(200, key, "安全验证通过");
+	}
+
+	@Override
+	public Result resetPassword(String resetPasswordKey , String username , String password, String verifypwd) {
+		if(cacheService.isExist(resetPasswordKey)){
+			MemberEntity member = memberMapper.findByUsername(username);
+			if(password.equals(verifypwd)){
+				member.setPassword(new Sha256Hash(password).toHex());
+				memberMapper.update(member);
+			}
+		}
+		return Result.result(200, null, "更新成功");
 	}
 	
 }
