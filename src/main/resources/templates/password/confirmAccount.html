@@ -41,7 +41,7 @@
 							<p class="step-email-info">请填写您需要找回的帐号
 							</p>
 							<div class="pass-input-container clearfix" id="pass-auth-select">
-								<input type="text" th:class="${code == 201 ? 'pass-input pass-input-forgot pass-input-error':'pass-input pass-input-forgot'}" name="username" value="" id="account" placeholder="手机/邮箱/用户名">
+								<input type="text" th:class="${code == 201 ? 'pass-input pass-input-forgot pass-input-error':'pass-input pass-input-forgot'}" name="username" th:value="${username}" id="account" placeholder="手机/邮箱/用户名">
 								<span class="fix-clear userName-clearbtn" id="userName_clearBtn"></span>
 								<span class="pass-input-msg l-h40" th:text="${code == '201' ? '用户名不存在，请重新输入' : ''}"></span>
 							</div>

@@ -7,19 +7,21 @@ $(function(){
 	}).bind("blur",function(){
 		$("#account").removeClass("pass-input-focus");
 		// 验证码用户名/邮箱/手机号是否存在
-		$.ajax({
-			type : "get", 
-			url : "checkAccount.html",
-			async : true,
-			data:{account:$("#account").val()},
-			dataType : "json",
-			success : function(data) {
-				if(data.code == 201){
-					$("#pass-auth-select .pass-input-msg").text("用户名不存在，请重新输入");
-					$("#account").addClass("pass-input-error");
+		if($("#account").val() != ""){
+			$.ajax({
+				type : "get", 
+				url : "checkAccount.html",
+				async : false,
+				data:{account:$("#account").val()},
+				dataType : "json",
+				success : function(data) {
+					if(data.code == 201){
+						$("#pass-auth-select .pass-input-msg").text("用户名不存在，请重新输入");
+						$("#account").addClass("pass-input-error");
+					}
 				}
-			}
-		});
+			});
+		}
 	});
 	
 	$("#account").bind("keyup",function(){
@@ -64,7 +66,7 @@ $(function(){
 		$.ajax({
 			type : "get", 
 			url : "checkAccount.html",
-			async : true,
+			async : false,
 			data:{account:$("#account").val()},
 			dataType : "json",
 			success : function(data) {

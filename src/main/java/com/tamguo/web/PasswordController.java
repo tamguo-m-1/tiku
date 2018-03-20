@@ -32,6 +32,7 @@ public class PasswordController {
 		}else{
 			model.setViewName("password/confirmAccount");
 			model.addObject("account", username);
+			model.addObject("username",username);
 			model.addObject("veritycode", veritycode);
 			model.addObject("code", result.getCode());
 		}

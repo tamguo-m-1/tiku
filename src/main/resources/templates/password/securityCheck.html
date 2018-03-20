@@ -10,7 +10,7 @@
 		<div id="wrapper" class="">
 			<div id="head">
 				<div class="mod-header">
-					<a href="https://passport.baidu.com/"><img src="https://passport.baidu.com/static/passpc-base/img/logo/logo.gif" alt="logo"></a>
+					<a href="https://passport.baidu.com/"><img th:src="${setting.domain + 'images/password/logo.gif'}" alt="logo"></a>
 				</div>
 				<ul class="mod-userbar">
 					<li>
@@ -18,7 +18,7 @@
 					</li>
 					<li>|</li>
 					<li>
-						<a href="https://passport.baidu.com/v2/?reg&amp;tpl=&amp;u=">注册</a>
+						<a th:href="${setting.domain + 'register.html'}">注册</a>
 					</li>
 				</ul>
 			</div>
@@ -58,9 +58,6 @@
 											<span class="pass-input-msg" id="forgot-mobileVcode-tip"></span>
 										</div>
 									</div>
-									<div style="margin-bottom:10px;">
-										<a href="#" th:text="${isEmail == '1' ? '邮箱不可用？' : '手机号不可用？'}"></a>
-									</div>
 									<div class="m-b30">
 										<input type="hidden" name="username" th:value="${result.result.username}"></input>
 										<input type="hidden" name="mobile" th:value="${result.result.mobile}"></input>
@@ -69,33 +66,7 @@
 										<input class="pass-button-submit pass-submit-form pass-button-new1" type="submit" name="" value="下一步" id="submit-mobile" t="mobile">
 									</div>
 								</form>
-								<div id="upsms-auth" class="hide">
-									<div class="forgot-auth-title">手机验证：</div>
-									<p class="step-form-info">请使用手机156******86发送短信到 10690691036581</p>
-									<div class="upsms-auth-content clearfix">
-										<div class="upsms-auth-left">
-											<p>编辑短信：<em id="upsms-vcode"></em></p>
-											<p>发送到 1069 0691 0365 81</p>
-											<p class="upsms-auth-tip">可能会由运营商收取0.1元短信费用</p>
-										</div>
-										<div class="upsms-auth-right">
-											<div id="upsms-qrcode"><img width="80" height="80"></div>
-											<p class="upsms-mt10">也可扫描二维码发送短信</p>
-										</div>
-									</div>
-									<div class="clearfix">
-										<input class="pass-button-submit left" type="submit" name="" value="返回" id="back-mobile-auth">
-										<span class="pass-input-msg"></span>
-									</div>
-								</div>
 							</div>
-						</div>
-						<div class="step-tip m-t0">
-							<ul>
-								<li class="clearfix">
-									<div class="img-info left"><img src="/static/passpc-security/img/forgot/info.png" width="12" height="13"></div>如果您的密保工具都已无法使用，可使用
-									<a href="http://passport.baidu.com/?getpassappeal&amp;tpl=do&amp;code=21cadf1b871e7920211fd91ff551960ac7f5b1ff&amp;bdToken=2de9aaddd3ae6958ccee8eb3503ed83f&amp;sub_source=un_all" target="_blank">点此申诉</a>，成功后可更换。</li>
-							</ul>
 						</div>
 					</div>
 				</div>
