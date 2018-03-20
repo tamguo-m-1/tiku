@@ -55,7 +55,7 @@ public class PasswordController {
 	public ModelAndView resetPassword(String resetPasswordKey , String username , String password , String verifypwd , ModelAndView model){
 		Result result = iMemberService.resetPassword(resetPasswordKey , username , password , verifypwd);
 		if(result.getCode() == 200){
-			model.setViewName("index");
+			model.setViewName("password/resetPwSuccess");
 		}else{
 			model.setViewName("password/resetPassword");
 		}

@@ -16,7 +16,7 @@
     top: 15px;
     right: 20px;
     z-index: 300;
-    font-family: "Microsoft yahei", Arial, Helvetica, STHeiti, 瀹嬩綋;
+    font-family: "Microsoft yahei", Arial, Helvetica, STHeiti, 鐎瑰缍�;
 }
 .mod-userbar li {
     float: left;
@@ -38,7 +38,7 @@
 }
 .nav-2 {
     height: 46px;
-    background: url(https://passport.baidu.com/static/passpc-base/img/hdbg.png) repeat-x 0 0;
+    background: url(../../images/password/hdbg.png) repeat-x 0 0;
     width: 100%;
 }
 .mod-nav {
@@ -78,7 +78,7 @@
 }
 .mod-sub-nav {
     height: 34px;
-    background: url(https://passport.baidu.com/static/passpc-security/img/mod/mod_sub_nav.png) no-repeat 0 0;
+    background: url(../../images/password/mod_sub_nav.png) no-repeat 0 0;
     margin: 30px 0;
     line-height: 34px;
     color: #666;
@@ -86,7 +86,7 @@
     font-family: "Microsoft Yahei",\5fae\8f6f\96c5\9ed1,\9ed1\4f53;
 }
 .mod-sub-nav li.list1-active {
-    background: url(https://passport.baidu.com/static/passpc-security/img/mod/sub_nav_1.png) no-repeat 0 0;
+    background: url(../../images/password/sub_nav_1.png) no-repeat 0 0;
     color: #2e82ff;
 }
 .mod-sub-nav li {
@@ -157,7 +157,7 @@
     font-size: 14px;
 }
 .userName-clearbtn {
-    background: url(https://passport.baidu.com/static/passpc-security/img/forgot/close.png) no-repeat;
+    background: url(../../images/password/close.png) no-repeat;
     background-position: 0 0;
     cursor: pointer;
     position: absolute;
@@ -201,7 +201,7 @@
 }
 .pass-radio {
     float: left;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR鈥�3IakF6mZAFyGGPGsDAMBoGgyUMnoAyBqnJGKrnCSOl2RkADS8pAQZncMwAAAAASUVORK5CYII=) no-repeat 0 8px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR閳ワ拷3IakF6mZAFyGGPGsDAMBoGgyUMnoAyBqnJGKrnCSOl2RkADS8pAQZncMwAAAAASUVORK5CYII=) no-repeat 0 8px;
     padding-left: 25px;
     cursor: pointer;
 }
@@ -212,7 +212,7 @@
     background-position: 0 0;
 }
 .pass-radion-active {
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR鈥AkCTIEBAmBDC8QEgDujwTAzBXoQsSzQflSFCWJMsQaHYGAIAFT0KWP06mAAAAAElFTkSuQmCC) no-repeat 0 8px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR閳ヮ毣AkCTIEBAmBDC8QEgDujwTAzBXoQsSzQflSFCWJMsQaHYGAIAFT0KWP06mAAAAAElFTkSuQmCC) no-repeat 0 8px;
 }
 .mod-step-detail .vcode-container {
     margin-bottom: 30px;

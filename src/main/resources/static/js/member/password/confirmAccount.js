@@ -79,4 +79,8 @@ $(function(){
 			return false;
 		}
 	});
+	
+	$(".vcode-img-change").bind("click",function(){
+		$(".vcode-img").attr("src",mainHttp + "admin/captcha.jpg?t=" + $.now());
+	});
 })
