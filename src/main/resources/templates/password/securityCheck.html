@@ -64,6 +64,7 @@
 									<div class="m-b30">
 										<input type="hidden" name="username" th:value="${result.result.username}"></input>
 										<input type="hidden" name="mobile" th:value="${result.result.mobile}"></input>
+										<input type="hidden" name="email" th:value="${result.result.email}"></input>
 										<input type="hidden" name="isEmail" th:value="${isEmail}"></input>
 										<input class="pass-button-submit pass-submit-form pass-button-new1" type="submit" name="" value="下一步" id="submit-mobile" t="mobile">
 									</div>
@@ -109,4 +110,7 @@
 
 	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}"></script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/member/password/securityCheck.js'}"></script>
+	<script type="text/javascript" th:inline="javascript">
+		var mainHttp = [[${setting.domain}]];
+	</script>
 </html>

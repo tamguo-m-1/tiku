@@ -24,17 +24,33 @@ $(function(){
         };
         t();
         
-        // 发送短信
-        $.ajax({
-			type : "get", 
-			url : "http://localhost/sms/sendFindPasswordSms.html",
-			async : true,
-			data:{mobile:$("input[name='mobile']").val()},
-			dataType : "json",
-			success : function(data) {
-				alert(data.code);
-			}
-		});
+        var isEmail = $("#isEmail").val();
+        if(isEmail == "0"){
+        	// 发送短信
+            $.ajax({
+    			type : "get", 
+    			url : mainHttp + "sms/sendFindPasswordSms.html",
+    			async : true,
+    			data:{mobile:$("input[name='mobile']").val()},
+    			dataType : "json",
+    			success : function(data) {
+    				console.log(data);
+    			}
+    		});
+        }else{
+        	// 发送邮件
+            $.ajax({
+    			type : "get", 
+    			url : mainHttp + "email/sendFindPasswordEmail.html",
+    			async : true,
+    			data:{email:$("input[name='email']").val()},
+    			dataType : "json",
+    			success : function(data) {
+    				console.log(data);
+    			}
+    		});
+        }
+        
 	});
 	
 })

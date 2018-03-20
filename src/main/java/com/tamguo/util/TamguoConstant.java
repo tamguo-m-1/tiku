@@ -75,4 +75,19 @@ public class TamguoConstant {
 	
 	/** ALIYUN*/
 	public static final String ALIYUN_ACCESS_KEY_SECRET = "ONUKuCz85kU4In07y4dvpM28mfWOGa";
+	
+	/** ALIYUN*/
+	public static final String ALIYUN_SMTP_HOST_NAME = "smtp.aliyun.com";
+	
+	/** ALIYUN*/
+	public static final int ALIYUN_SMTP_HOST_PORT = 465;
+	
+	/** ALIYUN*/
+	public static final String ALIYUN_MAIL_ACCOUNT = "candy.tam@aliyun.com";
+	
+	/** ALIYUN*/
+	public static final String ALIYUN_MAIL_PASSWORD = "tanguo520pig";
+	
+	/** 邮件主题*/
+	public static final String ALIYUN_MAIL_SUBJECT_FINDPASSWORD = "探果网找回密码";
 }
