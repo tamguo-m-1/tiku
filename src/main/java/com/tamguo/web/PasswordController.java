@@ -16,7 +16,7 @@ public class PasswordController {
 	@Autowired
 	private IMemberService iMemberService;
 	
-	@RequestMapping(value = "password/confirmAccount", method = RequestMethod.GET)
+	@RequestMapping(value = "password/find", method = RequestMethod.GET)
 	public ModelAndView confirmAccount(ModelAndView model){
 		model.setViewName("password/confirmAccount");
 		return model;
@@ -47,6 +47,9 @@ public class PasswordController {
 			model.addObject("resetPasswordKey" , result.getResult());
 			model.setViewName("password/resetPassword");
 		}else{
+			model.addObject("result", result);
+			model.addObject("isEmail", isEmail);
+			model.addObject("codeError", "1");
 			model.setViewName("password/securityCheck");
 		}
 		return model;

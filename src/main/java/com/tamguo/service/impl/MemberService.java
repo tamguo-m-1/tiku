@@ -130,19 +130,19 @@ public class MemberService implements IMemberService{
 		MemberEntity member = memberMapper.findByUsername(username);
 		if("1".equals(isEmail)){
 			if(!cacheService.isExist(TamguoConstant.ALIYUN_MAIL_FIND_PASSWORD_PREFIX + member.getEmail())){
-				return Result.result(201, null, "验证码错误");
+				return Result.result(201, member, "验证码错误");
 			}
 			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MAIL_FIND_PASSWORD_PREFIX + member.getEmail());
 			if(!code.equals(vcode)){
-				return Result.result(202, null, "验证码错误");
+				return Result.result(202, member, "验证码错误");
 			}
 		}else{
 			if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getEmail())){
-				return Result.result(203, null, "验证码错误");
+				return Result.result(203, member, "验证码错误");
 			}
 			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getEmail());
 			if(!code.equals(vcode)){
-				return Result.result(204, null, "验证码错误");
+				return Result.result(204, member, "验证码错误");
 			}
 		}
 		String key = UUID.randomUUID().toString();

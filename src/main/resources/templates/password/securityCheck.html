@@ -50,12 +50,12 @@
 									<p class="verify-method">验证码：</p>
 									<div class="form-2-item clearfix">
 										<div class="form-2-content pass-input-container vcode-container m-b-mobile">
-											<input type="text" class="pass-input vcode-input pass-input-new" name="mobileVcode" value="" id="pass-input-mobileVcode" th:placeholder="${isEmail == '1' ? '邮箱验证码' : '手机验证码'}">
+											<input type="text" th:class="${codeError == '1' ? 'pass-input vcode-input pass-input-new pass-input-error' : 'pass-input vcode-input pass-input-new'}" name="mobileVcode" value="" id="pass-input-mobileVcode" th:placeholder="${isEmail == '1' ? '邮箱验证码' : '手机验证码'}">
 											<div class="pass-button-timer" id="pass-button-new1">发送验证码</div>
 											<span class="pass-input-stip" id="forgot-mobileVcode-success"></span>
 											<div class="clear"></div>
 											<a class="pass-input-stip" id="forgot-mobileVcode-unreceived" style="margin-left:0;display:none;">收不到短信验证码?</a>
-											<span class="pass-input-msg" id="forgot-mobileVcode-tip"></span>
+											<span class="pass-input-msg" id="forgot-mobileVcode-tip" th:text="${codeError == '1' ? '验证码错误' : ''}"></span>
 										</div>
 									</div>
 									<div class="m-b30">
