@@ -18,7 +18,7 @@
 					</li>
 					<li>|</li>
 					<li>
-						<a href="https://passport.baidu.com/v2/?reg&amp;tpl=&amp;u=">注册</a>
+						<a th:href="${setting.domain + 'register.html'}">注册</a>
 					</li>
 				</ul>
 			</div>
@@ -57,16 +57,7 @@
 								<span class="pass-input-msg l-h40" th:text="${code == 202 ? '验证码错误，请重新输入' : ''}"></span>
 							</div>
 							<div>
-								<input type="hidden" name="bdstoken" value="2de9aaddd3ae6958ccee8eb3503ed83f">
-								<input type="hidden" name="tpl" value="do">
-								<input type="hidden" name="index" value="">
-								<input type="hidden" name="countrycode" value="" id="countrycode">
 								<input type="submit" name="" value="下一步" class="pass-button-submit" id="submit">
-								<input type="hidden" value="" id="error">
-								<input type="hidden" value="" id="username">
-								<input type="hidden" value="" id="veritycode">
-								<input type="hidden" value="" id="bdErrMsg">
-								<input type="hidden" value="tk0.70863526646873211521429360989@m~XXMCXw-iwPvhwvhBA-w7kDlIvo5ue-7TE-CkDy0npz0T4zCkEyBTtc0npc0kp~ByD-CnU~BvlBm--7kt~BkBe0TUc7kt~BTqeBnqgBm-cCnp-7kt~BTqeBnqWBq__yv0iXBm-Y7kp-7kpY7kBl7k3w7k3z7k3Y7k3g7kt-0m-cBTUeBnUg7kt~Cm-w0kteBTJ~7kpYCA-wCk3eBT3g7kByBA-y0TDeByUc" name="dv" id="dv_Input">
 							</div>
 						</div>
 					</form>
