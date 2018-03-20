@@ -2,7 +2,7 @@
 <html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>探果-修改密码</title>
 		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/password/resetPwSuccess.css'}" />
 	</head>
@@ -10,7 +10,7 @@
 		<div id="wrapper" class="">
 			<div id="head">
 				<div class="mod-header">
-					<a href="https://passport.baidu.com/"><img src="https://passport.baidu.com/static/passpc-base/img/logo/logo.gif" alt="logo"></a>
+					<a href="https://passport.baidu.com/"><img th:src="${setting.domain + 'images/password/logo.gif'}" alt="logo"></a>
 				</div>
 				<ul class="mod-userbar">
 					<li>

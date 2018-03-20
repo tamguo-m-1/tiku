@@ -1,7 +1,9 @@
 $(function(){
 
 	$("#pass-input-mobileVcode").bind("focus",function(){
+		$("#pass-input-mobileVcode").removeClass("pass-input-error");
 		$("#pass-input-mobileVcode").addClass("pass-input-focus");
+		$("#forgot-mobileVcode-tip").text("");
 	}).bind("blur",function(){
 		$("#pass-input-mobileVcode").removeClass("pass-input-focus");
 	});
@@ -30,7 +32,7 @@ $(function(){
             $.ajax({
     			type : "get", 
     			url : mainHttp + "sms/sendFindPasswordSms.html",
-    			async : true,
+    			async : false,
     			data:{mobile:$("input[name='mobile']").val()},
     			dataType : "json",
     			success : function(data) {
@@ -42,7 +44,7 @@ $(function(){
             $.ajax({
     			type : "get", 
     			url : mainHttp + "email/sendFindPasswordEmail.html",
-    			async : true,
+    			async : false,
     			data:{email:$("input[name='email']").val()},
     			dataType : "json",
     			success : function(data) {
@@ -50,7 +52,13 @@ $(function(){
     			}
     		});
         }
-        
 	});
 	
+	$("#submit-mobile").bind("click",function(){
+		if($("input[name='mobileVcode']").val() == ""){
+			$("#pass-input-mobileVcode").addClass("pass-input-error");
+			$("#forgot-mobileVcode-tip").text("请填写验证码");
+			return false;
+		}
+	});
 })

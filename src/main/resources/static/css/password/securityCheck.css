@@ -45,7 +45,7 @@ a {
 }
 .nav-2 {
     height: 46px;
-    background: url(https://passport.baidu.com/static/passpc-base/img/hdbg.png) repeat-x 0 0;
+    background: url(../../images/password/hdbg.png) repeat-x 0 0;
     width: 100%;
 }
 .mod-nav {
@@ -77,7 +77,7 @@ a {
 }
 .mod-sub-nav {
     height: 34px;
-    background: url(https://passport.baidu.com/static/passpc-security/img/mod/mod_sub_nav.png) no-repeat 0 0;
+    background: url(../../images/password/mod_sub_nav.png) no-repeat 0 0;
     margin: 30px 0;
     line-height: 34px;
     color: #666;
@@ -92,7 +92,7 @@ a {
     width: 175px;
 }
 .mod-sub-nav li.list2-active {
-    background: url(https://passport.baidu.com/static/passpc-security/img/mod/sub_nav_2.png) no-repeat 0 0;
+    background: url(../../images/password/sub_nav_2.png) no-repeat 0 0;
     color: #2e82ff;
     margin-left: -12px;
     padding-left: 78px;
@@ -187,7 +187,7 @@ label {
     overflow: hidden;
     color: #333;
     font-size: 14px;
-    background: url(https://passport.baidu.com/static/passpc-base/img/ui/form_input_261.png) no-repeat left top;
+    background: url(../../images/password/form_input_261.png) no-repeat left top;
     -webkit-transition-property: all;
     -webkit-transition-duration: .3s;
     -moz-transition-property: all;
@@ -243,7 +243,7 @@ label {
     border: 0;
     line-height: 29px;
     text-align: center;
-    background: url(https://passport.baidu.com/static/passpc-base/img/ui/button_icon.png) no-repeat 0 -138px;
+    background: url(../../images/password/button_icon.png) no-repeat 0 -138px;
     float: left;
 }
 .pass-input-stip {
@@ -309,7 +309,7 @@ label {
     cursor: pointer;
     text-align: center;
     border: 0;
-    background: url(https://passport.baidu.com/static/passpc-base/img/ui/button_icon.png) no-repeat 0 0;
+    background: url(../../images/password/button_icon.png) no-repeat 0 0;
     line-height: 32px;
 }
 .forgot-auth-title {
@@ -387,4 +387,7 @@ label {
 }
 .pass-input-focus {
     border-color: #377bcb
+}
+.pass-input-error {
+    border: 1px solid #da1111
 }
