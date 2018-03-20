@@ -41,16 +41,16 @@
 							<p class="step-form-info">为了你的帐号安全，请完成身份验证</p>
 							<div class="forgot-auth-type m-t10" id="mobile-auth">
 								<form th:action="${setting.domain + 'password/securityCheck.html'}" method="post" class="form-2" id="form-mobile">
-									<div class="forgot-auth-title">手机验证</div>
+									<div class="forgot-auth-title" th:text="${isEmail == '1' ? '邮箱验证' : '手机验证'}">手机验证</div>
 									<div class="form-2-item clearfix pass-input-container">
-										<label class="form-2-label">手机号：</label>
-										<div class="form-2-content line-32" th:text="${result.result.username}">
+										<label class="form-2-label" th:text="${isEmail == '1' ? '邮箱' : '手机号'}">手机号：</label>
+										<div class="form-2-content line-32" th:text="${isEmail == '0' ? result.result.mobile : result.result.email}">
 											156******86</div>
 									</div>
 									<p class="verify-method">验证码：</p>
 									<div class="form-2-item clearfix">
 										<div class="form-2-content pass-input-container vcode-container m-b-mobile">
-											<input type="text" class="pass-input vcode-input pass-input-new" name="mobileVcode" value="" id="pass-input-mobileVcode" placeholder="手机验证码">
+											<input type="text" class="pass-input vcode-input pass-input-new" name="mobileVcode" value="" id="pass-input-mobileVcode" th:placeholder="${isEmail == '1' ? '邮箱验证码' : '手机验证码'}">
 											<div class="pass-button-timer" id="pass-button-new1">发送验证码</div>
 											<span class="pass-input-stip" id="forgot-mobileVcode-success"></span>
 											<div class="clear"></div>
@@ -59,11 +59,12 @@
 										</div>
 									</div>
 									<div style="margin-bottom:10px;">
-										<a href="http://passport.baidu.com/?getpassappeal&amp;tpl=do&amp;code=21cadf1b871e7920211fd91ff551960ac7f5b1ff&amp;bdToken=2de9aaddd3ae6958ccee8eb3503ed83f&amp;sub_source=un_mobile">手机号不可用？</a>
+										<a href="#" th:text="${isEmail == '1' ? '邮箱不可用？' : '手机号不可用？'}"></a>
 									</div>
 									<div class="m-b30">
 										<input type="hidden" name="username" th:value="${result.result.username}"></input>
 										<input type="hidden" name="mobile" th:value="${result.result.mobile}"></input>
+										<input type="hidden" name="isEmail" th:value="${isEmail}"></input>
 										<input class="pass-button-submit pass-submit-form pass-button-new1" type="submit" name="" value="下一步" id="submit-mobile" t="mobile">
 									</div>
 								</form>

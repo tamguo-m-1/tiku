@@ -28,6 +28,7 @@ public class PasswordController {
 		if(result.getCode() == 200){
 			model.setViewName("password/securityCheck");
 			model.addObject("result", result);
+			model.addObject("isEmail", username.contains("@") ? "1" : "0");
 		}else{
 			model.setViewName("password/confirmAccount");
 			model.addObject("account", username);

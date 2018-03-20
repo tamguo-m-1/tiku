@@ -122,6 +122,12 @@ public class MemberService implements IMemberService{
 		if (!veritycode.equalsIgnoreCase(kaptcha)) {
 			return Result.result(202, null, "验证码错误");
 		}
+		if(!StringUtils.isEmpty(member.getMobile())){
+			member.setMobile(member.getMobile().replaceAll("(\\d{3})\\d{4}(\\d{4})","$1****$2"));
+		}
+		if(!StringUtils.isEmpty(member.getEmail())){
+			member.setEmail(member.getEmail().replaceAll("(\\w?)(\\w+)(\\w)(@\\w+\\.[a-z]+(\\.[a-z]+)?)", "$1****$3$4"));
+		}
 		return Result.result(200, member, "该帐号存在");
 	}
 
