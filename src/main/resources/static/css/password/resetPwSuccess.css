@@ -57,7 +57,7 @@ a {
 }
 .nav-2 {
     height: 46px;
-    background: url(https://passport.baidu.com/static/passpc-base/img/hdbg.png) repeat-x 0 0;
+    background: url(../../images/password/hdbg.png) repeat-x 0 0;
     width: 100%;
 }
 .mod-nav {
@@ -97,7 +97,7 @@ a {
 }
 .mod-sub-nav {
     height: 34px;
-    background: url(https://passport.baidu.com/static/passpc-security/img/mod/mod_sub_nav.png) no-repeat 0 0;
+    background: url(../../images/password/mod_sub_nav.png) no-repeat 0 0;
     margin: 30px 0;
     line-height: 34px;
     color: #666;
@@ -115,7 +115,7 @@ a {
     width: 163px;
 }
 .mod-sub-nav li.list3-active {
-    background: url(https://passport.baidu.com/static/passpc-security/img/mod/sub_nav_3.png) no-repeat 0 0;
+    background: url(../../images/password/sub_nav_3.png) no-repeat 0 0;
     color: #2e82ff;
     margin-left: -12px;
     padding-left: 78px;

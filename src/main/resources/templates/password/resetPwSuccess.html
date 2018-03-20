@@ -10,7 +10,7 @@
 		<div id="wrapper" class="">
 			<div id="head">
 				<div class="mod-header">
-					<a href="https://passport.baidu.com/"><img th:src="${setting.domain + 'images/password/logo.gif'}" alt="logo"></a>
+					<a th:href="${setting.domain}"><img th:src="${setting.domain + 'images/password/logo.gif'}" alt="logo"></a>
 				</div>
 				<ul class="mod-userbar">
 					<li>
@@ -18,7 +18,7 @@
 					</li>
 					<li>|</li>
 					<li>
-						<a href="https://passport.baidu.com/v2/?reg&amp;tpl=&amp;u=">注册</a>
+						<a th:href="${setting.domain + 'register.html'}">注册</a>
 					</li>
 				</ul>
 			</div>
@@ -39,9 +39,9 @@
 					<div class="mod-step-detail">
 						<div class="result-info">
 							<div class="result-message">
-								<img src="https://passport.baidu.com/static/passpc-base/img/success_icon.png">
+								<img th:src="${setting.domain + 'images/password/success_icon.png'}">
 								<span>恭喜，百度帐号喜欢吃鱼的果果重置密码成功</span>
-								<a class="button result-title-btn" href="http://passport.baidu.com/center">直接登录</a>
+								<a class="button result-title-btn" th:href="${setting.domain + 'login.html'}">直接登录</a>
 							</div>
 							<div class="result-list-content">
 								<span class="result-content-msg">以下为您最近2次的操作记录，请仔细检查手机及邮箱，如非本人所有，可通过帐号申诉更换。</span>
@@ -64,7 +64,6 @@
 										</tr>
 									</tbody>
 								</table>
-								<a href="http://passport.baidu.com/v2/?accountsensinfo" class="result-content-link">查看更多</a>
 							</div>
 						</div>
 					</div>
