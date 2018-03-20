@@ -1,20 +1,24 @@
 package com.tamguo.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
+import com.tamguo.dao.redis.CacheService;
 import com.tamguo.service.ISmsService;
 import com.tamguo.util.Result;
 import com.tamguo.util.TamguoConstant;
 
 @Service
 public class SmsService implements ISmsService{
+	
+	@Autowired
+	private CacheService cacheService;
 
 	@Override
 	public Result sendFindPasswordSms(String mobile) throws ClientException {
@@ -35,8 +39,9 @@ public class SmsService implements ISmsService{
         request.setSignName("糖果购注册");
         //必填:短信模板-可在短信控制台中找到
         request.setTemplateCode("SMS_10310548");
+        Integer vcode = (int) ((Math.random()*9+1)*100000);  
         //可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时,此处的值为
-        request.setTemplateParam("{\"code\":\"566512\"}");
+        request.setTemplateParam("{\"code\":\""+vcode+"\"}");
 
         //选填-上行短信扩展码(无特殊需求用户请忽略此字段)
         //request.setSmsUpExtendCode("90997");
@@ -45,9 +50,8 @@ public class SmsService implements ISmsService{
         request.setOutId("yourOutId");
 
         //hint 此处可能会抛出异常，注意catch
-        SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
-        System.out.println(sendSmsResponse.getCode());
-        
+        acsClient.getAcsResponse(request);
+		cacheService.setObject(TamguoConstant.ALIYUN_MAIL_FIND_PASSWORD_PREFIX + mobile , vcode.toString() , 3 * 60);
         return Result.result(200, null, "");
 	}
 

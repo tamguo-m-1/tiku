@@ -90,4 +90,15 @@ public class TamguoConstant {
 	
 	/** 邮件主题*/
 	public static final String ALIYUN_MAIL_SUBJECT_FINDPASSWORD = "探果网找回密码";
+
+	/** 邮箱找回密码前缀*/
+	public static final String ALIYUN_MAIL_FIND_PASSWORD_PREFIX = "EMAIL_FIND_PASSWORD_";
+	
+	/** 短信找回密码前缀*/
+	public static final String ALIYUN_MOBILE_FIND_PASSWORD_PREFIX = "MOBILE_FIND_PASSWORD_";
+	
+	/** 安全验证前缀*/
+	public static final String SECURITY_CHECK_PREFIX = "securityCheck:";
+	
+	
 }

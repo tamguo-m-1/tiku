@@ -126,16 +126,33 @@ public class MemberService implements IMemberService{
 	}
 
 	@Override
-	public Result securityCheck(String username , String vcode) {
-		// TODO 安全验证
+	public Result securityCheck(String username , String isEmail , String vcode) {
+		MemberEntity member = memberMapper.findByUsername(username);
+		if("1".equals(isEmail)){
+			if(!cacheService.isExist(TamguoConstant.ALIYUN_MAIL_FIND_PASSWORD_PREFIX + member.getEmail())){
+				return Result.result(201, null, "验证码错误");
+			}
+			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MAIL_FIND_PASSWORD_PREFIX + member.getEmail());
+			if(!code.equals(vcode)){
+				return Result.result(202, null, "验证码错误");
+			}
+		}else{
+			if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getEmail())){
+				return Result.result(203, null, "验证码错误");
+			}
+			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getEmail());
+			if(!code.equals(vcode)){
+				return Result.result(204, null, "验证码错误");
+			}
+		}
 		String key = UUID.randomUUID().toString();
-		cacheService.setObject(key,  username , 2 * 60 * 60);
+		cacheService.setObject(TamguoConstant.SECURITY_CHECK_PREFIX + key,  username , 2 * 60 * 60);
 		return Result.result(200, key, "安全验证通过");
 	}
 
 	@Override
 	public Result resetPassword(String resetPasswordKey , String username , String password, String verifypwd) {
-		if(cacheService.isExist(resetPasswordKey)){
+		if(cacheService.isExist(TamguoConstant.SECURITY_CHECK_PREFIX + resetPasswordKey)){
 			MemberEntity member = memberMapper.findByUsername(username);
 			if(password.equals(verifypwd)){
 				member.setPassword(new Sha256Hash(password).toHex());

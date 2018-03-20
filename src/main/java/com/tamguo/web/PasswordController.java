@@ -39,8 +39,8 @@ public class PasswordController {
 	}
 	
 	@RequestMapping(value = "password/securityCheck", method = RequestMethod.POST)
-	public ModelAndView securityCheck(String username , String vcode , ModelAndView model){
-		Result result = iMemberService.securityCheck(username , vcode);
+	public ModelAndView securityCheck(String username , String isEmail , String mobileVcode , ModelAndView model){
+		Result result = iMemberService.securityCheck(username , isEmail , mobileVcode);
 		if(result.getCode() == 200){
 			model.addObject("username", username);
 			model.addObject("resetPasswordKey" , result.getResult());
@@ -55,7 +55,7 @@ public class PasswordController {
 	public ModelAndView resetPassword(String resetPasswordKey , String username , String password , String verifypwd , ModelAndView model){
 		Result result = iMemberService.resetPassword(resetPasswordKey , username , password , verifypwd);
 		if(result.getCode() == 200){
-			model.setViewName("/");
+			model.setViewName("index");
 		}else{
 			model.setViewName("password/resetPassword");
 		}

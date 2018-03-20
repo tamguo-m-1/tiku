@@ -16,7 +16,7 @@ public interface IMemberService {
 	
 	public Result confirmAccount(String account , String veritycode);
 
-	public Result securityCheck(String username , String vcode);
+	public Result securityCheck(String username , String isEmail , String vcode);
 
 	public Result resetPassword(String resetPasswordKey , String username , String password, String verifypwd);
 }
