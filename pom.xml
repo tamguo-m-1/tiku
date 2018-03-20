@@ -152,6 +152,16 @@
 		    <artifactId>commons-lang3</artifactId>
 		    <version>3.6</version>
 		</dependency>
+		<dependency>
+		  <groupId>com.aliyun</groupId>
+		  <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.aliyun</groupId>
+		    <artifactId>aliyun-java-sdk-core</artifactId>
+		    <version>3.2.8</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

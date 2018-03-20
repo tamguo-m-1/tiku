@@ -69,4 +69,10 @@ public class TamguoConstant {
 	
 	/** 重置密码KEY*/
 	public static final String RESET_PASSWORD_KEY = "ResetPasswordKey";
+	
+	/** ALIYUN */
+	public static final String ALIYUN_ACCESS_KEY_ID = "LTAINGkheMeWtxUR";
+	
+	/** ALIYUN*/
+	public static final String ALIYUN_ACCESS_KEY_SECRET = "ONUKuCz85kU4In07y4dvpM28mfWOGa";
 }

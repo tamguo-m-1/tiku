@@ -23,6 +23,18 @@ $(function(){
             setTimeout(t, 1000)
         };
         t();
+        
+        // 发送短信
+        $.ajax({
+			type : "get", 
+			url : "http://localhost/sms/sendFindPasswordSms.html",
+			async : true,
+			data:{mobile:$("input[name='mobile']").val()},
+			dataType : "json",
+			success : function(data) {
+				alert(data.code);
+			}
+		});
 	});
 	
 })
