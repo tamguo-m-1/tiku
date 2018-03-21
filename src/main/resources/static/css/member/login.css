@@ -52,7 +52,7 @@ a {
 #content {
     margin-top: 30px;
     width: 920px;
-    background: url(https://passport.baidu.com/static/passpc-account/img/login/login-bg.png) no-repeat 0 center;
+    background: url(../../images/member/login-bg.png) no-repeat 0 center;
     padding-bottom: 40px;
     display: none;
 }
@@ -78,8 +78,8 @@ a {
     padding: 0 28px;
 }
 p.pass-form-logo {
-    background: url(https://passport.baidu.com/passApi/img/loginlogo.png) no-repeat left;
-    background: url(https://passport.baidu.com/passApi/img/loginlogo.gif) no-repeat left;
+    background: url(../../images/member/loginlogo.png) no-repeat left;
+    background: url(../../images/member/loginlogo.gif) no-repeat left;
     font-size: 16px;
     height: 32px;
     line-height: 46px;
@@ -159,7 +159,7 @@ p.pass-form-logo {
     right: 6px;
     height: 16px;
     width: 16px;
-    background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png) no-repeat 0 0;
+    background: url(../../images/member/pass_login_icons.png) no-repeat 0 0;
     cursor: pointer;
 }
 .tang-pass-login .pass-suggestion-list {
@@ -199,7 +199,7 @@ p.pass-form-logo {
     right: 4px;
     height: 16px;
     width: 16px;
-    background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png) no-repeat 0 0;
+    background: url(../../images/member/pass_login_icons.png) no-repeat 0 0;
 }
 .tang-pass-login a {
     text-decoration: none;
@@ -216,7 +216,7 @@ p.pass-form-logo {
     display: block;
     height: 16px;
     width: 16px;
-    background: url(https://passport.baidu.com/passApi/img/pass_login_icons.png) no-repeat 0 -30px;
+    background: url(../../images/member/pass_login_icons.png) no-repeat 0 -30px;
     top: 6px;
     right: 31px;
     _right: 50px;
@@ -229,8 +229,8 @@ p.pass-form-logo {
     margin-left: 28px;
 }
 p.pass-form-logo {
-    background: url(https://passport.baidu.com/passApi/img/loginlogo.png) no-repeat left;
-    background: url(https://passport.baidu.com/passApi/img/loginlogo.gif) no-repeat left;
+    background: url(../../images/member/loginlogo.png) no-repeat left;
+    background: url(../../images/member/loginlogo.gif) no-repeat left;
     font-size: 16px;
     height: 32px;
     line-height: 46px;
@@ -289,17 +289,8 @@ p.pass-form-logo {
     padding: 0;
     list-style: none;
 }
-.Qrcode-status-animation {
-    background: url(https://passport.baidu.com/passApi/img/qrcodeLoginGuide.png) no-repeat center;
-    height: 156px;
-    width: 125px;
-    position: absolute;
-    top: 0;
-    left: 150px;
-    display: none;
-}
 .Qrcode-status-success .Qrcode-status-icon {
-    background: url(https://passport.baidu.com/passApi/img/qrcode-success.png) no-repeat center;
+    background: url(../../images/member/qrcode-success.png) no-repeat center;
 }
 .Qrcode-status-con .Qrcode-status-icon {
     width: 36px;
@@ -330,7 +321,7 @@ p.pass-form-logo {
     transform: translateX(0);
 }
 .Qrcode-status-error .Qrcode-status-icon {
-    background: url(https://passport.baidu.com/passApi/img/qrcode-error.png) no-repeat center;
+    background: url(../../images/member/qrcode-error.png) no-repeat center;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAIAAABuYg/PAAAAGXRFW…/D4I4xl3xkwAY7jblOLLskcyH7N0XjiBnHLHsac/8IMAC4AzcrBhyRBQAAAABJRU5ErkJggg==);
 }
 .Qrcode-status-con .Qrcode-status-icon {
@@ -476,8 +467,8 @@ a.pass-reglink {
     color: #2e82ff;
 }
 p.pass-form-logo {
-    background: url(https://passport.baidu.com/passApi/img/loginlogo.png) no-repeat left;
-    background: url(https://passport.baidu.com/passApi/img/loginlogo.gif) no-repeat left;
+    background: url(../../images/member/loginlogo.png) no-repeat left;
+    background: url(../../images/member/loginlogo.gif) no-repeat left;
     font-size: 16px;
     height: 32px;
     line-height: 46px;
@@ -495,8 +486,8 @@ p.pass-form-logo {
     cursor: pointer;
     font-size: 12px;
     list-style: none;
-    background: url(https://passport.baidu.com/passApi/img/loginv4.png) no-repeat;
-    _background: url(https://passport.baidu.com/passApi/img/loginv4.gif) no-repeat;
+    background: url(../../images/member/loginv4.png) no-repeat;
+    _background: url(../../images/member/loginv4.gif) no-repeat;
     width: 0;
     height: 18px;
     overflow: hidden;
@@ -539,7 +530,7 @@ p.pass-form-logo {
 .tang-pass-login .pass-verifyCode {
     width: 90px;
     height: 40px;
-    background: url(https://passport.baidu.com/passApi/img/loading_16.gif) no-repeat center center;
+    background: url(../../images/member/loading_16.gif) no-repeat center center;
     border: 1px solid #DDD;
     float: left;
     margin-left: 5px;
