@@ -1,124 +1,82 @@
 <!DOCTYPE html>
 <html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>六天在线影院登录 - 六天在线手机影院</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="六天在线,六天在线影院,六天在线WEB版,伦理片影院" />
-<meta name="description" content="六天在线影院是六天在线公司打造的专业在线看伦理片的网站,伦理影片高清在线播放服务,是国内专业电影、电视剧、动漫、综艺等节目视频点播平台" />
-<link rel="Shortcut Icon" type="image/ico" th:href="@{/templates/frontend/frontend-default/img/favicon.ico}"/>
-<link rel="apple-touch-icon" th:href="@{/templates/frontend/frontend-default/img/favicon.ico}">
-<script type="text/javascript" th:src="@{/templates/frontend/frontend-default/js/jquery-1.11.1.min.js?t=2}"></script>
-<script type="text/javascript" th:src="@{/templates/frontend/frontend-default/js/jquery.inputbox.js}"></script>
-<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/bootstrap.min.css?t=2}"/>
-<script type="text/javascript" th:src="@{/templates/frontend/frontend-default/js/jscroller2-1.5.js}"></script>
-<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/colors.css?t=201509121}"/>
-<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/font-awesome.min.css}"/>
-<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/responsive.css?t=201510052}"/>
-<link type="text/css" rel="stylesheet" th:href="@{/templates/frontend/frontend-default/css/style.css?t=201609291}"/>
-<link type="text/css" rel="stylesheet" th:href="@{/css/qq.css?v=20160212093}"/>
-<link rel="stylesheet" type="text/css" th:href="@{/templates/frontend/frontend-default/css/base.css?t=39}">
-</head>
-<body>
-
-<!-- 头部导航 -->
-<div th:replace="include/navbar/toolbar :: toolbar"></div>
-
-<!-- 导航 -->
-<div th:replace="include/navbar/navbar :: navbar"></div>
-
-<div id="wrapper">
-
-<!-- 广告 -->
-<div th:replace="include/navbar/ads :: ads"></div>
-
-<!-- 登录主体开始 -->
-<div class="container">
-	<div class="alert alert-dismissable alert-danger"
-		th:if="${checkMsg != null}" th:utext="${checkMsg}"></div>
-
-	<div class="container">
-		<div class="row login">
-			<div class="col-md-8">
-				<div class="well login-header">
-					<h3 class="mt-0 pl-20 white">登录到琴瑟在线账户！</h3>
-					<h5 class="font-bold mb-20 pl-20 white">登录之后，你将享受如下服务！</h5>
-					<div class="row col-md-8 login-header-icon">
-						<div class="col-sm-6">
-							<ul class="list-unstyled m-l-30">
-								<li><i class="fa fa-upload m-r-10 text-white m-b-5"></i>上传视频</li>
-								<li><i class="fa fa-comments m-r-10 text-white m-b-5"></i>发布评论</li>
-								<li><i class="fa fa-folder m-r-10 text-white m-b-5"></i>添加收藏</li>
-								<li><i class="fa fa-rss m-r-10 text-white m-b-5"></i>订阅用户</li>
-							</ul>
-						</div>
-						<div class="col-sm-6">
-							<ul class="list-unstyled m-l-30">
-								<li><i class="fa fa-th-list m-r-10 text-white m-b-5"></i>创建播放列表</li>
-								<li><i class="fa fa-share-alt m-r-10 text-white m-b-5"></i>分享视频</li>
-								<li><i class="fa fa-user m-r-10 text-white m-b-5"></i>添加朋友</li>
-								<li><i class="fa fa-wrench m-r-10 text-white m-b-5"></i>制订您的设置</li>
-							</ul>
+	<head>
+		<meta charset="UTF-8">
+		<title>探果-登录</title>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/member/login.css'}" />
+	</head>
+	<body>
+		<div id="wrapper" class="">
+			<div id="head">
+				<div class="mod-header">
+					<a th:href="${setting.domain + 'login.html'}"><img th:src="${setting.domain + 'images/password/logo.gif'}" alt="logo"></a>
+				</div>
+			</div>
+			<div id="nav">
+				<div class="nav-2">
+					<div class="mod-nav clearfix">
+						<h1 class="page-type-notab"></h1>
+					</div>
+				</div>
+			</div>
+			<div id="content" style="display: block;">
+				<div class="clearfix login-container">
+					<div class="login-form">
+						<div class="login-wrapper">
+							<div id="login" class="tang-pass-login animation" style="display: block; visibility: visible; opacity: 1;">
+								<form id="TANGRAM__PSP_3__form" class="pass-form pass-form-normal" method="POST" autocomplete="off">
+									<p class="pass-form-logo">用户名密码登录</p>
+									<p id="TANGRAM__PSP_3__errorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_3__error" class="pass-generalError pass-generalError-error"></span></p>
+									<p id="TANGRAM__PSP_3__MakeTextWrapper" class="pass-make-text" style="display:none;"></p>
+									<p id="TANGRAM__PSP_3__hiddenFields" style="display:none"><input type="hidden" id="TANGRAM__PSP_3__codeString" name="codeString" value=""><input type="hidden" id="TANGRAM__PSP_3__safeFlag" name="safeFlag" value="0"><input type="hidden" id="TANGRAM__PSP_3__u" name="u" value="https://passport.baidu.com/"><input type="hidden" id="TANGRAM__PSP_3__isPhone" name="isPhone" value="false"><input type="hidden" id="TANGRAM__PSP_3__detect" name="detect" value="1"><input type="hidden" id="TANGRAM__PSP_3__gid" name="gid" value="B855A22-5F76-4D65-B5D2-3543D4EBAADC"><input type="hidden" id="TANGRAM__PSP_3__staticPage" name="staticPage" value="https://passport.baidu.com/static/passpc-account/html/v3Jump.html"><input type="hidden" id="TANGRAM__PSP_3__quick_user" name="quick_user" value="0"><input type="hidden" id="TANGRAM__PSP_3__logintype" name="logintype" value="basicLogin"><input type="hidden" id="TANGRAM__PSP_3__logLoginType" name="logLoginType" value="pc_loginBasic"><input type="hidden" id="TANGRAM__PSP_3__subpro" name="subpro" value=""><input type="hidden" id="TANGRAM__PSP_3__idc" name="idc" value=""><input type="hidden" id="TANGRAM__PSP_3__loginMerge" name="loginMerge" value="true"></p>
+									<p id="TANGRAM__PSP_3__userNameWrapper" class="pass-form-item pass-form-item-userName" style="display:"><input type="text" style="display:none;"><input id="TANGRAM__PSP_3__userName" type="text" name="userName" class="pass-text-input pass-text-input-userName open" autocomplete="off" value="" placeholder="手机/邮箱/用户名"><span id="TANGRAM__PSP_3__userName_clearbtn" class="pass-clearbtn pass-clearbtn-userName" style="display: block; visibility: visible; opacity: 1;"></span><span id="TANGRAM__PSP_3__userNameTip" class="pass-item-tip pass-item-tip-userName" style="display:none"><span id="TANGRAM__PSP_3__userNameTipText" class="pass-item-tiptext pass-item-tiptext-userName"></span></span>
+									<span class="pass-item-selectbtn pass-item-selectbtn-userName" style="display: none; visibility: hidden; opacity: 1;"></span></p>
+									<p id="TANGRAM__PSP_3__passwordWrapper" class="pass-form-item pass-form-item-password" style="display:"><input type="password" style="display: none;"><input id="TANGRAM__PSP_3__password" type="password" name="password" class="pass-text-input pass-text-input-password" autocomplete="off" value="" placeholder="密码"><span id="TANGRAM__PSP_3__password_clearbtn" class="pass-clearbtn pass-clearbtn-password" style="display:none;"></span><span id="TANGRAM__PSP_3__passwordTip" class="pass-item-tip pass-item-tip-password" style="display:none"><span id="TANGRAM__PSP_3__passwordTipText" class="pass-item-tiptext pass-item-tiptext-password"></span></span>
+									</p>
+									<p id="TANGRAM__PSP_3__verifyCodeImgWrapper" class="pass-form-item pass-form-item-verifyCode" style="display:none"><input id="TANGRAM__PSP_3__verifyCode" type="text" name="verifyCode" class="pass-text-input pass-text-input-verifyCode" maxlength="6" placeholder="验证码" autocomplete="off"><span id="TANGRAM__PSP_3__verifyCode_clearbtn" class="pass-clearbtn pass-clearbtn-verifyCode" style="display:none;"></span><span id="TANGRAM__PSP_3__verifyCodeImgParent" class="pass-verifyCodeImgParent"><img id="TANGRAM__PSP_3__verifyCodeImg" class="pass-verifyCode" src="https://passport.baidu.com/passApi/img/small_blank.gif"></span>
+										<a id="TANGRAM__PSP_3__verifyCodeChange" href="#" class="pass-change-verifyCode">换一张</a><span id="TANGRAM__PSP_3__verifyCodeError" class="pass-error pass-error-verifyCode"></span><span id="TANGRAM__PSP_3__verifyCodeTip" class="pass-tip pass-tip-verifyCode"></span><span id="TANGRAM__PSP_3__verifyCodeSuccess" class="pass-success pass-success-verifyCode"></span></p>
+									<p id="TANGRAM__PSP_3__memberPassWrapper" class="pass-form-item pass-form-item-memberPass"><input id="TANGRAM__PSP_3__memberPass" type="checkbox" name="memberPass" class="pass-checkbox-input pass-checkbox-memberPass" checked="checked"><label for="TANGRAM__PSP_3__memberPass" id="TANGRAM__PSP_3__memberPassLabel" class="">下次自动登录</label></p>
+									<p id="TANGRAM__PSP_3__submitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_3__submit" type="submit" value="登录" class="pass-button pass-button-submit">
+										<a class="pass-fgtpwd pass-link" th:href="${setting.domain + 'password/find.html'}" target="_blank">忘记密码？</a>
+									</p>
+								</form>
+							</div>
+							<div class="tang-pass-footerBar">
+								<p class="tang-pass-footerBarULogin pass-link" title="用户名登录" data-type="normal" id="TANGRAM__PSP_3__footerULoginBtn">用户名登录</p>
+								<div class="tang-pass-footerBarPhoenix"><span class="tang-pass-footerBarPhoenixSplit"></span>
+									<div class="tang-pass-footerBarPhoenixItem" id="TANGRAM__PSP_3__PhoenixItem">
+										<div id="pass-phoenix-login" class="tang-pass-login-phoenix">
+											<div id="pass-phoenix-list-login" class="pass-phoenix-list clearfix">
+												<div class="pass-phoenix-btn clearfix" id="pass_phoenix_btn">
+													<ul class="bd-acc-list">
+														<li class="bd-acc-qzone" data-dialog="1" data-acc="15" data-height="450" data-width="750">
+															<a class="phoenix-btn-item" href="#" data-title="qzone" title="QQ帐号">QQ帐号</a>
+														</li>
+														<li class="bd-acc-tsina" data-dialog="1" data-acc="2" data-height="669" data-width="800">
+															<a class="phoenix-btn-item" href="#" data-title="tsina" title="新浪微博">新浪微博</a>
+														</li>
+														<li class="bd-acc-weixin" data-dialog="1" data-acc="42" data-height="450" data-width="850">
+															<a class="phoenix-btn-item" href="#" data-title="weixin" title="微信">微信</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+								<a class="pass-reglink pass-link" th:href="${setting.domain + 'register.html'}" target="_blank">立即注册</a>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="well bs-component login-inpbox">
-					<form class="form-horizontal" name="login_form" id="login_form"
-						method="post" action="/submitLogin.html">
-						<fieldset>
-							<div class="form-group ">
-								<label for="login_username" class="col-lg-3 control-label">用户名</label>
-								<div class="col-lg-6">
-									<input name="username" type="text" class="form-control"
-										value="" id="login_username" placeholder="用户名" />
-								</div>
-							</div>
-							<div class="form-group ">
-								<label for="login_password" class="col-lg-3 control-label">密码</label>
-								<div class="col-lg-6">
-									<input name="password" type="password" class="form-control"
-										value="" id="login_password" placeholder="密码" />
-									<div class="checkbox">
-										<label> <input name="login_remember" type="checkbox"
-											id="login_remember" /> 还记得我吗？
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-lg-6 col-lg-offset-3 reg-btn">
-									<button name="submit_login" type="submit"
-										class="btn-no btn-primary">登录</button>
-								</div>
-							</div>
-						</fieldset>
-					</form>
-				</div>
+				<input type="hidden" value="上海" id="jsCurrentCity">
 			</div>
-			<div class="col-md-4">
-				<div class="ad-body">
-					<div class="adv-pc"></div>
+			<div id="foot">
+				<div class="mod-footer">
+					<div class="copy-box">2018&nbsp;©Baidu</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-<!-- 登录主体结束 -->
-
-</div>
-
-<!-- footer -->
-<div th:replace="include/navbar/footer :: footer"></div>
-
-<!-- 右侧工具栏 -->
-<div th:replace="include/navbar/rightTool :: rightTool"></div>
-
-<!--  公告 -->
-<div th:replace="include/navbar/notice :: notice"></div>
-
-</body>
+	</body>
 </html>

@@ -50,7 +50,7 @@ $(function(){
 		var password = $("#TANGRAM__PSP_25__password").val();
 		$.ajax({
 			type : "get", 
-			url : mainHttp + "login.html",
+			url : mainHttp + "miniLogin.html",
 			async : true,
 			data:{username:username,password:password,captcha:$("#TANGRAM__PSP_25__verifyCode").val()},
 			dataType : "json",

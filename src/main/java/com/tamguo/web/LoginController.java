@@ -19,8 +19,14 @@ public class LoginController {
 	private IMemberService iMemberService;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(ModelAndView model){
+		model.setViewName("login");
+		return model;
+	}
+	
+	@RequestMapping(value = "/miniLogin", method = RequestMethod.GET)
 	@ResponseBody
-    public Result login(String username , String password , String captcha, ModelAndView model , HttpSession session) {
+    public Result miniLogin(String username , String password , String captcha, ModelAndView model , HttpSession session) {
 		Result result = iMemberService.login(username, password , captcha);
 		if(result.getCode() == 200){
 			session.setAttribute("currMember", result.getResult());
