@@ -137,10 +137,10 @@ public class MemberService implements IMemberService{
 				return Result.result(202, member, "验证码错误");
 			}
 		}else{
-			if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getEmail())){
+			if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getMobile())){
 				return Result.result(203, member, "验证码错误");
 			}
-			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getEmail());
+			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getMobile());
 			if(!code.equals(vcode)){
 				return Result.result(204, member, "验证码错误");
 			}

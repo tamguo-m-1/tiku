@@ -26,7 +26,7 @@ $(function(){
         };
         t();
         
-        var isEmail = $("#isEmail").val();
+        var isEmail = $("input[name='isEmail']").val();
         if(isEmail == "0"){
         	// 发送短信
             $.ajax({
