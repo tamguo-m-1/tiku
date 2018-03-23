@@ -5,13 +5,12 @@
 	position: absolute;
 }
 .user-center-wrapper{
-	padding: 80px 0;
+	padding: 20px 0;
     margin-right: auto;
     margin-left: auto;
     width: 1170px;
 }
 .left-container{
-	background-color: #fff;
 	width:240px;
 	float: left;
 	height:auto;
@@ -104,7 +103,6 @@
 }
 .user-info-container{
 	margin-bottom: 18px;
-    background-color: #fff;
     border: 1px solid transparent;
 }
 .user-info-nav .active {
