@@ -23,7 +23,6 @@ public class ChapterController {
 	@Autowired
 	private ICourseService iCourseService;
 	
-	
 	@RequestMapping(value = {"/chapter/{subjectId}/{courseId}.html"}, method = RequestMethod.GET)
     public ModelAndView indexAction(@PathVariable String subjectId , @PathVariable String courseId, ModelAndView model) {
     	model.setViewName("chapter");
