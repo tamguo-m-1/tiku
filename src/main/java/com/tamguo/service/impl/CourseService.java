@@ -36,4 +36,9 @@ public class CourseService implements ICourseService{
 		return courseMapper.findBySubjectId(subjectId);
 	}
 
+	@Override
+	public CourseEntity find(String uid) {
+		return courseMapper.select(uid);
+	}
+
 }

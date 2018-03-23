@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tamguo.model.ChapterEntity;
 import com.tamguo.model.CourseEntity;
+import com.tamguo.model.SubjectEntity;
 import com.tamguo.service.IAreaService;
 import com.tamguo.service.IChapterService;
 import com.tamguo.service.ICourseService;
+import com.tamguo.service.ISubjectService;
 
 /**
  * Controller - 考试（高考，建造师，医药师）
@@ -29,20 +32,20 @@ public class SubjectController {
 	private IChapterService iChapterService;
 	@Autowired
 	private IAreaService iAreaService;
+	@Autowired
+	private ISubjectService iSubjectService;
 
 	@RequestMapping(value = {"/subject/{subjectId}.html"}, method = RequestMethod.GET)
     public ModelAndView indexAction(@PathVariable String subjectId , ModelAndView model) {
+		SubjectEntity subject = iSubjectService.find(subjectId);
+		List<CourseEntity> courseList = iCourseService.findBySubjectId(subjectId);
+		CourseEntity course = iCourseService.find(subject.getCourseId());
+		List<ChapterEntity> chapterList = iChapterService.findCourseChapter(subject.getCourseId());
     	model.setViewName("subject");
-    	model.addObject("subjectId", subjectId);
-    	List<CourseEntity> courseList = null;
-    	CourseEntity course = null;
-    	courseList = iCourseService.findBySubjectId(subjectId);
-    	if(courseList != null && !courseList.isEmpty()){
-    		course = courseList.get(0);
-    	}
-    	model.addObject("courseList", courseList);
-    	model.addObject("chapterList" , course != null ? iChapterService.findCourseChapter(course.getUid()) : null);
+    	model.addObject("subject", subject);
     	model.addObject("course" , course);
+    	model.addObject("courseList", courseList);
+    	model.addObject("chapterList" , chapterList);
     	model.addObject("areaList", iAreaService.findAll());
         return model;
     }
