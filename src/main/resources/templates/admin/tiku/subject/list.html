@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>探果-考试类型</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/css/bootstrap.min.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/css/font-awesome.min.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/jqgrid/ui.jqgrid-bootstrap.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/ztree/css/metroStyle/metroStyle.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/jquery-tags-input/jquery.tagsinput.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/css/main.css'}">
+<script th:src="${setting.domain + 'admin/libs/jquery.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/layer/layer.js'}"></script>
+<script th:src="${setting.domain + 'admin/libs/bootstrap.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/jqgrid/grid.locale-cn.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/jqgrid/jquery.jqGrid.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/ztree/jquery.ztree.all.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/jquery-tags-input/jquery.tagsinput.js'}"></script>
+<script th:src="${setting.domain + 'admin/js/common.js'}"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.name" @keyup.enter="query" placeholder="用户名">
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
+			<a shiro:hasPermission="tiku:subject:create" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			<a shiro:hasPermission="tiku:subject:edit" class="btn btn-primary" @click="edit"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			<a shiro:hasPermission="tiku:subject:delete" class="btn btn-primary" @click="del"><i class="fa fa-pencil-square-o"></i>&nbsp;删除</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+</div>
+</body>
+<script th:src="${setting.domain + 'admin/js/tiku/subject/list.js?v=6'}"></script>
+<script type="text/javascript" th:inline="javascript">
+	var mainHttp = [[${setting.domain}]];
+</script>
+</html>
