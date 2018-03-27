@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.github.pagehelper.Page;
 import com.tamguo.model.SubjectEntity;
 import com.tamguo.service.ISubjectService;
+import com.tamguo.util.ExceptionSupport;
 import com.tamguo.util.Result;
 
 @Controller(value="adminSubjectController")
@@ -41,7 +41,7 @@ public class SubjectController {
 		try {
 			iSubjectService.save(subject);
 		} catch (Exception e) {
-			return Result.result(500, null, e.getMessage());
+			return ExceptionSupport.resolverResult("新增考试", this.getClass(), e);
 		}
 		return Result.result(0, null, "");
 	}
@@ -52,9 +52,20 @@ public class SubjectController {
 		try {
 			iSubjectService.update(subject);
 		} catch (Exception e) {
-			return Result.result(500, null, e.getMessage());
+			return ExceptionSupport.resolverResult("更新考试", this.getClass(), e);
 		}
 		return Result.result(0, null, "");
+	}	
+	
+	@RequestMapping("admin/subject/delete")
+	@ResponseBody
+	public Result delete(@RequestBody String[] subjectIds){
+		try {
+			iSubjectService.deleteBatch(subjectIds);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("删除考试", this.getClass(), e);
+		}
 	}
 
 }

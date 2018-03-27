@@ -12,5 +12,7 @@ public interface ISubjectService {
 	public void update(SubjectEntity subject);
 
 	public void save(SubjectEntity subject);
+
+	public void deleteBatch(String[] subjectIds);
 	
 }

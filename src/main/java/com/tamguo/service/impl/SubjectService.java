@@ -1,5 +1,6 @@
 package com.tamguo.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -33,7 +34,10 @@ public class SubjectService implements ISubjectService{
 	@Override
 	public Page<SubjectEntity> list(String name , Integer pageNum , Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
-		return subjectMapper.queryPage("%"+name+"%");
+		if(!StringUtils.isEmpty(name)){
+			name = "%"+name+"%";
+		}
+		return subjectMapper.queryPage(name);
 	}
 
 	@Override
@@ -56,6 +60,11 @@ public class SubjectService implements ISubjectService{
 			subject.setCourseName(course.getName());
 		}
 		subjectMapper.insert(subject);
+	}
+
+	@Override
+	public void deleteBatch(String[] subjectIds) {
+		subjectMapper.deleteByIds(Arrays.asList(subjectIds));
 	}
 	
 }

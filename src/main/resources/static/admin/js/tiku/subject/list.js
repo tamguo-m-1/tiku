@@ -58,7 +58,9 @@ var vm = new Vue({
             }).trigger("reloadGrid");
 		},
 		add: function(event){
-			
+			vm.showList = false;
+			vm.title = "新增";
+			vm.subject = {};
 		},
 		edit:function(event){
 			var subjectId = getSelectedRow();
@@ -72,7 +74,26 @@ var vm = new Vue({
 			vm.getSubject(subjectId);
 		},
 		del:function(event){
-			
+			var subjectIds = getSelectedRows();
+			if(subjectIds == null){
+				return ;
+			}
+			confirm('确定要删除选中的记录？', function(){
+				$.ajax({
+					type: "POST",
+				    url: mainHttp + "admin/subject/delete.html",
+				    data: JSON.stringify(subjectIds),
+				    success: function(r){
+						if(r.code == 0){
+							alert('操作成功', function(index){
+								$("#jqGrid").trigger("reloadGrid");
+							});
+						}else{
+							alert(r.message);
+						}
+					}
+				});
+			});
 		},
 		saveOrUpdate:function(event){
 			var url = vm.subject.uid == null ? mainHttp + "admin/subject/save.html" : mainHttp + "admin/subject/update.html";
