@@ -5,6 +5,8 @@ import java.util.Map;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,6 +27,34 @@ public class SubjectController {
 	public Map<String, Object> list(String name , Integer page , Integer limit){
 		Page<SubjectEntity> list = iSubjectService.list(name, page, limit);
 		return Result.jqGridResult(list.getResult(), list.getTotal(), limit, page, list.getPages());
+	}
+	
+	@RequestMapping("admin/subject/find/{subjectId}")
+	@ResponseBody
+	public Result find(@PathVariable String subjectId){
+		return Result.result(200, iSubjectService.find(subjectId), "");
+	}
+	
+	@RequestMapping("admin/subject/save")
+	@ResponseBody
+	public Result save(@RequestBody SubjectEntity subject){
+		try {
+			iSubjectService.save(subject);
+		} catch (Exception e) {
+			return Result.result(500, null, e.getMessage());
+		}
+		return Result.result(0, null, "");
+	}
+	
+	@RequestMapping("admin/subject/update")
+	@ResponseBody
+	public Result update(@RequestBody SubjectEntity subject){
+		try {
+			iSubjectService.update(subject);
+		} catch (Exception e) {
+			return Result.result(500, null, e.getMessage());
+		}
+		return Result.result(0, null, "");
 	}
 
 }

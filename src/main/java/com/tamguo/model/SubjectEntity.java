@@ -1,6 +1,7 @@
 package com.tamguo.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +27,8 @@ public class SubjectEntity implements Serializable {
 	
 	@Column(name="course_name")
 	private String courseName;
+	
+	private List<CourseEntity> courseList;
 
 	public String getUid() {
 		return uid;
@@ -57,5 +60,13 @@ public class SubjectEntity implements Serializable {
 
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
+	}
+
+	public List<CourseEntity> getCourseList() {
+		return courseList;
+	}
+
+	public void setCourseList(List<CourseEntity> courseList) {
+		this.courseList = courseList;
 	}
 }

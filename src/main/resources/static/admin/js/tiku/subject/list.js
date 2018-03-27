@@ -2,7 +2,8 @@ $(function () {
     $("#jqGrid").jqGrid({
         url: mainHttp + 'admin/subject/list.html',
         datatype: "json",
-        colModel: [			
+        colModel: [		
+            { label: '考试ID', name: 'uid', width: 45, key: true },       	
 			{ label: '考试名称', name: 'name', width: 45},
 			{ label: '主科目', name: 'courseName', width: 45 }
         ],
@@ -39,7 +40,10 @@ var vm = new Vue({
 			name: null
 		},
 		showList: true,
-		title:null
+		title:null,
+		subject:{
+			courseList:[]
+		}
 	},
 	methods: {
 		query: function () {
@@ -57,10 +61,46 @@ var vm = new Vue({
 			
 		},
 		edit:function(event){
+			var subjectId = getSelectedRow();
+			if(subjectId == null){
+				return ;
+			}
 			
+			vm.showList = false;
+            vm.title = "修改";
+			
+			vm.getSubject(subjectId);
 		},
 		del:function(event){
 			
+		},
+		saveOrUpdate:function(event){
+			var url = vm.subject.uid == null ? mainHttp + "admin/subject/save.html" : mainHttp + "admin/subject/update.html";
+			$.ajax({
+				type: "POST",
+			    url: url,
+			    data: JSON.stringify(vm.subject),
+			    success: function(r){
+			    	if(r.code === 0){
+						alert('操作成功', function(index){
+							vm.reload();
+						});
+					}else{
+						alert(r.message);
+					}
+				}
+			});
+		},
+		getSubject:function(subjectId){
+			$.ajax({
+				type : "get", 
+				url : mainHttp + "admin/subject/find/"+subjectId+".html",
+				async : true,
+				dataType : "json",
+				success : function(data) {// 返回数据根据结果进行相应的处理,无论请求成功还是失败，都会走这个方法的
+					vm.subject = data.result;
+				}
+			});
 		}
 	}
 });

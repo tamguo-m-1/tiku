@@ -38,13 +38,12 @@ public class SubjectController {
 	@RequestMapping(value = {"/subject/{subjectId}.html"}, method = RequestMethod.GET)
     public ModelAndView indexAction(@PathVariable String subjectId , ModelAndView model) {
 		SubjectEntity subject = iSubjectService.find(subjectId);
-		List<CourseEntity> courseList = iCourseService.findBySubjectId(subjectId);
 		CourseEntity course = iCourseService.find(subject.getCourseId());
 		List<ChapterEntity> chapterList = iChapterService.findCourseChapter(subject.getCourseId());
     	model.setViewName("subject");
     	model.addObject("subject", subject);
     	model.addObject("course" , course);
-    	model.addObject("courseList", courseList);
+    	model.addObject("courseList", subject.getCourseList());
     	model.addObject("chapterList" , chapterList);
     	model.addObject("areaList", iAreaService.findAll());
         return model;
