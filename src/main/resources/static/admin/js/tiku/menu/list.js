@@ -71,7 +71,7 @@ var vm = new Vue({
 				ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
 				var node = ztree.getNodeByParam("uid", vm.menu.parentId);
 				ztree.selectNode(node);
-				vm.menu.parentName = node.name;
+				Vue.set(vm.menu, 'parentName', node.name)
 			})
 		},
 		add: function(){
