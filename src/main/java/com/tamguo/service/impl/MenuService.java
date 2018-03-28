@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.tamguo.dao.MenuMapper;
 import com.tamguo.dao.redis.CacheService;
 import com.tamguo.model.MenuEntity;
+import com.tamguo.model.SubjectEntity;
 import com.tamguo.service.IMenuService;
 import com.tamguo.util.TamguoConstant;
 
@@ -15,7 +18,7 @@ import com.tamguo.util.TamguoConstant;
 public class MenuService implements IMenuService{
 	
 	@Autowired
-	private MenuMapper subjectMapper;
+	private MenuMapper menuMapper;
 	@Autowired
 	private CacheService cacheService;
 
@@ -25,9 +28,9 @@ public class MenuService implements IMenuService{
 		List<MenuEntity> menuList = ((List<MenuEntity>) cacheService.getObject(TamguoConstant.INDEX_MENU));
 		menuList = null;
 		if (menuList == null || menuList.isEmpty()) {
-			menuList = subjectMapper.findFatherMenus();
+			menuList = menuMapper.findFatherMenus();
 			for(MenuEntity menu : menuList){
-				List<MenuEntity> childSubjects = subjectMapper.findMenuByParentId(menu.getUid());
+				List<MenuEntity> childSubjects = menuMapper.findMenuByParentId(menu.getUid());
 				menu.setChildSubjects(childSubjects);
 			}
 			cacheService.setObject(TamguoConstant.INDEX_MENU, menuList , 2 * 60 * 60);
@@ -41,9 +44,9 @@ public class MenuService implements IMenuService{
 		List<MenuEntity> allMenuList = ((List<MenuEntity>) cacheService.getObject(TamguoConstant.ALL_INDEX_MENU));
 		allMenuList = null;
 		if(allMenuList == null || allMenuList.isEmpty()){
-			allMenuList = subjectMapper.findAllFatherMenus();
+			allMenuList = menuMapper.findAllFatherMenus();
 			for(MenuEntity menu : allMenuList){
-				List<MenuEntity> childSubjects = subjectMapper.findMenuByParentId(menu.getUid());
+				List<MenuEntity> childSubjects = menuMapper.findMenuByParentId(menu.getUid());
 				menu.setChildSubjects(childSubjects);
 			}
 			cacheService.setObject(TamguoConstant.ALL_INDEX_MENU, allMenuList , 2 * 60 * 60);
@@ -57,9 +60,9 @@ public class MenuService implements IMenuService{
 		List<MenuEntity> leftMenuList = ((List<MenuEntity>) cacheService.getObject(TamguoConstant.LEFT_INDEX_MENU));
 		leftMenuList = null;
 		if(leftMenuList == null || leftMenuList.isEmpty()){
-			leftMenuList = subjectMapper.findLeftFatherMenus();
+			leftMenuList = menuMapper.findLeftFatherMenus();
 			for(MenuEntity menu : leftMenuList){
-				List<MenuEntity> childSubjects = subjectMapper.findMenuByParentId(menu.getUid());
+				List<MenuEntity> childSubjects = menuMapper.findMenuByParentId(menu.getUid());
 				menu.setChildSubjects(childSubjects);
 			}
 			cacheService.setObject(TamguoConstant.LEFT_INDEX_MENU, leftMenuList , 2 * 60 * 60);
@@ -73,14 +76,25 @@ public class MenuService implements IMenuService{
 		List<MenuEntity> footerMenuList = ((List<MenuEntity>) cacheService.getObject(TamguoConstant.FOOTER_INDEX_MENU));
 		footerMenuList = null;
 		if(footerMenuList == null || footerMenuList.isEmpty()){
-			footerMenuList = subjectMapper.findFooterFatherMenus();
+			footerMenuList = menuMapper.findFooterFatherMenus();
 			for(MenuEntity menu : footerMenuList){
-				List<MenuEntity> childSubjects = subjectMapper.findMenuByParentId(menu.getUid());
+				List<MenuEntity> childSubjects = menuMapper.findMenuByParentId(menu.getUid());
 				menu.setChildSubjects(childSubjects);
 			}
 			cacheService.setObject(TamguoConstant.FOOTER_INDEX_MENU, footerMenuList , 2 * 60 * 60);
 		}
 		return footerMenuList;
+	}
+
+	@Override
+	public Page<SubjectEntity> list(String name, Integer page, Integer limit) {
+		PageHelper.startPage(page, limit);
+		return menuMapper.findByName(name);
+	}
+
+	@Override
+	public List<MenuEntity> getMenuTree() {
+		return menuMapper.selectAll();
 	}
 
 }

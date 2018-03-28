@@ -2,7 +2,9 @@ package com.tamguo.service;
 
 import java.util.List;
 
+import com.github.pagehelper.Page;
 import com.tamguo.model.MenuEntity;
+import com.tamguo.model.SubjectEntity;
 
 /**
  * Service - 类型
@@ -23,4 +25,10 @@ public interface IMenuService {
 	
 	/** 资格考试专区*/
 	public List<MenuEntity> findFooterMenus();
+
+	/** 根据名称查询*/
+	public Page<SubjectEntity> list(String name, Integer page, Integer limit);
+
+	/** 获取菜单树*/
+	public List<MenuEntity> getMenuTree();
 }

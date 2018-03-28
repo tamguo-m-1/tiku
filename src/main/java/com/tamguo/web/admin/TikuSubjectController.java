@@ -16,7 +16,7 @@ import com.tamguo.util.ExceptionSupport;
 import com.tamguo.util.Result;
 
 @Controller(value="adminSubjectController")
-public class SubjectController {
+public class TikuSubjectController {
 	
 	@Autowired
 	private ISubjectService iSubjectService;

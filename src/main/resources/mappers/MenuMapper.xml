@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tamguo.dao.MenuMapper">
-
+	
 	<select id="findFatherMenus" resultMap="resultMap">
 		SELECT
 			uid,name,parent_id,pinyin,is_show,orders,type,url
@@ -45,6 +45,25 @@
 			tiku_menu
 		where parent_id = 0 and type = 2
 		order by orders desc
+	</select>
+	
+	<select id="findByName" resultMap="resultMap">
+		SELECT
+			m.is_show,
+			m.`name`,
+			m.orders,
+			m.parent_id,
+			m.pinyin,
+			m.type,
+			m.uid,
+			m.url
+		FROM
+			tiku_menu m
+		<where>
+			<if test="name != null and name != ''">
+				m.name like #{name}
+			</if>
+		</where>
 	</select>
     
 </mapper>
