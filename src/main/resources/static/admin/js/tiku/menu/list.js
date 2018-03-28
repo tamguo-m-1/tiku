@@ -9,17 +9,6 @@ $(function () {
 			{ label: '是否显示', name: 'isShow', width: 60 },
 			{ label: '拼音', name: 'pinyin', width: 60 },
 			{ label: '菜单URL', name: 'url', width: 100 },
-			{ label: '类型', name: 'type', width: 50, formatter: function(value, options, row){
-				if(value === "0"){
-					return '<span class="label label-primary">头部菜单</span>';
-				}
-				if(value === "1"){
-					return '<span class="label label-success">左侧菜单</span>';
-				}
-				if(value === "2"){
-					return '<span class="label label-warning">资格考试专区</span>';
-				}
-			}},
 			{ label: '排序号', name: 'orders', width: 50}                   
         ],
 		viewrecords: true,
@@ -72,7 +61,7 @@ var vm = new Vue({
 			parentName:null,
 			parentId:0,
 			type:1,
-			orderNum:0
+			orders:0
 		}
 	},
 	methods: {
@@ -80,7 +69,7 @@ var vm = new Vue({
 			//加载菜单树
 			$.get(mainHttp + "admin/menu/getMenuTree.html", function(r){
 				ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
-				var node = ztree.getNodeByParam("menuId", vm.menu.parentId);
+				var node = ztree.getNodeByParam("uid", vm.menu.parentId);
 				ztree.selectNode(node);
 				vm.menu.parentName = node.name;
 			})
@@ -88,7 +77,7 @@ var vm = new Vue({
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
-			vm.menu = {parentName:null,parentId:0,type:1,orderNum:0};
+			vm.menu = {parentName:null,parentId:1,isShow:1,orders:0};
 			vm.getMenu();
 		},
 		update: function (event) {
@@ -96,13 +85,17 @@ var vm = new Vue({
 			if(menuId == null){
 				return ;
 			}
-			
-			$.get("../sysMenu/info/"+menuId, function(r){
-				vm.showList = false;
-                vm.title = "修改";
-                vm.menu = r.result;
-            });
-			
+			$.ajax({
+				type : "get", 
+				url : mainHttp + "admin/menu/info/"+menuId+".html",
+				async : true,
+				dataType : "json",
+				success : function(data) {
+					vm.showList = false;
+	                vm.title = "修改";
+	                vm.menu = data.result;
+				}
+			});
 			vm.getMenu();
 		},
 		del: function (event) {
@@ -114,7 +107,7 @@ var vm = new Vue({
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: "../sysMenu/delete",
+				    url: mainHttp + "admin/menu/delete.html",
 				    data: JSON.stringify(menuIds),
 				    success: function(r){
 				    	if(r.code === 0){
@@ -129,7 +122,7 @@ var vm = new Vue({
 			});
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.menu.menuId == null ? "../sysMenu/save" : "../sysMenu/update";
+			var url = vm.menu.uid == null ? mainHttp + "admin/menu/save.html" : mainHttp + "admin/menu/update.html";
 			$.ajax({
 				type: "POST",
 			    url: url,
@@ -159,7 +152,7 @@ var vm = new Vue({
 				btn1: function (index) {
 					var node = ztree.getSelectedNodes();
 					//选择上级菜单
-					vm.menu.parentId = node[0].menuId;
+					vm.menu.parentId = node[0].uid;
 					vm.menu.parentName = node[0].name;
 					
 					layer.close(index);

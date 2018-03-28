@@ -1,5 +1,6 @@
 package com.tamguo.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,6 +96,26 @@ public class MenuService implements IMenuService{
 	@Override
 	public List<MenuEntity> getMenuTree() {
 		return menuMapper.selectAll();
+	}
+
+	@Override
+	public MenuEntity findById(String uid) {
+		return menuMapper.select(uid);
+	}
+
+	@Override
+	public void save(MenuEntity menu) {
+		menuMapper.insert(menu);
+	}
+
+	@Override
+	public void update(MenuEntity menu) {
+		menuMapper.update(menu);
+	}
+
+	@Override
+	public void deleteBatch(String[] menuIds) {
+		menuMapper.deleteByIds(Arrays.asList(menuIds));
 	}
 
 }

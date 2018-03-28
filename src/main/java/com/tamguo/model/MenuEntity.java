@@ -35,9 +35,6 @@ public class MenuEntity implements Serializable {
 	
 	@Column(name="orders")
 	private Integer orders;
-	
-	@Column(name="type")
-	private String type;
 
 	@Column(name="url")
 	private String url;
@@ -102,14 +99,6 @@ public class MenuEntity implements Serializable {
 
 	public void setOrders(Integer orders) {
 		this.orders = orders;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public String getUrl() {
