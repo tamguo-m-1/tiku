@@ -7,7 +7,7 @@
 			uid,name,parent_id,pinyin,is_show,orders,url
 		FROM
 			tiku_menu
-		where parent_id = 0 and is_show = 1
+		where parent_id = 1 and is_show = 1
 		order by orders desc
 	</select>
 	
