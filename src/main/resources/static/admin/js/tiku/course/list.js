@@ -1,15 +1,15 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: mainHttp + 'admin/menu/list.html',
+        url: mainHttp + 'admin/course/list.html',
         datatype: "json",
         colModel: [			
-			{ label: '菜单ID', name: 'uid', width: 40, key: true },
-			{ label: '菜单名称', name: 'name', width: 60 },
-			{ label: '上级菜单', name: 'parentId', width: 60 },
-			{ label: '是否显示', name: 'isShow', width: 60 },
-			{ label: '拼音', name: 'pinyin', width: 60 },
-			{ label: '菜单URL', name: 'url', width: 100 },
-			{ label: '排序号', name: 'orders', width: 50}                   
+			{ label: '科目ID', name: 'uid', width: 40, key: true },
+			{ label: '考试ID', name: 'subjectId', width: 60 },
+			{ label: '科目名称', name: 'name', width: 60 },
+			{ label: '排序', name: 'orders', width: 60 },
+			{ label: '题目数量', name: 'questionNum', width: 60 },
+			{ label: '知识点数量', name: 'pointNum', width: 100 },
+			{ label: '图标', name: 'icon', width: 50}                   
         ],
 		viewrecords: true,
         height: 385,
@@ -57,17 +57,19 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		menu:{
-			parentName:null,
-			parentId:0,
-			type:1,
+		course:{
+			name:null,
+			subjectId:null,
+			pointNum:null,
+			questionNum:null,
+			icon:null,
 			orders:0
 		}
 	},
 	methods: {
 		getMenu: function(menuId){
 			//加载菜单树
-			$.get(mainHttp + "admin/menu/getMenuTree.html", function(r){
+			$.get(mainHttp + "admin/course/getSubjectTree.html", function(r){
 				ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
 				var node = ztree.getNodeByParam("uid", vm.menu.parentId);
 				ztree.selectNode(node);
@@ -77,38 +79,35 @@ var vm = new Vue({
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
-			vm.menu = {parentName:null,parentId:1,isShow:1,orders:0};
-			vm.getMenu();
+			vm.course = {name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
 		},
 		update: function (event) {
-			var menuId = getSelectedRow();
-			if(menuId == null){
+			var courseId = getSelectedRow();
+			if(courseId == null){
 				return ;
 			}
 			$.ajax({
 				type : "get", 
-				url : mainHttp + "admin/menu/info/"+menuId+".html",
+				url : mainHttp + "admin/course/info/"+courseId+".html",
 				async : true,
 				dataType : "json",
 				success : function(data) {
 					vm.showList = false;
 	                vm.title = "修改";
-	                vm.menu = data.result;
+	                vm.course = data.result;
 				}
 			});
-			vm.getMenu();
 		},
 		del: function (event) {
-			var menuIds = getSelectedRows();
-			if(menuIds == null){
+			var courseIds = getSelectedRows();
+			if(courseIds == null){
 				return ;
 			}
-			
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: mainHttp + "admin/menu/delete.html",
-				    data: JSON.stringify(menuIds),
+				    url: mainHttp + "admin/course/delete.html",
+				    data: JSON.stringify(courseIds),
 				    success: function(r){
 				    	if(r.code === 0){
 							alert('操作成功', function(index){
@@ -122,11 +121,11 @@ var vm = new Vue({
 			});
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.menu.uid == null ? mainHttp + "admin/menu/save.html" : mainHttp + "admin/menu/update.html";
+			var url = vm.course.uid == null ? mainHttp + "admin/course/save.html" : mainHttp + "admin/course/update.html";
 			$.ajax({
 				type: "POST",
 			    url: url,
-			    data: JSON.stringify(vm.menu),
+			    data: JSON.stringify(vm.course),
 			    success: function(r){
 			    	if(r.code === 0){
 						alert('操作成功', function(index){

@@ -32,6 +32,9 @@ public class CourseEntity implements Serializable {
 	
 	@Column(name="icon")
 	private String icon;
+	
+	@Column(name="orders")
+	private Integer orders;
 
 	public CourseEntity() {
 	}
@@ -82,6 +85,14 @@ public class CourseEntity implements Serializable {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public Integer getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Integer orders) {
+		this.orders = orders;
 	}
 
 }

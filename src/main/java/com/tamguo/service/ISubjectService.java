@@ -1,5 +1,7 @@
 package com.tamguo.service;
 
+import java.util.List;
+
 import com.github.pagehelper.Page;
 import com.tamguo.model.SubjectEntity;
 
@@ -14,5 +16,7 @@ public interface ISubjectService {
 	public void save(SubjectEntity subject);
 
 	public void deleteBatch(String[] subjectIds);
+
+	public List<SubjectEntity> getSubjectTree();
 	
 }

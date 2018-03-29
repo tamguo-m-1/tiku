@@ -66,5 +66,10 @@ public class SubjectService implements ISubjectService{
 	public void deleteBatch(String[] subjectIds) {
 		subjectMapper.deleteByIds(Arrays.asList(subjectIds));
 	}
+
+	@Override
+	public List<SubjectEntity> getSubjectTree() {
+		return subjectMapper.selectAll();
+	}
 	
 }

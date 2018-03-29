@@ -23,9 +23,9 @@
 <div id="rrapp" v-cloak>
 	<div v-show="showList">
 		<div class="grid-btn">
-			<a shiro:hasPermission="sys:menu:save" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
-			<a shiro:hasPermission="sys:menu:update" class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-			<a shiro:hasPermission="sys:menu:delete" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			<a shiro:hasPermission="tiku:course:save" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			<a shiro:hasPermission="tiku:course:update" class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			<a shiro:hasPermission="tiku:course:delete" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
 		</div>
 	    <table id="jqGrid"></table>
 	    <div id="jqGridPager"></div>
@@ -35,43 +35,40 @@
 		<div class="panel-heading">{{title}}</div>
 		<form class="form-horizontal">
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">菜单名称</div>
+			   	<div class="col-sm-2 control-label">科目名称</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="menu.name" placeholder="菜单名称或按钮名称"/>
+			      <input type="text" class="form-control" v-model="course.name" placeholder="科目名称"/>
 			    </div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-2 control-label">上级菜单</div>
+				<div class="col-sm-2 control-label">考试ID</div>
 			   	<div class="col-sm-10">
-			       <input type="text" class="form-control" style="cursor:pointer;" v-model="menu.parentName" @click="menuTree" readonly="readonly" placeholder="一级菜单"/>
+			       <input type="text" class="form-control" v-model="course.subjectId"placeholder="考试ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">菜单URL</div>
+			   	<div class="col-sm-2 control-label">题目数量</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="menu.url" placeholder="菜单URL"/>
+			      <input type="number" class="form-control" v-model="course.questionNum" placeholder="题目数量"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">拼音</div>
+			   	<div class="col-sm-2 control-label">知识点数量</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="menu.pinyin" placeholder="拼音"/>
+			      <input type="number" class="form-control" v-model="course.pointNum" placeholder="知识点数量"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">排序号</div>
+			   	<div class="col-sm-2 control-label">图标</div>
 			   	<div class="col-sm-10">
-			      <input type="number" class="form-control" v-model="menu.orders" placeholder="排序号"/>
+			      <input type="text" class="form-control" v-model="course.icon" placeholder="图标"/>
 			    </div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-2 control-label">是否显示</div> 
-				<label class="radio-inline">
-				  <input type="radio" name="isShow" value="1" v-model="menu.isShow"/> 是
-				</label>
-				<label class="radio-inline">
-				  <input type="radio" name="isShow" value="0" v-model="menu.isShow"/> 否
-				</label>
+			   	<div class="col-sm-2 control-label">排序</div>
+			   	<div class="col-sm-10">
+			      <input type="number" class="form-control" v-model="course.orders" placeholder="排序"/>
+			    </div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-2 control-label"></div> 
@@ -87,7 +84,7 @@
 	<ul id="menuTree" class="ztree"></ul>
 </div>
 
-<script th:src="${setting.domain + 'admin/js/tiku/menu/list.js?v=6'}"></script>
+<script th:src="${setting.domain + 'admin/js/tiku/course/list.js?v=6'}"></script>
 <script type="text/javascript" th:inline="javascript">
 	var mainHttp = [[${setting.domain}]];
 </script>

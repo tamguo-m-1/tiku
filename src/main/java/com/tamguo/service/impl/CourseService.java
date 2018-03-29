@@ -1,10 +1,13 @@
 package com.tamguo.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.tamguo.dao.CourseMapper;
 import com.tamguo.dao.redis.CacheService;
 import com.tamguo.model.CourseEntity;
@@ -39,6 +42,32 @@ public class CourseService implements ICourseService{
 	@Override
 	public CourseEntity find(String uid) {
 		return courseMapper.select(uid);
+	}
+
+	@Override
+	public Page<CourseEntity> list(String name, Integer page, Integer limit) {
+		PageHelper.startPage(page, limit);
+		return courseMapper.queryPageByName(name);
+	}
+
+	@Override
+	public CourseEntity select(String courseId) {
+		return courseMapper.select(courseId);
+	}
+
+	@Override
+	public void deleteByIds(String[] courseIds) {
+		courseMapper.deleteByIds(Arrays.asList(courseIds));
+	}
+
+	@Override
+	public void save(CourseEntity course) {
+		courseMapper.insert(course);
+	}
+
+	@Override
+	public void update(CourseEntity course) {
+		courseMapper.update(course);
 	}
 
 }

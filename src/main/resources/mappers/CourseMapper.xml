@@ -18,4 +18,22 @@
 		ORDER BY orders ASC
 	</select>
 	
+	<select id="queryPageByName" resultMap="resultMap">
+		SELECT
+			c.icon,
+			c.`name`,
+			c.orders,
+			c.point_num,
+			c.question_num,
+			c.subject_id,
+			c.uid
+		FROM
+			tiku_course c
+		<where>
+			<if test="name != null and name != ''">
+				c.name like #{name}
+			</if>
+		</where>
+	</select>
+	
 </mapper>
