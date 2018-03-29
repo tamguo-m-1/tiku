@@ -13,5 +13,8 @@ public interface IChapterService {
 	
 	// 获取下一个知识点
 	public ChapterEntity findNextPoint(String uid , Integer orders);
+
+	// 获取树形
+	public List<ChapterEntity> getChapterTree(String courseId);
 	
 }

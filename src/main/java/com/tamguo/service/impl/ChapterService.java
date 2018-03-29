@@ -1,13 +1,16 @@
 package com.tamguo.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tamguo.dao.ChapterMapper;
 import com.tamguo.model.ChapterEntity;
 import com.tamguo.service.IChapterService;
+import com.tamguo.util.TamguoConstant;
 
 @Service
 public class ChapterService implements IChapterService{
@@ -18,17 +21,49 @@ public class ChapterService implements IChapterService{
 	@Override
 	public List<ChapterEntity> findCourseChapter(String courseId) {
 		List<ChapterEntity> chapterList = chapterMapper.findByCourseId(courseId);
-		// 获取子章节
-		for(ChapterEntity chapter : chapterList){
-			List<ChapterEntity> childChapterList = chapterMapper.findByParentId(chapter.getUid());
-			for(ChapterEntity c : childChapterList){
-				List<ChapterEntity> cChapterList = chapterMapper.findByParentId(c.getUid());
-				c.setChildChapterList(cChapterList);
+		
+		// 获取根chapter UID
+		String rootUid = StringUtils.EMPTY;
+		for(int i=0 ; i<chapterList.size() ; i++){
+			ChapterEntity chapter = chapterList.get(i);
+			if(chapter.getParentId().equals(TamguoConstant.CHAPTER_DEFAULT_UID)){
+				rootUid = chapter.getUid();
 			}
-			chapter.setChildChapterList(childChapterList);
-
 		}
-		return chapterList;
+		// 获取第一层结构
+		List<ChapterEntity> entitys = new ArrayList<>();
+		for(int i=0 ; i<chapterList.size() ; i++){
+			ChapterEntity chapter = chapterList.get(i);
+			if(rootUid.equals(chapter.getParentId())){
+				entitys.add(chapter);
+			}
+		}
+		for(int i=0 ; i<entitys.size() ; i++){
+			ChapterEntity entity = entitys.get(i);
+			List<ChapterEntity> childs = new ArrayList<>();
+			for(int k=0 ; k<chapterList.size() ; k++){
+				ChapterEntity chapter = chapterList.get(k);
+				if(entity.getUid().equals(chapter.getParentId())){
+					childs.add(chapter);
+				}
+			}
+			entity.setChildChapterList(childs);
+		}
+		for(int i=0 ; i<entitys.size() ; i++){
+			List<ChapterEntity> childs = entitys.get(i).getChildChapterList();
+			for(int k=0 ; k<childs.size() ; k++){
+				ChapterEntity child = childs.get(k);
+				List<ChapterEntity> tmpChilds = new ArrayList<>();
+				for(int n=0 ; n<chapterList.size() ; n++){
+					ChapterEntity chapter = chapterList.get(n);
+					if(child.getUid().equals(chapter.getParentId())){
+						tmpChilds.add(chapter);
+					}
+				}
+				child.setChildChapterList(tmpChilds);
+			}
+		}
+		return entitys;
 	}
 
 	@Override
@@ -39,6 +74,11 @@ public class ChapterService implements IChapterService{
 	@Override
 	public ChapterEntity findNextPoint(String uid , Integer orders) {
 		return chapterMapper.findNextPoint(uid , orders);
+	}
+
+	@Override
+	public List<ChapterEntity> getChapterTree(String courseId) {
+		return chapterMapper.findByCourseId(courseId);
 	}
 
 }

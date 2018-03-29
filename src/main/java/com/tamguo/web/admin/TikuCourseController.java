@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.Page;
 import com.tamguo.model.CourseEntity;
+import com.tamguo.service.IChapterService;
 import com.tamguo.service.ICourseService;
 import com.tamguo.util.ExceptionSupport;
 import com.tamguo.util.Result;
@@ -20,13 +21,22 @@ public class TikuCourseController {
 	
 	@Autowired
 	private ICourseService iCourseService;
-
+	@Autowired
+	private IChapterService iChapterService;
+	
 	@RequestMapping("admin/course/list")
 	@RequiresPermissions("tiku:course:list")
 	@ResponseBody
 	public Map<String, Object> list(String name , Integer page , Integer limit){
 		Page<CourseEntity> list = iCourseService.list(name, page, limit);
 		return Result.jqGridResult(list.getResult(), list.getTotal(), limit, page, list.getPages());
+	}
+	
+	@RequestMapping("admin/course/getChapterTree/{courseId}.html")
+	@RequiresPermissions("tiku:course:list")
+	@ResponseBody
+	public Result getChapterTree(@PathVariable String courseId){
+		return Result.result(0, iChapterService.getChapterTree(courseId), null);
 	}
 	
 	@RequestMapping("admin/course/info/{courseId}.html")

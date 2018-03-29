@@ -45,12 +45,37 @@ var setting = {
 			idKey: "uid",
 			pIdKey: "parentId",
 			rootPId: -1
-		},
+		},		
 		key: {
 			url:"nourl"
 		}
+	},
+	view: {
+		addHoverDom: addHoverDom,
+		removeHoverDom: removeHoverDom,
+		selectedMulti: false
+	},
+	edit: {
+		enable: true
 	}
 };
+var newCount = 1;
+function addHoverDom(treeId, treeNode) {
+	var sObj = $("#" + treeNode.tId + "_span");
+	if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+	var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+		+ "' title='add node' onfocus='this.blur();'></span>";
+	sObj.after(addStr);
+	var btn = $("#addBtn_"+treeNode.tId);
+	if (btn) btn.bind("click", function(){
+		var zTree = $.fn.zTree.getZTreeObj("menuTree");
+		zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
+		return false;
+	});
+};
+function removeHoverDom(treeId, treeNode) {
+	$("#addBtn_"+treeNode.tId).unbind().remove();
+};  
 var ztree;
 var vm = new Vue({
 	el:'#rrapp',
@@ -69,17 +94,15 @@ var vm = new Vue({
 	methods: {
 		getMenu: function(menuId){
 			//加载菜单树
-			$.get(mainHttp + "admin/course/getSubjectTree.html", function(r){
+			$.get(mainHttp + "admin/course/getChapterTree/"+vm.course.uid+".html", function(r){
 				ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
-				var node = ztree.getNodeByParam("uid", vm.menu.parentId);
-				ztree.selectNode(node);
-				Vue.set(vm.menu, 'parentName', node.name)
 			})
 		},
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
-			vm.course = {name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
+			vm.course = {uid:0,name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
+			vm.getMenu();
 		},
 		update: function (event) {
 			var courseId = getSelectedRow();
@@ -89,7 +112,7 @@ var vm = new Vue({
 			$.ajax({
 				type : "get", 
 				url : mainHttp + "admin/course/info/"+courseId+".html",
-				async : true,
+				async : false,
 				dataType : "json",
 				success : function(data) {
 					vm.showList = false;
@@ -97,6 +120,7 @@ var vm = new Vue({
 	                vm.course = data.result;
 				}
 			});
+			vm.getMenu();
 		},
 		del: function (event) {
 			var courseIds = getSelectedRows();
