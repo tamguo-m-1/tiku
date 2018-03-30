@@ -84,4 +84,10 @@ public class PaperService implements IPaperService{
 		return paperMapper.getPaperTotal();
 	}
 
+	@Override
+	public Page<PaperEntity> list(String name, Integer page, Integer limit) {
+		PageHelper.startPage(page, limit);
+		return paperMapper.queryPageByName(name);
+	}
+
 }

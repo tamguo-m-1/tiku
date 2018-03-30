@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<title>菜单管理</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/css/bootstrap.min.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/css/font-awesome.min.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/jqgrid/ui.jqgrid-bootstrap.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/ztree/css/metroStyle/metroStyle.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/css/main.css'}">
+<script th:src="${setting.domain + 'admin/libs/jquery.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/layer/layer.js'}"></script>
+<script th:src="${setting.domain + 'admin/libs/bootstrap.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/jqgrid/grid.locale-cn.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/jqgrid/jquery.jqGrid.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/ztree/jquery.ztree.all.min.js'}"></script>
+<script th:src="${setting.domain + 'admin/js/common.js'}"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<a shiro:hasPermission="tiku:course:save" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			<a shiro:hasPermission="tiku:course:update" class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			<a shiro:hasPermission="tiku:course:delete" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+	</div>
+	
+	<div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">科目名称</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="course.name" placeholder="科目名称"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">考试ID</div>
+			   	<div class="col-sm-10">
+			       <input type="text" class="form-control" v-model="course.subjectId"placeholder="考试ID"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">题目数量</div>
+			   	<div class="col-sm-10">
+			      <input type="number" class="form-control" v-model="course.questionNum" placeholder="题目数量"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">知识点数量</div>
+			   	<div class="col-sm-10">
+			      <input type="number" class="form-control" v-model="course.pointNum" placeholder="知识点数量"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">图标</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="course.icon" placeholder="图标"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">排序</div>
+			   	<div class="col-sm-10">
+			      <input type="number" class="form-control" v-model="course.orders" placeholder="排序"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">章节</div>
+			   	<div class="col-sm-4" >
+			      <ul id="menuTree" class="ztree"></ul>
+			    </div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div> 
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- 选择菜单 -->
+<div id="menuLayer" style="display: none;padding:10px;">
+	<ul id="menuTree" class="ztree"></ul>
+</div>
+
+<script th:src="${setting.domain + 'admin/js/tiku/paper/list.js?v=6'}"></script>
+<script type="text/javascript" th:inline="javascript">
+	var mainHttp = [[${setting.domain}]];
+</script>
+</body>
+</html>

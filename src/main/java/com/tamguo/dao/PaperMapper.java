@@ -23,4 +23,6 @@ public interface PaperMapper extends BaseDao<PaperEntity>{
 
 	Long getPaperTotal();
 
+	Page<PaperEntity> queryPageByName(@Param(value="name")String name);
+
 }

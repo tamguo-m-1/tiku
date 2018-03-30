@@ -100,4 +100,25 @@
 		select count(1) from tiku_paper
 	</select>
 	
+	<select id="queryPageByName" resultMap="resultMap">
+		SELECT
+			p.area_id,
+			p.course_id,
+			p.down_hits,
+			p.`name`,
+			p.open_hits,
+			p.question_info,
+			p.school_id,
+			p.type,
+			p.uid,
+			p.`year`
+		FROM
+			tiku_paper p
+		<where>
+			<if test="name != null and name != ''">
+				p.name like #{name}
+			</if>
+		</where>
+	</select>
+	
 </mapper>
