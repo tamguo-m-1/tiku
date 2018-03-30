@@ -1,10 +1,8 @@
 package com.tamguo.model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
 
-import java.math.BigInteger;
 import java.util.List;
 
 
@@ -19,10 +17,11 @@ public class ChapterEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	private String uid;
 
 	@Column(name="course_id")
-	private BigInteger courseId;
+	private String courseId;
 
 	@Column(name="name")
 	private String name;
@@ -52,11 +51,11 @@ public class ChapterEntity implements Serializable {
 		this.uid = uid;
 	}
 
-	public BigInteger getCourseId() {
+	public String getCourseId() {
 		return this.courseId;
 	}
 
-	public void setCourseId(BigInteger courseId) {
+	public void setCourseId(String courseId) {
 		this.courseId = courseId;
 	}
 

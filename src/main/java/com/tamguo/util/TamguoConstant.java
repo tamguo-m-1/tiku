@@ -101,7 +101,6 @@ public class TamguoConstant {
 	public static final String SECURITY_CHECK_PREFIX = "securityCheck:";
 	
 	/** 默认的章节根目录*/
-	public static final String CHAPTER_DEFAULT_UID = "0";
-	
+	public static final String CHAPTER_DEFAULT_ROOT_UID = "-1";
 	
 }

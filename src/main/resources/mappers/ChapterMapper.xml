@@ -47,4 +47,7 @@
 		LIMIT 1
 	</select>
 	
+	<delete id="deleteByCourseId">
+		delete from tiku_chapter where course_id = #{courseId}
+	</delete>
 </mapper>

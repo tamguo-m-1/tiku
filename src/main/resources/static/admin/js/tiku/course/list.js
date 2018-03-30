@@ -88,7 +88,8 @@ var vm = new Vue({
 			pointNum:null,
 			questionNum:null,
 			icon:null,
-			orders:0
+			orders:0,
+			chapterList:[]
 		}
 	},
 	methods: {
@@ -101,7 +102,7 @@ var vm = new Vue({
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
-			vm.course = {uid:0,name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
+			vm.course = {uid:null,name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
 			vm.getMenu();
 		},
 		update: function (event) {
@@ -146,6 +147,10 @@ var vm = new Vue({
 		},
 		saveOrUpdate: function (event) {
 			var url = vm.course.uid == null ? mainHttp + "admin/course/save.html" : mainHttp + "admin/course/update.html";
+			// 获取章节
+			var node = ztree.getNodes();
+		    var nodes = ztree.transformToArray(node);
+		    Vue.set(vm.course, 'chapterList', nodes);
 			$.ajax({
 				type: "POST",
 			    url: url,

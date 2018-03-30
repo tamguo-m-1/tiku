@@ -1,6 +1,7 @@
 package com.tamguo.service.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +27,7 @@ public class ChapterService implements IChapterService{
 		String rootUid = StringUtils.EMPTY;
 		for(int i=0 ; i<chapterList.size() ; i++){
 			ChapterEntity chapter = chapterList.get(i);
-			if(chapter.getParentId().equals(TamguoConstant.CHAPTER_DEFAULT_UID)){
+			if(chapter.getParentId().equals(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID)){
 				rootUid = chapter.getUid();
 			}
 		}
@@ -78,6 +79,17 @@ public class ChapterService implements IChapterService{
 
 	@Override
 	public List<ChapterEntity> getChapterTree(String courseId) {
+		if(StringUtils.isEmpty(courseId) || "null".equals(courseId)){
+			ChapterEntity chapter = new ChapterEntity();
+			chapter.setCourseId(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID);
+			chapter.setOrders(0);
+			chapter.setPointNum(0);
+			chapter.setQuestionNum(0);
+			chapter.setUid("0");
+			chapter.setName("章节根目录");
+			chapter.setParentId(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID);
+			return Arrays.asList(chapter);
+		}
 		return chapterMapper.findByCourseId(courseId);
 	}
 
