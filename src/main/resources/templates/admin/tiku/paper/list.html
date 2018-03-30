@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-<title>菜单管理</title>
+<title>试卷管理</title>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -22,7 +22,12 @@
 <body>
 <div id="rrapp" v-cloak>
 	<div v-show="showList">
+	
 		<div class="grid-btn">
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.name" @keyup.enter="query" placeholder="用户名">
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
 			<a shiro:hasPermission="tiku:course:save" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
 			<a shiro:hasPermission="tiku:course:update" class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
 			<a shiro:hasPermission="tiku:course:delete" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
@@ -35,45 +40,57 @@
 		<div class="panel-heading">{{title}}</div>
 		<form class="form-horizontal">
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">科目名称</div>
+			   	<div class="col-sm-2 control-label">科目ID</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="course.name" placeholder="科目名称"/>
+			      <input type="text" class="form-control" v-model="paper.courseId" placeholder="科目ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-2 control-label">考试ID</div>
+				<div class="col-sm-2 control-label">学校ID</div>
 			   	<div class="col-sm-10">
-			       <input type="text" class="form-control" v-model="course.subjectId"placeholder="考试ID"/>
+			       <input type="text" class="form-control" v-model="paper.schoolId"placeholder="学校ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">题目数量</div>
+			   	<div class="col-sm-2 control-label">地区ID</div>
 			   	<div class="col-sm-10">
-			      <input type="number" class="form-control" v-model="course.questionNum" placeholder="题目数量"/>
+			      <input type="text" class="form-control" v-model="paper.areaId" placeholder="地区ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">知识点数量</div>
+			   	<div class="col-sm-2 control-label">书卷标题</div>
 			   	<div class="col-sm-10">
-			      <input type="number" class="form-control" v-model="course.pointNum" placeholder="知识点数量"/>
+			      <input type="text" class="form-control" v-model="paper.name" placeholder="书卷标题"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">图标</div>
+			   	<div class="col-sm-2 control-label">试卷信息</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="course.icon" placeholder="图标"/>
+			      <input type="text" class="form-control" v-model="paper.questionInfo" placeholder="试卷信息"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">排序</div>
+			   	<div class="col-sm-2 control-label">类型</div>
 			   	<div class="col-sm-10">
-			      <input type="number" class="form-control" v-model="course.orders" placeholder="排序"/>
+			      <input type="text" class="form-control" v-model="paper.type" placeholder="类型"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">章节</div>
-			   	<div class="col-sm-4" >
-			      <ul id="menuTree" class="ztree"></ul>
+			   	<div class="col-sm-2 control-label">年份</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="paper.year" placeholder="年份"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">下载数量</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="paper.downHits" placeholder="下载数量"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">点击数量</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="paper.openHits" placeholder="点击数量"/>
 			    </div>
 			</div>
 

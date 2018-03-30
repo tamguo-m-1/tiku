@@ -1,7 +1,9 @@
 package com.tamguo.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -87,7 +89,30 @@ public class PaperService implements IPaperService{
 	@Override
 	public Page<PaperEntity> list(String name, Integer page, Integer limit) {
 		PageHelper.startPage(page, limit);
+		if(!StringUtils.isEmpty(name)){
+			name = "%" + name + "%";
+		}
 		return paperMapper.queryPageByName(name);
+	}
+
+	@Override
+	public PaperEntity select(String paperId) {
+		return paperMapper.select(paperId);
+	}
+
+	@Override
+	public void deleteByIds(String[] paperIds) {
+		paperMapper.deleteByIds(Arrays.asList(paperIds));
+	}
+
+	@Override
+	public void save(PaperEntity paper) {
+		paperMapper.insert(paper);
+	}
+
+	@Override
+	public void update(PaperEntity paper) {
+		paperMapper.update(paper);
 	}
 
 }
