@@ -14,4 +14,6 @@ public interface QuestionMapper extends BaseDao<QuestionEntity>{
 
 	List<QuestionEntity> findByPaperId(@Param(value="paperId")String paperId);
 
+	Page<QuestionEntity> queryPageByName(@Param(value="name")String name);
+
 }

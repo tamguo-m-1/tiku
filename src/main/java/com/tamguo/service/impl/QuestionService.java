@@ -33,4 +33,9 @@ public class QuestionService implements IQuestionService{
 		return questionMapper.findByPaperId(paperId);
 	}
 
+	@Override
+	public Page<QuestionEntity> list(String name, Integer page, Integer limit) {
+		return questionMapper.queryPageByName(name);
+	}
+
 }

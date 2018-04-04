@@ -13,5 +13,7 @@ public interface IQuestionService {
 	public QuestionEntity findById(String uid);
 
 	public List<QuestionEntity> findPaperQuestion(String paperId);
+
+	public Page<QuestionEntity> list(String name, Integer page, Integer limit);
 	
 }
