@@ -15,5 +15,9 @@ public interface IQuestionService {
 	public List<QuestionEntity> findPaperQuestion(String paperId);
 
 	public Page<QuestionEntity> list(String name, Integer page, Integer limit);
+
+	public QuestionEntity select(String questionId);
+
+	public void deleteBatch(String[] questionIds);
 	
 }

@@ -3,15 +3,16 @@ $(function () {
         url: mainHttp + 'admin/question/list.html',
         datatype: "json",
         colModel: [			
-			{ label: '题目类型', name: 'questionType', width: 25, key: true },
+            { label: '题目ID', name: 'uid', width: 25, key: true },
+			{ label: '题目类型', name: 'questionType', width: 25},
 			{ label: '考试ID', name: 'subjectId', width: 25 },
 			{ label: '章节ID', name: 'chapterId', width: 25 },
 			{ label: '试卷ID', name: 'paperId', width: 25 },
-			{ label: '题内容', name: 'content', width: 120 },
-			{ label: '答案', name: 'answer', width: 100 },
-			{ label: '解析', name: 'analysis', width: 50},
-			{ label: '易错点', name: 'fallibility', width: 50},
-			{ label: '考察知识点', name: 'reviewPoint', width: 50}, 
+			{ label: '题内容', name: 'content', width: 120 , hidden:true},
+			{ label: '答案', name: 'answer', width: 100  , hidden:true},
+			{ label: '解析', name: 'analysis', width: 50 , hidden:true},
+			{ label: '易错点', name: 'fallibility', width: 50 , hidden:true},
+			{ label: '考察知识点', name: 'reviewPoint', width: 50 , hidden:true}, 
 			{ label: '年份', name: 'year', width: 50}, 
 			{ label: '分数', name: 'score', width: 50}  
         ],
@@ -50,7 +51,7 @@ var vm = new Vue({
 		},
 		showList: true,
 		title: null,
-		paper:{
+		question:{
 		}
 	},
 	methods: {
@@ -63,32 +64,36 @@ var vm = new Vue({
 			vm.question = {courseId:null,schoolId:null,areaId:null,name:null,questionInfo:null,type:null,year:null,downHits:null,openHits:null};
 		},
 		update: function (event) {
-			var paperId = getSelectedRow();
-			if(paperId == null){
+			var questionId = getSelectedRow();
+			if(questionId == null){
 				return ;
 			}
 			$.ajax({
 				type : "get", 
-				url : mainHttp + "admin/paper/info/"+paperId+".html",
+				url : mainHttp + "admin/question/info/"+questionId+".html",
 				async : false,
 				dataType : "json",
 				success : function(data) {
 					vm.showList = false;
 	                vm.title = "修改";
-	                vm.paper = data.result;
+	                vm.question = data.result;
+	                layui.use('layedit', function(){
+	                	var layedit = layui.layedit;
+	                	layedit.build('contentEditor'); //建立编辑器
+                	});
 				}
 			});
 		},
 		del: function (event) {
-			var paperIds = getSelectedRows();
-			if(paperIds == null){
+			var questionIds = getSelectedRows();
+			if(questionIds == null){
 				return ;
 			}
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: mainHttp + "admin/paper/delete.html",
-				    data: JSON.stringify(paperIds),
+				    url: mainHttp + "admin/question/delete.html",
+				    data: JSON.stringify(questionIds),
 				    success: function(r){
 				    	if(r.code === 0){
 							alert('操作成功', function(index){

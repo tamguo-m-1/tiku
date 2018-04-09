@@ -10,8 +10,9 @@
 <link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/jqgrid/ui.jqgrid-bootstrap.css'}">
 <link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/ztree/css/metroStyle/metroStyle.css'}">
 <link rel="stylesheet" th:href="${setting.domain + 'admin/css/main.css'}">
+<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/layui/css/layui.css'}"  media="all">
 <script th:src="${setting.domain + 'admin/libs/jquery.min.js'}"></script>
-<script th:src="${setting.domain + 'admin/plugins/layer/layer.js'}"></script>
+<script th:src="${setting.domain + 'admin/plugins/layui/layui.all.js'}"></script>
 <script th:src="${setting.domain + 'admin/libs/bootstrap.min.js'}"></script>
 <script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
 <script th:src="${setting.domain + 'admin/plugins/jqgrid/grid.locale-cn.js'}"></script>
@@ -40,60 +41,78 @@
 		<div class="panel-heading">{{title}}</div>
 		<form class="form-horizontal">
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">科目ID</div>
+			   	<div class="col-sm-2 control-label">题目类型</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.courseId" placeholder="科目ID"/>
+			      <select class="form-control" id="sel1" v-model="question.questionType">
+				    <option value="1">单选题</option>
+				    <option value="2">多选题</option>
+				    <option value="3">解答题</option>
+				  </select>
+			    </div>
+			    
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">考试ID</div>
+			   	<div class="col-sm-10">
+			       <input type="text" class="form-control" v-model="question.subjectId" placeholder="考试ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-2 control-label">学校ID</div>
+			   	<div class="col-sm-2 control-label">章节ID</div>
 			   	<div class="col-sm-10">
-			       <input type="text" class="form-control" v-model="paper.schoolId"placeholder="学校ID"/>
+			      <input type="text" class="form-control" v-model="question.chapterId" placeholder="章节ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">地区ID</div>
+			   	<div class="col-sm-2 control-label">试卷ID</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.areaId" placeholder="地区ID"/>
+			      <input type="text" class="form-control" v-model="question.paperId" placeholder="试卷ID"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">书卷标题</div>
+			   	<div class="col-sm-2 control-label">题内容</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.name" placeholder="书卷标题"/>
+			      <!-- <input type="text" class="form-control" v-model="question.content" placeholder="题内容"/> -->
+			     <input id="contentEditor" class="form-control" v-model="question.content"></input>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">试卷信息</div>
+			   	<div class="col-sm-2 control-label">答案</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.questionInfo" placeholder="试卷信息"/>
+			      <input type="text" class="form-control" v-model="question.answer" placeholder="答案"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">类型</div>
+			   	<div class="col-sm-2 control-label">解析</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.type" placeholder="类型"/>
+			      <input type="text" class="form-control" v-model="question.analysis" placeholder="解析"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">易错点</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="question.fallibility" placeholder="易错点"/>
+			    </div>
+			</div>
+			<div class="form-group">
+			   	<div class="col-sm-2 control-label">考察知识点</div>
+			   	<div class="col-sm-10">
+			      <input type="text" class="form-control" v-model="question.reviewPoint" placeholder="考察知识点"/>
 			    </div>
 			</div>
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">年份</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.year" placeholder="年份"/>
+			      <input type="text" class="form-control" v-model="question.year" placeholder="年份"/>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">下载数量</div>
+			   	<div class="col-sm-2 control-label">分数</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.downHits" placeholder="下载数量"/>
+			      <input type="text" class="form-control" v-model="question.score" placeholder="分数"/>
 			    </div>
 			</div>
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">点击数量</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="paper.openHits" placeholder="点击数量"/>
-			    </div>
-			</div>
-
+			
 			<div class="form-group">
 				<div class="col-sm-2 control-label"></div> 
 				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>

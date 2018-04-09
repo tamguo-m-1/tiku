@@ -1,5 +1,6 @@
 package com.tamguo.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,16 @@ public class QuestionService implements IQuestionService{
 	@Override
 	public Page<QuestionEntity> list(String name, Integer page, Integer limit) {
 		return questionMapper.queryPageByName(name);
+	}
+
+	@Override
+	public QuestionEntity select(String questionId) {
+		return questionMapper.select(questionId);
+	}
+
+	@Override
+	public void deleteBatch(String[] questionIds) {
+		questionMapper.deleteByIds(Arrays.asList(questionIds));
 	}
 
 }
