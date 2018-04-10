@@ -13,98 +13,212 @@
 	<div th:replace="include/header :: header"></div>
 	
 	<!--主体-->	
-    <div class="content-wp">
-    	<div class="user-center-wrapper">
-	    	<div class="left-container">
-	    		<div class="left-content-wrapper">
-	    		<a class="user-logo" style="background-image:url(http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJIRYjBHvrO592ZhSwVZzjyIseIa86ksUDfkXtus8Y8xBzkpfAtJLxRxYpUKWxmKd9yJInWwDNJw/132)" company-link="{type:'INDIVIDUAL',id:uid}" href="//rong.36kr.com/userinfo/1455872271">
-	                <span class="set-btn" ui-sref="uc.account.basic" ng-click="$event.stopPropagation();" href="#/uc/account/basic">
-	                    <i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>
-	                </span>
-	            </a>
-	    		<ul class="member-menu-list">
-	    			<li><a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>个人资料</a></li>
-	    			<li><a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>我的收藏</a></li>
-	    			<li><a><i class="li-icon iconfont icon-yingyongchengxu-xianxing"></i>我的浏览</a></li>
-	    		</ul>
-	    		</div>
-	    	</div>
-	    	
-    		<div class="right-container">
-    			<div class="right-content-wrapper">
-    				<ul class="user-info-nav"><li><a class="active">帐号信息</a></li><li><a>社交权限授权</a></li></ul>
-    				<div class="user-info-container">
-    					<div class="account-basic-wrapper">
-    						<div class="section basic">
-						        <div class="info">
-						            <div class="avatar" ng-click="avatarEdit()">
-						                <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJIRYjBHvrO592ZhSwVZzjyIseIa86ksUDfkXtus8Y8xBzkpfAtJLxRxYpUKWxmKd9yJInWwDNJw/132" alt="">
-						            </div>
-						            <div class="name ng-binding" th:text="${session.currMember.username}">
-						                谭果
-						            </div>
-						        </div>
-						        <div class="action">
-						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="basicInfoEdit()">
-						                修改
-						            </a>
-						        </div>
-						    </div>
-    						
-    						<div class="section">
-						        <div class="prop-info">
-						            <i></i>
-						
-						            <div class="desc highlight" ng-class="{'highlight':!formData.email}">
-						                <h4>安全邮箱: <span class="ng-binding" th:text="${session.currMember.email == '' ? '暂无安全邮箱 ':session.currMember.email}">暂无安全邮箱 </span> <!-- ngIf: formData.unconfirmed_email --></h4>
-						                安全邮箱可以用于登录探果网账号，重置密码或其它安全验证
-						            </div>
-						        </div>
-						        <div class="action">
-						            <!-- ngIf: formData.unconfirmed_email -->
-						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="emailInfoEdit()">
-						                修改
-						            </a>
-						        </div>
-						    </div>
-						    
-						    <div class="section">
-						        <div class="prop-info">
-						            <i></i>
-						
-						            <div class="desc" ng-class="{'highlight':!formData.phone}">
-						                <h4>安全手机: <span class="ng-binding" th:text="${session.currMember.mobile == '' ? '暂无手机号':session.currMember.mobile}">156****0786</span></h4>
-						                安全手机可以用于登录探果网账号，重置密码或其它安全验证
-						            </div>
-						        </div>
-						        <div class="action">
-						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="phoneInfoEdit()">
-						                修改
-						            </a>
-						        </div>
-						    </div>
-						    
-						    <div class="section">
-						        <div class="prop-info">
-						            <i></i>
-						
-						            <div class="desc" ng-class="{'highlight':!formData.has_password}">
-						                <h4>账号密码</h4>
-						                用于保护账号信息和登录安全
-						            </div>
-						        </div>
-						        <div class="action">
-						            <a class="btn btn-primary" href="javascript:void(0)" ng-click="passwordInfoEdit()">
-						                修改
-						            </a>
-						        </div>
-						    </div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
+    <div class="cnav">
+			<div class="public cnav_b">
+				<div class="cnav_left">
+					考试五步曲
+				</div>
+				<div class="cnav_right">
+					<ul>
+						<li><span class="Cnav_t">1</span><b>新建试卷</b></li>
+						<li><span>2</span>添加试题</li>
+						<li><span>3</span>发起一场考试</li>
+						<li><span>4</span>导考生，发通知</li>
+						<li><span>5</span>查看报告</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="PCshow hide" style="display: block;">
+			<div class="examContent public">
+				<!-- wellcome -->
+				<h2>
+				<img th:src="${setting.domain + 'images/member/index/face-xiao.png'}"
+					style="position: relative; top: -2px;"> &nbsp;<span
+					style="letter-spacing: 4px;"> <b id="userName"
+					style="font-weight: normal; color: #2abcb8" th:text="${session.currMember.username}">盘顺军</b>，您好！欢迎来到探果网管理后台
+				</span>
+			</h2>
+				<!-- wellcome end-->
+				<!-- 左侧基本信息项 -->
+				<div class="newsLeft">
+					<div class="baseNews">
+						<h3><i></i> 基本信息</h3>
+						<div id="borderBox">
+						<table style="float: left;">
+							<tbody><tr>
+								<td>
+								<span class="logoV">
+								<img th:src="${setting.domain + 'images/member/index/cv-01-01.png'}">
+								</span>
+								</td>
+							</tr>
+						</tbody></table>
+							<b th:title="${session.currMember.username}" style="font-size: 16px;	margin-left: 14px;float: left;display: inline-block;font-weight: normal;max-width: 100px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" th:text="${session.currMember.username}">盘诚软件</b>
+							<a style="font-size: 12px;" th:href="${setting.domain + 'member/account.html'}"><i class="iconfont icon-icon_edit"></i> 编辑</a>
+						</div>
+						<p style="clear: both;height: 0px;"></p>
+						<ul>
+						 <a href="http://kao.acmcoder.com/b/accountInfo">
+							<li>
+							  
+								<div>
+									<!-- <i class="fa fa-user icon-f"></i> -->
+									<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/person.png'}">
+								</div>
+								<span>个人信息</span>
+							</li>
+							</a>
+							 <a href="http://kao.acmcoder.com/b/entInfo">
+							<li>
+								<div>
+									<!-- <i class="fa fa-briefcase icon-f"></i> -->
+									<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/compnew.png'}">
+								</div>
+								<span>账号信息</span>
+							</li>
+							</a>
+							<!-- <a href="http://kao.acmcoder.com/b/compSet" > -->
+							<li class="kaoshinew">
+								<div>
+									<!-- <i class="fa fa-file-text-o icon-f" ></i> -->
+									<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/testnew2.png'}">
+								</div>
+								<span>考试信息</span>
+							</li>
+							<!-- </a> -->
+		
+							<a href="http://20504.acmcoder.com/cand/login">
+							</a><a href="http://76223.acmcoder.com/cand/login" target="_blank">
+							<li>
+									<div class="li-p">
+										<!-- <i class="fa fa-external-link icon-f"></i> -->
+										<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/inputko.png'}">
+									</div>
+									<span>考试入口</span>
+								</li>
+							</a>
+						</ul>
+					</div>
+					<div class="well"></div>
+					<div class="userNews">
+						<h3><i></i> 账户信息</h3>
+						<ul>
+							<li style="padding-left: 23px;">当 &nbsp;前 &nbsp;版 &nbsp;本：
+								<b style="margin-left: 14px;">
+										免费版 <span style="margin-left: 5px;font-size: 12px;position: relative;top: 2px;color:#9c9191">V 3.1.2</span>
+									</b>
+							</li>
+							<li style="padding-left: 21px;">有 &nbsp;&nbsp;&nbsp;&nbsp;效 &nbsp;&nbsp;&nbsp;&nbsp;期：
+								<b style="margin-left: 13px;" }="">不限</b>
+								</li>
+							<li style="padding-left: 21px;">考试人数余额：
+								<b style="margin-left:14px;" id="examCandsNum">100 人</b>
+							</li>
+							<li style="padding-left: 24px;">短 &nbsp;信 &nbsp;余 &nbsp;额：<b style="margin-left: 19px;">50 条</b></li>
+							<li style="padding-left: 20px">人脸识别余额：
+								<b style="margin-left: 15px;">
+									5 人
+									</b>
+							</li>
+						</ul>
+						<a href="https://kao.acmcoder.com/b/orderPay" target="_blank" id="addMoney">现在充值</a>
+					</div>
+					<span><a href="http://kao.acmcoder.com/examHomeNew/service.html" target="_blank" style="color: inherit;"><img th:src="${setting.domain + 'images/member/index/VIp-logo.png'}"> 升级高级版，享受VIP功能&gt;&gt;</a></span>
+				</div>
+				<!-- 右侧信息显示 -->
+				<div class="newsR">
+					<div class="topNews" id="numList1">
+						<ul>
+							<li>
+								<!-- <i class="fa fa-pencil-square-o icon-n"></i> -->
+								<img th:src="${setting.domain + 'images/member/index/peneil.png'}" style="margin-top: 26px;position: relative;top: -4px;"><br>
+								<span><b id="datab1">0</b> 场</span><br>
+								<span>下载总数</span>
+							</li>
+							<li>
+								<!-- <i class="fa fa-files-o icon-n"></i> -->
+								<img th:src="${setting.domain + 'images/member/index/paperm.png'}" style="margin-top: 26px;position: relative;top: -4px;"><br>
+								<span><b id="datab2">1</b> 套</span><br>
+								<span>试卷总数</span>
+							</li>
+							<li>
+								<!-- <i class="fa fa-users icon-n"></i> -->
+								<img th:src="${setting.domain + 'images/member/index/peoplem.png'}" style="margin-top: 26px;position: relative;top: -4px;"><br>
+								<span><b id="datab3">0</b> 人</span><br>
+								<span>阅读总数</span>
+							</li>
+							<li>
+								<!-- <i class="fa fa-file-text icon-n"></i> -->
+								<img th:src="${setting.domain + 'images/member/index/testnew.png'}" style="margin-top: 26px;position: relative;top: -6px;"><br>
+								<span><b id="datab4">19</b> 道</span><br>
+								<span>试题总数</span>
+							</li>
+						</ul>
+						<div class="newExam">
+							<div class="add-p">
+								<a href="http://kaosys.acmcoder.com/position#/list"><i class="fa fa-plus"></i></a>
+							</div>
+							<a href="http://kaosys.acmcoder.com/position#/list">开始新建试卷</a>
+						</div>
+					</div>
+					<div class="examTable" id="numList">
+						<h4><i></i> 近期考试</h4>
+						<table>
+							<thead>
+							<tr style="height: 40px;">
+								<th width="30%" style="text-align: left;padding-left: 20px;">考试场次</th>
+								<th width="14%">试卷数量</th>
+								<th width="18%">开始时间</th>
+								<th width="14%">考试模式</th>
+								<th width="14%">总考生</th>
+								<th width="14%">考试状态</th>
+							</tr>
+							</thead>
+						</table>
+						<ul>
+							<div class="textNone">
+								<div
+									style="width: 90px; height: 90px; padding-top: 17px; position: relative; left: 50%; transform: translateX(-50%); border-radius: 10px;">
+									<img th:src="${setting.domain + 'images/member/index/face-date.png'}">
+								</div>
+								<a"><span
+									style="margin-top: 40px; display: block; font-size: 14px; color: #999;">您还没有设置过考试场次<br>
+									<a class="hrefPositon"
+										href="http://kaosys.acmcoder.com/paper#/list"
+										style="font-size: 14px;">现在发起一场新的考试吧！</a></span></a">
+							</div>
+						</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+			
+			<div class="footer">
+				<div class="public">
+					<div class="footer-left" style="width:60%">
+						<div class="footer-logo" style="margin-top: -5px;padding-top:0px;"><img th:src="${setting.domain + 'images/member/footer/blogo.png'}" style=" position: relative;left: -32px;top: 2px;"></div>
+						<div class="footer-txt">
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/about.html">关于我们</a>　|
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/contact.html">联系我们</a>　|
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/shengming.html">免责声明</a><br>Copyright © acmcoder.com<br><span class="inputSpan">All Rights Reversed 京ICP备15012255-1</span></div>
+					</div>
+					<div class="footer-right" style="width:40%;float: left;padding-top: 40px;text-align: center;line-height: 17px;">
+						<table style="line-height: 26px;text-align: center;">
+							<tbody>
+								<tr>
+									<td width="100"><img th:src="${setting.domain + 'images/member/footer/f-phone.png'}"></td>
+									<td style="font-size: 14px;width:200px">客服热线：010-85359782<br>销售热线：010-85359766</td>
+									<td style="font-size: 14px;">
+										<a class="weixinPng" href="javascript:void(0)" style="color:white;position: relative;"><img th:src="${setting.domain + 'images/member/footer/f-weixin.png'}"> &nbsp;&nbsp;iamacmcoder<img class="hide" style="width: 80px;position: absolute;left: 130px;top: -50px;" th:src="${setting.domain + 'images/member/footer/saimaweixin.jpg'}"></a><br>
+										<a href="javascript:void(0)" style="color:white"><img th:src="${setting.domain + 'images/member/footer/f-qq.png'}"> &nbsp;&nbsp;2531743633</a><br></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
     
 </body>
 	

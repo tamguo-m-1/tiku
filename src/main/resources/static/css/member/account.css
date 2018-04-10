@@ -1,0 +1,283 @@
+
+body {
+    font-family: "Microsoft Yahei";
+    color: #333;
+    background: #f5f5f6;
+}
+.cnav {
+    height: 98px;
+    width: 100%;
+    background: url(../../images/member/index/project-cnavbj.jpg) no-repeat;
+    background-size: cover;
+}
+.cnav_b {
+    position: relative;
+    margin: 0 auto;
+    left: 50px;
+    height: 98px;
+}
+.public {
+    width: 1098px;
+    margin: 0px auto;
+}
+.cnav_left {
+    float: left;
+    width: 162px;
+    height: 54px;
+    margin: 22px 0 0 46px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 54px;
+    background: url(../../images/member/index/top-kaos.png) no-repeat;
+    padding-left: 55px;
+}
+.cnav_right {
+    float: left;
+    width: 720px;
+    height: 5px;
+    background: url(../../images/member/index/project-cnav.png) repeat-x;
+    margin: 47px 0 0 0;
+}
+.cnav_right ul {
+    position: absolute;
+    top: 30px;
+    left: 230px;
+}
+.cnav_right ul li {
+    width: 120px;
+    height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    margin-left: 32px;
+}
+.cnav_right ul li .Cnav_t {
+    background: url(../../images/member/index/project-candidate.png) no-repeat -54px 0;
+    width: 37px;
+    height: 37px;
+    line-height: 37px;
+    margin: 0 auto;
+}
+.cnav_right ul li span {
+    font-size: 12px;
+    font-weight: bold;
+    width: 27px;
+    height: 27px;
+    color: #29bdb9;
+    display: block;
+    margin: 5px auto 5px auto;
+    text-align: center;
+    line-height: 27px;
+    background: url(../../images/member/index/project-candidate.png) no-repeat -26px 0;
+}
+.acm-container {
+    padding-bottom: 200px;
+}
+.contentBox {
+    margin-top: 20px;
+    font-size: 14px;
+    overflow: hidden;
+}
+.info-cnt {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 20px;
+}
+.contentBox .navLeft {
+    float: left;
+    display: inline-block;
+    width: 16.4%;
+    background: rgb(41,186,185);
+}
+.contentBox .navLeft dl dt {
+    height: 40px;
+    line-height: 40px;
+    background: rgb(37,172,169);
+    padding-left: 10px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+}
+.contentBox .newsRight {
+    float: left;
+    display: inline-block;
+    width: 83%;
+    background: white;
+    min-height: 279px;
+}
+.info-rBox {
+    padding-left: 76px;
+}
+.info-rBox {
+    padding-bottom: 40px!important;
+}
+.info-rBox {
+    padding-left: 80px;
+    position: relative;
+}
+.user_list {
+    padding: 0px;
+}
+.user_list {
+    padding: 20px 0px;
+    vertical-align: top;
+    width: 550px;
+}
+.info-table {
+    width: 100%;
+    margin-top: 28px;
+    font-size: 14px;
+}
+.info-label {
+    position: relative;
+}
+.info-label span {
+    position: absolute;
+    left: -15px;
+    top: 0px;
+    color: #ff5a00;
+}
+a.btn_ok {
+    display: inline-block;
+    position: relative;
+    padding: 0 2em;
+    border: none;
+    border-radius: 0px;
+    background: #29bdb9;
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.acphoto {
+    display: inline-block;
+    position: relative;
+    /* padding: 0 2em; */
+    border: none;
+    border-radius: 80px;
+    height: 80px;
+    width: 80px;
+    background: #eee;
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    float: left;
+}
+.mybtn {
+    float: left;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.up_photo {
+    display: inline-block;
+    position: relative;
+    padding: 0 2em;
+    /* border: none; */
+    border: 1px solid #29bdb9;
+    border-radius: 0px;
+    background: #29bdb9;
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.up_photo {
+    display: inline-block;
+    position: relative;
+    padding: 0 2em;
+    /* border: none; */
+    border: 1px solid #29bdb9;
+    border-radius: 0px;
+    background: #29bdb9;
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+input, textarea {
+    font-size: 12px;
+    border: 0;
+    font: 12px/1.5 Microsoft Yahei, verdana;
+}
+.cvcadd-text {
+    height: 40px;
+    border: 1px solid #d4d7db;
+    font-size: 14px;
+    padding: 0px 12px;
+    width: 311px;
+}
+.cvcadd-text {
+    position: relative;
+    top: 10px;
+}
+.contentBox .navLeft dl dd {
+    text-align: center;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.activeDd {
+    background: #52cdc8;
+}
+.navLeft dl dd i {
+    width: 17px;
+    height: 14px;
+    display: inline-block;
+    background: url(../../images/member/account/icon-erro.png) no-repeat;
+    margin: 0px 4px;
+    position: relative;
+    top: 1px;
+    margin-left: 0px;
+}
+
+body .footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+.footer {
+    height: 173px;
+    background: #838485;
+    margin-top: 37px;
+    color: #f3f3f5;
+}
+.public {
+    width: 1098px;
+    margin: 0px auto;
+}
+.footer-left {
+    width: 794px;
+    float: left;
+    padding-left: ;
+    padding-top: 35px;
+}
+.footer-logo {
+    float: left;
+    padding: 0px 0px 0px 0px;
+    width: 208px;
+}
+.footer-txt {
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 32px;
+}
+.footer-txt a {
+    color: #f3f3f5;
+}
+.footer-right table {
+    width: 100%;
+    line-height: 26px;
+    text-align: center;
+}
