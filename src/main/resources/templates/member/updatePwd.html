@@ -39,9 +39,9 @@
     margin-right: 6px;margin-top: -5px;"> 个人信息 <i class="fa fa-minus icon-w"></i>
 						</dt>
 						<div class="list">
-						<a href="/b/accountInfo"><dd><i></i>基本信息</dd></a>
+						<a th:href="${setting.domain + 'member/account.html'}"><dd><i></i>基本信息</dd></a>
 						<!--  <dd>绑定账号</dd> -->
-						<a href="/b/updatePwd"><dd class="activeDd"><i></i>修改密码</dd></a>
+						<a th:href="${setting.domain + 'member/updatePwd.html'}"><dd class="activeDd"><i></i>修改密码</dd></a>
 						</div>
 						<dt class="down">
 							<img th:src="${setting.domain + 'images/member/index/compnew.png'}" style="width: 14px;
