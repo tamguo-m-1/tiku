@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>探果-科目</title>
+		<link rel="stylesheet" th:href="${setting.domain+'css/main.css'}"></link>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/member/account.css'}" />
+	</head>
+	<body>
+	<!-- 头部-->
+	<div th:replace="include/header :: header"></div>
+	
+	<div class="cnav">
+			<div class="public cnav_b">
+				<div class="cnav_left">
+					考试五步曲
+				</div>
+				<div class="cnav_right">
+					<ul>
+						<li><span class="Cnav_t">1</span><b>新建试卷</b></li>
+						<li><span>2</span>添加试题</li>
+						<li><span>3</span>发起一场考试</li>
+						<li><span>4</span>导考生，发通知</li>
+						<li><span>5</span>查看报告</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<div class="acm-container" style="padding-bottom:200px;"><!--content end-->
+		<div class="cnt-box public infoCnt-box contentBox">
+			<div class="info-cnt">
+				<div class="navLeft">
+					<dl>
+						<dt class="down">
+							<img th:src="${setting.domain + 'images/member/index/person.png'}" style="width: 14px;
+    margin-right: 6px;margin-top: -5px;"> 个人信息 <i class="fa fa-minus icon-w"></i>
+						</dt>
+						<div class="list">
+						<a href="/b/accountInfo"><dd><i></i>基本信息</dd></a>
+						<!--  <dd>绑定账号</dd> -->
+						<a href="/b/updatePwd"><dd class="activeDd"><i></i>修改密码</dd></a>
+						</div>
+						<dt class="down">
+							<img th:src="${setting.domain + 'images/member/index/compnew.png'}" style="width: 14px;
+    margin-right: 6px;margin-top: -5px;"> 公司信息 <i class="fa fa-minus icon-w"></i>
+						</dt>
+						<div class="list">
+						<a href="/b/entInfo"><dd><i></i>基本信息</dd></a>
+						</div>
+						<dt class="down">
+									<img th:src="${setting.domain + 'images/member/account/cog.png'}" style="width: 14px;
+									margin-right: 6px;"> 账户信息 <i class="fa fa-minus icon-w"></i>
+								</dt>
+								<div class="list">
+									<a href="/b/order">
+										<dd><i></i>账户管理</dd>
+									</a>
+									<a href="/b/orderBill">
+										<dd><i></i>发票信息</dd>
+									</a>
+								</div>
+
+						<!-- <dd>绑定账号</dd>
+                         <dd>修改密码</dd> -->
+						<!-- <dt>
+                            <i class="fa fa-external-link icon-f"></i> 考试信息 <i class="fa fa-plus icon-w"></i>
+                         </dt>
+                         <dd>基本信息</dd> -->
+						<!-- <dd>绑定账号</dd>
+                         <dd>修改密码</dd> -->
+					</dl>
+				</div>
+				<div class="info-right newsRight">
+					<div class="info-rBox">
+                        <form class="bl-form bl-formhor" id="editPasswordForm">
+                            <div class=" user_list clearfix">
+                            <table class="info-table" border="0" cellspacing="0" cellpadding="0">
+								<tbody>			
+								 <tr>
+	                            	<td><label class="info-label"><span></span>登录手机号：</label></td>
+									<td><div class="clearfix" style="width: ; margin-bottom: 15px">
+                                    <div class="clearfix">
+                                        <input type="text" class="cvcadd-text input" disabled="" value="15026571954">
+                                    </div>
+                                </div></td>
+								</tr>	
+
+								<tr>
+	                            	<td><label class="info-label" style="left: 30px;"><span>*</span>原密码：</label></td>
+									<td><div class="clearfix" style="width: ; margin-bottom: 15px">
+                                    <div class="clearfix">
+                                        <input type="password" id="opwd" class="cvcadd-text input" placeholder="请输入当前密码"> <!--<a class="forget_password" href="/enterprise/toFindPwd" target="_blank">忘记密码？</a>-->
+                                    </div>
+                                </div></td>
+								</tr>
+								<tr>
+	                            	<td><label class="info-label" style="left: 30px;"><span>*</span>新密码：</label></td>
+									<td><div class="clearfix" style="width: ; margin-bottom: 15px">
+                                    <div class="clearfix">
+
+                                        <input type="password" id="npwd" class="cvcadd-text input" placeholder="请输入新密码">
+                                    </div>
+                                </div></td>
+								</tr>
+
+								<tr>
+	                            	<td><label class="info-label" style="left: 18px;"><span>*</span>确认密码：</label></td>
+									<td>
+                                <div class="clearfix" style="margin-bottom: 15px">
+                                    <input type="password" id="cpwd" class="cvcadd-text input" placeholder="请确认新密码">
+                                </div></td>
+								</tr>			
+								</tbody>
+								</table>
+
+                                
+                                
+                            </div>
+                            <!-- <p class="stip" style="color:#ff6600;"> &nbsp; </p> -->
+                            <p class="saveBtn">
+                                <a class="btn_ok" rel="cxdialog" rev="btn_ok" id="confirm_btn" style=" position: relative;left: 118px;padding: 5px 60px;    top: 10px;">设置密码</a>
+                            </p>
+                        </form>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="footer">
+				<div class="public">
+					<div class="footer-left" style="width:60%">
+						<div class="footer-logo" style="margin-top: -5px;padding-top:0px;"><img th:src="${setting.domain + 'images/member/footer/blogo.png'}" style=" position: relative;left: -32px;top: 2px;"></div>
+						<div class="footer-txt">
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/about.html">关于我们</a>　|
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/contact.html">联系我们</a>　|
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/shengming.html">免责声明</a><br>Copyright © acmcoder.com<br><span class="inputSpan">All Rights Reversed 京ICP备15012255-1</span></div>
+					</div>
+					<div class="footer-right" style="width:40%;float: left;padding-top: 40px;text-align: center;line-height: 17px;">
+						<table style="line-height: 26px;text-align: center;">
+							<tbody>
+								<tr>
+									<td width="100"><img th:src="${setting.domain + 'images/member/footer/f-phone.png'}"></td>
+									<td style="font-size: 14px;width:200px">客服热线：010-85359782<br>销售热线：010-85359766</td>
+									<td style="font-size: 14px;">
+										<a class="weixinPng" href="javascript:void(0)" style="color:white;position: relative;"><img th:src="${setting.domain + 'images/member/footer/f-weixin.png'}"> &nbsp;&nbsp;iamacmcoder<img class="hide" style="width: 80px;position: absolute;left: 130px;top: -50px;" th:src="${setting.domain + 'images/member/footer/saimaweixin.jpg'}"></a><br>
+										<a href="javascript:void(0)" style="color:white"><img th:src="${setting.domain + 'images/member/footer/f-qq.png'}"> &nbsp;&nbsp;2531743633</a><br></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+</body>
+</html>

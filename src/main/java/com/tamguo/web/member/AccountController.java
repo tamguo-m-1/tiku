@@ -14,4 +14,10 @@ public class AccountController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "/member/updatePwd", method = RequestMethod.GET)
+	public ModelAndView updatePwd(ModelAndView model){
+		model.setViewName("member/updatePwd");
+		return model;
+	}
 }
