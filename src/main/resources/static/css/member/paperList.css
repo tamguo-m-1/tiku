@@ -1,0 +1,326 @@
+body {
+    font-family: "Microsoft Yahei";
+    color: #333;
+    background: #f5f5f6;
+}
+.cnav {
+    height: 98px;
+    width: 100%;
+    background: url(../../images/member/index/project-cnavbj.jpg) no-repeat;
+    background-size: cover;
+}
+.cnav_b {
+    position: relative;
+    margin: 0 auto;
+    left: 50px;
+    height: 98px;
+}
+.public {
+    width: 1098px;
+    margin: 0px auto;
+}
+.cnav_left {
+    float: left;
+    width: 162px;
+    height: 54px;
+    margin: 22px 0 0 46px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 54px;
+    background: url(../../images/member/index/top-kaos.png) no-repeat;
+    padding-left: 55px;
+}
+.cnav_right {
+    float: left;
+    width: 720px;
+    height: 5px;
+    background: url(../../images/member/index/project-cnav.png) repeat-x;
+    margin: 47px 0 0 0;
+}
+.cnav_right ul {
+    position: absolute;
+    top: 30px;
+    left: 230px;
+}
+.cnav_right ul li {
+    width: 120px;
+    height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    margin-left: 32px;
+}
+.cnav_right ul li .Cnav_t {
+    background: url(../../images/member/index/project-candidate.png) no-repeat -54px 0;
+    width: 37px;
+    height: 37px;
+    line-height: 37px;
+    margin: 0 auto;
+}
+.cnav_right ul li span {
+    font-size: 12px;
+    font-weight: bold;
+    width: 27px;
+    height: 27px;
+    color: #29bdb9;
+    display: block;
+    margin: 5px auto 5px auto;
+    text-align: center;
+    line-height: 27px;
+    background: url(../../images/member/index/project-candidate.png) no-repeat -26px 0;
+}
+.test_public {
+    width: 1100px;
+    min-height: 233px;
+    margin: 0 auto;
+    background: #fff;
+    margin-top: 20px;
+}
+.test_public .topbt {
+    height: 47px;
+}
+.topbt-2 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #dadada;
+    text-align: left;
+}
+.topbt {
+    width: 1066px;
+    height: 47px;
+    line-height: 47px;
+    background: url(../../images/member/index/project-candidate.png) no-repeat -126px 0;
+    margin: 0 auto 1px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.topbt h3 {
+    display: inline;
+    font-size: 18px;
+    margin-left: 15px;
+}
+.topbt h3 {
+    font-weight: bolder!important;
+}
+.test_public .con_top {
+    height: 53px;
+    margin: 0 17px;
+    display: block;
+    position: relative;
+}
+.fl {
+    float: left;
+    display: inline;
+    margin-bottom: 16px;
+}
+.select-n {
+    width: 140px;
+    height: 26px;
+    border: 1px solid #dadada;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+.select-t {
+    display: inline-block;
+    cursor: pointer;
+    height: 26px;
+    width: 26px;
+    background: #29bdb9 url(../../images/member/index/icon.png) no-repeat 0px -59px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: -13px;
+    top: 0px;
+}
+.test_public .con_top>span {
+    width: 130px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    background: #ff8a00;
+    float: right;
+    margin-top: 7px;
+    text-align: center;
+    color: #fff;
+}
+.test_public .con_top>span a {
+    color: #fff;
+}
+.test_public .con_top p {
+    width: 158px;
+}
+.test_public .con_top p {
+    width: 106px;
+    height: 34px;
+    float: right;
+    border: none;
+    margin: 7px 18px 0 0;
+}
+.test_public .con_top p span:first-child {
+    border-right: none;
+    background: initial;
+}
+.test_public .con_top p span {
+    float: left;
+    width: 52px;
+    height: 34px;
+}
+.Id-img {
+    display: none;
+    position: absolute;
+    left: -160px;
+    top: 40px;
+    z-index: 99;
+}
+.public-tab {
+    width: 1066px;
+    height: 44px;
+    margin: 2px auto 0;
+    background: #ddf9f9;
+}
+.public-tab tr td:nth-of-type(1) {
+    text-align: left;
+    padding-left: 45px;
+}
+.plist-table {
+    width: 1066px;
+    margin: 5px auto 0;
+    border: 1px solid #eee;
+}
+.plist-ctab {
+    width: 1064px;
+    background: #F5F5F6;
+}
+table {
+    border-collapse: collapse;
+}
+.plist-ctab tr {
+    height: 95px;
+    width: 100%;
+    overflow: hidden;
+    background: #F5F5F6;
+}
+.plist-ctab tr td {
+    position: relative;
+}
+.plist-bt {
+    text-align: left;
+    font-size: 14px;
+}
+.plist-bt span {
+    display: block;
+    float: left;
+    width: 19px;
+    height: 17px;
+    background: #ff8a00;
+    border-radius: 2px;
+    line-height: 13px;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 12px 12px 10px 10px;
+}
+.plist-bt .M {
+    word-break: break-all;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 260px;
+}
+.plist-bt em {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-left: 41px;
+}
+.plist-ctab tr td {
+    position: relative;
+}
+.plist-x span {
+    margin: 3px 0 0 39px;
+    display: block;
+}
+.plist-x a {
+    color: #29bdb9;
+    margin: 0 4px;
+}
+.plist-ctab a {
+    cursor: pointer;
+}
+.plist-x ul {
+    width: 160px;
+    margin-left: 42px;
+}
+.plist-x ul li:nth-of-type(odd) {
+    background: #29bdb9;
+    margin-right: 6px;
+}
+.plist-x ul li {
+    width: 74px;
+    height: 27px;
+    margin-top: 6px;
+    border: 1px solid #29bdb9;
+    color: #29bdb9;
+    line-height: 25px;
+    text-align: center;
+    float: left;
+    border-radius: 2px;
+}
+.plist-x ul li:nth-of-type(odd) a {
+    color: #fff;
+}
+.plist-x ul li a {
+    display: block;
+}
+.plist-ctab2 {
+    width: 980px;
+    margin: 4px auto;
+    border: 1px solid #eee;
+}
+.plist-ctab2 tr.tr_header {
+    height: 44px;
+    background: #eaedf1;
+    padding: 0;
+}
+.plist-ctab2 tr {
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+.plist-ctab2 tr.tr_header td:nth-of-type(1) {
+    position: relative;
+}
+.plist-ctab2 tr.tr_header td:nth-of-type(1) span {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 3px;
+    height: 44px;
+    background: #6d7781;
+}
+.plist-ctab2 tr td:nth-of-type(2) {
+    text-align: left;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #333;
+}
+.plist-ctab2 tr td:nth-of-type(2) span {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+.plist-ctab2 tr td:nth-of-type(2) span {
+    display: block;
+    font-size: 12px;
+    color: #999;
+}
+.pagination {
+    display: -webkit-inline-box;
+}

@@ -60,7 +60,7 @@
 						</div>
 						<p style="clear: both;height: 0px;"></p>
 						<ul>
-						 <a href="http://kao.acmcoder.com/b/accountInfo">
+						 <a th:href="${setting.domain + 'member/account.html'}">
 							<li>
 							  
 								<div>
@@ -70,7 +70,7 @@
 								<span>个人信息</span>
 							</li>
 							</a>
-							 <a href="http://kao.acmcoder.com/b/entInfo">
+							 <a th:href="${setting.domain + 'member/account.html'}">
 							<li>
 								<div>
 									<!-- <i class="fa fa-briefcase icon-f"></i> -->
@@ -89,8 +89,8 @@
 							</li>
 							<!-- </a> -->
 		
-							<a href="http://20504.acmcoder.com/cand/login">
-							</a><a href="http://76223.acmcoder.com/cand/login" target="_blank">
+							<a th:href="${setting.domain}">
+							</a><a th:href="${setting.domain}" target="_blank">
 							<li>
 									<div class="li-p">
 										<!-- <i class="fa fa-external-link icon-f"></i> -->
