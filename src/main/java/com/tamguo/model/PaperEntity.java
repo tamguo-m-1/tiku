@@ -30,6 +30,9 @@ public class PaperEntity implements Serializable {
 	@Column(name="area_id")
 	private String areaId;
 	
+	@Column(name="creater_id")
+	private String createrId;
+	
 	@Column(name="name")
 	private String name;
 	
@@ -47,6 +50,7 @@ public class PaperEntity implements Serializable {
 	
 	@Column(name="open_hits")
 	private Integer openHits;
+	
 	
 	public JSONArray getQueInfo(){
 		if(StringUtils.isEmpty(getQuestionInfo())){
@@ -137,6 +141,14 @@ public class PaperEntity implements Serializable {
 
 	public void setQuestionInfo(String questionInfo) {
 		this.questionInfo = questionInfo;
+	}
+
+	public String getCreaterId() {
+		return createrId;
+	}
+
+	public void setCreaterId(String createrId) {
+		this.createrId = createrId;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -112,6 +113,19 @@ public class PaperService implements IPaperService{
 
 	@Override
 	public void update(PaperEntity paper) {
+		paperMapper.update(paper);
+	}
+
+	@Override
+	public List<PaperEntity> findByCreaterId(String createrId) {
+		return paperMapper.findByCreaterId(createrId);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void updatePaperName(String paperId, String name) {
+		PaperEntity paper = paperMapper.select(paperId);
+		paper.setName(name);
 		paperMapper.update(paper);
 	}
 

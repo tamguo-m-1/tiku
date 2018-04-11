@@ -3,6 +3,12 @@ body {
     color: #333;
     background: #f5f5f6;
 }
+body .footer {
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
 .cnav {
     height: 98px;
     width: 100%;
@@ -323,4 +329,38 @@ table {
 }
 .pagination {
     display: -webkit-inline-box;
+}
+.footer {
+    height: 173px;
+    background: #838485;
+    margin-top: 37px;
+    color: #f3f3f5;
+}
+.public {
+    width: 1098px;
+    margin: 0px auto;
+}
+.footer-left {
+    width: 794px;
+    float: left;
+    padding-left: ;
+    padding-top: 35px;
+}
+.footer-logo {
+    float: left;
+    padding: 0px 0px 0px 0px;
+    width: 208px;
+}
+.footer-txt {
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 32px;
+}
+.footer-txt a {
+    color: #f3f3f5;
+}
+.footer-right table {
+    width: 100%;
+    line-height: 26px;
+    text-align: center;
 }

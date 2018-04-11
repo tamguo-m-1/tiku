@@ -50,7 +50,7 @@
 							<tbody><tr>
 								<td>
 								<span class="logoV">
-								<img th:src="${setting.domain + 'images/member/index/cv-01-01.png'}">
+								<img th:src="${session.currMember.avatar}">
 								</span>
 								</td>
 							</tr>
@@ -160,7 +160,7 @@
 							<div class="add-p">
 								<a href="http://kaosys.acmcoder.com/position#/list"><i class="fa fa-plus"></i></a>
 							</div>
-							<a href="http://kaosys.acmcoder.com/position#/list">开始新建试卷</a>
+							<a th:href="${setting.domain + 'member/paperList.html'}">开始新建试卷</a>
 						</div>
 					</div>
 					<div class="examTable" id="numList">

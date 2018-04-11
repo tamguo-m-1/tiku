@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<title>会员中心-添加试卷</title>
@@ -7,6 +7,7 @@
 		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/member/paperList.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/layui/css/layui.css'}">
 	</head>
 	<body>
 		<div class="header">
@@ -67,17 +68,11 @@
 		<div class="plist test_public myPositionList ng-scope">
 		    <div class="topbt topbt-2">
 		        <h3>我的试卷</h3>
-		        <!-- ngIf: version==2 || version==3 -->
 		    </div>
 		
 		    <div class="pageShow">
-		        <!-- ngIf: (version==2 || version==3) && selectedpigeonhole.length>0 -->
 		        <div class="con_top addNewPaper">
-		            <!-- <div class="fl">
-		                 <select id="prjList" class="hide"></select>
-		             </div>-->
 		            <div style="position:absolute;top:12px;">
-		                <!-- ngIf: version==3 || version==2 -->
 		                <div class="fl">
 		                    <input class="select-n" ng-value="keySearch" type="text" placeholder="试卷名称关键字">
 		                    <a class="select-t" href="javascript:void(0)"></a>
@@ -90,174 +85,99 @@
 		        <table class="public-tab">
 		            <tbody>
 		            <tr align="center" valign="middle">
-		                <td width="300">试卷名称<!--{{ positions.length }}--></td>
+		                <td width="254">试卷名称</td>
 		                <td width="100">子卷数</td>
 		                <td width="100">总题数</td>
-		                <td width="100">总分值</td>
-		                <td width="100">总时长</td>
-		                <!-- ngIf: jurisdiction[1].p ==1 -->
+		                <td width="100">下载数</td>
+		                <td width="100">查阅数</td>
 		                <td width="135">试卷状态</td>
 		                <td>操作</td>
 		            </tr>
 		            </tbody>
 		        </table>
 		
-		        <!-- ngRepeat: p in positions --><div class="plist-table positionList ng-scope" ng-repeat="p in positions" positionid="5acadc5767f496103153020e" style="">
+		        <div class="plist-table positionList ng-scope" style="" th:each="p,pStat:${paperList}">
 		            <div class="selectImg"></div>
-		            <!-- ngIf: version==2 || version==3 -->
 		            <table class="plist-ctab" data-positiontitle="赛码样卷（示例）" data-aftertitle="Demo体验使用" data-timetype="0" data-opentype="" data-opentime="0" data-papercode="">
 		                <tbody>
-		                <tr align="center" data-paper="[{&quot;_id&quot;:&quot;5acadc5767f4961031530225&quot;,&quot;title&quot;:&quot;填空题（示例）&quot;,&quot;name&quot;:&quot;&quot;,&quot;quesNum&quot;:6,&quot;fenzhi&quot;:&quot;20.0&quot;,&quot;allTime&quot;:10,&quot;quesPrev&quot;:true,&quot;editAnswerAfterSubmit&quot;:false,&quot;forCode&quot;:false,&quot;createDate&quot;:&quot;2018-04-09T03:21:59.728Z&quot;,&quot;answerType&quot;:false,&quot;randQues&quot;:true,&quot;randOpts&quot;:true,&quot;OrderNo&quot;:10},{&quot;_id&quot;:&quot;5acadc5767f496103153020f&quot;,&quot;title&quot;:&quot;选择题（示例）&quot;,&quot;name&quot;:&quot;&quot;,&quot;quesNum&quot;:10,&quot;fenzhi&quot;:&quot;40.0&quot;,&quot;allTime&quot;:20,&quot;quesPrev&quot;:true,&quot;editAnswerAfterSubmit&quot;:false,&quot;forCode&quot;:false,&quot;createDate&quot;:&quot;2018-04-09T03:21:59.619Z&quot;,&quot;answerType&quot;:false,&quot;randQues&quot;:true,&quot;randOpts&quot;:true,&quot;OrderNo&quot;:20},{&quot;_id&quot;:&quot;5acadc5767f4961031530231&quot;,&quot;title&quot;:&quot;问答题（示例）&quot;,&quot;name&quot;:&quot;&quot;,&quot;quesNum&quot;:3,&quot;fenzhi&quot;:&quot;50.0&quot;,&quot;allTime&quot;:30,&quot;quesPrev&quot;:true,&quot;editAnswerAfterSubmit&quot;:true,&quot;forCode&quot;:false,&quot;createDate&quot;:&quot;2018-04-09T03:21:59.798Z&quot;,&quot;answerType&quot;:false,&quot;randQues&quot;:false,&quot;randOpts&quot;:true,&quot;OrderNo&quot;:30}]" valign="middle" style="height:66px">
+		                <tr align="center" valign="middle" style="height:66px">
 		                    <td width="300" class="plist-bt">
 		                        <span>-</span>
-		                        <div class="M ng-binding" style="line-height: ;" title="赛码样卷（示例）">赛码样卷（示例）
-		                        </div>
-		                        <em ng-bind="p.afterTitle" title="Demo体验使用" class="ng-binding">Demo体验使用</em>
-		                        <!-- ngIf: p.tagPaper.length>0|| p.randPaper.length>0 -->
+		                        <div class="M ng-binding" style="line-height: 40px;" title="软件JAVA" th:text="${p.name}">软件JAVA
+                        		</div>
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">3</span>
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${#arrays.length(p.queInfo)}">3</span>
 		                        卷
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">19</span> 题
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.downHits}">19</span> 题
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">110</span> 分
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.downHits}">110</span> 次
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">60</span> 分钟
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.openHits}">60</span> 次
 		                    </td>
-		                    <!-- ngIf: jurisdiction[1].p ==1 -->
 		
-		                    <!-- ngIf: p.preparedExt==1 -->
-		                    <!-- ngIf: p.preparedExt!=1 --><td ng-if="p.preparedExt!=1" width="135" class="unlocked ng-scope"><i class="fa fa-unlock"></i><span style="top:42px">未锁定</span></td><!-- end ngIf: p.preparedExt!=1 -->
-		                    <td class="plist-x"><span><a href="javascript:void(0)" ng-click="editPaper(p)">编辑</a>|<a href="javascript:void(0)" ng-click="delPosition(p)" class="del ">删除</a>
-		                        <!-- ngIf: version==2 || version==3 --><!-- ngIf: version==2 || version==3 --><!-- ngIf: rightStr.split(',').indexOf('right_id18')>-1 && p.papers.length>0 -->
-		                </span>
+		                    <td width="135" class="unlocked ng-scope"><i class="fa fa-unlock"></i><span style="top:42px">未锁定</span></td>
+		                    <td class="plist-x">
+		                    <span>
+		                    	<a href="javascript:void(0)" class="updatePaperBtn" th:attr="data-name=${p.name},data-uid=${p.uid}">编辑</a>|<a href="javascript:void(0)"  class="del ">删除</a>
+		                	</span>
 		                        <ul class="testPaper-list">
-		                            <li><a ng-click="addPaper(p,$event)" class="addPaper">添加子卷</a>
+		                            <li><a class="addPaper">添加子卷</a>
 		                            </li>
-		                            <li><!-- ngIf: p.papers.length>0 --><a ng-if="p.papers.length>0" href="/paper#/view/5acadc5767f496103153020e" target="_blank" class="ng-scope">预览试卷</a><!-- end ngIf: p.papers.length>0 --><!-- ngIf: p.papers.length==0 --></li>
-		                            <!-- ngIf: jurisdiction[1].p ==1 -->
-		                            <!-- <li ng-if="rightStr.split(',').indexOf('right_id11')>-1"><a class="{{p.preparedExt==1?'':'randQues'}}" {{p.preparedExt==1?'disabled':''}}>抽选答卷</a></li>-->
+		                            <li><a href="/paper#/view/5acadc5767f496103153020e" target="_blank" class="ng-scope">预览试卷</a>
 		                        </ul>
 		                    </td>
 		                </tr>
 		                </tbody>
 		            </table>
-		            <!-- ngIf: p.papers.length>0 --><table ng-if="p.papers.length>0" class="plist-ctab2 able">
-		                <tbody>
-		                <tr class="tr_header" align="center" valign="middle">
-		                    <td width="62">No. <span></span></td>
-		                    <td width="190">子卷名称<span></span></td>
-		                    <td width="55">题数</td>
-		                    <td width="80">分值</td>
-		                    <td width="70">时长</td>
-		                    <td width="70">试题乱序</td>
-		                    <td width="70">选项乱序</td>
-		                    <td width="100">提交后修改</td>
-		                    <!-- ngIf: rightStr.split(',').indexOf('right_id11')>-1 -->
-		                    <td>操作</td>
-		                </tr>
-		                <!-- ngRepeat: pp in p.routinePaper --><tr ng-repeat="pp in p.routinePaper" class="paperData ng-scope" paperdata="{&quot;_id&quot;:&quot;5acadc5767f4961031530225&quot;,&quot;title&quot;:&quot;填空题（示例）&quot;,&quot;name&quot;:&quot;&quot;,&quot;quesNum&quot;:6,&quot;fenzhi&quot;:&quot;20.0&quot;,&quot;allTime&quot;:10,&quot;quesPrev&quot;:true,&quot;editAnswerAfterSubmit&quot;:false,&quot;forCode&quot;:false,&quot;createDate&quot;:&quot;2018-04-09T03:21:59.728Z&quot;,&quot;answerType&quot;:false,&quot;randQues&quot;:true,&quot;randOpts&quot;:true,&quot;OrderNo&quot;:10}" paperid="5acadc5767f4961031530225" align="center" valign="middle" data-arrayindex="">
-		                    <td class="ng-binding">子卷 1</td>
-		                    <td style="position: relative">
-		                        <div class="paperTitle ng-binding" title="填空题（示例）" style="max-width: 152px;">填空题（示例）</div>
-		                        <!-- ngIf: pp.forCode -->
-		                        <span title="" class="ng-binding"></span></td>
-		                    <td class="ng-binding">6 题</td>
-		                    <td class="ng-binding">20.0 分</td>
-		                    <td class="ng-binding">10 分钟</td>
-		                    <td style="color: #999999" class="ng-binding">乱序</td>
-		                    <td style="color: #999999" class="ng-binding">乱序</td>
-		                    <td style="color: #999999" class="ng-binding">不能修改</td>
-		                    <!-- ngIf: rightStr.split(',').indexOf('right_id11')>-1 -->
-		                    <td class="plist-x" style="float:none">
-		                        <div>
-		                        <span style="margin-left:0;">
-		                            <a href="javascript:void(0)" ng-click="editSonPaper(pp,p)" class="update_paper2">编辑</a>|
-		                            <a href="javascript:void(0)" class="del">删除</a>|
-		                            <a class="up" href="javascript:void(0)">上移</a>|
-		                            <a class="down" href="javascript:void(0)">下移</a>
-		                        </span>
-		                            <ul class="addQuestion" style="margin:-3px 0 0;float:none">
-		                                <!-- ngIf: pp.fromPaperId==undefined --><li ng-if="pp.fromPaperId==undefined" class="ng-scope"><a class="add able" href="javascript:void(0)">添加试题</a>
-		                                </li><!-- end ngIf: pp.fromPaperId==undefined -->
-		                                <!-- ngIf: pp.fromPaperId==undefined --><li ng-if="pp.fromPaperId==undefined" class="ng-scope"><a class="edit able" href="/ques#/manager/5acadc5767f496103153020e/5acadc5767f4961031530225">管理试题</a>
-		                                </li><!-- end ngIf: pp.fromPaperId==undefined -->
-		                            </ul>
-		                        </div>
-		                    </td>
-		                </tr><!-- end ngRepeat: pp in p.routinePaper --><tr ng-repeat="pp in p.routinePaper" class="paperData ng-scope" paperdata="{&quot;_id&quot;:&quot;5acadc5767f496103153020f&quot;,&quot;title&quot;:&quot;选择题（示例）&quot;,&quot;name&quot;:&quot;&quot;,&quot;quesNum&quot;:10,&quot;fenzhi&quot;:&quot;40.0&quot;,&quot;allTime&quot;:20,&quot;quesPrev&quot;:true,&quot;editAnswerAfterSubmit&quot;:false,&quot;forCode&quot;:false,&quot;createDate&quot;:&quot;2018-04-09T03:21:59.619Z&quot;,&quot;answerType&quot;:false,&quot;randQues&quot;:true,&quot;randOpts&quot;:true,&quot;OrderNo&quot;:20}" paperid="5acadc5767f496103153020f" align="center" valign="middle" data-arrayindex="">
-		                    <td class="ng-binding">子卷 2</td>
-		                    <td style="position: relative">
-		                        <div class="paperTitle ng-binding" title="选择题（示例）" style="max-width: 152px;">选择题（示例）</div>
-		                        <!-- ngIf: pp.forCode -->
-		                        <span title="" class="ng-binding"></span></td>
-		                    <td class="ng-binding">10 题</td>
-		                    <td class="ng-binding">40.0 分</td>
-		                    <td class="ng-binding">20 分钟</td>
-		                    <td style="color: #999999" class="ng-binding">乱序</td>
-		                    <td style="color: #999999" class="ng-binding">乱序</td>
-		                    <td style="color: #999999" class="ng-binding">不能修改</td>
-		                    <!-- ngIf: rightStr.split(',').indexOf('right_id11')>-1 -->
-		                    <td class="plist-x" style="float:none">
-		                        <div>
-		                        <span style="margin-left:0;">
-		                            <a href="javascript:void(0)" ng-click="editSonPaper(pp,p)" class="update_paper2">编辑</a>|
-		                            <a href="javascript:void(0)" class="del">删除</a>|
-		                            <a class="up" href="javascript:void(0)">上移</a>|
-		                            <a class="down" href="javascript:void(0)">下移</a>
-		                        </span>
-		                            <ul class="addQuestion" style="margin:-3px 0 0;float:none">
-		                                <!-- ngIf: pp.fromPaperId==undefined --><li ng-if="pp.fromPaperId==undefined" class="ng-scope"><a class="add able" href="javascript:void(0)">添加试题</a>
-		                                </li><!-- end ngIf: pp.fromPaperId==undefined -->
-		                                <!-- ngIf: pp.fromPaperId==undefined --><li ng-if="pp.fromPaperId==undefined" class="ng-scope"><a class="edit able" href="/ques#/manager/5acadc5767f496103153020e/5acadc5767f496103153020f">管理试题</a>
-		                                </li><!-- end ngIf: pp.fromPaperId==undefined -->
-		                            </ul>
-		                        </div>
-		                    </td>
-		                </tr><!-- end ngRepeat: pp in p.routinePaper --><tr ng-repeat="pp in p.routinePaper" class="paperData ng-scope" paperdata="{&quot;_id&quot;:&quot;5acadc5767f4961031530231&quot;,&quot;title&quot;:&quot;问答题（示例）&quot;,&quot;name&quot;:&quot;&quot;,&quot;quesNum&quot;:3,&quot;fenzhi&quot;:&quot;50.0&quot;,&quot;allTime&quot;:30,&quot;quesPrev&quot;:true,&quot;editAnswerAfterSubmit&quot;:true,&quot;forCode&quot;:false,&quot;createDate&quot;:&quot;2018-04-09T03:21:59.798Z&quot;,&quot;answerType&quot;:false,&quot;randQues&quot;:false,&quot;randOpts&quot;:true,&quot;OrderNo&quot;:30}" paperid="5acadc5767f4961031530231" align="center" valign="middle" data-arrayindex="">
-		                    <td class="ng-binding">子卷 3</td>
-		                    <td style="position: relative">
-		                        <div class="paperTitle ng-binding" title="问答题（示例）" style="max-width: 152px;">问答题（示例）</div>
-		                        <!-- ngIf: pp.forCode -->
-		                        <span title="" class="ng-binding"></span></td>
-		                    <td class="ng-binding">3 题</td>
-		                    <td class="ng-binding">50.0 分</td>
-		                    <td class="ng-binding">30 分钟</td>
-		                    <td style="color: #999999" class="ng-binding">不乱序</td>
-		                    <td style="color: #999999" class="ng-binding">乱序</td>
-		                    <td style="color: #999999" class="ng-binding">允许修改</td>
-		                    <!-- ngIf: rightStr.split(',').indexOf('right_id11')>-1 -->
-		                    <td class="plist-x" style="float:none">
-		                        <div>
-		                        <span style="margin-left:0;">
-		                            <a href="javascript:void(0)" ng-click="editSonPaper(pp,p)" class="update_paper2">编辑</a>|
-		                            <a href="javascript:void(0)" class="del">删除</a>|
-		                            <a class="up" href="javascript:void(0)">上移</a>|
-		                            <a class="down" href="javascript:void(0)">下移</a>
-		                        </span>
-		                            <ul class="addQuestion" style="margin:-3px 0 0;float:none">
-		                                <!-- ngIf: pp.fromPaperId==undefined --><li ng-if="pp.fromPaperId==undefined" class="ng-scope"><a class="add able" href="javascript:void(0)">添加试题</a>
-		                                </li><!-- end ngIf: pp.fromPaperId==undefined -->
-		                                <!-- ngIf: pp.fromPaperId==undefined --><li ng-if="pp.fromPaperId==undefined" class="ng-scope"><a class="edit able" href="/ques#/manager/5acadc5767f496103153020e/5acadc5767f4961031530231">管理试题</a>
-		                                </li><!-- end ngIf: pp.fromPaperId==undefined -->
-		                            </ul>
-		                        </div>
-		                    </td>
-		                </tr><!-- end ngRepeat: pp in p.routinePaper -->
-		                </tbody>
-		            </table><!-- end ngIf: p.papers.length>0 -->
-		            <!-- ngIf: p.randPaper.length>0 -->
-		
-		            <!-- ngIf: p.tagList.length>0 -->
-		        </div><!-- end ngRepeat: p in positions -->
-		
-		        <!-- ngIf: positions.length==0  && inputKey=='' -->
-		
-		        <!-- ngIf: positions.length==0  && inputKey!='' -->
-		
-		
-		        
-		
+		            <div>
+			           <table class="plist-ctab2 able">
+			                <tbody>
+			                <tr class="tr_header" align="center" valign="middle">
+			                    <td width="62">No. <span></span></td>
+			                    <td width="190">子卷名称<span></span></td>
+			                    <td width="55">题数</td>
+			                    <td width="80">分值</td>
+			                    <td width="70">时长</td>
+			                    <td width="70">试题乱序</td>
+			                    <td width="70">选项乱序</td>
+			                    <td width="100">提交后修改</td>
+			                    <td>操作</td>
+			                </tr>
+			                <tr th:each="q,qStat:${p.queInfo}" class="paperData ng-scope" align="center" valign="middle" data-arrayindex="">
+			                    <td class="ng-binding">子卷 1</td>
+			                    <td style="position: relative">
+			                        <div class="paperTitle ng-binding" title="软件JS" style="max-width: 152px;" th:text="${q.name}">软件JS</div>
+			                        <!-- ngIf: pp.forCode -->
+			                        <span title="" class="ng-binding"></span></td>
+			                    <td class="ng-binding">0 题</td>
+			                    <td class="ng-binding">0.0 分</td>
+			                    <td class="ng-binding">20 分钟</td>
+			                    <td style="color: #999999" class="ng-binding">乱序</td>
+			                    <td style="color: #999999" class="ng-binding">乱序</td>
+			                    <td style="color: #999999" class="ng-binding">不能修改</td>
+			                    <!-- ngIf: rightStr.split(',').indexOf('right_id11')>-1 -->
+			                    <td class="plist-x" style="float:none">
+			                        <div>
+			                        <span style="margin-left:0;">
+			                            <a href="javascript:void(0)" class="update_paper2">编辑</a>|
+			                            <a href="javascript:void(0)" class="del">删除</a>|
+			                            <a class="up" href="javascript:void(0)">上移</a>|
+			                            <a class="down" href="javascript:void(0)">下移</a>
+			                        </span>
+			                            <ul class="addQuestion" style="margin:-3px 0 0;float:none">
+			                                <li class="ng-scope"><a class="add able" href="javascript:void(0)">添加试题</a>
+			                                </li>
+			                                <li class="ng-scope"><a class="edit able" href="/ques#/manager/5acda76207c45019db5b15fa/5acda77607c45019db5b15fb">管理试题</a>
+			                                </li>
+			                            </ul>
+			                        </div>
+			                    </td>
+			                </tr><!-- end ngRepeat: pp in p.routinePaper -->
+			                </tbody>
+			            </table>
+		            </div>
+		        </div>
 		        <div style="text-align: center">
 		            <div id="pagination" class="pagination"></div>
 		        </div>
@@ -266,5 +186,36 @@
 		        <div class="clear"></div>
 		    </div>
 		</div>
+		
+		<div class="footer">
+			<div class="public">
+				<div class="footer-left" style="width:60%">
+					<div class="footer-logo" style="margin-top: -5px;padding-top:0px;"><img th:src="${setting.domain + 'images/member/footer/blogo.png'}" style=" position: relative;left: -32px;top: 2px;"></div>
+					<div class="footer-txt">
+						<a target="_blank" href="http://www.acmcoder.com/aboutus/about.html">关于我们</a>　|
+						<a target="_blank" href="http://www.acmcoder.com/aboutus/contact.html">联系我们</a>　|
+						<a target="_blank" href="http://www.acmcoder.com/aboutus/shengming.html">免责声明</a><br>Copyright © acmcoder.com<br><span class="inputSpan">All Rights Reversed 京ICP备15012255-1</span></div>
+				</div>
+				<div class="footer-right" style="width:40%;float: left;padding-top: 40px;text-align: center;line-height: 17px;">
+					<table style="line-height: 26px;text-align: center;">
+						<tbody>
+							<tr>
+								<td width="100"><img th:src="${setting.domain + 'images/member/footer/f-phone.png'}"></td>
+								<td style="font-size: 14px;width:200px">客服热线：010-85359782<br>销售热线：010-85359766</td>
+								<td style="font-size: 14px;">
+									<a class="weixinPng" href="javascript:void(0)" style="color:white;position: relative;"><img th:src="${setting.domain + 'images/member/footer/f-weixin.png'}"> &nbsp;&nbsp;iamacmcoder<img class="hide" style="width: 80px;position: absolute;left: 130px;top: -50px;" th:src="${setting.domain + 'images/member/footer/saimaweixin.jpg'}"></a><br>
+									<a href="javascript:void(0)" style="color:white"><img th:src="${setting.domain + 'images/member/footer/f-qq.png'}"> &nbsp;&nbsp;2531743633</a><br></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</body>
+	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
+	<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
+	<script type="text/javascript" th:src="${setting.domain + 'js/member/paperList.js'}" ></script>
+	<script type="text/javascript" th:inline="javascript">
+		var mainHttp = [[${setting.domain}]];
+	</script>
 </html>

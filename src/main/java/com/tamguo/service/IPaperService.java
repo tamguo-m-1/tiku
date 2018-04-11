@@ -31,4 +31,8 @@ public interface IPaperService {
 	void save(PaperEntity paper);
 
 	void update(PaperEntity paper);
+	
+	List<PaperEntity> findByCreaterId(String createrId);
+
+	void updatePaperName(String paperId, String name);
 }
