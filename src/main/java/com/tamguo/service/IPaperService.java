@@ -44,4 +44,6 @@ public interface IPaperService {
 	void updatePaperQuestionInfo(String paperId, String title, String name,
 			String type, String cuid);
 
+	void deletePaperQuestionInfoBtn(String paperId, String cuid);
+
 }

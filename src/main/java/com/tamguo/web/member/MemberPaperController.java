@@ -73,4 +73,15 @@ public class MemberPaperController {
 		}
 	}
 	
+	@RequestMapping("member/paperList/deletePaperQuestionInfoBtn.html")
+	@ResponseBody
+	public Result deletePaperQuestionInfoBtn(String paperId , String cuid){
+		try {
+			iPaperService.deletePaperQuestionInfoBtn(paperId , cuid);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("删除子卷", this.getClass(), e);
+		}
+	}
+	
 }

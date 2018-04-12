@@ -151,7 +151,7 @@ $(function(){
 
 			html += '<div class="layui-form-item" style="margin-top: 40px;">';
 			html += '<div class="layui-input-block">';
-		    html += '<button type="button" class="layui-btn" onclick="saveUpdatePaper();">立即提交</button>';
+		    html += '<button type="button" class="layui-btn" onclick="updatePaperQuestionInfo();">立即提交</button>';
 		    html += '<button type="reset" class="layui-btn layui-btn-primary" onclick="layer.closeAll()">关闭</button>';
 		    html += '</div>';
 		    html += '</div>';
@@ -166,6 +166,32 @@ $(function(){
 			form.render();
 		});
 	});
+	
+	$(".deletePaperQuestionInfoBtn").click(function(){
+		var uid = $(this).attr("data-uid");
+		var cuid = $(this).attr("data-cuid");
+		layer.confirm('您确认要删除？删除后无法恢复！', {
+			btn: ['确认','取消'] //按钮
+		}, function(){
+			$.ajax({
+				type : "get", 
+				url : mainHttp + "member/paperList/deletePaperQuestionInfoBtn.html",
+				data:{paperId:uid , cuid : cuid},
+				async : true,
+				dataType : "json",
+				success : function(data) {// 返回数据根据结果进行相应的处理,无论请求成功还是失败，都会走这个方法的
+					if(data.code === 0){
+						layer.alert('操作成功', function(index){
+							// 刷新页面
+						});
+					}else{
+						layer.alert(r.message);
+					}
+				}
+			});
+		});
+	});
+
 })
 
 function saveUpdatePaper(){
@@ -214,7 +240,7 @@ function saveAddPaper(){
 	return false;
 }
 
-function saveUpdatePaper(){
+function updatePaperQuestionInfo(){
 	//var qUid = $("input[name='childPaperTitle']").val();
 	var paperId = $("input[name='addPaperUid']").val();
 	var title = $("input[name='childPaperTitle']").val();

@@ -180,4 +180,26 @@ public class PaperService implements IPaperService{
 		paperMapper.update(paper);
 	}
 
+	@Override
+	public void deletePaperQuestionInfoBtn(String paperId, String cuid) {
+		PaperEntity paper = paperMapper.select(paperId);
+		String questionInfo = paper.getQuestionInfo();
+		JSONArray qList = JSONArray.parseArray(questionInfo);
+		for(int i =0 ; i<qList.size() ; i++){
+			JSONObject q = qList.getJSONObject(i);
+			if(q.getString("uid").equals(cuid)){
+				qList.remove(i);
+			}
+		}
+		
+		// 处理uid 问题
+		for(int i=0 ; i<qList.size(); i++){
+			JSONObject q = qList.getJSONObject(i);
+			q.put("uid", i+1);
+		}
+				
+		paper.setQuestionInfo(qList.toString());
+		paperMapper.update(paper);
+	}
+
 }

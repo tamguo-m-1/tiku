@@ -137,7 +137,7 @@
 			                    <td>操作</td>
 			                </tr>
 			                <tr th:each="q,qStat:${p.queInfo}" class="paperData ng-scope" align="center" valign="middle" data-arrayindex="">
-			                    <td class="ng-binding">子卷 1</td>
+			                    <td class="ng-binding" th:text="${q.uid}"></td>
 			                    <td style="position: relative">
 			                        <div class="paperTitle ng-binding" title="软件JS" style="max-width: 450px;" th:text="${q.title}">软件JS</div>
 			                        <span title="" class="ng-binding"></span></td>
@@ -146,7 +146,7 @@
 			                        <div>
 			                        <span style="margin-left:0;">
 			                            <a href="javascript:void(0)" th:attr="data-type=${q.type},data-title=${q.title},data-name=${q.name},data-uid=${p.uid},data-cuid=${q.uid}" class="update_paper2 updatePaperQuestionInfoBtn">编辑</a>|
-			                            <a href="javascript:void(0)" class="del">删除</a>|
+			                            <a href="javascript:void(0)" th:attr="data-type=${q.type},data-title=${q.title},data-name=${q.name},data-uid=${p.uid},data-cuid=${q.uid}"  class="del deletePaperQuestionInfoBtn">删除</a>|
 			                            <a class="up" href="javascript:void(0)">上移</a>|
 			                            <a class="down" href="javascript:void(0)">下移</a>
 			                        </span>
