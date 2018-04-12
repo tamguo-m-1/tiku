@@ -150,6 +150,32 @@ public class PaperService implements IPaperService{
 		entity.put("type", type);
 		qList.add(entity);
 		
+		// 处理uid 问题
+		for(int i=0 ; i<qList.size(); i++){
+			JSONObject q = qList.getJSONObject(i);
+			q.put("uid", i+1);
+		}
+		
+		paper.setQuestionInfo(qList.toString());
+		paperMapper.update(paper);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void updatePaperQuestionInfo(String paperId, String title,
+			String name, String type, String cuid) {
+		PaperEntity paper = paperMapper.select(paperId);
+		String questionInfo = paper.getQuestionInfo();
+		JSONArray qList = JSONArray.parseArray(questionInfo);
+		for(int i =0 ; i<qList.size() ; i++){
+			JSONObject q = qList.getJSONObject(i);
+			if(q.getString("uid").equals(cuid)){
+				q.put("name", name);
+				q.put("title", title);
+				q.put("type", type);
+			}
+		}
+		
 		paper.setQuestionInfo(qList.toString());
 		paperMapper.update(paper);
 	}

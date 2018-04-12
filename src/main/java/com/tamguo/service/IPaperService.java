@@ -40,4 +40,8 @@ public interface IPaperService {
 
 	void addPaperQuestionInfo(String paperId, String title, String name,
 			String type);
+
+	void updatePaperQuestionInfo(String paperId, String title, String name,
+			String type, String cuid);
+
 }

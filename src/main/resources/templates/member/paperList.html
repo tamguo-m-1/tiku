@@ -86,11 +86,10 @@
 		            <tbody>
 		            <tr align="center" valign="middle">
 		                <td width="254">试卷名称</td>
-		                <td width="100">子卷数</td>
-		                <td width="100">总题数</td>
+		                <td width="100">科目</td>
+		                <td width="100">年份</td>
 		                <td width="100">下载数</td>
 		                <td width="100">查阅数</td>
-		                <td width="135">试卷状态</td>
 		                <td>操作</td>
 		            </tr>
 		            </tbody>
@@ -106,17 +105,15 @@
 		                        <div class="M ng-binding" style="line-height: 40px;" title="软件JAVA" th:text="${p.name}">软件JAVA
                         		</div>
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${#arrays.length(p.queInfo)}">3</span>
-		                        卷
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.courseId}">3</span>
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.downHits}">19</span> 题
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.year}">3</span>
 		                    </td>
 		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.downHits}">110</span> 次
 		                    </td>
 		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.openHits}">60</span> 次
 		                    </td>
 		
-		                    <td width="135" class="unlocked ng-scope"><i class="fa fa-unlock"></i><span style="top:42px">未锁定</span></td>
 		                    <td class="plist-x">
 		                    <span>
 		                    	<a href="javascript:void(0)" class="updatePaperBtn" th:attr="data-name=${p.name},data-uid=${p.uid}">编辑</a>|<a href="javascript:void(0)" th:attr="data-name=${p.name},data-uid=${p.uid}" class="deletePaperBtn">删除</a>
@@ -135,32 +132,20 @@
 			                <tbody>
 			                <tr class="tr_header" align="center" valign="middle">
 			                    <td width="62">No. <span></span></td>
-			                    <td width="190">子卷名称<span></span></td>
-			                    <td width="55">题数</td>
-			                    <td width="80">分值</td>
-			                    <td width="70">时长</td>
-			                    <td width="70">试题乱序</td>
-			                    <td width="70">选项乱序</td>
-			                    <td width="100">提交后修改</td>
+			                    <td width="500">子卷标题<span></span></td>
+			                    <td width="100">题目类型</td>
 			                    <td>操作</td>
 			                </tr>
 			                <tr th:each="q,qStat:${p.queInfo}" class="paperData ng-scope" align="center" valign="middle" data-arrayindex="">
 			                    <td class="ng-binding">子卷 1</td>
 			                    <td style="position: relative">
-			                        <div class="paperTitle ng-binding" title="软件JS" style="max-width: 152px;" th:text="${q.name}">软件JS</div>
-			                        <!-- ngIf: pp.forCode -->
+			                        <div class="paperTitle ng-binding" title="软件JS" style="max-width: 450px;" th:text="${q.title}">软件JS</div>
 			                        <span title="" class="ng-binding"></span></td>
-			                    <td class="ng-binding">0 题</td>
-			                    <td class="ng-binding">0.0 分</td>
-			                    <td class="ng-binding">20 分钟</td>
-			                    <td style="color: #999999" class="ng-binding">乱序</td>
-			                    <td style="color: #999999" class="ng-binding">乱序</td>
-			                    <td style="color: #999999" class="ng-binding">不能修改</td>
-			                    <!-- ngIf: rightStr.split(',').indexOf('right_id11')>-1 -->
+			                    <td class="ng-binding" th:text="${q.name}">0 题</td>
 			                    <td class="plist-x" style="float:none">
 			                        <div>
 			                        <span style="margin-left:0;">
-			                            <a href="javascript:void(0)" class="update_paper2">编辑</a>|
+			                            <a href="javascript:void(0)" th:attr="data-type=${q.type},data-title=${q.title},data-name=${q.name},data-uid=${p.uid},data-cuid=${q.uid}" class="update_paper2 updatePaperQuestionInfoBtn">编辑</a>|
 			                            <a href="javascript:void(0)" class="del">删除</a>|
 			                            <a class="up" href="javascript:void(0)">上移</a>|
 			                            <a class="down" href="javascript:void(0)">下移</a>

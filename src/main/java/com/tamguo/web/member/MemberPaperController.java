@@ -47,6 +47,17 @@ public class MemberPaperController {
 			iPaperService.addPaperQuestionInfo(paperId , title , name , type);
 			return Result.successResult(null);
 		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("添加questionInfo", this.getClass(), e);
+		}
+	}
+	
+	@RequestMapping("member/paperList/updatePaperQuestionInfo.html")
+	@ResponseBody
+	public Result updatePaperQuestionInfo(String paperId , String title , String name , String type , String cuid){
+		try {
+			iPaperService.updatePaperQuestionInfo(paperId , title , name , type , cuid);
+			return Result.successResult(null);
+		} catch (Exception e) {
 			return ExceptionSupport.resolverResult("修改questionInfo", this.getClass(), e);
 		}
 	}
