@@ -7,7 +7,7 @@
 		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/member/paperList.css'}" />
-		<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/layui/css/layui.css'}">
+		<link rel="stylesheet" th:href="${setting.domain + 'js/plugins/layui/css/layui.css'}">
 	</head>
 	<body>
 		<div class="header">
@@ -119,12 +119,12 @@
 		                    <td width="135" class="unlocked ng-scope"><i class="fa fa-unlock"></i><span style="top:42px">未锁定</span></td>
 		                    <td class="plist-x">
 		                    <span>
-		                    	<a href="javascript:void(0)" class="updatePaperBtn" th:attr="data-name=${p.name},data-uid=${p.uid}">编辑</a>|<a href="javascript:void(0)"  class="del ">删除</a>
+		                    	<a href="javascript:void(0)" class="updatePaperBtn" th:attr="data-name=${p.name},data-uid=${p.uid}">编辑</a>|<a href="javascript:void(0)" th:attr="data-name=${p.name},data-uid=${p.uid}" class="deletePaperBtn">删除</a>
 		                	</span>
 		                        <ul class="testPaper-list">
-		                            <li><a class="addPaper">添加子卷</a>
+		                            <li><a class="addPaper" th:attr="data-name=${p.name},data-uid=${p.uid}">添加子卷</a>
 		                            </li>
-		                            <li><a href="/paper#/view/5acadc5767f496103153020e" target="_blank" class="ng-scope">预览试卷</a>
+		                            <li><a href="#" target="_blank" class="ng-scope">预览试卷</a>
 		                        </ul>
 		                    </td>
 		                </tr>
@@ -214,6 +214,7 @@
 	</body>
 	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
 	<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
+	<script th:src="${setting.domain + 'js/plugins/layui/layui.js'}"></script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/member/paperList.js'}" ></script>
 	<script type="text/javascript" th:inline="javascript">
 		var mainHttp = [[${setting.domain}]];

@@ -40,4 +40,26 @@ public class MemberPaperController {
 		}
 	}
 	
+	@RequestMapping("member/paperList/addPaperQuestionInfo.html")
+	@ResponseBody
+	public Result addPaperQuestionInfo(String paperId , String title , String name , String type){
+		try {
+			iPaperService.addPaperQuestionInfo(paperId , title , name , type);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("修改questionInfo", this.getClass(), e);
+		}
+	}
+	
+	@RequestMapping("member/paperList/deletePaper.html")
+	@ResponseBody
+	public Result deletePaper(String paperId){
+		try {
+			iPaperService.deletePaper(paperId);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("删除试卷", this.getClass(), e);
+		}
+	}
+	
 }

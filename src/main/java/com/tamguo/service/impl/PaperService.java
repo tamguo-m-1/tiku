@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.tamguo.dao.PaperMapper;
@@ -126,6 +128,29 @@ public class PaperService implements IPaperService{
 	public void updatePaperName(String paperId, String name) {
 		PaperEntity paper = paperMapper.select(paperId);
 		paper.setName(name);
+		paperMapper.update(paper);
+	}
+
+	@Override
+	public void deletePaper(String paperId) {
+		paperMapper.delete(paperId);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void addPaperQuestionInfo(String paperId, String title,
+			String name, String type) {
+		PaperEntity paper = paperMapper.select(paperId);
+		String questionInfo = paper.getQuestionInfo();
+		
+		JSONArray qList = JSONArray.parseArray(questionInfo);
+		JSONObject entity = new JSONObject();
+		entity.put("name", name);
+		entity.put("title", title);
+		entity.put("type", type);
+		qList.add(entity);
+		
+		paper.setQuestionInfo(qList.toString());
 		paperMapper.update(paper);
 	}
 
