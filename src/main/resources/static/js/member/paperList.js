@@ -1,8 +1,19 @@
+layui.use(['laypage', 'layer'], function(){
+	  var laypage = layui.laypage,layer = layui.layer;
+	  laypage.render({elem: 'pagination',count: vue.totalCount , limit: 2 , layout: ['count', 'prev', 'page', 'next', 'skip'],
+		  jump: function(obj){
+			  vue.currPage = obj.curr;
+			  vue.reload();
+		  }
+	  });
+});
 // Vue
 var vue = new Vue({
 	el:'.myPositionList',
 	data:{
 		title:null,
+		totalCount:null,
+		currPage:1,
 		paperList:null
 	},
 	methods: {
@@ -189,19 +200,19 @@ var vue = new Vue({
 			$.ajax({
 				type : "get", 
 				url : "http://localhost/member/paper/list.html",
-				data:{name:"",page:1,limit:3},
+				data:{name:$("input[name='keySearch']").val(),page:vue.currPage,limit:2},
 				async : true,
 				dataType : "json",
 				success : function(data) {
 					vue.paperList = data.list;
+					vue.totalCount = data.totalCount;
 				}
 			});
 		}
-	},
-	mounted:function(){
-        this.reload();
-    }
+	}
 });
+
+vue.reload();
 
 function saveUpdatePaper(){
 	var paperId = $("input[name='updatePaperUid']").val();
