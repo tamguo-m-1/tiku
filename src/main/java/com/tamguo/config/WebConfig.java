@@ -16,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
+import com.tamguo.interceptor.MemberInterceptor;
 import com.tamguo.interceptor.MenuInterceptor;
 
 
@@ -26,6 +27,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	private String fileStoragePath;
 	@Autowired
 	private MenuInterceptor menuInterceptor;
+	@Autowired
+	private MemberInterceptor memberInterceptor;
 
 	/**
 	 * 拦截器
@@ -33,6 +36,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(menuInterceptor).addPathPatterns("/**");
+		registry.addInterceptor(memberInterceptor).addPathPatterns("/member/**");
 	}
 	
    @Override
