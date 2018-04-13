@@ -202,4 +202,14 @@ public class PaperService implements IPaperService{
 		paperMapper.update(paper);
 	}
 
+	@Override
+	public Page<PaperEntity> memberPaperList(String name , String memberId , Integer page,
+			Integer limit) {
+		PageHelper.startPage(page, limit);
+		if(!StringUtils.isEmpty(name)){
+			name = "%" + name + "%";
+		}
+		return paperMapper.queryPageByNameAndCreatorId(name , memberId);
+	}
+
 }

@@ -1,7 +1,7 @@
 package com.tamguo.web.member;
 
+import java.util.Map;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.Page;
 import com.tamguo.model.MemberEntity;
+import com.tamguo.model.PaperEntity;
 import com.tamguo.service.IPaperService;
 import com.tamguo.util.ExceptionSupport;
 import com.tamguo.util.Result;
@@ -21,12 +23,20 @@ public class MemberPaperController {
 	private IPaperService iPaperService;
 	
 
-	@RequestMapping(value = "/member/paperList", method = RequestMethod.GET)
-	public ModelAndView paperList(ModelAndView model, HttpSession session){
+	@RequestMapping(value = "/member/paper", method = RequestMethod.GET)
+	public ModelAndView paper(ModelAndView model, HttpSession session){
 		model.setViewName("member/paperList");
 		MemberEntity member = ((MemberEntity)session.getAttribute("currMember"));
 		model.addObject("paperList", iPaperService.findByCreaterId(member.getUid()));
 		return model;
+	}
+	
+	@RequestMapping(value = "member/paper/list" , method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> paperList(String name , Integer page , Integer limit , HttpSession session){
+		MemberEntity member = ((MemberEntity)session.getAttribute("currMember"));
+		Page<PaperEntity> list = iPaperService.memberPaperList(name, member.getUid() , page, limit);
+		return Result.jqGridResult(list.getResult(), list.getTotal(), limit, page, list.getPages());
 	}
 	
 	@RequestMapping("member/paperList/updatePaperName.html")

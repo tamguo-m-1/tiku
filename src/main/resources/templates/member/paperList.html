@@ -74,11 +74,11 @@
 		        <div class="con_top addNewPaper">
 		            <div style="position:absolute;top:12px;">
 		                <div class="fl">
-		                    <input class="select-n" ng-value="keySearch" type="text" placeholder="试卷名称关键字">
-		                    <a class="select-t" href="javascript:void(0)"></a>
+		                    <input class="select-n" name="keySearch" type="text" placeholder="试卷名称关键字">
+		                    <a class="select-t" href="javascript:void(0)" v-on:click="reload"></a>
 		                </div>
 		            </div>
-		            <span style="text-align: center;" id="addSiama"><a href="javascript:void(0)" ng-click="newPaper()">+ 新建试卷</a></span>
+		            <span style="text-align: center;" id="addSiama"><a href="javascript:void(0)">+ 新建试卷</a></span>
 		           
 		        </div>
 		
@@ -94,32 +94,33 @@
 		            </tr>
 		            </tbody>
 		        </table>
-		
-		        <div class="plist-table positionList ng-scope" style="" th:each="p,pStat:${paperList}">
+				
+				<div id="paperListDiv">
+		        <div class="plist-table positionList ng-scope" style="" v-for="paper in paperList">
 		            <div class="selectImg"></div>
 		            <table class="plist-ctab" data-positiontitle="赛码样卷（示例）" data-aftertitle="Demo体验使用" data-timetype="0" data-opentype="" data-opentime="0" data-papercode="">
 		                <tbody>
 		                <tr align="center" valign="middle" style="height:66px">
 		                    <td width="300" class="plist-bt">
 		                        <span>-</span>
-		                        <div class="M ng-binding" style="line-height: 40px;" title="软件JAVA" th:text="${p.name}">软件JAVA
+		                        <div class="M ng-binding" style="line-height: 40px;" title="软件JAVA">{{paper.name}}
                         		</div>
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.courseId}">3</span>
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">{{paper.courseId}}</span>
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.year}">3</span>
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">{{paper.year}}</span>
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.downHits}">110</span> 次
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">{{paper.downHits}}</span> 次
 		                    </td>
-		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding" th:text="${p.openHits}">60</span> 次
+		                    <td width="100"><span style="font-weight: bolder;font-size: 14px;" class="ng-binding">{{paper.openHits}}</span> 次
 		                    </td>
 		
 		                    <td class="plist-x">
 		                    <span>
-		                    	<a href="javascript:void(0)" class="updatePaperBtn" th:attr="data-name=${p.name},data-uid=${p.uid}">编辑</a>|<a href="javascript:void(0)" th:attr="data-name=${p.name},data-uid=${p.uid}" class="deletePaperBtn">删除</a>
+		                    	<a href="javascript:void(0)" v-on:click="updatePaperFn(paper.uid , paper.name)">编辑</a>|<a href="javascript:void(0)" v-on:click="deletePaperFn(paper.uid)">删除</a>
 		                	</span>
 		                        <ul class="testPaper-list">
-		                            <li><a class="addPaper" th:attr="data-name=${p.name},data-uid=${p.uid}">添加子卷</a>
+		                            <li><a class="addPaperQuestionInfoBtn" v-on:click="addPaperQuestionInfoFn(paper.uid)">添加子卷</a>
 		                            </li>
 		                            <li><a href="#" target="_blank" class="ng-scope">预览试卷</a>
 		                        </ul>
@@ -136,19 +137,19 @@
 			                    <td width="100">题目类型</td>
 			                    <td>操作</td>
 			                </tr>
-			                <tr th:each="q,qStat:${p.queInfo}" class="paperData ng-scope" align="center" valign="middle" data-arrayindex="">
-			                    <td class="ng-binding" th:text="${q.uid}"></td>
+			                <tr v-for="qInfo in paper.queInfo" class="paperData ng-scope" align="center" valign="middle" data-arrayindex="">
+			                    <td class="ng-binding">{{qInfo.uid}}</td>
 			                    <td style="position: relative">
-			                        <div class="paperTitle ng-binding" title="软件JS" style="max-width: 450px;" th:text="${q.title}">软件JS</div>
+			                        <div class="paperTitle ng-binding" title="软件JS" style="max-width: 450px;">{{qInfo.title}}</div>
 			                        <span title="" class="ng-binding"></span></td>
-			                    <td class="ng-binding" th:text="${q.name}">0 题</td>
+			                    <td class="ng-binding">{{qInfo.name}}</td>
 			                    <td class="plist-x" style="float:none">
 			                        <div>
 			                        <span style="margin-left:0;">
-			                            <a href="javascript:void(0)" th:attr="data-type=${q.type},data-title=${q.title},data-name=${q.name},data-uid=${p.uid},data-cuid=${q.uid}" class="update_paper2 updatePaperQuestionInfoBtn">编辑</a>|
-			                            <a href="javascript:void(0)" th:attr="data-type=${q.type},data-title=${q.title},data-name=${q.name},data-uid=${p.uid},data-cuid=${q.uid}"  class="del deletePaperQuestionInfoBtn">删除</a>|
-			                            <a class="up" href="javascript:void(0)">上移</a>|
-			                            <a class="down" href="javascript:void(0)">下移</a>
+			                            <a href="javascript:void(0)" class="update_paper2" v-on:click="updatePaperQuestionInfoFn(paper.uid,qInfo.name,qInfo.type,qInfo.title,qInfo.uid)">编辑</a>|
+			                            <a href="javascript:void(0)" class="del" v-on:click="deletePaperQuestionInfoFn(paper.uid , qInfo.uid)">删除</a><!-- | -->
+			                            <!-- <a class="up" href="javascript:void(0)">上移</a>|
+			                            <a class="down" href="javascript:void(0)">下移</a> -->
 			                        </span>
 			                            <ul class="addQuestion" style="margin:-3px 0 0;float:none">
 			                                <li class="ng-scope"><a class="add able" href="javascript:void(0)">添加试题</a>
@@ -163,9 +164,7 @@
 			            </table>
 		            </div>
 		        </div>
-		        <div style="text-align: center">
-		            <div id="pagination" class="pagination"></div>
-		        </div>
+				</div>
 		
 		        <div class="plist-f"></div>
 		        <div class="clear"></div>
@@ -200,6 +199,7 @@
 	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
 	<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
 	<script th:src="${setting.domain + 'js/plugins/layui/layui.js'}"></script>
+	<script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/member/paperList.js'}" ></script>
 	<script type="text/javascript" th:inline="javascript">
 		var mainHttp = [[${setting.domain}]];

@@ -15,7 +15,7 @@ CREATE TABLE `sys_menu` (
   `icon` varchar(255) NOT NULL DEFAULT '',
   `order_num` int(11) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -29,6 +29,7 @@ INSERT INTO `sys_menu` VALUES ('6', '5', '考试类型', 'tiku/subject/list.html
 INSERT INTO `sys_menu` VALUES ('7', '5', '科目管理', 'tiku/course/list.html', 'tiku:course:save,tiku:course:update,tiku:course:delete,tiku:course:list', '1', '', '2');
 INSERT INTO `sys_menu` VALUES ('8', '5', '菜单管理', 'tiku/menu/list.html', 'tiku:menu:list,tiku:menu:save,tiku:menu:update,tiku:menu:delete', '1', '', '3');
 INSERT INTO `sys_menu` VALUES ('9', '5', '试卷管理', 'tiku/paper/list.html', 'tiku:paper:list,tiku:paper:save,tiku:paper:update,tiku:paper:delete', '1', '', '4');
+INSERT INTO `sys_menu` VALUES ('11', '5', '试题管理', 'tiku/question/list.html', 'tiku:question:list,tiku:question:create,tiku:question:edit,tiku:question:delete', '1', '', '5');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -105,7 +106,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '7681b79275c1f3e5c82b579f5fe6fa9974fca815b6780bbb65fa34b532ebf16c', '223', '123', '1', '1514256410', '1522391680');
+INSERT INTO `sys_user` VALUES ('1', 'admin', '7681b79275c1f3e5c82b579f5fe6fa9974fca815b6780bbb65fa34b532ebf16c', '223', '123', '1', '1514256410', '1523502537');
 
 -- ----------------------------
 -- Table structure for tiku_ad
@@ -377,10 +378,11 @@ INSERT INTO `tiku_menu` VALUES ('71', '法务干警', '69', '', '0', '2', 'chapt
 -- ----------------------------
 DROP TABLE IF EXISTS `tiku_paper`;
 CREATE TABLE `tiku_paper` (
-  `uid` bigint(20) NOT NULL DEFAULT '0' COMMENT 'ID',
+  `uid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `course_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '科目ID',
   `school_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '学校ID',
   `area_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '地区ID',
+  `creater_id` bigint(20) NOT NULL COMMENT '创建人',
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
   `question_info` text NOT NULL COMMENT '题目类型，以逗号分割',
   `type` varchar(10) NOT NULL DEFAULT '0' COMMENT '类型(0:真题试卷,1:模拟试卷,2:押题预测,3:名校精品)',
@@ -388,22 +390,21 @@ CREATE TABLE `tiku_paper` (
   `down_hits` int(10) NOT NULL DEFAULT '0' COMMENT '下载数量',
   `open_hits` int(10) NOT NULL DEFAULT '0' COMMENT '打开数量',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tiku_paper
 -- ----------------------------
-INSERT INTO `tiku_paper` VALUES ('1', '1', '1', '1', '2017年高考真题 理科数学 (北京卷)', '[{name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"},{name:\"单选题\",type:\"1\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '2', '100');
-INSERT INTO `tiku_paper` VALUES ('2', '1', '1', '1', '理科数学 朝阳区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('3', '1', '1', '1', '理科数学 海淀区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('4', '1', '2', '1', '理科数学 东城区2017年高三上学期期末考试', '', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('5', '1', '2', '1', '理科数学 丰台区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('6', '1', '2', '1', '理科数学 海淀区2017年高三上学期期末考试', '', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('7', '3', '3', '1', '2017年高考真题 文科数学 (北京卷)', '', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('8', '5', '3', '1', '化学 海淀区2017年高三第一次模拟考试', '', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('9', '9', '3', '8', '2017年高考真题 地理 (江苏卷)', '', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('10', '9', '3', '24', '2017年高考真题 地理 (海南卷)', '', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('11', '9', '3', '9', '地理 温州市2017年高三第二次选考', '', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('1', '13', '1', '1', '2', '2018数学试卷 上海', '[{\"uid\":1,\"name\":\"简答题\",\"type\":\"3\",\"title\":\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"},{\"uid\":2,\"name\":\"多选题\",\"title\":\"书面表达 本大题共15分。\",\"type\":\"2\"}]', '1', '2018', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('2', '1', '1', '1', '2', '2017年高考真题 理科数学 (北京卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '2', '100');
+INSERT INTO `tiku_paper` VALUES ('3', '1', '1', '1', '2', '理科数学 朝阳区2017年高三第一次模拟考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('4', '1', '1', '1', '2', '理科数学 海淀区2017年高三第一次模拟考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('5', '1', '2', '1', '2', '理科数学 东城区2017年高三上学期期末考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('6', '1', '2', '1', '2', '理科数学 丰台区2017年高三第一次模拟考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('7', '1', '2', '1', '2', '理科数学 海淀区2017年高三上学期期末考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('10', '9', '3', '8', '0', '2017年高考真题 地理 (江苏卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('11', '9', '3', '24', '0', '2017年高考真题 地理 (海南卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('12', '9', '3', '9', '0', '地理 温州市2017年高三第二次选考', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
 
 -- ----------------------------
 -- Table structure for tiku_question
@@ -412,7 +413,7 @@ DROP TABLE IF EXISTS `tiku_question`;
 CREATE TABLE `tiku_question` (
   `uid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `question_type` char(1) NOT NULL DEFAULT '1' COMMENT '题目类型(1.单选题；2.多选题; 3.解答题)',
-  `subject_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '题类型',
+  `subject_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '考试类型',
   `chapter_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '章节',
   `paper_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '试卷ID',
   `content` varchar(255) NOT NULL DEFAULT '' COMMENT '题内容',

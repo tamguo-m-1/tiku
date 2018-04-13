@@ -27,4 +27,6 @@ public interface PaperMapper extends BaseDao<PaperEntity>{
 
 	List<PaperEntity> findByCreaterId(@Param(value="createrId")String createrId);
 
+	Page<PaperEntity> queryPageByNameAndCreatorId(@Param(value="name")String name, @Param(value="memberId")String memberId);
+
 }

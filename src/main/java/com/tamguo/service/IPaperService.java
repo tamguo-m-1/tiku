@@ -32,6 +32,8 @@ public interface IPaperService {
 
 	void update(PaperEntity paper);
 	
+	// 会员部分
+	
 	List<PaperEntity> findByCreaterId(String createrId);
 
 	void updatePaperName(String paperId, String name);
@@ -45,5 +47,7 @@ public interface IPaperService {
 			String type, String cuid);
 
 	void deletePaperQuestionInfoBtn(String paperId, String cuid);
+
+	Page<PaperEntity> memberPaperList(String name, String memberId , Integer page, Integer limit);
 
 }
