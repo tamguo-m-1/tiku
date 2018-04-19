@@ -19,5 +19,7 @@ public interface IQuestionService {
 	public QuestionEntity select(String questionId);
 
 	public void deleteBatch(String[] questionIds);
+
+	public void addQuestion(QuestionEntity question);
 	
 }

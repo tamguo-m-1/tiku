@@ -20,6 +20,9 @@ public class QuestionEntity implements Serializable {
 
 	@Column(name="analysis")
 	private String analysis;
+	
+	@Column(name="paper_id")
+	private BigInteger paperId;
 
 	@Column(name="answer")
 	private String answer;
@@ -137,6 +140,14 @@ public class QuestionEntity implements Serializable {
 
 	public void setScore(Integer score) {
 		this.score = score;
+	}
+
+	public BigInteger getPaperId() {
+		return paperId;
+	}
+
+	public void setPaperId(BigInteger paperId) {
+		this.paperId = paperId;
 	}
 
 }
