@@ -2,7 +2,6 @@ package com.tamguo.web.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +26,7 @@ public class QuestionController {
 	
 	@RequestMapping(value = "/member/submitQuestion", method = RequestMethod.POST)
 	@ResponseBody
-	public Result submitQuestion(@RequestBody QuestionEntity question){
+	public Result submitQuestion(QuestionEntity question){
 		try {
 			iQuestionService.addQuestion(question);
 			return Result.successResult(null);

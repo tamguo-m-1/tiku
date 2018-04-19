@@ -50,10 +50,11 @@ var vue = new Vue({
 			vue.question.content = tiganUE.getContent();
 			vue.question.answer = daanjiexiUE.getContent();
 			vue.question.analysis = daanjiexiUE.getContent();
+			vue.question.fallibility = daanjiexiUE.getContent();
 			$.ajax({
 				type: "POST",
-			    url: mainHttp + "admin/sysMenu/save.html",
-			    data: JSON.stringify(vue.question),
+			    url: mainHttp + "member/submitQuestion",
+			    data: vue.question,
 			    success: function(r){
 			    	if(r.code === 0){
 						alert('操作成功', function(index){

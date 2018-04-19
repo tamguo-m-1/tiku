@@ -57,7 +57,7 @@ public class QuestionService implements IQuestionService{
 		question.setSubjectId(BigInteger.valueOf(2));
 		question.setChapterId(BigInteger.valueOf(71));
 		question.setPaperId(BigInteger.valueOf(1));
-		questionMapper.update(question);
+		questionMapper.insert(question);
 	}
 
 }
