@@ -1,3 +1,17 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : tcz-dev
+Source Server Version : 50610
+Source Host           : 127.0.0.1:3306
+Source Database       : tiku
+
+Target Server Type    : MYSQL
+Target Server Version : 50610
+File Encoding         : 65001
+
+Date: 2018-04-20 17:51:42
+*/
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -106,7 +120,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '7681b79275c1f3e5c82b579f5fe6fa9974fca815b6780bbb65fa34b532ebf16c', '223', '123', '1', '1514256410', '1523502537');
+INSERT INTO `sys_user` VALUES ('1', 'admin', '7681b79275c1f3e5c82b579f5fe6fa9974fca815b6780bbb65fa34b532ebf16c', '223', '123', '1', '1514256410', '1524118802');
 
 -- ----------------------------
 -- Table structure for tiku_ad
@@ -395,16 +409,16 @@ CREATE TABLE `tiku_paper` (
 -- ----------------------------
 -- Records of tiku_paper
 -- ----------------------------
-INSERT INTO `tiku_paper` VALUES ('1', '13', '1', '1', '2', '2018数学试卷 上海', '[{\"uid\":1,\"name\":\"简答题\",\"type\":\"3\",\"title\":\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"},{\"uid\":2,\"name\":\"多选题\",\"title\":\"书面表达 本大题共15分。\",\"type\":\"2\"}]', '1', '2018', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('1', '13', '1', '1', '2', '2018数学试卷 上海', '[{\"uid\":1,\"name\":\"单选题\",\"title\":\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\",\"type\":\"1\"},{\"uid\":2,\"name\":\"单选题\",\"title\":\"书面表达 本大题共15分。\",\"type\":\"1\"},{\"uid\":3,\"name\":\"填空题\",\"title\":\"书面表达 本大题共15分。\",\"type\":\"3\"}]', '1', '2018', '0', '0');
 INSERT INTO `tiku_paper` VALUES ('2', '1', '1', '1', '2', '2017年高考真题 理科数学 (北京卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '2', '100');
 INSERT INTO `tiku_paper` VALUES ('3', '1', '1', '1', '2', '理科数学 朝阳区2017年高三第一次模拟考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
 INSERT INTO `tiku_paper` VALUES ('4', '1', '1', '1', '2', '理科数学 海淀区2017年高三第一次模拟考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
 INSERT INTO `tiku_paper` VALUES ('5', '1', '2', '1', '2', '理科数学 东城区2017年高三上学期期末考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
 INSERT INTO `tiku_paper` VALUES ('6', '1', '2', '1', '2', '理科数学 丰台区2017年高三第一次模拟考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
 INSERT INTO `tiku_paper` VALUES ('7', '1', '2', '1', '2', '理科数学 海淀区2017年高三上学期期末考试', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '2', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('10', '9', '3', '8', '0', '2017年高考真题 地理 (江苏卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('11', '9', '3', '24', '0', '2017年高考真题 地理 (海南卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
-INSERT INTO `tiku_paper` VALUES ('12', '9', '3', '9', '0', '地理 温州市2017年高三第二次选考', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('10', '9', '3', '8', '2', '2017年高考真题 地理 (江苏卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('11', '9', '3', '24', '2', '2017年高考真题 地理 (海南卷)', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
+INSERT INTO `tiku_paper` VALUES ('12', '9', '3', '9', '2', '地理 温州市2017年高三第二次选考', '[{uid:1,name:\"简答题\",type:\"3\",title:\"本大题共15小题，每小题1分，共15分。在每小题给出的4个选项中，有且只有一项是符合题目要求。\"}]', '1', '2017', '0', '0');
 
 -- ----------------------------
 -- Table structure for tiku_question
@@ -416,22 +430,23 @@ CREATE TABLE `tiku_question` (
   `subject_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '考试类型',
   `chapter_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '章节',
   `paper_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '试卷ID',
-  `content` varchar(255) NOT NULL DEFAULT '' COMMENT '题内容',
-  `answer` varchar(255) NOT NULL DEFAULT '' COMMENT '答案',
-  `analysis` varchar(255) NOT NULL DEFAULT '' COMMENT '解析',
-  `fallibility` varchar(255) NOT NULL DEFAULT '' COMMENT '易错点',
+  `content` text NOT NULL COMMENT '题内容',
+  `answer` text NOT NULL COMMENT '答案',
+  `analysis` text NOT NULL COMMENT '解析',
   `review_point` varchar(100) NOT NULL DEFAULT '' COMMENT '考察知识点',
   `year` varchar(5) NOT NULL DEFAULT '' COMMENT '年份',
   `score` int(10) NOT NULL DEFAULT '0' COMMENT '分数',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tiku_question
 -- ----------------------------
-INSERT INTO `tiku_question` VALUES ('1', '3', '2', '33', '1', '<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>', '<p>见解析。</p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>', '西方社会工作在不同发展阶段的特点,马克思思想', '2017', '5');
-INSERT INTO `tiku_question` VALUES ('2', '3', '2', '33', '1', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p>无。</p>', '集合的含义', '2018', '13');
-INSERT INTO `tiku_question` VALUES ('3', '1', '2', '33', '1', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '<p>无。</p>', '西方社会工作在不同发展阶段的特点,马克思思想', '2018', '5');
+INSERT INTO `tiku_question` VALUES ('1', '3', '2', '71', '1', '<p><span>社会工作专业化是在长期社会服务实践中形成，在实践中被接受的。在专业化过程中，社会工作发展的重要特点包括(  )。</span><br><br><span>                A．专业理论的完善</span><br><span>B．专业方法的发展</span><br><span>C．目标模式的变化</span><br><span>D．工作对象的拓展</span><br><span>E．理论派别的形成</span><br></p>', '<p>见解析。</p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '西方社会工作在不同发展阶段的特点,马克思思想', '2017', '5');
+INSERT INTO `tiku_question` VALUES ('2', '3', '2', '71', '1', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '集合的含义', '2018', '13');
+INSERT INTO `tiku_question` VALUES ('3', '1', '2', '71', '1', '<p><span>儿童社会工作的服务对象是所有儿童，包括(  )。</span><br><br><span>                A．以处于各种不同境遇的儿童为对象</span><br><span>B．针对儿童的所有成长阶段</span><br><span>C．面对儿童成长发展中的所有问题</span><br><span>D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br><span>E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span><br></p>', '<p><span>A,B,C,E</span></p>', '<p><span>设</span><img src=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.jpg\" data-lazysrc=\"https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/baidu/pic/item/902397dda144ad340d36a726d4a20cf430ad8581.j', '西方社会工作在不同发展阶段的特点,马克思思想', '2018', '5');
+INSERT INTO `tiku_question` VALUES ('4', '1', '2', '71', '1', '<p><span style=\"vertical-align: middle;\">儿童社会工作的服务对象是所有儿童，包括( )。</span><br/><br/><span style=\"vertical-align: middle;\">A．以处于各种不同境遇的儿童为对象</span><br/><span style=\"vertical-align: middle;\">B．针对儿童的所有成长阶段</span><br/><span style=\"vertical-align: middle;\">C．面对儿童成长发展中的所有问题</span><br/><span style=\"vertical-align: middle;\">D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br/><span style=\"vertical-align: middle;\">E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span></p>', '<p><span style=\"color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; font-size: 14px; background-color: rgb(255, 255, 255);\">[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p><span style=\"color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; font-size: 14px; background-color: rgb(255, 255, 255);\">[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '集合的含义', '2017', '5');
+INSERT INTO `tiku_question` VALUES ('5', '1', '2', '71', '1', '<p><span style=\"vertical-align: middle; color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; background-color: rgb(255, 255, 255);\">儿童社会工作的服务对象是所有儿童，包括( )。</span><br/><br/><span style=\"vertical-align: middle; color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; background-color: rgb(255, 255, 255);\">A．以处于各种不同境遇的儿童为对象</span><br/><span style=\"vertical-align: middle; color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; background-color: rgb(255, 255, 255);\">B．针对儿童的所有成长阶段</span><br/><span style=\"vertical-align: middle; color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; background-color: rgb(255, 255, 255);\">C．面对儿童成长发展中的所有问题</span><br/><span style=\"vertical-align: middle; color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; background-color: rgb(255, 255, 255);\">D．由儿童问题研究专家面向接受实验的儿童开展工作</span><br/><span style=\"vertical-align: middle; color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; background-color: rgb(255, 255, 255);\">E．要考虑影响儿童发展的儿童自我因素及社会的所有因素</span></p>', '<p><span style=\"color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; font-size: 14px; background-color: rgb(255, 255, 255);\">[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '<p><span style=\"color: rgb(51, 51, 51); font-family: 微软雅黑, &quot;Hiragino Sans GB&quot;, arial, helvetica, clean; font-size: 14px; background-color: rgb(255, 255, 255);\">[提示] 儿童社会工作是面向儿童的工作，其对象是所有儿童，包括处于各种不同境遇的儿童、儿童的所有成长阶段、儿童成长发展中的所有问题、影响儿童发展的儿童自我因素及社会的所有因素等。因此，选项A、B、C、E为正确答案。</span></p>', '集合的含义', '2017', '5');
 
 -- ----------------------------
 -- Table structure for tiku_school
