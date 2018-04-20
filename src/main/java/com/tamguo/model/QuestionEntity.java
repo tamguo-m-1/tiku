@@ -30,9 +30,6 @@ public class QuestionEntity implements Serializable {
 	@Column(name="chapter_id")
 	private BigInteger chapterId;
 
-	@Column(name="fallibility")
-	private String fallibility;
-
 	@Column(name="question_type")
 	private String questionType;
 
@@ -85,15 +82,7 @@ public class QuestionEntity implements Serializable {
 	public void setChapterId(BigInteger chapterId) {
 		this.chapterId = chapterId;
 	}
-
-	public String getFallibility() {
-		return this.fallibility;
-	}
-
-	public void setFallibility(String fallibility) {
-		this.fallibility = fallibility;
-	}
-
+	
 	public String getQuestionType() {
 		return this.questionType;
 	}

@@ -11,7 +11,6 @@ $(function () {
 			{ label: '题内容', name: 'content', width: 120 , hidden:true},
 			{ label: '答案', name: 'answer', width: 100  , hidden:true},
 			{ label: '解析', name: 'analysis', width: 50 , hidden:true},
-			{ label: '易错点', name: 'fallibility', width: 50 , hidden:true},
 			{ label: '考察知识点', name: 'reviewPoint', width: 50 , hidden:true}, 
 			{ label: '年份', name: 'year', width: 50}, 
 			{ label: '分数', name: 'score', width: 50}  

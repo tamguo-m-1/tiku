@@ -5,7 +5,6 @@
 		<title>会员中心-添加试题</title>
 		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/main.css'}" />
-		<link rel="stylesheet" th:href="${setting.domain + 'js/plugins/easydropdown/easydropdown.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/member/addQuestion.css'}">
 	</head>
 	<body>
@@ -60,7 +59,6 @@
 	                        <li><span>3</span>发起一场考试</li>
 	                        <li><span>4</span>导考生，发通知</li>
 	                        <li><span>5</span>查看报告</li>
-	                       <!-- <li><span>6</span>查看统计报告</li>-->
 	                    </ul>
 	                </div>
 	            </div>
@@ -111,169 +109,61 @@
 			                </div>
 			            </div>
 			            <div class="clear" style="height:0px;"></div>
-			            <!--填空题描述-->
-			            <div v-bind:class="{'hide': '4' != question.questionType }" class="des-bank sp_Tcb-ti" style="margin-left: -16px;margin-bottom: 10px;height: 42px">
-			                <div class="tiankongNum">
-			                    <span style="line-height: 30px;">填空数量：</span>
-			                    <div class="dropdown scrollable"><span class="old"><div class="scrollable" id="EasyDropDown293689"><span class="old"><select class="tkNumdropdown fl" onchange="tkNumChange()" id="EasyDropDownA96699">
-			                        <option value="1" selected="">1</option>
-			                        <option value="2">2</option>
-			                        <option value="3">3</option>
-			                        <option value="4">4</option>
-			                        <option value="5">5</option>
-			                        <option value="6">6</option>
-			                        <option value="7">7</option>
-			                        <option value="8">8</option>
-			                        <option value="9">9</option>
-			                        <option value="10">10</option>
-			                    </select></span><span class="selected">1</span><span class="carat"></span><div><ul><li class="active">1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul></div></div></span><span class="selected">1</span><span class="carat"></span><div><ul><li class="active">1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul></div></div>
-			                    <div style="display: inline-block;line-height: 30px;position: relative;top: -10px;font-size: 14px;">处填空</div>
-			                </div>
-			
-			                <div class="clear"></div>
-			
-			            </div>
-			            <!--问答题辅助功能-->
-			            <div v-bind:class="{'hide': '5' != question.questionType ,'sp_Tcb1  que-ask assistBox':true}" style="padding-left: 30px; margin-top: 0px;">
-			                <span>答题辅助功能：</span>
-			                <ul style="width: 700px">
-			                    <li data="s1" class="A_N_P_Ali">画图板 <em></em></li>
-			                    <li data="s2" class="A_N_P_Ali">数学公式<em></em></li>
-			                    <li data="s3" class="">插入编程代码<em></em></li>
-			                </ul>
-			            </div>
-			        </div>
-			        <!--填空题选项-->
-			        <div class="tiankong" v-bind:class="{'hide': '4' != question.questionType }" style="position: relative">
-			            <span style="font-size: 14px; position: absolute;left: 92px;top:15px;">答案：</span>
-			            <div class="copymodel" style="display:none;">
-			                <div class="tkDiv"> <span class="text-list"></span>  <div contenteditable="true" class="tkAns"><textarea style="width:100%;height:100%;"></textarea></div></div>
-			            </div>
-			            <div class="content-model">
-			                <!-- ngRepeat: a in searchItem.answerArr --><!-- ngIf: searchItem.answerCount!=undefined --><div class="tkDiv ng-scope" ng-if="searchItem.answerCount!=undefined" ng-repeat="a in searchItem.answerArr"> <span class="text-list ng-binding"> 1 </span> <div contenteditable="true" class="tkAns"><textarea style="width:100%;height: 45px;border: 0px solid;margin-top:5px;resize: auto;" class="ng-binding"></textarea></div></div>
-			            </div>
-			        </div>
-			        <div class="des-bank sp_Tcb-ti" v-bind:class="{'hide': '4' != question.questionType }" style="margin-left:32px;height: inherit;margin-bottom: 10px;overflow: hidden;padding-top: 0px;position: relative; top: -4px;">
-			            <div style="margin-left: 28px;margin-top: 10px;">
-			                <em style="color: #999">说明：考生填写内容须跟上方答案完全相同，才能得分。录入答案时，请不要加多余的空格等干扰字符</em>
-			            </div>
-			        </div>
-			        <!--------------判断题 ------------------>
-			        <div v-bind:class="{'hide': '3' != question.questionType,'sp_Tcb-ti parse parse-l':true }" style="margin: 0px;height: 70px;padding-left:70px;">
-			            <em style="float: left;font-size: 14px;margin-right: 13px;position: relative;left: 6px;overflow:hidden;"><b class="start"> * </b> 选项：</em>
-			            <div class="ueditor type3Box">
-			                <table style="margin-bottom: 10px;">
-			                    <tbody><tr>
-			                        <td width="20"> <input type="radio" ng-checked="searchItem.answer == searchItem.optionsExt[0].optvalue &amp;&amp; searchItem.answer!=undefined"></td>
-			                        <td>
-			                            <textarea class="itemCode ng-pristine ng-untouched ng-valid" style="background:#e7e7e7;width: 600px;height:20px;resize: none;overflow: hidden; padding-top: 9px;" ng-model="searchItem.optionsExt[0].opttitle">是</textarea>
-			                        </td>
-			                        <td style="position: relative;"><span id="ques-ok3" class="addQues-ok" style="display: none;top: -21px;"></span></td>
-			                    </tr>
-			                </tbody></table>
-			                <table style="margin-bottom: 20px;">
-			                    <tbody><tr>
-			                        <td width="20"> <input type="radio" ng-checked="searchItem.answer == searchItem.optionsExt[1].optvalue &amp;&amp; searchItem.answer!=undefined"></td>
-			                        <td>
-			                            <textarea class="itemCode ng-pristine ng-untouched ng-valid" style="background:#e7e7e7;width: 600px;height:20px;resize: none;overflow: hidden; padding-top: 9px; " ng-model="searchItem.optionsExt[1].opttitle">否</textarea>
-			                        </td>
-			                        <td style="position: relative;"><span id="ques-ok3" class="addQues-ok" style="display:none ;top: -21px;"></span></td>
-			                    </tr>
-			                </tbody></table>
-			            </div>
-			            <!--<a class="updown" href="javascript:void(0)">请上传题解</a>-->
-			        </div>
-			        <!-------------- 单选 ------------------->
-			        <div v-bind:class="{'hide': '1' != question.questionType,'danxuan danxuan-s':true }">
-			
-			            <span style="position: relative;"><b class="start"> * </b> 选项：</span>
-			            <div class="answer">
-			                <div class="optionsListBox ng-scope">
-			                    <div :class="[ 'answer'+answer.id,  { 'an editorBox utitl': true } ]" v-for="(answer, index) in answerSingleSeleList">
-			                    <table>
-			                        <tbody><tr>
-			                            <td> <input type="radio" :value="answer.id" v-model="singleSele"></td>
-			                            <td>
-			                                <div class="content">
-			                                    <div class="addQues-optextarea-div" contenteditable="true" v-text="answer.value" @input="answer.value = $event.target.innerText">
-			                                    </div>
-			                                    <div :class="{'editTip':true,'hide':true}" v-on:click="useEditor('danxuanEditor'+ index)"><a href="javascript:void(0)"><i class="fa fa-plus"></i>使用编辑器</a></div>
-			                                </div>
-			                            </td>
-			                            <td style="position: relative;width: 100px;">
-			                                <div style="position: relative">
-			                                    <a href="javascript:void(0)" class="addQues-close" v-on:click="deleSingleSeleList(index,answer.id)"><i></i></a>
-			                                    <span id="ques-ok3" class="addQues-ok" style="display: none;"></span>
-			                                </div>
-			                            </td>
-			                        </tr>
-			                    </tbody></table>
-			                    <div class="clear"></div>
-			                </div>
-			                </div>
-			            </div>
-			            <div class="clear" style="height: 0px;"></div>
-			            <a href="javascript:void(0)" class="add-answer" v-on:click="vue.addSingleSeleList();"> + 添加选项</a>
-			        </div>
-			        
-			        <div v-bind:class="{'hide': '2' != question.questionType ,'duoxuan duoxuan-s':true }">
-			
-			            <span style="position: relative;"><b class="start"> * </b> 选项：</span>
-			            <div class="answer">
-			                <div class="optionsListBox ng-scope">
-			                <div :class="[ 'answer'+answer.id,  { 'an editorBox utitl': true } ]" v-for="(answer , index) in answerMultiSeleList">
-			                    <table>
-			                        <tbody><tr>
-			                            <td> <input type="checkbox"></td>
-			                            <td>
-			                                <div class="content">
-			                                    <div class="addQues-optextarea-div" contenteditable="true"></div>
-			                                    <div class="editTip" :class="{'editTip':true,'hide':true}"><a href="javascript:void(0)"><i class="fa fa-plus"></i>使用编辑器</a></div>
-			                                </div>
-			                            </td>
-			                            <td style="position: relative;width: 100px;">
-			                                <div style="position: relative">
-			                                    <a href="javascript:void(0)" class="addQues-close" v-on:click="deleMultiSeleList(index,answer.id)"><i></i></a>
-			                                    <span id="ques-ok3" class="addQues-ok" style="display: none;"></span>
-			                                </div>
-			                            </td>
-			                        </tr>
-			                    </tbody></table>
-			                    <div class="clear"></div>
-			                </div>
-			                </div>
-			            </div>
-			            <div class="clear" style="height: 0px;"></div>
-			            <a href="javascript:void(0)" class="add-answer" v-on:click="addMultiSelect()"> + 添加选项</a>
 			        </div>
 			    </div>
 			    
 			    <div class="clear" style="height:0px"></div>
 			    
 			    <div class="sp_Tcen" style="margin-bottom: 30px;">
-			        <div class="sp_Tcb-ti parse" style="padding-left: 87px;margin-bottom: 0px;display: none">
-			            <em style="float: left;font-size: 14px;margin-right: 13px;position: relative;left: 6px;">答案：</em>
-			        </div>
-			        <div class="clear" style="height: 0px;"></div>
-			        <!----------------------->
 			        <div class="sp_Tcb-ti parse" style="margin: 0px; height: 70px;">
-			            <em style="float: left;font-size: 14px;margin-right: 13px;position: relative;left: 6px;overflow-y:auto;">题目解析：</em>
+			            <span style="float: left;font-size: 14px;margin-right: 13px;position: relative;left: 6px;overflow-y:auto;">题目答案：</span>
 			            <div class="ueditor" style="">
-			                <div class="itemCode daanjiexi ng-pristine ng-untouched ng-valid edui-default" id="daanjiexi" style="width: 682px; resize: none; color: rgb(204, 204, 204) !important;">
-			                </div><textarea ng-model="searchItem.daanjiexi" class="itemCode daanjiexi ng-pristine ng-untouched ng-valid" style="width: 682px; height: 54px; resize: none; color: rgb(204, 204, 204) !important; display: none;">                </textarea>
-			            </div>
+	                        <script id="daan" type="text/plain">
+							</script>
+		                </div>
+			        </div>
+			    </div>
+			    <div class="clear" style="height: 0px;"></div>
+			    <div class="sp_Tcen" style="margin-bottom: 30px;margin-top:20px;">
+			        <div class="sp_Tcb-ti parse" style="margin: 0px; height: 70px;">
+			            <span style="float: left;font-size: 14px;margin-right: 13px;position: relative;left: 6px;overflow-y:auto;">题目解析：</span>
+			            <div class="ueditor" style="">
+	                        <script id="daanjiexi" type="text/plain">
+							    </script>
+		                </div>
 			        </div>
 			        <div class="clear"></div>
 			        <div class="submitBtns">
-			          <!--  <a href="javascript:void(0)" class="view" ng-if="version == 2 || version == 3">预览</a>-->
 			            <a href="javascript:void(0)" v-on:click="submitQuestion()">提交</a>
 			        </div>
 			    </div>
-			    
 			</div>
 		</div>
+		<div class="footer">
+				<div class="public">
+					<div class="footer-left" style="width:60%">
+						<div class="footer-logo" style="margin-top: -5px;padding-top:0px;"><img th:src="${setting.domain + 'images/member/footer/blogo.png'}" style=" position: relative;left: -32px;top: 2px;"></div>
+						<div class="footer-txt">
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/about.html">关于我们</a>　|
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/contact.html">联系我们</a>　|
+							<a target="_blank" href="http://www.acmcoder.com/aboutus/shengming.html">免责声明</a><br>Copyright © acmcoder.com<br><span class="inputSpan">All Rights Reversed 京ICP备15012255-1</span></div>
+					</div>
+					<div class="footer-right" style="width:40%;float: left;padding-top: 40px;text-align: center;line-height: 17px;">
+						<table style="line-height: 26px;text-align: center;">
+							<tbody>
+								<tr>
+									<td width="100"><img th:src="${setting.domain + 'images/member/footer/f-phone.png'}"></td>
+									<td style="font-size: 14px;width:200px">客服热线：010-85359782<br>销售热线：010-85359766</td>
+									<td style="font-size: 14px;">
+										<a class="weixinPng" href="javascript:void(0)" style="color:white;position: relative;"><img th:src="${setting.domain + 'images/member/footer/f-weixin.png'}"> &nbsp;&nbsp;iamacmcoder<img class="hide" style="width: 80px;position: absolute;left: 130px;top: -50px;" th:src="${setting.domain + 'images/member/footer/saimaweixin.jpg'}"></a><br>
+										<a href="javascript:void(0)" style="color:white"><img th:src="${setting.domain + 'images/member/footer/f-qq.png'}"> &nbsp;&nbsp;2531743633</a><br></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
-		<script type="text/x-javascript" th:src="${setting.domain + 'js/plugins/easydropdown/jquery.easydropdown.js'}"></script>
 		<script type="text/javascript" th:src="${setting.domain + 'js/plugins/ueditor/ueditor.config.js'}"></script>
 		<script type="text/javascript" th:src="${setting.domain + 'js/plugins/ueditor/ueditor.all.min.js'}"></script>
 		<script type="text/javascript" th:inline="javascript">
@@ -281,55 +171,6 @@
 		</script>
 		<script type="text/javascript" th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
 		<script type="text/javascript" th:src="${setting.domain + 'js/member/addQuestion.js'}"></script>
-		<script type="text/javascript">
-			$(function(){
-			   /*  var $selects = $('select');
-			                         
-			    $selects.easyDropDown({
-			        cutOff: 10,
-			        wrapperClass: 'my-dropdown-class',
-			        onSelect: function(selected){
-			        }
-			    });  */
-			    
-			    window.tiganUE =  UE.getEditor('tigan',{
-                    //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-                    toolbars: [
-                        [ 'source','undo', 'redo','fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',
-                            'bold', 'italic', 'underline', 'fontborder','|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','|', 'strikethrough', 'superscript', 'subscript', 'removeformat','|', 'insertorderedlist', 'insertunorderedlist','lineheight', '|',
-                            'link', 'unlink','|',
-                            'simpleupload','imagefloat', 'emotion', 'insertvideo', 'insertaudio', 'attachment','insertframe',
-                            'horizontal', '|',
-                            'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol','|','insertcode',]
-                    ],
-                    //关闭字数统计
-                    wordCount:false,
-                    autoFloatEnabled:false,
-                    //关闭elementPath
-                    elementPathEnabled:false,
-                    //默认的编辑区域高度
-                    initialFrameHeight:120,
-
-               });
-               
-				window.daanjiexiUE =  UE.getEditor('daanjiexi',{
-	                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-	                toolbars: [
-	                    ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
-	                ],
-	                //focus时自动清空初始化时的内容
-	                autoClearinitialContent:true,
-	                //关闭字数统计
-	                wordCount:false,
-	                //关闭elementPath
-	                elementPathEnabled:false,
-	                autoFloatEnabled:false,
-	                //默认的编辑区域高度
-	//                initialFrameHeight:160,
-	
-	            	})
-			});
-		</script>
 	</body>
 
 </html>
