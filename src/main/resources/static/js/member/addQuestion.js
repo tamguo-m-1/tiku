@@ -56,65 +56,14 @@ var vue = new Vue({
 			    data: vue.question,
 			    success: function(r){
 			    	if(r.code === 0){
-						alert('操作成功', function(index){
+			    		layer.alert('操作成功', function(index){
 						//	vm.reload();
 						});
 					}else{
-						alert(r.message);
+						layer.alert(r.msg);
 					}
 				}
 			});
 		}
 	}
 });
-
-window.tiganUE =  UE.getEditor('tigan',{
-    //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-    toolbars: [
-        [ 'source','undo', 'redo','fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',
-            'bold', 'italic', 'underline', 'fontborder','|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','|', 'strikethrough', 'superscript', 'subscript', 'removeformat','|', 'insertorderedlist', 'insertunorderedlist','lineheight', '|',
-            'link', 'unlink','|',
-            'simpleupload','imagefloat', 'emotion', 'insertvideo', 'insertaudio', 'attachment','insertframe',
-            'horizontal', '|',
-            'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol','|','insertcode',]
-    ],
-    //关闭字数统计
-    wordCount:false,
-    autoFloatEnabled:false,
-    //关闭elementPath
-    elementPathEnabled:false,
-    //默认的编辑区域高度
-    initialFrameHeight:130,
-});
-
-window.daanUE =  UE.getEditor('daan',{
-    //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-    toolbars: [
-        ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
-    ],
-    //focus时自动清空初始化时的内容
-    autoClearinitialContent:true,
-    //关闭字数统计
-    wordCount:false,
-    //关闭elementPath
-    elementPathEnabled:false,
-    autoFloatEnabled:false,
-    //默认的编辑区域高度
-    initialFrameHeight:80,
-})
-
-window.daanjiexiUE =  UE.getEditor('daanjiexi',{
-    //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-    toolbars: [
-        ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
-    ],
-    //focus时自动清空初始化时的内容
-    autoClearinitialContent:true,
-    //关闭字数统计
-    wordCount:false,
-    //关闭elementPath
-    elementPathEnabled:false,
-    autoFloatEnabled:false,
-    //默认的编辑区域高度
-    initialFrameHeight:80,
-})
