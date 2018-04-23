@@ -61,4 +61,32 @@
 		</where>		
 	</select>
 	
+	<select id="queryQuestionList" resultMap="resultMap">
+		SELECT
+			q.analysis,
+			q.answer,
+			q.chapter_id,
+			q.content,
+			q.paper_id,
+			q.question_type,
+			q.review_point,
+			q.score,
+			q.subject_id,
+			q.uid,
+			q.`year`
+		FROM
+			tiku_question q
+		<where>
+			<if test="uid != null and uid != ''">
+				q.uid = #{uid}
+			</if>
+			<if test="reviewPoint != null and reviewPoint != ''">
+				q.review_point like #{reviewPoint}
+			</if>
+			<if test="questionType != null and questionType != ''">
+				q.question_type = #{questionType}
+			</if>
+		</where>
+	</select>
+	
 </mapper>

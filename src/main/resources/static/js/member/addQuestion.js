@@ -57,7 +57,7 @@ var vue = new Vue({
 			    success: function(r){
 			    	if(r.code === 0){
 			    		layer.alert('操作成功', function(index){
-						//	vm.reload();
+			    			window.location.href = mainHttp + "member/questionList.html";
 						});
 					}else{
 						layer.alert(r.msg);

@@ -16,4 +16,6 @@ public interface QuestionMapper extends BaseDao<QuestionEntity>{
 
 	Page<QuestionEntity> queryPageByName(@Param(value="name")String name);
 
+	Page<QuestionEntity> queryQuestionList(@Param(value="questionType")String questionType , @Param(value="uid")String uid , @Param(value="reviewPoint")String reviewPoint);
+
 }

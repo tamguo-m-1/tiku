@@ -21,5 +21,7 @@ public interface IQuestionService {
 	public void deleteBatch(String[] questionIds);
 
 	public void addQuestion(QuestionEntity question);
+
+	public Page<QuestionEntity> queryQuestionList(QuestionEntity question , Integer page , Integer limit);
 	
 }

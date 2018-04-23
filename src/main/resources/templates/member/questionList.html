@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>探果-管理试题</title>
+		<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css' }" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/main.css' }" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/member/questionList.css' }" />
+		<link rel="stylesheet" th:href="${setting.domain + 'js/plugins/layui/css/layui.css'}">
+	</head>
+	<body>
+		<div class="header">
+			<div class="menu">
+				<div class="menu-contain clearfix">
+					<a><span class="container-logo"></span></a>		
+					<div class="contain-login">
+		                <div class="login-container">
+		                    <i class="login-icon iconfont icon-yonghu"></i>登录
+		                </div>
+		                <ul class="login-option dis-none">
+		                    <li><a href="/">我的首页</a></li>
+		                    <li><a href="/">账号设置</a></li>
+		                    <li><a href="/">退出</a></li>
+		                </ul>
+		            </div>
+					<ul class="contain-ul">
+		                <li class="contain-li contain-li-hashover" data-class="zhiye">
+		                     	职业资格类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="zhiye" style="transform: rotate(0deg);"></i>
+		                </li>
+		                <li class="contain-li contain-li-hashover" data-class="jianzhu">
+		                                        建筑类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="jianzhu" style="transform: rotate(0deg);"></i>
+		                </li>
+		                <li class="contain-li contain-li-hashover" data-class="xueli">
+		                                        学历类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="xueli" style="transform: rotate(0deg);"></i>
+		                </li>
+		                <li class="contain-li contain-li-hashover" data-class="caikuai">
+		                                        财会类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="caikuai" style="transform: rotate(0deg);"></i>
+		                </li>
+		                <li class="contain-li contain-li-hashover" data-class="yiyaolei">
+		                                        医药类<i class="li-icon iconfont icon-xialajiantouxiao" data-class="yiyaolei" style="transform: rotate(0deg);"></i>
+		                </li>
+		                <li class="contain-li contain-li-hashover" data-class="all">
+		                                        全部考试<i class="li-icon iconfont icon-yingyongchengxu-xianxing" data-class="all" style="transform: rotate(0deg);"></i>
+		                </li>
+		            </ul>	
+	            </div>
+			</div>
+		</div>
+		
+		<div class="banner_list">
+	        <div class="cnav">
+	            <div class="public cnav_b">
+	                <div class="cnav_left">
+	                    	考试五步曲
+	                </div>
+	                <div class="cnav_right">
+	                    <ul>
+	                        <li><span>1</span>新建试卷</li>
+	                        <li><span>2</span>添加试题</li>
+	                        <li><span>3</span>发起一场考试</li>
+	                        <li><span>4</span>导考生，发通知</li>
+	                        <li><span>5</span>查看报告</li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    
+	    <div class="plist test_public  prof_t ng-scope">
+    		<div class="pronext" style="margin-right: 16px;"><a href="/position#/list/1" class="backM">返回试卷列表页</a></div>
+		    <div class="topbt topbt-2">
+		        <h3>管理试题</h3>
+		    </div>
+		    <div class="test">
+		        <span style="margin-right: 10px;display: inline-block;line-height:20px;">试卷：<span style="font-weight: bolder;font-size: 16px;    display: inline-block;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;max-width: 304px;position:relative;top:5px;" title="赛码样卷（示例）" class="ng-binding">赛码样卷（示例）</span></span>
+		        <span style="margin-right: 10px;margin-left:15px; display: inline-block;line-height:20px;">子卷：<span style="font-weight: bolder;font-size: 16px;    display: inline-block;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;max-width:240px;position:relative;top:5px;" title="填空题（示例）" class="ng-binding">填空题（示例）</span></span>
+		    </div>
+		    <div class="addQues_btn">
+		        <span><a ng-click="AddQues()" href="javascript:void(0)">+ 添加试题</a></span>
+		    </div>
+    <!--  -->
+		    <div class="apa_ri" id="container">
+		        <div class="apa_ri-tab">
+		            <div class="apa_ri-t" style="height:" ng-keypress="($event.which === 13)?searchQuesesBtn():0">
+		                <table class="quesQueryBox">
+		                    <tbody><tr>
+		                        <td>题目类型：</td>
+		                        <td>
+		                            <select style="height:33px;border: 1px solid #dcdfe3;width:140px;" v-model="q.questionType">
+										<option>请选择</option> 
+										<option value="{{type.uid}}" v-for="type in questionTypes">{{type.name}}</option>                         	
+		                            </select>
+		                        <td>试题编号：</td>
+		                        <td><input v-model="q.uid" class="idno ng-pristine ng-untouched ng-valid" type="text" style="left: 71px;"></td>
+		                        <td>题干关键词：</td>
+		                        <td><input v-model="q.reviewPoint" class="quesTitle ng-pristine ng-untouched ng-valid" type="text" style="width: 230px;"></td>
+		                    </tr>
+		                    <tr><td colspan="6"><div class="apa_ri-t5"><p v-on:click="queryQuestionList()">搜索试题</p></div></td></tr>
+		                </tbody></table>
+		            </div>
+		        </div>
+        <div class="apa_ri-two">
+            <div class="apa_ri-qx">
+                <span style="float:left;"><input type="checkbox">全选</span>
+                <span class="mOperation-btn" style="float:left;">
+                            <a href="javascript:void(0)" class="active btn delQues delect" style="margin-top: 0px;padding: 0px 10px;" ng-click="delQues()">移除</a>
+                            <!-- ngIf: (version==2||version==3) && paper.forCode!=true -->
+                        </span>
+                <div class="guidebar quesBar" style="width:100px;float: right; position: relative;top: -6px; right: -5px;">
+                    <select style="height:33px;border: 1px solid #dcdfe3;width:85px;">
+						<option>请选择</option>                            	
+                    </select>
+                </div>
+                <span style="position: relative;top: 3px;">共 <em class="ng-binding">6</em> 项查询结果</span>
+            </div>
+            <div class="quesesBox quesManBox">
+				<div class="paperQuesList ng-scope" ng-repeat="qt in questionsList" pqid="5acadc5767f4961031530230" orderno="10" style="" v-for="question in questionList">
+                    <div class="chouTiBoxNo">
+                        <div class="qtBox">
+                            <div ng-repeat="q in qt.ques" class="qtList ng-scope">
+                                <div ng-if="q._id != undefined" class="ng-scope">
+                                   		<div ng-if="q.questype==4 || q.questype==5" positionid="q._id" class="apa_ri-cen ng-scope"><em></em>
+                                        <div class="apa_ri-cenbt">
+                                            <input type="checkbox" value="5acadc5767f4961031530230" style="position: relative;left: -4px;">
+                                            <span class="quesNo ng-binding" style="display: inline-block;width:20px;left:0px; font-weight: bolder; ">1、</span>
+                                            <span ng-if="q.questype==4" style="display: inline-block;width: 50px;left: 0px;color: #2abcb8;font-weight: bolder" class="ng-scope">填空题</span><!-- end ngIf: q.questype==4 -->
+                                            <span style="display: inline-block;width:initial;left:0px;">|</span><pre class="titlePre"><div class="quesTitle ng-binding" v-html="question.content">
+                                            
+                                            </div></pre>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <ul class="apa_ri-cenul">
+
+                                            <div class="answerBox" style="width:750px;">
+                                                <span style="color: #ff8a00;">参考答案：</span><pre style="color:#29bdb9;word-break: break-all;width: 690px" v-html="question.answer" class="ng-binding">B | D | B | C | A</pre>
+                                            </div>
+                                        </ul>
+                                        <div class="apa_ri-cenzb">
+                                            <ul>
+                                            </ul>
+                                            <span ng-if="q._id!=null" class="ng-binding ng-scope"><!-- ngIf: q.id!=null --><strong ng-if="q.id!=null" style="font-weight: normal;" class="ng-binding ng-scope">试题编号：{{question.uid}}<em>|</em></strong><!-- end ngIf: q.id!=null -->
+                                            <strong ng-if="qt.fenzhi!=null" style="font-weight: normal;" class="ng-binding ng-scope">试题分值：{{question.score}}<em>|</em></strong>
+                                        <span>
+                                            <span ng-if="qt.quesMode!=1" class="fl ng-scope">
+                                            <span style="cursor: pointer;font-weight: bolder;color: #2abcb8;float: left" ng-click="moveup(qt)">上移</span>
+                                            <span style="font-weight: bolder;color: #dadada;float: left;margin: 0 4px; ">|</span>
+                                            <span style="font-weight: bolder;color: #2abcb8;float: left;margin-right: 10px;cursor: pointer;" ng-click="movedown(qt)">下移</span>
+                                            </span>
+                                            <a href="/ques#/edit/5acadc5767f496103153022f">编辑</a>
+                                            <a ng-if="qt.quesMode!=1" class="ng-scope" href="javascript:void(0)" ng-click="del(qt)">移除</a>
+                                        </span>
+                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center">
+		        <div class="plist-f" style="text-align: center">
+		        	<div id="pagination"></div>
+		        </div>
+            </div>
+        </div>
+    </div>
+</div>
+	</body>
+	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
+	<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
+	<script th:src="${setting.domain + 'js/plugins/layui/layui.js'}"></script>
+	<script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
+	<script type="text/javascript" th:inline="javascript">
+		var mainHttp = [[${setting.domain}]];
+	</script>
+	<script type="text/javascript" th:src="${setting.domain + 'js/member/questionList.js'}" ></script>
+</html>

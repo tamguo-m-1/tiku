@@ -1,0 +1,502 @@
+.banner_list {
+    margin-bottom: 10px;
+}
+.cnav {
+    height: 98px;
+    width: 100%;
+    background: url(../../images/member/index/project-cnavbj.jpg) no-repeat;
+    background-size: cover;
+}
+.public.cnav_b {
+    width: 1098px;
+    margin: 0px auto;
+    position: relative;
+}
+.cnav_b {
+    position: relative;
+}
+.public {
+    width: 1098px;
+    margin: 0px auto;
+}
+.cnav_b {
+    width: 930px!important;
+}
+.cnav_left {
+    float: left;
+    width: 162px;
+    height: 54px;
+    margin: 22px 0 0 46px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 54px;
+    background: url(../../images/member/index/top-kaos6.png) no-repeat;
+    padding-left: 55px;
+}
+.banner_list .cnav_right {
+    width: 660px;
+}
+.cnav_right {
+    float: left;
+    width: 583px;
+    height: 5px;
+    background: url(../../images/member/index/project-cnav.png) repeat-x;
+    margin: 47px 0 0 0;
+}
+.cnav_right ul {
+    position: absolute;
+    top: 30px;
+    left: 230px;
+}
+.banner_list .cnav_right ul li {
+    width: 105px;
+}
+.cnav_right ul li {
+    width: 120px;
+    height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    margin-left: 32px;
+}
+.cnav_right ul li span {
+    font-size: 12px;
+    font-weight: bold;
+    width: 27px;
+    height: 27px;
+    color: #29bdb9;
+    display: block;
+    margin: 5px auto 5px auto;
+    text-align: center;
+    line-height: 27px;
+    background: url(../../images/member/index/project-candidate.png) no-repeat -26px 0;
+}
+
+.test_public {
+    position: relative;
+}
+.test_public {
+    width: 1100px;
+    min-height: 233px;
+    margin: 0 auto;
+    background: #fff;
+}
+.pronext {
+    float: right;
+    width: initial;
+    height: 26px;
+    margin-top: 14px;
+    border: 1px solid #2abcb8;
+    background: inherit;
+    color: #2abcb8;
+}
+.pronext {
+    border: none;
+}
+.pronext a {
+    display: block;
+    width: initial;
+    margin-left: 2px;
+    font-size: 12px;
+    line-height: 25px;
+    color: #2abcb8;
+    text-align: center;
+    font-weight: 100;
+    padding: 0 4px;
+}
+.pronext a {
+    background: #2abcb8;
+    color: white;
+}
+.test_public .topbt {
+    height: 47px;
+}
+.topbt-2 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #dadada;
+    text-align: left;
+}
+.topbt {
+    width: 1066px;
+    height: 47px;
+    line-height: 47px;
+    background: url(../../images/member/index/project-candidate.png) no-repeat -126px 0;
+    margin: 0 auto 1px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.topbt h3 {
+    display: inline;
+    font-size: 18px;
+    margin-left: 15px;
+}
+.topbt h3 {
+    font-weight: bolder!important;
+}
+.test {
+    font-size: 14px;
+    position: absolute;
+    left: 101px;
+    color: #333;
+    top: 76px;
+}
+.addQues_btn {
+    height: 20px;
+}
+.addQues_btn span {
+    left: 879px;
+}
+.addQues_btn span {
+    display: block;
+    width: 130px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    background: #ff8a00;
+    position: relative;
+    left: 866px;
+    top: 7px;
+    text-align: center;
+}
+.addQues_btn span a {
+    color: #fff;
+}
+.addQues_btn span a {
+    font-size: 14px!important;
+}
+.addQues_btn span a {
+    display: block;
+}
+.apa_ri {
+    margin: 23px auto 10px;
+    width: 920px;
+}
+.apa_ri-tab {
+    background: #fff;
+    height: 271px;
+    width: 100%;
+    padding-top: 22px;
+    box-sizing: content-box;
+}
+.apa_ri-tab {
+    height: inherit;
+    min-height: inherit;
+}
+.apa_ri .apa_ri-t {
+    width: initial;
+}
+.apa_ri-t {
+    border: 1px solid #eceef4;
+    background: #fafbfc;
+    width: 900px;
+    min-height: 233px;
+    margin: 0 0 0 10px;
+}
+.apa_ri-t {
+    min-height: inherit;
+}
+.quesQueryBox {
+    width: 100%;
+    margin-top: 10px;
+}
+.quesQueryBox tr {
+    line-height: 35px;
+}
+.quesQueryBox tr td:nth-child(1) {
+    width: 85px;
+    text-align: right;
+}
+.quesQueryBox tr td {
+    padding: 2px 2px;
+    line-height: 35px;
+}
+.quesQueryBox tr td:nth-child(3) {
+    width: 85px;
+    text-align: right;
+}
+.quesQueryBox tr td:nth-child(5) {
+    width: 85px;
+    text-align: right;
+}
+.quesQueryBox input {
+    width: 145px;
+    height: 100%;
+    border: 1px solid #dcdfe3;
+    padding-left: 5px;
+    margin-right: 10px;
+    height: 32px;
+    margin-left: 0px;
+}
+.apa_ri-two {
+    margin-top: 0px;
+}
+.apa_ri-two {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 10px 0;
+}
+.apa_ri-two .apa_ri-qx {
+    margin-bottom: 18px;
+}
+.apa_ri-qx {
+    width: 100%;
+    padding: 0 5px 0 10px;
+    clear: both;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.apa_ri-two input {
+    margin: 0 5px;
+}
+.apa_ri-qx span {
+    float: right;
+    font-size: 12px;
+    color: #999;
+    margin-right: 10px;
+}
+.mOperation-btn a.btn {
+    height: 32px;
+    margin: 0 auto;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    background: #29bdb9;
+    margin-top: 14px;
+    cursor: pointer;
+    padding: 4px 20px;
+}
+.mOperation-btn {
+    float: left;
+    margin-top: -7px;
+}
+.chouTiBoxNo {
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+.apa_ri .quesManBox .apa_ri-cen {
+    margin: 0px;
+}
+.apa_ri .apa_ri-cen {
+    margin: 0px 0 10px 10px;
+}
+.apa_ri .apa_ri-cen {
+    width: initial;
+}
+.apa_ri-cen {
+    width: 900px;
+    height: auto;
+    border: 1px solid #eceef4;
+    position: relative;
+    margin: 10px 0 0 10px;
+}
+.quesesBox em {
+    font-style: italic;
+}
+.quesesBox .apa_ri-cenbt {
+    padding-left: 0px;
+}
+.apa_ri-cenbt {
+    height: auto;
+    width: 100%;
+    background: #f2f2f2;
+    display: inline-block;
+    padding-left: 37px;
+}
+.quesesBox .apa_ri-cenbt input {
+    margin: 8px 5px 8px 10px;
+}
+.apa_ri-cenbt input {
+    margin-left: 5px;
+    float: left;
+    margin: 8px 10px;
+}
+.quesesBox .apa_ri-cenbt span {
+    width: initial;
+    position: initial;
+    margin: 5px 5px;
+}
+.apa_ri-cenbt span {
+    float: left;
+    line-height: 20px;
+    display: block;
+    width: 750px;
+    margin: 5px 0;
+}
+.apa_ri-cenbt span {
+    float: left;
+    line-height: 20px;
+    display: block;
+    width: 750px;
+    margin: 5px 0;
+    position: relative;
+    left: 6px;
+}
+.quesNo {
+    padding-right: 2px;
+    white-space: nowrap;
+}
+.apa_ri-cenbt pre.titlePre {
+    font-family: " Î¢ÈíÑÅºÚ"important;
+    padding: 6px;
+}
+.titlePre {
+    float: right;
+    max-width: 750px;
+}
+.titlePre {
+    float: none;
+    max-width: inherit;
+}
+.quesManBox .apa_ri-cenbt .quesTitle {
+    padding: 0px;
+}
+.clear {
+    clear: both;
+    height: 10px;
+}
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.quesesBox .apa_ri-cenul {
+    height: initial;
+}
+.apa_ri-cenul {
+    width: 730px;
+}
+.apa_ri-cenul {
+    margin-left: 139px;
+}
+.apa_ri-cenul {
+    width: 800px;
+    height: 110px;
+    margin-left: 32px;
+    position: relative;
+    float: none;
+    line-height: normal;
+}
+.apa_ri-cenul .answerBox {
+    display: -webkit-box;
+}
+.quesesBox .apa_ri-cenzb {
+    padding: 5px 12px 10px 30px;
+    height: 45px;
+    margin: 0px;
+    width: initial;
+}
+.quesesBox .apa_ri-cenzb {
+    margin: 5px 0 10px 48px;
+}
+.apa_ri-cenzb {
+    height: 26px;
+    width: 845px;
+    color: #999;
+    font-size: 12px;
+    margin: 5px 0 10px 37px;
+}
+.quesesBox .apa_ri-cenzb em {
+    font-style: inherit;
+}
+.apa_ri-cenzb span em {
+    margin: 0 8px;
+    color: #e4e4e4;
+}
+.quesesBox .apa_ri-cenzb em {
+    font-style: inherit;
+}
+.apa_ri-cenzb span em {
+    margin: 0 8px;
+    color: #e4e4e4;
+}
+.apa_ri-cenzb span.fl {
+    float: left;
+}
+.fl {
+    float: left;
+    display: inline;
+    margin-bottom: 16px;
+}
+.apa_ri-cenzb span {
+    float: right;
+    line-height: 30px;
+    display: block;
+    height: 32px;
+    overflow: hidden;
+}
+.apa_ri-cenzb span a {
+    float: left;
+    padding: 0 5px;
+    min-width: 60px;
+    height: 30px;
+    font-size: 12px;
+    color: #29bdb9;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #29bdb9;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.apa_ri-cenzb span a {
+    margin-left: 5px;
+}
+.apa_ri-cenzb span a {
+    border-radius: 4px;
+}
+.apa_ri-t5 {
+    margin: 10px auto 10px;
+    margin-top: 5px;
+}
+.apa_ri-t5 {
+    width: 98px;
+    height: 32px;
+    margin: 30px auto 10px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    background: #29bdb9;
+    cursor: pointer;
+}
+.apa_ri-qx span em {
+    color: #29bdb9;
+    font-weight: bolder;
+}
+.A_N_P_select span, ul, li {
+    float: left;
+    line-height: 30px;
+}
+.A_N_P_select span, ul, li {
+    line-height: 28px;
+}
+pre {
+    overflow: auto;
+}
+pre {
+    white-space: pre-wrap;
+}
+.quesesBox .apa_ri-cenbt .quesTitle span {
+    margin: 0px;
+    float: none;
+    display: initial;
+}
+.quesesBox .apa_ri-cenbt span {
+    width: initial;
+    position: initial;
+    margin: 5px 5px;
+}
+.quesesBox img {
+    max-width: 100%;
+}

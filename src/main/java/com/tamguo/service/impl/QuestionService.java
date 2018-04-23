@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,6 +59,15 @@ public class QuestionService implements IQuestionService{
 		question.setChapterId(BigInteger.valueOf(71));
 		question.setPaperId(BigInteger.valueOf(1));
 		questionMapper.insert(question);
+	}
+
+	@Override
+	public Page<QuestionEntity> queryQuestionList(QuestionEntity question , Integer page , Integer limit) {
+		PageHelper.startPage(page, limit);
+		if(!StringUtils.isEmpty(question.getReviewPoint())){
+			question.setReviewPoint("%" + question.getReviewPoint() + "%");
+		}
+		return questionMapper.queryQuestionList(question.getQuestionType(),question.getUid() ,question.getReviewPoint());
 	}
 
 }
