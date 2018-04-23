@@ -1,0 +1,134 @@
+.head {
+    height: 59px;
+    background: #ffffff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+.head .head-bar {
+    height: 59px;
+}
+.head .logo {
+    padding-top: 0px;
+    float: left;
+    display: -webkit-box;
+    line-height: 59px;
+}
+.head .logo a {
+    max-width: 120px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    display: block;
+}
+.head .logo img {
+    float: none;
+    max-height: 100%;
+    max-width: 100%;
+}
+.head .logo p {
+    float: none;
+    line-height: 59px;
+    padding-left: 12px;
+}
+.head .logo p span {
+    color: #666666;
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
+    padding-left: 10px;
+    border-left: 1px solid #ececec;
+}
+.head .nav {
+    margin-left: 50px;
+    float: left;
+    padding-top: 16px;
+}
+.head .nav li.active {
+    border-bottom: 2px solid #29bdb9;
+    font-weight: bold;
+}
+.head .nav li {
+    padding: 0px 3px 6px;
+    float: left;
+    margin-right: 40px!important;
+}
+.head .nav li.active a {
+    color: #333333;
+}
+.mguser {
+    display: inline-block;
+    float: right;
+    position: relative;
+}
+.mguser-box {
+    height: 60px;
+    line-height: 60px;
+    position: relative;
+}
+.mguser-cnt {
+    position: absolute;
+    width: 110px;
+    top: 59px;
+    background: rgb(161, 163, 162);
+    padding-bottom: 2px;
+    display: none;
+    z-index: 100;
+    right: 0px;
+}
+.mguser-cnt li a {
+    height: 32px;
+    display: block;
+    text-align: center;
+    line-height: 32px;
+    color: #FFFFFF;
+}
+.head .nav li a {
+    display: block;
+    color: #666666;
+    font-size: 18px;
+}
+.mguser-box a {
+    border-bottom: 1px solid white;
+    display: block;
+    height: 48px;
+    padding-left: 11px;
+    padding-right: 27px;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    position: relative;
+    left: 7px;
+}
+.mguser-box p {
+    min-width: inherit;
+    margin-right: 2px;
+    line-height: 60px;
+    float: left;
+    font-size: 14px;
+    color: #999;
+    padding-left: 5px;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.headlogotable {
+    float: left;
+}
+.hgimg {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top: 13px;
+    border-radius: 50%;
+    position: relative;
+    left: 5px;
+}
+.mguser-box i {
+    border: none;
+    font-size: 25px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+}
+
+
