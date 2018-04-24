@@ -77,16 +77,16 @@
 							<div class="feed-box-wrap">
 								<h3 class="feed-title">
 												大家都在学
-												<a class="feed-more-link" href="/tikupc/chapterlist/1bfd700abb68a98271fefa04-17-knowpoint-11">我也要学 &gt; </a>
+												<a class="feed-more-link" th:href="${setting.domain}">我也要学 &gt; </a>
 											</h3>
 								<div class="feed-list-content">
 									<ul class="feed-list" style="top: 0px;">
 										<li class="feed-list-item list-border">
-											<img src="https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portraitn/item/723134326867696c6c6i7901503" class="item-img">
+											<img src="https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/01b9536d696c65746f63616e6479e71e" class="item-img">
 											<div class="feed-list-detail">
 												<p class="detail-item"><span class="item-name">Tom</span>已学完了70个知识点</p>
 												<p class="detail-item">今天学了
-													<a class="item-link" href="/tikupc/chapterdetail/6db44993daef5ef7ba0d3c42-1-10-knowpoint" knowledgeid="6db44993daef5ef7ba0d3c42" data-knowledgeid="6db44993daef5ef7ba0d3c42" target="_blank">光的干涉</a>等<span class="course-num">16</span>个知识点</p>
+													<a class="item-link" th:href="${setting.domain}" target="_blank">光的干涉</a>等<span class="course-num">16</span>个知识点</p>
 											</div>
 										</li>
 									</ul>
@@ -115,8 +115,8 @@
 											<a class="list-item-name-link" data-paperid="d08fb966f5335a8102d220a5" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" th:text="${p.name}">2017年高考真题 语文 (北京卷)</a>
 										</p>
 										<p class="list-item-detail">
-											<a class="list-item-link list-item-link-jiexi" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" data-paperid="d08fb966f5335a8102d220a5" target="_blank">解析</a><span class="item-separate">|</span>
-											<a th:href="${setting.domain + 'paper/' + p.uid + '.html'}" class=" list-item-link  list-item-link-xiazai" data-paperid="d08fb966f5335a8102d220a5 " target="_blank ">下载</a>
+											<a class="list-item-link list-item-link-jiexi" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" target="_blank">解析</a><span class="item-separate">|</span>
+											<a th:href="${setting.domain + 'paper/' + p.uid + '.html'}" class=" list-item-link  list-item-link-xiazai" target="_blank ">下载</a>
 									</li>
 								</ul>
 							</div>
@@ -129,11 +129,11 @@
 								<ul class="paper-list paper-list-moni">
 									<li class="list-item" th:each="p,pStat:${simulationPaperList}">
 										<p class="list-item-name">
-											<a class="list-item-name-link" data-paperid="19f2517101f69e31433294f3" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" th:text="${p.name}">英语 西城区2017年高三期末考试</a>
+											<a class="list-item-name-link" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" th:text="${p.name}">英语 西城区2017年高三期末考试</a>
 										</p>
 										<p class="list-item-detail">
-											<a class="list-item-link list-item-link-jiexi" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" data-paperid="19f2517101f69e31433294f3" target="_blank">解析</a><span class="item-separate">|</span>
-											<a th:href="${setting.domain + 'paper/' + p.uid + '.html'}" class=" list-item-link  list-item-link-xiazai" data-paperid="19f2517101f69e31433294f3 " target="_blank ">下载</a></p>
+											<a class="list-item-link list-item-link-jiexi" th:href="${setting.domain + 'paper/' + p.uid + '.html'}" target="_blank">解析</a><span class="item-separate">|</span>
+											<a th:href="${setting.domain + 'paper/' + p.uid + '.html'}" class=" list-item-link  list-item-link-xiazai" target="_blank ">下载</a></p>
 									</li>
 								</ul>
 							</div>
@@ -144,7 +144,7 @@
 								</h3>
 								<ul class="hotpaper-list">
 									<li class="hotpaper-list-item" th:each="p,pStat:${hotPaperList}">
-										<a class="hotpaper-name" data-paperid="d08fb966f5335a8102d220a5" th:href="${setting.domain + 'paper/' + p.uid + '.html'}">
+										<a class="hotpaper-name" th:href="${setting.domain + 'paper/' + p.uid + '.html'}">
 											<span th:class="${'rank-'+(pStat.index+1) + ' hotpaper-rank'}"></span><span th:text="${p.name}">2017年高考真题 语文 (北京卷)</span>
 										</a>
 									</li>
@@ -176,7 +176,7 @@
 									</div>
 									<ul class="paper-wrap">
 										<li class="paper-item" th:each="p,pStat:${s.paperList}">
-											<a class="paper-item-name" data-paperid="5ff2971ea76e58fafab0030f" th:href="${setting.domain + 'paper/' +p.uid+'.html'}" th:text="${p.name}">
+											<a class="paper-item-name" th:href="${setting.domain + 'paper/' +p.uid+'.html'}" th:text="${p.name}">
 												语文 海淀区2016年高三期末试卷
 											</a>
 										</li>
@@ -187,7 +187,7 @@
 						</div>
 				
 						<div class="more-school-list">
-							<a class="more-school-name" th:each="s,sStat:${eliteSchoolList}" th:text="${s.name}" th:href="${setting.domain + 'paperlist/13/0-4-0-0-1.html'}" data-schoolid="74c008a1284ac850ad024202">
+							<a class="more-school-name" th:each="s,sStat:${eliteSchoolList}" th:text="${s.name}" th:href="${setting.domain + 'paperlist/13/0-4-0-0-1.html'}">
 								北京市八一学校
 							</a>
 						</div>

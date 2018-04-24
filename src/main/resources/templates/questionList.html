@@ -53,7 +53,7 @@
 					</div>
 			        <div class="nexttolearn">
 					    <div class="next-inner clearfix">
-					    		<a th:if="${questionList.endRow < questionList.total}" href="/tikupc/chapterdetail/afd964ec0975f46527d3e149-31-5-knowpoint" class="tolearn">继续学习</a>
+					    		<a th:if="${questionList.endRow < questionList.total}" th:href="${setting.domain}" class="tolearn">继续学习</a>
 					            <a th:if="${questionList.endRow >= questionList.total}" th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}" class="tolearn">已学完, 返回章节学习</a>
 					            <a th:if="${nextChapter == null}" class="next-done">棒棒哒，已是最后一个知识点</a>
 					            <a th:if="${nextChapter != null}" th:href="${setting.domain + 'question/'+subjectId+'/'+courseId+'/'+nextChapter.parentId+'/'+nextChapter.uid+'-0-5.html'}" class="nextpoint">学习下一知识点</a>

@@ -52,7 +52,6 @@
 						<li class="img-list" th:style="${ad.index == 1} ? 'opacity: 1; z-index: 9;' : 'opacity: 1; z-index: 1;'" th:each="ad,adStat:${a.ads}">
 							<a th:attr="data-href=${ad.href},data-index=${ad.index}" class="banner-link img-1" th:href="${ad.href}" target="_blank">
 								<div th:style="${'background-image:url(' + ad.bgimage + ');'}" class="banner-pic"></div>
-								<!--<img class="banner-pic" alt="" src="https://edu-wenku.bdimg.com/v1/na/NAZXJ/%E9%A2%98%E5%BA%93%E9%A6%96%E9%A1%B5banner-1510132588487.jpg">-->
 							</a>
 						</li>
 					</ul>
@@ -659,8 +658,8 @@
     			<!-- 页尾开始-->
     			<div class="gaokao-crumbs-box">
 				    <div class="homepage-crumbs">
-				        <a href="//tiku.baidu.com">百度题库</a> &gt;
-				        <a href="/tikupc/homepage/1bfd700abb68a98271fefa04" class="cur-crumbs">高考</a> 
+				        <a th:href="${setting.domain}">百度题库</a> &gt;
+				        <a th:href="${setting.domain}" class="cur-crumbs">高考</a> 
 				    </div>
 				</div>
     			<!-- 页尾结束-->
