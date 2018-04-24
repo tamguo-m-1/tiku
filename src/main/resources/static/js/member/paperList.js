@@ -199,7 +199,7 @@ var vue = new Vue({
 		reload: function (event) {
 			$.ajax({
 				type : "get", 
-				url : "http://localhost/member/paper/list.html",
+				url : mainHttp + "/member/paper/list.html",
 				data:{name:$("input[name='keySearch']").val(),page:vue.currPage,limit:2},
 				async : true,
 				dataType : "json",

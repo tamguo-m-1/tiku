@@ -165,12 +165,12 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript" th:inline="javascript">
+		var mainHttp = [[${setting.domain}]];
+	</script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
 	<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
 	<script th:src="${setting.domain + 'js/plugins/layui/layui.js'}"></script>
 	<script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/member/paperList.js'}" ></script>
-	<script type="text/javascript" th:inline="javascript">
-		var mainHttp = [[${setting.domain}]];
-	</script>
 </html>
