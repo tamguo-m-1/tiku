@@ -112,3 +112,6 @@
 .footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:first-child+li+li+li, .footer .footer-contain .cooperation .coo-view .contain-ul .contain-li:first-child+li+li+li+li+li+li+li {
     margin-right: 0;
 }
+.footer .bottom a {
+    color: #999;
+}
