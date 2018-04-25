@@ -18,7 +18,7 @@ public final class Setting {
 	}
 	
 	/** 域名 */
-	public final String domain = "http://locahost/";
+	public final String domain = "http://localhost/";
 	/** 真题 */
 	public final String PAPER_TYPE_ZHENTI = "1";
 	/** 模拟*/

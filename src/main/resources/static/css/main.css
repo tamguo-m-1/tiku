@@ -5,14 +5,14 @@
 }
 .header .menu {
 	width: 100%;
-	background-color: #0f9982;
+	background-color: #2F4056;
 	color: #fff;
 }
 .header .menu .menu-contain {
     width: 1180px;
     height: 46px;
     line-height: 46px;
-    background-color: #0f9982;
+    background-color: #2F4056;
     margin: auto;
 }
 .header .menu .menu-contain .container-logo {
