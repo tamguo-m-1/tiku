@@ -4,7 +4,7 @@
 .cnav {
     height: 98px;
     width: 100%;
-    background: url(../../images/member/index/project-cnavbj.jpg) no-repeat;
+    background-color: #5a4040;
     background-size: cover;
 }
 .public.cnav_b {

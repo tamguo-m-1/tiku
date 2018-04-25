@@ -7,7 +7,7 @@ body {
 .cnav {
     height: 98px;
     width: 100%;
-    background: url(../../images/member/index/project-cnavbj.jpg) no-repeat;
+    background-color: #826a6a;
     background-size: cover;
 }
 .cnav_b {

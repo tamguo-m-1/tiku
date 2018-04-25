@@ -1,0 +1,13 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div class="footer" th:fragment="memberFooter">
+	<div class="public">
+		<div class="footer-left" style="width:60%">
+			<div class="footer-logo" style="margin-top: -5px;padding-top:0px;"><img th:src="${setting.domain + 'images/logo.png'}" style=" position: relative;left: -32px;top: 2px;width:200px;height:50px;"></div>
+			<div class="footer-txt">
+				<a target="_blank" th:href="${setting.domain}">关于我们</a>　|
+				<a target="_blank" th:href="${setting.domain}">联系我们</a>　|
+				<a target="_blank" th:href="${setting.domain}">免责声明</a><br>Copyright © tamguo.com<br><span class="inputSpan">All Rights Reversed 沪ICP备14022608号-1</span></div>
+		</div>
+	</div>
+</div>
