@@ -10,7 +10,7 @@ $(function(){
 		$(this).addClass("li-hover");
 		event.stopPropagation();
 	}).bind("mouseleave",function(event){
-		if(event.relatedTarget.id != "submenu"){
+		if(event.relatedTarget == null || event.relatedTarget.id != "submenu"){
 			$(this).find("i").css("transform","rotate(0deg)");
 			$(".header .submenu-container .subm-ul").addClass("dis-none");
 			$(".header .submenu-container .all-exm").addClass("dis-none");

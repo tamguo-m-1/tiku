@@ -10,7 +10,7 @@
                     <img th:if="${session.currMember != null}" class="user-photo" src="https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/01b9536d696c65746f63616e6479e71e" alt="用户头像">
                     <i th:if="${session.currMember != null}" class="photo-icon iconfont icon-down" style="transform: rotate(0deg);"></i>
                 </div>
-                <ul th:class="${currMember == null} ? 'login-option dis-none' : 'login-option'">
+                <ul th:class="${currMember == null} ? 'login-option dis-none' : 'login-option'" id="loginOptionUl">
                     <li><a th:href="${setting.domain + 'member/index.html'}">我的首页</a></li>
                     <li><a th:href="${setting.domain + 'member/index.html'}">账号设置</a></li>
                     <li><a th:href="${setting.domain + 'logout.html'}">退出</a></li>

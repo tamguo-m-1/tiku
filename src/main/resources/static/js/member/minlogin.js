@@ -105,11 +105,31 @@ $(function(){
 			$(this).find("i").css("transform","rotate(180deg)");
 		}
 	}).bind("mouseleave",function(event){
-		if($(this).find("img").length == 1){
-			$(this).removeClass("black");
-			$(".header .login-option").addClass("dis-none");
+		if(event.relatedTarget == null){
 			$(this).find("i").css("transform","rotate(0deg)");
+			$(".header .submenu-container .subm-ul").addClass("dis-none");
+			$(".header .submenu-container .all-exm").addClass("dis-none");
+			$(".header .menu .menu-contain .contain-ul li").removeClass("li-hover");
+			$("#loginOptionUl").addClass("dis-none");
+			event.stopPropagation();
 		}
+		if(event.relatedTarget.id != "loginOptionUl" && event.relatedTarget.parentElement.id != "loginOptionUl"){
+			$(this).find("i").css("transform","rotate(0deg)");
+			$(".header .submenu-container .subm-ul").addClass("dis-none");
+			$(".header .submenu-container .all-exm").addClass("dis-none");
+			$(".header .menu .menu-contain .contain-ul li").removeClass("li-hover");
+			$("#loginOptionUl").addClass("dis-none");
+			event.stopPropagation();
+		}
+	});
+	
+	$("#loginOptionUl").bind("mouseleave",function(){
+		$(".header .login-container").find("i").css("transform","rotate(0deg)");
+		$(".header .submenu-container .subm-ul").addClass("dis-none");
+		$(".header .submenu-container .all-exm").addClass("dis-none");
+		$(".header .menu .menu-contain .contain-ul li").removeClass("li-hover");
+		$("#loginOptionUl").addClass("dis-none");
+		event.stopPropagation();
 	});
 	
 	$("#TANGRAM__PSP_25__smsSwitchWrapper").bind("click",function(){
