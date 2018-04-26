@@ -53,7 +53,10 @@
 								</div>
 								<div class="tang-pass-footerBar">
 									<p class="tang-pass-footerBarQrcode pass-link" title="扫码登录" data-type="qrcode" id="TANGRAM__PSP_25__footerQrcodeBtn" style="display: none;">扫码登录</p>
-									<p class="tang-pass-footerBarULogin pass-link" title="用户名登录" data-type="normal" id="TANGRAM__PSP_25__footerULoginBtn" style="display: block;">第三方登录</p>
+									
+									<a th:href="${setting.domain + 'login.html'}" title="探果网登录" target="_blank">
+									<p class="tang-pass-footerBarULogin pass-link" title="探果网登录" data-type="normal" id="TANGRAM__PSP_25__footerULoginBtn" style="display: block;">立即登录
+									</p></a>
 									<div class="tang-pass-footerBarPhoenix"><span class="tang-pass-footerBarPhoenixSplit"></span>
 										<div class="tang-pass-footerBarPhoenixItem" id="TANGRAM__PSP_25__PhoenixItem">
 											<div id="pass-phoenix-login" class="tang-pass-login-phoenix">
