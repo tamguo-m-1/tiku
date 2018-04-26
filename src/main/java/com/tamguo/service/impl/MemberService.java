@@ -64,6 +64,9 @@ public class MemberService implements IMemberService{
 	}
 	
 	public Integer getLoginFailureCount(MemberEntity member){
+		if(member == null){
+			return 0;
+		}
 		if(!cacheService.isExist(TamguoConstant.LOGIN_FAILURE_COUNT + member.getUid())){
 			return 0;
 		}
