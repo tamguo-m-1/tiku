@@ -103,4 +103,7 @@ public class TamguoConstant {
 	/** 默认的章节根目录*/
 	public static final String CHAPTER_DEFAULT_ROOT_UID = "-1";
 	
+	/** 登录错误次数*/
+	public static final String LOGIN_FAILURE_COUNT = "loginFailureCount:";
+	
 }

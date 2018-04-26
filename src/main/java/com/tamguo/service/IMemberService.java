@@ -1,5 +1,6 @@
 package com.tamguo.service;
 
+import com.tamguo.model.MemberEntity;
 import com.tamguo.util.Result;
 
 public interface IMemberService {
@@ -19,4 +20,6 @@ public interface IMemberService {
 	public Result securityCheck(String username , String isEmail , String vcode);
 
 	public Result resetPassword(String resetPasswordKey , String username , String password, String verifypwd);
+	
+	public Integer getLoginFailureCount(MemberEntity member);
 }

@@ -30,13 +30,15 @@ public class MemberService implements IMemberService{
 		if(member == null){
 			return Result.result(201, member, "用户名或密码有误，请重新输入或找回密码");
 		}
-		Integer loginFailureCount = member.getLoginFailureCount();		
+		Integer loginFailureCount = this.getLoginFailureCount(member);		
 		if(loginFailureCount == 3 && !new Sha256Hash(password).toHex().equals(member.getPassword())){
-			this.updateLoginInfo(member , loginFailureCount++);
+			loginFailureCount++;
+			this.updateLoginFailureCount(member , loginFailureCount);
 			return Result.result(203, member, "用户名或密码有误，错误次数超过三次，启用验证码！");
 		}
 		if(loginFailureCount > 3 && StringUtils.isEmpty(captcha)){
-			this.updateLoginInfo(member , loginFailureCount++);
+			loginFailureCount++;
+			this.updateLoginFailureCount(member , loginFailureCount);
 			return Result.result(204, member, "请输入验证码！");
 		}
 		if(loginFailureCount > 3){
@@ -46,16 +48,23 @@ public class MemberService implements IMemberService{
 			}
 		}
 		if(!new Sha256Hash(password).toHex().equals(member.getPassword())){
-			this.updateLoginInfo(member , loginFailureCount++);
+			loginFailureCount++;
+			this.updateLoginFailureCount(member , loginFailureCount);
 			return Result.result(202, member, "用户名或密码有误，请重新输入或找回密码");
 		}
-		this.updateLoginInfo(member , 0);
+		this.updateLoginFailureCount(member , 0);
 		return Result.result(200, member, "登录成功");
 	}
 	
-	private void updateLoginInfo(MemberEntity member , Integer loginFailureCount){
-		member.setLoginFailureCount(loginFailureCount);
-		memberMapper.update(member);
+	private void updateLoginFailureCount(MemberEntity member , Integer loginFailureCount){
+		cacheService.setObject(TamguoConstant.LOGIN_FAILURE_COUNT + member.getUid(),  loginFailureCount , 2 * 60 * 60);
+	}
+	
+	public Integer getLoginFailureCount(MemberEntity member){
+		if(!cacheService.isExist(TamguoConstant.LOGIN_FAILURE_COUNT + member.getUid())){
+			return 0;
+		}
+		return (Integer)cacheService.getObject(TamguoConstant.LOGIN_FAILURE_COUNT + member.getUid());
 	}
 
 	@Override
@@ -89,7 +98,6 @@ public class MemberService implements IMemberService{
 		}
 		MemberEntity member = new MemberEntity();
 		member.setAvatar(TamguoConstant.DEFAULT_MEMBER_AVATAR);
-		member.setLoginFailureCount(0);
 		member.setMobile(mobile);
 		member.setPassword(new Sha256Hash(password).toHex());
 		member.setUsername(username);

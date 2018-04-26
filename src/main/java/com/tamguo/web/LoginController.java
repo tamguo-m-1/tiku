@@ -36,7 +36,7 @@ public class LoginController {
 			model.setViewName("login");	
 			model.addObject("code", result.getCode());
 			model.addObject("msg" , result.getMessage());
-			model.addObject("isVerifyCode" , ((MemberEntity)result.getResult()).getLoginFailureCount() >=3 ? "1" : "0");
+			model.addObject("isVerifyCode" , iMemberService.getLoginFailureCount((MemberEntity)result.getResult()) >=3 ? "1" : "0");
 			model.addObject("username", username);
 		}
 		
