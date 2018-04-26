@@ -12,6 +12,7 @@ import com.tamguo.dao.MemberMapper;
 import com.tamguo.dao.redis.CacheService;
 import com.tamguo.model.MemberEntity;
 import com.tamguo.service.IMemberService;
+import com.tamguo.service.ISmsService;
 import com.tamguo.util.Result;
 import com.tamguo.util.ShiroUtils;
 import com.tamguo.util.TamguoConstant;
@@ -23,6 +24,8 @@ public class MemberService implements IMemberService{
 	private MemberMapper memberMapper;
 	@Autowired
 	private CacheService cacheService;
+	@Autowired
+	private ISmsService iSmsService;
 
 	@Override
 	public Result login(String username, String password , String captcha) {
@@ -96,6 +99,13 @@ public class MemberService implements IMemberService{
 		if(m != null){
 			return Result.result(202, null, "该手机号已经存在");
 		}
+		if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_SMS_PREFIX + mobile)){
+			return Result.result(203, null, "验证码错误");
+		}
+		String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_SMS_PREFIX + mobile);
+		if(!code.equals(verifyCode)){
+			return Result.result(204, null, "验证码错误");
+		}
 		MemberEntity member = new MemberEntity();
 		member.setAvatar(TamguoConstant.DEFAULT_MEMBER_AVATAR);
 		member.setMobile(mobile);
@@ -145,10 +155,10 @@ public class MemberService implements IMemberService{
 				return Result.result(202, member, "验证码错误");
 			}
 		}else{
-			if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getMobile())){
+			if(!cacheService.isExist(TamguoConstant.ALIYUN_MOBILE_SMS_PREFIX + member.getMobile())){
 				return Result.result(203, member, "验证码错误");
 			}
-			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + member.getMobile());
+			String code = (String) cacheService.getObject(TamguoConstant.ALIYUN_MOBILE_SMS_PREFIX + member.getMobile());
 			if(!code.equals(vcode)){
 				return Result.result(204, member, "验证码错误");
 			}

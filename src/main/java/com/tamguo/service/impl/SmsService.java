@@ -51,7 +51,7 @@ public class SmsService implements ISmsService{
 
         //hint 此处可能会抛出异常，注意catch
         acsClient.getAcsResponse(request);
-		cacheService.setObject(TamguoConstant.ALIYUN_MOBILE_FIND_PASSWORD_PREFIX + mobile , vcode.toString() , 3 * 60);
+		cacheService.setObject(TamguoConstant.ALIYUN_MOBILE_SMS_PREFIX + mobile , vcode.toString() , 3 * 60);
         return Result.result(200, null, "");
 	}
 

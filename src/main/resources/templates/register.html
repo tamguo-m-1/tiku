@@ -81,8 +81,8 @@
 		                    <p id="TANGRAM__PSP_3__isAgreeWrapper" class="pass-form-item pass-form-item-isAgree">
 		                        <input name="isAgree" id="TANGRAM__PSP_3__isAgree" type="checkbox" class="pass-checkbox-input pass-checkbox-isAgree" autocomplete="off">
 		                        <label for="TANGRAM__PSP_3__isAgree">阅读并接受</label>
-		                        <a target="_blank" href="http://passport.baidu.com/static/passpc-account/html/protocal.html">《探果用户协议》</a>及
-		                        <a target="_blank" href="https://www.baidu.com/duty/yinsiquan.html">《探果隐私权保护声明》</a>
+		                        <a target="_blank" th:href="${setting.domain}">《探果用户协议》</a>及
+		                        <a target="_blank" th:href="${setting.domain}">《探果隐私权保护声明》</a>
 		                        <a>
 		                            <span id="TANGRAM__PSP_3__isAgreeError" class="pass-item-error pass-item-error-isAgree"></span>
 		                        </a>
@@ -105,22 +105,15 @@
 		                <span>我已注册，现在就</span>
 		                <button class="login-btn" id="login_btn">登录</button></div>
 		        </div>
-		        <input type="hidden" value="" id="jsProduct">
-		        <input type="hidden" value="" id="jsU">
-		        <input type="hidden" value="" id="jsColor">
-		        <input type="hidden" value="" id="jsSubpro">
-		        <input type="hidden" value="" id="jsNorealU">
-		        <input type="hidden" value="" id="jsRetu">
-		        <input type="hidden" value="1" id="jsnoUsername">
-		        <input type="hidden" value="" id="jsdefaultAccount">
-		        <input type="hidden" value="" id="isSchoolReg">
-		        <input type="hidden" value="" id="hasAuthsite"></div>
 		    <div id="foot">
 		        <div class="mod-footer">
 		            <div class="copy-box">2018&nbsp;©Tamguo</div></div>
 		    </div>
 		</div>
 	</body>
+	<script type="text/javascript" th:inline="javascript">
+	var mainHttp = [[${setting.domain}]];
+	</script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}"></script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/member/register.js'}"></script>
 </html>

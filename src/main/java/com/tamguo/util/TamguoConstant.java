@@ -95,7 +95,7 @@ public class TamguoConstant {
 	public static final String ALIYUN_MAIL_FIND_PASSWORD_PREFIX = "EMAIL_FIND_PASSWORD_";
 	
 	/** 短信找回密码前缀*/
-	public static final String ALIYUN_MOBILE_FIND_PASSWORD_PREFIX = "MOBILE_FIND_PASSWORD_";
+	public static final String ALIYUN_MOBILE_SMS_PREFIX = "MOBILE_SMS_PREKEY_";
 	
 	/** 安全验证前缀*/
 	public static final String SECURITY_CHECK_PREFIX = "securityCheck:";

@@ -74,7 +74,28 @@ $(function(){
 		}
 	});
 	
+	$("#TANGRAM__PSP_3__verifyCode").bind("focus",function(){
+		$("#TANGRAM__PSP_3__verifyCode").addClass("pass-text-input-focus");
+		$("#TANGRAM__PSP_3__verifyCodeError").hide();
+	}).bind("blur",function(){
+		$("#TANGRAM__PSP_3__verifyCode").removeClass("pass-text-input-focus");
+		$("#TANGRAM__PSP_3__verifyCode").removeClass("pass-text-input-error");
+	});
+	
 	$("#TANGRAM__PSP_3__verifyCodeSend").bind("click",function(){
+		if ($("#TANGRAM__PSP_3__phone").val() == "") {  
+            $("#TANGRAM__PSP_3__phoneError").show();
+            $("#TANGRAM__PSP_3__phoneError").text("请输入手机号");
+            $("#TANGRAM__PSP_3__phone").addClass("pass-text-input-error");
+            return false;
+        }
+		var phoneReg=/^[1][3,4,5,7,8,6][0-9]{9}$/;  
+        if (!phoneReg.test($("#TANGRAM__PSP_3__phone").val()) && $("#TANGRAM__PSP_3__phone").val() != "") {  
+            $("#TANGRAM__PSP_3__phoneError").show();
+            $("#TANGRAM__PSP_3__phoneError").text("手机号码格式不正确");
+            $("#TANGRAM__PSP_3__phone").addClass("pass-text-input-error");
+            return false;
+        }
 		$("#TANGRAM__PSP_3__verifyCodeSend").addClass("pass-text-input-disabled");
 		$("#TANGRAM__PSP_3__verifyCodeSend").val("58秒后重新获取激活码");
 		$("#TANGRAM__PSP_3__verifyCodeSendTip").show();
@@ -93,6 +114,18 @@ $(function(){
             setTimeout(t, 1000)
         };
         t();
+        
+        // 发送短信
+        $.ajax({
+			type : "get", 
+			url : mainHttp + "sms/sendFindPasswordSms.html",
+			async : false,
+			data:{mobile:$("#TANGRAM__PSP_3__phone").val()},
+			dataType : "json",
+			success : function(data) {
+				console.log(data);
+			}
+		});
 	});
 	
 	$("#TANGRAM__PSP_3__isAgree").bind("click",function(){
@@ -197,11 +230,15 @@ $(function(){
 						$("#TANGRAM__PSP_3__userNameError").text("此用户名太受欢迎,请更换一个");
 						$("#TANGRAM__PSP_3__userNameTip").hide();
 						$("#TANGRAM__PSP_3__userName").addClass("pass-text-input-error");
-					}else if(data.code == 202){
+					} else if(data.code == 202){
 						$("#TANGRAM__PSP_3__phoneError").show();
 			            $("#TANGRAM__PSP_3__phoneError").text("该手机号已经存在");
 			            $("#TANGRAM__PSP_3__phone").addClass("pass-text-input-error");
-					}else if(data.code == 200){
+					} else if(data.code == 203 || data.code == 204){
+						$("#TANGRAM__PSP_3__verifyCodeError").show();
+						$("#TANGRAM__PSP_3__verifyCodeError").text("验证码错误");
+						$("#TANGRAM__PSP_3__verifyCode").addClass("pass-text-input-error");
+					} else if(data.code == 200){
 						window.location.href = "/";
 					}
 				}
