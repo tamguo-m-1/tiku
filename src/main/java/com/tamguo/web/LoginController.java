@@ -1,5 +1,8 @@
 package com.tamguo.web;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +30,12 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/submitLogin", method = RequestMethod.POST)
-	public ModelAndView submitLogin(String  username , String password , String verifyCode , ModelAndView model , HttpSession session){
+	public ModelAndView submitLogin(String  username , String password , String verifyCode , ModelAndView model , HttpSession session , HttpServletResponse response) throws IOException{
 		Result result = iMemberService.login(username, password , verifyCode);
 		if(result.getCode() == 200){
 			session.setAttribute("currMember", result.getResult());
-			model.setViewName("index");	
+			response.sendRedirect("member/index.html");
+			return null;
 		}else{
 			model.setViewName("login");	
 			model.addObject("code", result.getCode());

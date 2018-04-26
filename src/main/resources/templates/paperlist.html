@@ -8,6 +8,7 @@
 		<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/paperlist.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'css/footer.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'css/member/minilogin.css'}" />
 		<link type="favicon" rel="shortcut icon" th:href="${setting.domain + 'images/favicon.png'}" />
 	</head>
 	<body>
@@ -196,7 +197,12 @@
     <!--尾部-->
     <div th:replace="include/footer :: footer"></div>
     <!-- 尾部结束 -->
+    
+    <!-- 登录 -->
+	<div th:replace="include/minilogin :: minilogin"></div>
 </body>
 <script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/jquery.iDialog.js'}"></script>
 <script type="text/javascript" th:src="${setting.domain + 'js/main.js'}" ></script>
+<script type="text/javascript" th:src="${setting.domain + 'js/member/minlogin.js'}"></script>
 </html>
