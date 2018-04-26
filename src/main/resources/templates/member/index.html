@@ -124,9 +124,9 @@
 									</b>
 							</li>
 						</ul>
-						<a href="https://kao.acmcoder.com/b/orderPay" target="_blank" id="addMoney">现在充值</a>
+						<a th:href="${setting.domain}" target="_blank" id="addMoney">现在充值</a>
 					</div>
-					<span><a href="http://kao.acmcoder.com/examHomeNew/service.html" target="_blank" style="color: inherit;"><img th:src="${setting.domain + 'images/member/index/VIp-logo.png'}"> 升级高级版，享受VIP功能&gt;&gt;</a></span>
+					<span><a th:href="${setting.domain}" target="_blank" style="color: inherit;"><img th:src="${setting.domain + 'images/member/index/VIp-logo.png'}"> 升级高级版，享受VIP功能&gt;&gt;</a></span>
 				</div>
 				<!-- 右侧信息显示 -->
 				<div class="newsR">
@@ -159,7 +159,7 @@
 						</ul>
 						<div class="newExam">
 							<div class="add-p">
-								<a href="http://kaosys.acmcoder.com/position#/list"><i class="fa fa-plus"></i></a>
+								<a th:href="${setting.domain}"><i class="fa fa-plus"></i></a>
 							</div>
 							<a th:href="${setting.domain + 'member/paper.html'}">开始新建试卷</a>
 						</div>
