@@ -210,4 +210,8 @@ $(function(){
 		$("#TANGRAM__PSP_3__submit").removeAttr("disabled");
 		return false;
 	});
+	
+	$("#login_btn").bind("click",function(){
+		window.location.href = "login.html";
+	});
 })
