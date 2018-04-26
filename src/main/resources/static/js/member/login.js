@@ -18,6 +18,10 @@ $(function(){
 		$("#TANGRAM__PSP_3__userName").focus();
 	});
 	
+	$("#TANGRAM__PSP_3__verifyCodeChange").bind("click",function(){
+		$("#TANGRAM__PSP_3__verifyCodeImg").attr("src",mainHttp + "admin/captcha.jpg?t=" + $.now());
+	});
+	
 	$("#TANGRAM__PSP_3__password").bind("focus",function(){
 		$("#TANGRAM__PSP_3__password").addClass("pass-text-input-focus");
 	}).bind("blur",function(){
