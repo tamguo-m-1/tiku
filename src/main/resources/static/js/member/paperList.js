@@ -14,7 +14,15 @@ var vue = new Vue({
 		title:null,
 		totalCount:null,
 		currPage:1,
-		paperList:null
+		paperList:null,
+		paper:{
+			courseId:null,
+			schoolId:null,
+			areaId:null,
+			name:null,
+			type:null,
+			year:null
+		}
 	},
 	methods: {
 		// 编辑试卷
@@ -104,6 +112,122 @@ var vue = new Vue({
 					  type: 1,
 					  skin: 'layui-layer-rim', //加上边框
 					  area: ['560px', '300px'], //宽高
+					  content: html
+					});
+				form.render();
+			});
+		},
+		addPaperFn:function(){
+			// 加载科目
+			vue.getMenu();
+			
+			layui.use('form', function(){
+				var form = layui.form; 
+			  	var html = '';
+				html += '<form class="layui-form" action="" style="margin-top: 20px;">';
+				html += '<div class="layui-form-item">';
+				html += '<label class="layui-form-label">试卷标题</label>';
+				html += '<div class="layui-input-block">';
+				html += '<input type="text" style="width:400px;" name="paperName" lay-verify="title" autocomplete="off" placeholder="请输入试卷标题" class="layui-input" value="">';
+				html += '<input type="hidden" name="addPaperUid" value="">';
+				html += '</div>';     
+				html += '</div>'; 
+				
+				html += '<div class="layui-form-item">';
+				html += '<label class="layui-form-label">联动选择框</label>';
+			    html += '<div class="layui-input-inline">';
+			    html += '<select name="paperAreaId">';
+			    html += '<option value="">请选择省</option>';
+			    html += '<option value="1" selected="">北京</option>';   
+			    html += '<option value="2">上海</option>';    
+			    html += '<option value="3">重庆</option>';   			    
+			    html += '<option value="4">天津</option>';   
+			    html += '<option value="5">山东</option>';    
+			    html += '<option value="6">河南</option>';   			    
+			    html += '<option value="7">湖北</option>';   
+			    html += '<option value="8">江苏</option>';    
+			    html += '<option value="9">浙江</option>';   			    
+			    html += '<option value="10">山西</option>';   
+			    html += '<option value="11">福建</option>';    
+			    html += '<option value="12">安徽</option>';   			    
+			    html += '<option value="13">吉林</option>';   
+			    html += '<option value="14">内蒙古</option>';    
+			    html += '<option value="15">宁夏</option>';   
+			    html += '<option value="16">新疆</option>';    
+			    html += '<option value="17">广西</option>';   
+			    html += '<option value="18">辽宁</option>';    
+			    html += '<option value="19">黑龙江</option>';      
+			    html += '<option value="20">陕西</option>';     
+			    html += '<option value="21">江西</option>';      
+			    html += '<option value="22">广东</option>';      
+			    html += '<option value="23">湖南</option>';      
+			    html += '<option value="24">海南</option>';      
+			    html += '<option value="25">云南</option>';     
+			    html += '<option value="26">四川</option>';    
+			    html += '<option value="27">青海</option>';    
+			    html += '<option value="28">甘肃</option>';    
+			    html += '<option value="29">河北</option>';    
+			    html += '<option value="30">西藏</option>';   
+			    html += '<option value="31">贵州</option>';
+			    html += '</select>';    
+			    html += '</div>';
+			    html += '</div>'; 
+			    
+			    html += '<div class="layui-form-item">';
+				html += '<label class="layui-form-label">学校</label>';
+			    html += '<div class="layui-input-inline">';
+			    html += '<select name="paperSchoolId">';
+			    html += '<option value="" selected="">请选择学校</option>';
+			    html += '<option value="1">北京大学附属中学</option>';   
+			    html += '<option value="2">北京市第一零一中学</option>';    
+			    html += '<option value="3">北京市第四中学</option>';   			    
+			    html += '<option value="4">北京市八一学校</option>';   
+			    html += '<option value="5">北京师范大学第二附属中学</option>';    
+			    html += '<option value="6">东北师范大学附属中学</option>';   			    
+			    html += '<option value="7">上海中学</option>';   
+			    html += '<option value="8">衡水中学</option>';    
+			    html += '</select>';    
+			    html += '</div>';
+			    html += '</div>'; 
+			    
+				html += '<div class="layui-form-item">';
+				html += '<label class="layui-form-label">科目</label>';
+				html += '<div class="layui-input-block">';
+				html += '<input type="text" style="width:400px;" name="paperCourseName" readonly onclick="menuTree()" lay-verify="title" autocomplete="off" placeholder="请选择科目" class="layui-input" value="">';
+				html += '<input type="hidden" name="addPaperUid" value="">';
+				html += '</div>';     
+				html += '</div>'; 
+				
+				html += '<div class="layui-form-item">';
+				html += '<label class="layui-form-label">试卷类型</label>';
+				html += '<div class="layui-input-block">';
+				html += '<input type="radio" name="paperType" value="0" title="真题试卷" checked="">';
+				html += '<input type="radio" name="paperType" value="1" title="模拟试卷">';
+				html += '<input type="radio" name="paperType" value="2" title="押题预测">';
+				html += '<input type="radio" name="paperType" value="3" title="名校精品">';
+				html += '</div>';
+				html += '</div>';
+				
+				html += '<div class="layui-form-item">';
+				html += '<label class="layui-form-label">年份</label>';
+				html += '<div class="layui-input-block">';
+				html += '<input type="text" style="width:400px;" name="paperYear" lay-verify="title" autocomplete="off" placeholder="请输入年份" class="layui-input" value="">';
+				html += '<input type="hidden" name="addPaperUid" value="">';
+				html += '</div>';     
+				html += '</div>'; 
+
+				html += '<div class="layui-form-item" style="margin-top: 40px;">';
+				html += '<div class="layui-input-block">';
+			    html += '<button type="button" class="layui-btn" onclick="saveMainPaper();">立即提交</button>';
+			    html += '<button type="reset" class="layui-btn layui-btn-primary" onclick="layer.closeAll()">关闭</button>';
+			    html += '</div>';
+			    html += '</div>';
+				html += '</form>';
+				layer.open({
+					  title: "添加子卷",
+					  type: 1,
+					  skin: 'layui-layer-rim', //加上边框
+					  area: ['760px', '550px'], //宽高
 					  content: html
 					});
 				form.render();
@@ -208,7 +332,18 @@ var vue = new Vue({
 					vue.totalCount = data.totalCount;
 				}
 			});
-		}
+		},
+		getMenu: function(menuId){
+			$.ajax({
+				type : "get", 
+				url : mainHttp + "/subject/getCourseTree.html",
+				async : true,
+				dataType : "json",
+				success : function(r) {
+					ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
+				}
+			});
+		},
 	}
 });
 
@@ -286,4 +421,72 @@ function updatePaperQuestionInfo(){
 		}
 	});
 	return false;
+}
+
+// 保存试卷
+function saveMainPaper(){
+	vue.paper.name = $("input[name='paperName']").val();
+	vue.paper.year = $("input[name='paperYear']").val();
+	vue.paper.type = $("input[name='paperType']:checked").val();
+	vue.paper.areaId = $("select[name='paperAreaId']").val();
+	vue.paper.schoolId = $("select[name='paperSchoolId']").val();
+	if(vue.paper.name == ""){
+		layer.alert("请输入试卷名称");
+		return false;
+	}
+	if(vue.paper.courseId == ""){
+		layer.alert("请选择科目");
+		return false;
+	}
+	$.ajax({
+		type : "get", 
+		url : mainHttp + "member/paperList/addPaper.html",
+		data:vue.paper,
+		async : true,
+		dataType : "json",
+		success : function(data) {// 返回数据根据结果进行相应的处理,无论请求成功还是失败，都会走这个方法的
+			if(data.code === 0){
+				layer.alert('操作成功', function(index){
+					vue.reload();
+					layer.closeAll()
+				});
+			}else{
+				alert(r.message);
+			}
+		}
+	});
+}
+
+var setting = {
+	data: {
+		simpleData: {
+			enable: true,
+			idKey: "uid",
+			pIdKey: "parentId",
+			rootPId: -1
+		},
+		key: {
+			url:"nourl"
+		}
+	}
+};
+var ztree;
+function menuTree(){
+	layer.open({
+		type: 1,
+		offset: '200px',
+		skin: 'layui-layer-molv',
+		title: "选择菜单",
+		area: ['400px', '600px'],
+		shade: 0,
+		shadeClose: false,
+		content: jQuery("#menuLayer"),
+		btn: ['确定', '取消'],
+		btn1: function (index) {
+			var node = ztree.getSelectedNodes();
+			vue.paper.courseId = node[0].uid;
+			$("input[name='paperCourseName']").val(node[0].name);
+			layer.close(index);
+        }
+	});
 }

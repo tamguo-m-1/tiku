@@ -8,6 +8,7 @@
 		<link rel="stylesheet" th:href="${setting.domain + 'css/member/paperList.css'}" />
 		<link rel="stylesheet" th:href="${setting.domain + 'js/plugins/layui/css/layui.css'}">
 		<link rel="stylesheet" th:href="${setting.domain + 'css/member/memberMain.css'}" />
+		<link rel="stylesheet" th:href="${setting.domain + 'admin/plugins/ztree/css/metroStyle/metroStyle.css'}">
 		<link type="favicon" rel="shortcut icon" th:href="${setting.domain + 'images/favicon.png'}" />
 	</head>
 	<body>
@@ -44,7 +45,7 @@
 		                    <a class="select-t" href="javascript:void(0)" v-on:click="reload"></a>
 		                </div>
 		            </div>
-		            <span style="text-align: center;" id="addSiama"><a href="javascript:void(0)">+ 新建试卷</a></span>
+		            <span style="text-align: center;" id="addSiama" v-on:click="addPaperFn()"><a href="javascript:void(0)">+ 新建试卷</a></span>
 		           
 		        </div>
 		
@@ -142,11 +143,18 @@
 		
 		<!-- 尾部-->
 		<div th:replace="include/memberFooter :: memberFooter"></div>
+		
+		<!-- 选择菜单 -->
+		<div id="menuLayer" style="display: none;padding:10px;">
+			<ul id="menuTree" class="ztree"></ul>
+		</div>
+		
 	</body>
 	<script type="text/javascript" th:inline="javascript">
 		var mainHttp = [[${setting.domain}]];
 	</script>
 	<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
+	<script th:src="${setting.domain + 'admin/plugins/ztree/jquery.ztree.all.min.js'}"></script>
 	<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
 	<script th:src="${setting.domain + 'js/plugins/layui/layui.js'}"></script>
 	<script th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>

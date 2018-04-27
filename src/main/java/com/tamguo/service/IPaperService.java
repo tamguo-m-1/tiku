@@ -50,4 +50,6 @@ public interface IPaperService {
 
 	Page<PaperEntity> memberPaperList(String name, String memberId , Integer page, Integer limit);
 
+	void addPaper(PaperEntity paper);
+
 }

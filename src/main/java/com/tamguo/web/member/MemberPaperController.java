@@ -94,4 +94,16 @@ public class MemberPaperController {
 		}
 	}
 	
+	@RequestMapping("member/paperList/addPaper.html")
+	@ResponseBody
+	public Result addPaper(PaperEntity paper,HttpSession session){
+		try {
+			MemberEntity member = (MemberEntity) session.getAttribute("currMember");
+			paper.setCreaterId(member.getUid());
+			iPaperService.addPaper(paper);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("添加试卷", this.getClass(), e);
+		}
+	}
 }

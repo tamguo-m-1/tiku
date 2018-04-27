@@ -202,6 +202,7 @@ public class PaperService implements IPaperService{
 		paperMapper.update(paper);
 	}
 
+
 	@Override
 	public Page<PaperEntity> memberPaperList(String name , String memberId , Integer page,
 			Integer limit) {
@@ -210,6 +211,15 @@ public class PaperService implements IPaperService{
 			name = "%" + name + "%";
 		}
 		return paperMapper.queryPageByNameAndCreatorId(name , memberId);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void addPaper(PaperEntity paper) {
+		paper.setDownHits(0);
+		paper.setOpenHits(0);
+		paper.setQuestionInfo("[]");
+		paperMapper.insert(paper);
 	}
 
 }

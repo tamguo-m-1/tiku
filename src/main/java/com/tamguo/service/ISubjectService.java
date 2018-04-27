@@ -2,6 +2,7 @@ package com.tamguo.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.Page;
 import com.tamguo.model.SubjectEntity;
 
@@ -18,5 +19,7 @@ public interface ISubjectService {
 	public void deleteBatch(String[] subjectIds);
 
 	public List<SubjectEntity> getSubjectTree();
+	
+	public JSONArray getCourseTree();
 	
 }
