@@ -33,15 +33,13 @@
 		
 		<div class="PCshow hide" style="display: block;">
 			<div class="examContent public">
-				<!-- wellcome -->
 				<h2>
 				<img th:src="${setting.domain + 'images/member/index/face-xiao.png'}"
 					style="position: relative; top: -2px;"> &nbsp;<span
 					style="letter-spacing: 4px;"> <b id="userName"
-					style="font-weight: normal; color: #2abcb8" th:text="${session.currMember.username}">盘顺军</b>，您好！欢迎来到探果网管理后台
+					style="font-weight: normal; color: #2abcb8" th:text="${session.currMember.username}">tamguo</b>，您好！欢迎来到探果网管理后台
 				</span>
 			</h2>
-				<!-- wellcome end-->
 				<!-- 左侧基本信息项 -->
 				<div class="newsLeft">
 					<div class="baseNews">
@@ -51,7 +49,7 @@
 							<tbody><tr>
 								<td>
 								<span class="logoV">
-								<img th:src="${session.currMember.avatar}">
+								<img th:src="${setting.domain + session.currMember.avatar}">
 								</span>
 								</td>
 							</tr>
@@ -60,98 +58,40 @@
 							<a style="font-size: 12px;" th:href="${setting.domain + 'member/account.html'}"><i class="iconfont icon-icon_edit"></i> 编辑</a>
 						</div>
 						<p style="clear: both;height: 0px;"></p>
-						<ul>
-						 <a th:href="${setting.domain + 'member/account.html'}">
-							<li>
-							  
-								<div>
-									<!-- <i class="fa fa-user icon-f"></i> -->
-									<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/person.png'}">
-								</div>
-								<span>个人信息</span>
-							</li>
-							</a>
-							 <a th:href="${setting.domain + 'member/account.html'}">
-							<li>
-								<div>
-									<!-- <i class="fa fa-briefcase icon-f"></i> -->
-									<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/compnew.png'}">
-								</div>
-								<span>账号信息</span>
-							</li>
-							</a>
-							<!-- <a href="http://kao.acmcoder.com/b/compSet" > -->
-							<li class="kaoshinew">
-								<div>
-									<!-- <i class="fa fa-file-text-o icon-f" ></i> -->
-									<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/testnew2.png'}">
-								</div>
-								<span>考试信息</span>
-							</li>
-							<!-- </a> -->
-		
-							<a th:href="${setting.domain}">
-							</a><a th:href="${setting.domain}" target="_blank">
-							<li>
-									<div class="li-p">
-										<!-- <i class="fa fa-external-link icon-f"></i> -->
-										<img style="margin-top: 19px;" th:src="${setting.domain + 'images/member/index/inputko.png'}">
-									</div>
-									<span>考试入口</span>
-								</li>
-							</a>
-						</ul>
 					</div>
 					<div class="well"></div>
 					<div class="userNews">
 						<h3><i></i> 账户信息</h3>
 						<ul>
-							<li style="padding-left: 23px;">当 &nbsp;前 &nbsp;版 &nbsp;本：
-								<b style="margin-left: 14px;">
-										免费版 <span style="margin-left: 5px;font-size: 12px;position: relative;top: 2px;color:#9c9191">V 3.1.2</span>
-									</b>
+							<li style="padding-left: 21px;">积分：
+								<b style="margin-left:14px;" id="examCandsNum">1000</b>
 							</li>
-							<li style="padding-left: 21px;">有 &nbsp;&nbsp;&nbsp;&nbsp;效 &nbsp;&nbsp;&nbsp;&nbsp;期：
-								<b style="margin-left: 13px;" }="">不限</b>
-								</li>
-							<li style="padding-left: 21px;">考试人数余额：
-								<b style="margin-left:14px;" id="examCandsNum">100 人</b>
-							</li>
-							<li style="padding-left: 24px;">短 &nbsp;信 &nbsp;余 &nbsp;额：<b style="margin-left: 19px;">50 条</b></li>
-							<li style="padding-left: 20px">人脸识别余额：
-								<b style="margin-left: 15px;">
-									5 人
-									</b>
-							</li>
+							<li style="padding-left: 24px;">余额：<b style="margin-left: 19px;">50 元</b></li>
+							<li style="padding-left: 21px;">最近登录时间：<b style="margin-left: 13px;">2018-04-27 10:32</b></li>
 						</ul>
 						<a th:href="${setting.domain}" target="_blank" id="addMoney">现在充值</a>
 					</div>
-					<span><a th:href="${setting.domain}" target="_blank" style="color: inherit;"><img th:src="${setting.domain + 'images/member/index/VIp-logo.png'}"> 升级高级版，享受VIP功能&gt;&gt;</a></span>
 				</div>
 				<!-- 右侧信息显示 -->
 				<div class="newsR">
 					<div class="topNews" id="numList1">
 						<ul>
 							<li>
-								<!-- <i class="fa fa-pencil-square-o icon-n"></i> -->
 								<img th:src="${setting.domain + 'images/member/index/peneil.png'}" style="margin-top: 26px;position: relative;top: -4px;"><br>
-								<span><b id="datab1">0</b> 场</span><br>
+								<span><b id="datab1">0</b> 次</span><br>
 								<span>下载总数</span>
 							</li>
 							<li>
-								<!-- <i class="fa fa-files-o icon-n"></i> -->
 								<img th:src="${setting.domain + 'images/member/index/paperm.png'}" style="margin-top: 26px;position: relative;top: -4px;"><br>
 								<span><b id="datab2">1</b> 套</span><br>
 								<span>试卷总数</span>
 							</li>
 							<li>
-								<!-- <i class="fa fa-users icon-n"></i> -->
 								<img th:src="${setting.domain + 'images/member/index/peoplem.png'}" style="margin-top: 26px;position: relative;top: -4px;"><br>
-								<span><b id="datab3">0</b> 人</span><br>
+								<span><b id="datab3">0</b> 次</span><br>
 								<span>阅读总数</span>
 							</li>
 							<li>
-								<!-- <i class="fa fa-file-text icon-n"></i> -->
 								<img th:src="${setting.domain + 'images/member/index/testnew.png'}" style="margin-top: 26px;position: relative;top: -6px;"><br>
 								<span><b id="datab4">19</b> 道</span><br>
 								<span>试题总数</span>
@@ -178,19 +118,6 @@
 							</tr>
 							</thead>
 						</table>
-						<ul>
-							<div class="textNone">
-								<div
-									style="width: 90px; height: 90px; padding-top: 17px; position: relative; left: 50%; transform: translateX(-50%); border-radius: 10px;">
-									<img th:src="${setting.domain + 'images/member/index/face-date.png'}">
-								</div>
-								<a"><span
-									style="margin-top: 40px; display: block; font-size: 14px; color: #999;">您还没有设置过考试场次<br>
-									<a class="hrefPositon"
-										th:href="${setting.domain}"
-										style="font-size: 14px;">现在发起一场新的考试吧！</a></span></a">
-							</div>
-						</ul>
 				</div>
 				</div>
 			</div>

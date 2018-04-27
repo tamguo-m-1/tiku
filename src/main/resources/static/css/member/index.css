@@ -132,13 +132,14 @@ body {
     width: 117px;
     height: 60px;
     line-height: 56px;
-    background: white;
+    background: whitesmoke;
     display: inline-block;
     position: relative;
 }
 .examContent .newsLeft .baseNews>div .logoV img {
     max-height: 100%;
     max-width: 100%;
+    border-radius: 55px;
 }
 .examContent .newsLeft .baseNews>div a {
     display: none;
@@ -226,10 +227,6 @@ img, input, fieldset {
     line-height: 60px;
     font-size: 14px;
     padding-left: 20px;
-}
-.examContent .newsLeft .userNews ul li:nth-child(1) b {
-    font-size: 20px;
-    color: #ff8a00;
 }
 .examContent .newsLeft .userNews>a {
     font-size: 14px;
@@ -359,6 +356,7 @@ body .footer {
     width: 100%;
     overflow: hidden;
     z-index: 0;
+    position: fixed;
 }
 .footer {
     height: 173px;

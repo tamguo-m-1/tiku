@@ -65,7 +65,7 @@ public class TamguoConstant {
 	public static final String QUESTION_TYOE_SHUMIANBIAODA = "3";
 	
 	/** 默认会员头像*/
-	public static final String DEFAULT_MEMBER_AVATAR = "https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/01b9536d696c65746f63616e6479e71e";
+	public static final String DEFAULT_MEMBER_AVATAR = "images/avatar.png";
 	
 	/** 重置密码KEY*/
 	public static final String RESET_PASSWORD_KEY = "ResetPasswordKey";

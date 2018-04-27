@@ -7,7 +7,7 @@
 			<div class="contain-login">
                 <div class="login-container">
                     <i th:if="${session.currMember == null}" class="login-icon iconfont icon-yonghu"></i><span th:if="${session.currMember == null}">登录</span>
-                    <img th:if="${session.currMember != null}" class="user-photo" src="https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/01b9536d696c65746f63616e6479e71e" alt="用户头像">
+                    <img th:if="${session.currMember != null}" class="user-photo" th:src="${setting.domain + session.currMember.avatar}" alt="用户头像">
                     <i th:if="${session.currMember != null}" class="photo-icon iconfont icon-down" style="transform: rotate(0deg);"></i>
                 </div>
                 <ul th:class="${currMember == null} ? 'login-option dis-none' : 'login-option'" id="loginOptionUl">
@@ -39,7 +39,7 @@
 	                    <span th:text="${m.name}"></span>
 	                </span>
 	                <ul class="all-list clearfix">
-	                    <li class="all-list-li" th:each="c,cmStat:${m.childSubjects}"><a href="https://tiku.baidu.com/tikupc/homepage/3f0c844769eae009581bec05" target="_blank" th:text="${c.name}">高考</a></li>
+	                    <li class="all-list-li" th:each="c,cmStat:${m.childSubjects}"><a th:href="${setting.domain + m.url}" target="_blank" th:text="${c.name}">高考</a></li>
 	                </ul>
 	            </div>
 	        </div>
