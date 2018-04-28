@@ -201,30 +201,6 @@
     height: 59px;
     margin: 0 auto;
 }
-.class-box .icon-wenke {
-    background: url(../images/icon-wenke_a67e3bd.png) center center no-repeat;
-}
-.class-box .icon-like {
-    background: url(../images/icon-like_0f9d9d3.png) center center no-repeat;
-}
-.class-box .icon-wuli {
-    background: url(../images/icon-wuli_b38a090.png) center center no-repeat;
-}
-.class-box .icon-huaxue {
-    background: url(../images/icon-huaxue_d56a569.png) center center no-repeat;
-}
-.class-box .icon-shengwu {
-    background: url(../images/icon-shengwu_c5a0fd8.png) center center no-repeat;
-}
-.class-box .icon-zhengzhi {
-    background: url(../images/icon-zhengzhi_3e59ee4.png) center center no-repeat;
-}
-.class-box .icon-lishi {
-    background: url(../images/icon-lishi_f9f6f16.png) center center no-repeat;
-}
-.class-box .icon-dili {
-    background: url(../images/icon-dili_ffc15ed.png) center center no-repeat;
-}
 .class-box .box-classname {
     line-height: 36px;
     font-size: 18px;

@@ -68,7 +68,7 @@
 							<div class="class-box" th:each="c,cStat:${gaokaoCourseList}">
 								<a th:href="${setting.domain + 'chapter/'+c.subjectId+'/'+c.uid+'.html'}" target="_blank" class="class-link" data-courseid="17">
 									<div class="box-content">
-										<div th:class="${c.icon + ' box-icon'}"></div>
+										<div style="font-size:45px;" th:class="${c.icon + ' iconfont box-icon'}"></div>
 										<p class="box-classname" course_id="17" th:text="${c.name}">文科数学</p>
 										<p class="box-classnum"><span th:text="${c.pointNum}">495</span>个考点</p>
 									</div>
@@ -207,9 +207,9 @@
 				    </div>
 				    <div class="zige-test-main">
 				        <div class="zigetest-list">
-							<div th:class="${'zigetest-list-detail ' + m.pinyin + '-test'}" th:each="m,mStat:${footerMenuList}">
+							<div th:class="${'zigetest-list-detail'}" th:each="m,mStat:${footerMenuList}">
 								<div class="list-title">
-									<div class="testbg"></div>
+									<div th:class="${'testbg li-icon iconfont ' + m.pinyin}" style="font-size:45px;"></div>
 									<div class="title-box">
 										<p class="title-name" th:text="${m.name}">财会类</p>
 										<p class="title-num" th:text="${#lists.size(m.childSubjects) + '门考试'}">5门考试</p>
