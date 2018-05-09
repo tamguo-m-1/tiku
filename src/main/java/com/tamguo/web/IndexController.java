@@ -22,7 +22,7 @@ public class IndexController {
     
     @RequestMapping(value = "/baidu_verify_5agfTbCO3Q", method = RequestMethod.GET)
     public ModelAndView baidu_verify_5agfTbCO3Q(ModelAndView model) {
-    	model.setViewName("baidu_verify_5agfTbCO3Q");
+    	model.setViewName("thirdparty/baidu_verify_5agfTbCO3Q");
         return model;
     }
     
