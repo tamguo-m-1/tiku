@@ -219,6 +219,11 @@ public class PaperService implements IPaperService{
 		paper.setDownHits(0);
 		paper.setOpenHits(0);
 		paper.setQuestionInfo("[]");
+		
+		// 写入seo信息
+		paper.setSeoTitle(paper.getName());
+		paper.setSeoKeywords(paper.getName());
+		paper.setSeoDescription(paper.getName());
 		paperMapper.insert(paper);
 	}
 

@@ -1,6 +1,8 @@
 package com.tamguo.util;
 
 public class TamguoConstant {
+	
+	public static final String WEBSITE_NAME = "探果网";
 
 	public static final String REDIS_PRE_KEY = "TAMGUO:";
 

@@ -51,6 +51,14 @@ public class PaperEntity implements Serializable {
 	@Column(name="open_hits")
 	private Integer openHits;
 	
+	@Column(name="seo_title")
+	private String seoTitle;
+	
+	@Column(name="seo_keywords")
+	private String seoKeywords;
+	
+	@Column(name="seo_description")
+	private String seoDescription;
 	
 	public JSONArray getQueInfo(){
 		if(StringUtils.isEmpty(getQuestionInfo())){
@@ -150,5 +158,30 @@ public class PaperEntity implements Serializable {
 	public void setCreaterId(String createrId) {
 		this.createrId = createrId;
 	}
+
+	public String getSeoTitle() {
+		return seoTitle;
+	}
+
+	public void setSeoTitle(String seoTitle) {
+		this.seoTitle = seoTitle;
+	}
+
+	public String getSeoKeywords() {
+		return seoKeywords;
+	}
+
+	public void setSeoKeywords(String seoKeywords) {
+		this.seoKeywords = seoKeywords;
+	}
+
+	public String getSeoDescription() {
+		return seoDescription;
+	}
+
+	public void setSeoDescription(String seoDescription) {
+		this.seoDescription = seoDescription;
+	}
+
 
 }
