@@ -1,7 +1,6 @@
 package com.tamguo.service.impl;
 
 import java.util.UUID;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import com.tamguo.dao.MemberMapper;
 import com.tamguo.dao.redis.CacheService;
 import com.tamguo.model.MemberEntity;
 import com.tamguo.service.IMemberService;
-import com.tamguo.service.ISmsService;
 import com.tamguo.util.Result;
 import com.tamguo.util.ShiroUtils;
 import com.tamguo.util.TamguoConstant;
@@ -24,8 +22,6 @@ public class MemberService implements IMemberService{
 	private MemberMapper memberMapper;
 	@Autowired
 	private CacheService cacheService;
-	@Autowired
-	private ISmsService iSmsService;
 
 	@Override
 	public Result login(String username, String password , String captcha) {

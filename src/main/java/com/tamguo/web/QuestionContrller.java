@@ -12,7 +12,6 @@ import com.github.pagehelper.Page;
 import com.tamguo.model.ChapterEntity;
 import com.tamguo.model.QuestionEntity;
 import com.tamguo.service.IChapterService;
-import com.tamguo.service.ICourseService;
 import com.tamguo.service.IQuestionService;
 import com.tamguo.util.Result;
 
@@ -23,8 +22,6 @@ public class QuestionContrller {
 	private IQuestionService iQuestionService;
 	@Autowired
 	private IChapterService iChapterService;
-	@Autowired
-	private ICourseService iCourseService;
 	
 	@RequestMapping(value = {"/question/{subjectId}/{courseId}/{parentChapterId}/{chapterId}-{offset}-{limit}.html"}, method = RequestMethod.GET)
 	public ModelAndView questionList(@PathVariable String subjectId , @PathVariable String courseId , 

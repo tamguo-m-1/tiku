@@ -20,4 +20,10 @@ public class IndexController {
         return model;
     }
     
+    @RequestMapping(value = "/baidu_verify_5agfTbCO3Q", method = RequestMethod.GET)
+    public ModelAndView baidu_verify_5agfTbCO3Q(ModelAndView model) {
+    	model.setViewName("baidu_verify_5agfTbCO3Q");
+        return model;
+    }
+    
 }
