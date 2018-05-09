@@ -2,7 +2,11 @@
 <html lang="Zh-hans" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<title>探果-科目</title>
+	<title th:text="${'探果网 - ' + course.seoTitle}">探果网-试卷</title>
+	<meta name="author" content="Tamguo Team" />
+	<meta name="copyright" content="Tamguo" />
+	<meta name="keywords" th:content="${course.seoKeywords}" />
+	<meta name="description" th:content="${course.seoDescription}" />
 	<link rel="stylesheet" th:href="${setting.domain + 'css/main.css'}"></link>
 	<link rel="stylesheet" th:href="${setting.domain + 'css/reset.css'}" />
 	<link rel="stylesheet" th:href="${setting.domain + 'css/iconfont.css'}" />
@@ -29,16 +33,16 @@
 			                <a th:href="${setting.domain + 'subject/' + subjectId + '.html'}" class="">考试首页</a>
 			            </li>
 			            <li class="contain-li curr">
-			                <a class="curr " th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">章节学习</a>
+			                <a class="curr " th:href="${setting.domain + 'chapter/'+subjectId+'/'+course.uid+'.html'}">章节学习</a>
 			            </li>
 			            <li class="contain-li">
-			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
+			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_ZHENTI+'-0-0-1.html'}">真题试卷</a>
 			            </li>
 			            <li class="contain-li">
-			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
+			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_MONI+'-0-0-1.html'}">模拟试卷</a>
 			            </li>
 			            <li class="contain-li">
-			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+courseId+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
+			                <a class="" th:href="${setting.domain + 'paperlist/' + subjectId + '/'+course.uid+'-'+setting.PAPER_TYPE_YATI+'-0-0-1.html'}">考前押题</a>
 			            </li>
 			        </ul>
 			    </div>
@@ -53,7 +57,7 @@
     <ul class="sc-subject clearfix">
         <li>科目:</li>
         
-            <li th:class="${c.uid == courseId} ? 'selected' : ''" th:each="c,cStat:${courseList}">
+            <li th:class="${c.uid == course.uid} ? 'selected' : ''" th:each="c,cStat:${courseList}">
                 <a th:href="${setting.domain + 'chapter/'+c.subjectId+'/'+c.uid+'.html'}" th:text="${c.name}">
                     理科数学
                 </a>
@@ -63,7 +67,7 @@
         <li>结构:</li>
         
         <li class="selected">
-            <a th:href="${setting.domain + 'chapter/'+subjectId+'/'+courseId+'.html'}">
+            <a th:href="${setting.domain + 'chapter/'+subjectId+'/'+course.uid+'.html'}">
                 按知识点
             </a>
         </li>
@@ -92,7 +96,7 @@
         <div class="detail-chapter-title dct-0" id="dct-0">
             <h3 th:text="${c.name}">第一章 集合与常用逻辑用语</h3>
             
-            <a target="_blank" class="fifteen" th:href="${setting.domain + 'question/' + subjectId +'/'+ courseId + '/' +c.uid +'/0-0-15.html'}">随机来
+            <a target="_blank" class="fifteen" th:href="${setting.domain + 'question/' + subjectId +'/'+ course.uid + '/' +c.uid +'/0-0-15.html'}">随机来
                 
                     15
                 
@@ -109,7 +113,7 @@
                 <h4 text="$">1 集合的概念及运算</h4>
                 <span>1181 试题</span>
                 
-                    <a target="_blank" class="ten" th:href="${setting.domain + 'question/' + subjectId +'/'+ courseId + '/' +c.uid +'/'+cc.uid+'-0-15.html'}">随机来
+                    <a target="_blank" class="ten" th:href="${setting.domain + 'question/' + subjectId +'/'+ course.uid + '/' +c.uid +'/'+cc.uid+'-0-15.html'}">随机来
                         
                             10
                         
@@ -117,7 +121,6 @@
                 
             </div>
             <div class="kpoint-1-content clearfix">
-                
                     <div class="detail-kpoint-2" th:each="cc,ccStat:${cc.childChapterList}">
                     <h5 th:text="${cc.name}">1.1 集合的含义</h5>
                     <p>
@@ -125,15 +128,12 @@
                                 <span class="count" th:text="${cc.questionNum}">531</span> 道题
                         </span>
                     </p>
-                    
-                        <div class="mask" style="display: none;">
-                            <a target="_blank" th:href="${setting.domain + 'question/' + subjectId +'/'+ courseId + '/' +c.uid +'/'+ cc.uid + '-0-5.html'}" class="do">
-                              	  马上做题
-                            </a>
-                        </div>
-                    
+                    <div class="mask" style="display: none;">
+                        <a target="_blank" th:href="${setting.domain + 'question/' + subjectId +'/'+ course.uid + '/' +c.uid +'/'+ cc.uid + '-0-5.html'}" class="do">
+                          	  马上做题
+                        </a>
+                    </div>
                 </div>
-                
             </div>
         </div>
     </div>

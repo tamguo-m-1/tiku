@@ -40,6 +40,15 @@ public class CourseEntity implements Serializable {
 	@Column(name="orders")
 	private Integer orders;
 	
+	@Column(name="seo_title")
+	private String seoTitle;
+	
+	@Column(name="seo_keywords")
+	private String seoKeywords;
+	
+	@Column(name="seo_description")
+	private String seoDescription;
+	
 	private List<ChapterEntity> chapterList;
 
 	public CourseEntity() {
@@ -107,6 +116,34 @@ public class CourseEntity implements Serializable {
 
 	public void setChapterList(List<ChapterEntity> chapterList) {
 		this.chapterList = chapterList;
+	}
+
+	public String getSeoTitle() {
+		return seoTitle;
+	}
+
+	public void setSeoTitle(String seoTitle) {
+		this.seoTitle = seoTitle;
+	}
+
+	public String getSeoKeywords() {
+		return seoKeywords;
+	}
+
+	public void setSeoKeywords(String seoKeywords) {
+		this.seoKeywords = seoKeywords;
+	}
+
+	public String getSeoDescription() {
+		return seoDescription;
+	}
+
+	public void setSeoDescription(String seoDescription) {
+		this.seoDescription = seoDescription;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

@@ -75,6 +75,11 @@ public class CourseService implements ICourseService{
 	@Override
 	public void save(CourseEntity course) {
 		course.setUid(null);
+		
+		course.setSeoTitle(course.getName());
+		course.setSeoKeywords(course.getName());
+		course.setSeoDescription(course.getName());
+		
 		courseMapper.insert(course);
 		
 		// 更新章节

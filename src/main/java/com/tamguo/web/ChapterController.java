@@ -29,7 +29,7 @@ public class ChapterController {
     	model.addObject("chapterList", iChapterService.findCourseChapter(courseId));
     	model.addObject("courseList", iCourseService.findBySubjectId(subjectId));
     	model.addObject("subjectId", subjectId);
-    	model.addObject("courseId", courseId);
+    	model.addObject("course", iCourseService.find(courseId));
         return model;
     }
 
