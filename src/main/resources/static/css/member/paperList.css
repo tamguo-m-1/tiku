@@ -8,7 +8,6 @@ body .footer {
     width: 100%;
     overflow: hidden;
     z-index: 0;
-    position: fixed;
 }
 .cnav {
     height: 98px;

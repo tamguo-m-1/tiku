@@ -356,7 +356,6 @@ body .footer {
     width: 100%;
     overflow: hidden;
     z-index: 0;
-    position: fixed;
 }
 .footer {
     height: 173px;
