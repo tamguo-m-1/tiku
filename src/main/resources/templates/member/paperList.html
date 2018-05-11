@@ -119,7 +119,7 @@
 			                            <a class="down" href="javascript:void(0)">下移</a> -->
 			                        </span>
 			                            <ul class="addQuestion" style="margin:-3px 0 0;float:none">
-			                                <li class="ng-scope"><a class="add able" th:href="${setting.domain + 'member/addQuestion.html'}">添加试题</a>
+			                                <li class="ng-scope"><a class="add able" v-on:click="addPaperQuestionFn(paper.uid)" href="javascript:(0);">添加试题</a>
 			                                </li>
 			                                <li class="ng-scope"><a class="edit able" th:href="${setting.domain + 'member/questionList.html'}">管理试题</a>
 			                                </li>

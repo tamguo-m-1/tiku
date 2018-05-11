@@ -10,6 +10,9 @@ var vue = new Vue({
 		singleSeleIndex:5,
 		multiSeleIndex:5,
 		question:{
+			paperId:null,
+			subjectId:null,
+			chapterId:null,
 			questionType:1,
 			year:null,
 			score:null,
@@ -50,6 +53,9 @@ var vue = new Vue({
 			vue.question.content = tiganUE.getContent();
 			vue.question.answer = daanUE.getContent();
 			vue.question.analysis = daanjiexiUE.getContent();
+			vue.question.paperId = $("#paperId").val();
+			vue.question.subjectId = null;
+			vue.question.chapterId = null;
 			$.ajax({
 				type: "POST",
 			    url: mainHttp + "member/submitQuestion",

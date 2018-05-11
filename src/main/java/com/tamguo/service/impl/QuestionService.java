@@ -1,6 +1,5 @@
 package com.tamguo.service.impl;
 
-import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,9 +54,6 @@ public class QuestionService implements IQuestionService{
 	@Transactional(readOnly=false)
 	@Override
 	public void addQuestion(QuestionEntity question) {
-		question.setSubjectId(BigInteger.valueOf(2));
-		question.setChapterId(BigInteger.valueOf(71));
-		question.setPaperId(BigInteger.valueOf(1));
 		questionMapper.insert(question);
 	}
 

@@ -344,6 +344,10 @@ var vue = new Vue({
 				}
 			});
 		},
+		// 添加試題
+		addPaperQuestionFn:function(paperId){
+			window.location.href= mainHttp +'member/addQuestion.html?paperId='+paperId; 
+		}
 	}
 });
 

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.Page;
 import com.tamguo.model.QuestionEntity;
+import com.tamguo.service.IPaperService;
 import com.tamguo.service.IQuestionService;
 import com.tamguo.util.ExceptionSupport;
 import com.tamguo.util.Result;
@@ -20,10 +21,13 @@ public class QuestionController {
 	
 	@Autowired
 	private IQuestionService iQuestionService;
+	@Autowired
+	private IPaperService iPaperService;
 	
 	@RequestMapping(value = "/member/addQuestion", method = RequestMethod.GET)
-	public ModelAndView index(ModelAndView model){
+	public ModelAndView index(String paperId , ModelAndView model){
 		model.setViewName("member/addQuestion");
+		model.addObject("paper", iPaperService.find(paperId));
 		return model;
 	}
 	

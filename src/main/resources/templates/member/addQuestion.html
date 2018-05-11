@@ -59,6 +59,8 @@
 			                	年份：<input type="text" placeholder="年份" style="margin-left: 8px;width:40px;" v-model="question.year" maxlength="100" class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"> 年
 			                	<span style="margin-left:40px;"></span>
 			                	分数：<input type="text" placeholder="分数" style="margin-left: 8px;width:40px;" v-model="question.score" maxlength="100" class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"> 分
+			                	
+			                	<input type="hidden" id="paperId" th:value="${paper.uid}">
 			                </li>
 			            </ul>
 			        </div>
