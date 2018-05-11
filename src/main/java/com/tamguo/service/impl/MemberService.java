@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.google.code.kaptcha.Constants;
 import com.tamguo.dao.MemberMapper;
@@ -177,6 +178,23 @@ public class MemberService implements IMemberService{
 			}
 		}
 		return Result.result(200, null, "更新成功");
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void updateMember(MemberEntity member) {
+		MemberEntity entity = memberMapper.select(member.getUid());
+		entity.setAvatar(member.getAvatar());
+		entity.setEmail(member.getEmail());
+		entity.setMobile(member.getMobile());
+		
+		memberMapper.update(entity);
+	}
+
+	@Transactional(readOnly=true)
+	@Override
+	public MemberEntity findByUid(String uid) {
+		return memberMapper.select(uid);
 	}
 	
 }

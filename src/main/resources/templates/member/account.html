@@ -65,7 +65,7 @@
 							 </div>
 						</dl>
 	              </div>
-					<div class="info-right newsRight">
+					<div class="info-right newsRight" id="">
 						<div class="info-rBox" style="padding-bottom: 20px;">
 								<div class=" user_list clearfix">
 									<table class="info-table" border="0" cellspacing="0" cellpadding="0">
@@ -74,7 +74,7 @@
 											<td><label class="info-label" style="left: 30px;"><span></span>头像：</label></td>
 											<td><div class="clearfix" style="width: ; margin-bottom: 15px">
 												<div class="clearfix" id="upPhoto">
-													<img class="acphoto" src="https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/01b9536d696c65746f63616e6479e71e">
+													<img class="acphoto" th:src="${setting.domain + member.avatar}">
 													<div class="mybtn">
 														<span>支持jpg、jpeg和png格式，最大2M</span><br>
 														<input type="button" id="up_photo" class="up_photo" value="上传头像">
@@ -96,7 +96,7 @@
 											<td><label class="info-label" style="left: 30px;"><span>*</span>姓名：</label></td>
 											<td><div class="clearfix" style="width: ; margin-bottom: 15px">
 												<div class="clearfix">
-													<input type="text" name="contactName" class="cvcadd-text input" placeholder="请输入姓名/昵称" value="盘顺军">
+													<input type="text" name="username" class="cvcadd-text input" placeholder="请输入姓名/昵称" th:value="${member.username}">
 												</div>
 											</div></td>
 										</tr>
@@ -105,7 +105,7 @@
 	                                        <td><label class="info-label" style="left: 30px;"><span>*</span>邮箱：</label></td>
 	                                        <td><div class="clearfix" style="width: ; margin-bottom: 15px">
 	                                        <div class="clearfix">
-	                                            <input type="text" name="contactEmail" class="cvcadd-text input" placeholder="请输入邮箱" value="panshunjun163@sina.com">
+	                                            <input type="text" name="email" class="cvcadd-text input" placeholder="请输入邮箱" th:value="${member.email}">
 	                                        </div>
 	                                    </div></td>
 	                                    </tr>
@@ -114,29 +114,15 @@
 											<td><label class="info-label" style="left: 30px;"><span>*</span>手机：</label></td>
 											<td><div class="clearfix" style="width: ; margin-bottom: 15px">
 												<div class="clearfix">
-													<input type="text" name="contactPhone" class="cvcadd-text input" placeholder="请输入手机" value="15026571954">
+													<input type="text" name="mobile" class="cvcadd-text input" placeholder="请输入手机" th:value="${member.mobile}">
 												</div>
 											</div></td>
 										</tr>
-										<tr>
-											<td><label class="info-label" style="left: 3px;"><span></span>任职职位：</label></td>
-											<td><div class="clearfix" style="width: ; margin-bottom: 15px">
-												<div class="clearfix">
-	
-													<input type="text" name="contactPosition" class="cvcadd-text input" placeholder="请输入您的任职职位" value="">
-												</div>
-											</div></td>
-										</tr>
-	
 										</tbody>
 									</table>
-	
-	
-	
 								</div>
-								<!-- <p class="stip" style="color:#ff6600;"> &nbsp; </p> -->
 								<p class="saveBtn">
-									<a class="btn_ok" rel="cxdialog" rev="btn_ok" id="confirm_btn" style="position: relative;left: 103px;padding: 5px 60px;top: 10px;">保存</a>
+									<a @click="updateMember" class="btn_ok" rel="cxdialog" rev="btn_ok" id="confirm_btn" style="position: relative;left: 103px;padding: 5px 60px;top: 10px;">保存</a>
 								</p>
 						</div>
 					</div>
@@ -148,5 +134,13 @@
 		
 		<!-- 尾部-->
 		<div th:replace="include/memberFooter :: memberFooter"></div>
+		
+		<script type="text/javascript" th:src="${setting.domain + 'js/jquery-1.8.3.min.js'}" ></script>
+		<script type="text/javascript" th:inline="javascript">
+			var mainHttp = [[${setting.domain}]];
+		</script>
+		<script type="text/javascript" th:src="${setting.domain + 'admin/libs/vue.min.js'}"></script>
+		<script th:src="${setting.domain + 'js/plugins/layer/layer.js'}"></script>
+		<script type="text/javascript" th:src="${setting.domain + 'js/member/account.js'}"></script>
 	</body>
 </html>
