@@ -36,8 +36,8 @@ public class QuestionEntity implements Serializable {
 	@Column(name="content")
 	private String content;
 
-	@Column(name="subject_id")
-	private BigInteger subjectId;
+	@Column(name="course_id")
+	private String courseId;
 	
 	@Column(name="review_point")
 	private String reviewPoint;
@@ -91,14 +91,6 @@ public class QuestionEntity implements Serializable {
 		this.questionType = questionType;
 	}
 
-	public BigInteger getSubjectId() {
-		return this.subjectId;
-	}
-
-	public void setSubjectId(BigInteger subjectId) {
-		this.subjectId = subjectId;
-	}
-
 	public String getContent() {
 		return content;
 	}
@@ -137,6 +129,14 @@ public class QuestionEntity implements Serializable {
 
 	public void setPaperId(BigInteger paperId) {
 		this.paperId = paperId;
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 }

@@ -10,7 +10,7 @@
 			q.chapter_id,
 			q.content,
 			q.question_type,
-			q.subject_id,
+			q.course_id,
 			q.review_point,
 			q.year,
 			q.score
@@ -30,7 +30,7 @@
 			q.question_type,
 			q.review_point,
 			q.score,
-			q.subject_id,
+			q.course_id,
 			q.uid,
 			q.`year`
 		FROM
@@ -49,7 +49,7 @@
 			q.question_type,
 			q.review_point,
 			q.score,
-			q.subject_id,
+			q.course_id,
 			q.uid,
 			q.`year`
 		FROM
@@ -71,7 +71,7 @@
 			q.question_type,
 			q.review_point,
 			q.score,
-			q.subject_id,
+			q.course_id,
 			q.uid,
 			q.`year`
 		FROM

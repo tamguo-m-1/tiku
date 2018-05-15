@@ -224,7 +224,7 @@ var vue = new Vue({
 			    html += '</div>';
 				html += '</form>';
 				layer.open({
-					  title: "添加子卷",
+					  title: "添加试卷",
 					  type: 1,
 					  skin: 'layui-layer-rim', //加上边框
 					  area: ['760px', '550px'], //宽高

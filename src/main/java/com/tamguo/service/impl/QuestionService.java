@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.tamguo.dao.PaperMapper;
 import com.tamguo.dao.QuestionMapper;
+import com.tamguo.model.PaperEntity;
 import com.tamguo.model.QuestionEntity;
 import com.tamguo.service.IQuestionService;
 
@@ -19,6 +21,8 @@ public class QuestionService implements IQuestionService{
 	
 	@Autowired
 	private QuestionMapper questionMapper;
+	@Autowired
+	private PaperMapper paperMapper;
 
 	@Override
 	public Page<QuestionEntity> findByChapterId(String chapterId  , Integer offset ,  Integer limit) {
@@ -54,6 +58,8 @@ public class QuestionService implements IQuestionService{
 	@Transactional(readOnly=false)
 	@Override
 	public void addQuestion(QuestionEntity question) {
+		PaperEntity paper = paperMapper.select(question.getPaperId().toString());
+		question.setCourseId(paper.getCourseId());
 		questionMapper.insert(question);
 	}
 
