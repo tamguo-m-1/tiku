@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tamguo.dao.ChapterMapper;
 import com.tamguo.model.ChapterEntity;
@@ -77,20 +79,29 @@ public class ChapterService implements IChapterService{
 		return chapterMapper.findNextPoint(uid , orders);
 	}
 
+	@Transactional(readOnly=false)
 	@Override
 	public List<ChapterEntity> getChapterTree(String courseId) {
 		if(StringUtils.isEmpty(courseId) || "null".equals(courseId)){
-			ChapterEntity chapter = new ChapterEntity();
-			chapter.setCourseId(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID);
-			chapter.setOrders(0);
-			chapter.setPointNum(0);
-			chapter.setQuestionNum(0);
-			chapter.setUid("0");
-			chapter.setName("章节根目录");
-			chapter.setParentId(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID);
-			return Arrays.asList(chapter);
+			return rootChapterNode();
 		}
-		return chapterMapper.findByCourseId(courseId);
+		List<ChapterEntity> list = chapterMapper.findByCourseId(courseId);
+		if(CollectionUtils.isEmpty(list)) {
+			return rootChapterNode();
+		}
+		return list;
+	}
+
+	private List<ChapterEntity> rootChapterNode(){
+		ChapterEntity chapter = new ChapterEntity();
+		chapter.setCourseId(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID);
+		chapter.setOrders(0);
+		chapter.setPointNum(0);
+		chapter.setQuestionNum(0);
+		chapter.setUid("0");
+		chapter.setName("章节根目录");
+		chapter.setParentId(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID);
+		return Arrays.asList(chapter);
 	}
 
 }

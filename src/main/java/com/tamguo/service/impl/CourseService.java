@@ -114,28 +114,36 @@ public class CourseService implements ICourseService{
 	public void update(CourseEntity course) {
 		courseMapper.update(course);
 		
-		// 删除之前的章节
-		chapterMapper.deleteByCourseId(course.getUid());
 		// 更新章节
 		List<ChapterEntity> chapterList = course.getChapterList();
 		for(int i=0 ; i<chapterList.size() ; i++){
+			
 			ChapterEntity chapter = chapterList.get(i);
 			if(TamguoConstant.CHAPTER_DEFAULT_ROOT_UID.equals(chapter.getParentId())){
 				chapter.setName(course.getName());
 			}
-			String uid = chapter.getUid();
-			
-			chapter.setUid(null);
-			chapter.setParentId(chapter.getParentId());
-			chapter.setCourseId(course.getUid());
-			chapterMapper.insert(chapter);
-			
-			for(int k=0 ; k<chapterList.size() ; k++){
-				ChapterEntity c = chapterList.get(k);
-				if(c.getParentId().equals(uid)){
-					c.setParentId(chapter.getUid());
+			// 只支持更新和新增操作
+			if(StringUtils.isEmpty(chapter.getCourseId()) 
+					|| TamguoConstant.CHAPTER_DEFAULT_ROOT_UID.equals(chapter.getCourseId())) {
+				String uid = chapter.getUid();
+				
+				chapter.setUid(null);
+				chapter.setParentId(chapter.getParentId());
+				chapter.setCourseId(course.getUid());
+				chapterMapper.insert(chapter);
+				
+				for(int k=0 ; k<chapterList.size() ; k++){
+					ChapterEntity c = chapterList.get(k);
+					if(c.getParentId().equals(uid)){
+						c.setParentId(chapter.getUid());
+					}
 				}
+			} else {
+				ChapterEntity entity = chapterMapper.select(chapter.getUid());
+				entity.setName(chapter.getName());
+				chapterMapper.update(entity);
 			}
+			
 		}
 	}
 

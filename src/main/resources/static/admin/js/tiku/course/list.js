@@ -56,7 +56,8 @@ var setting = {
 		selectedMulti: false
 	},
 	edit: {
-		enable: true
+		enable: true,
+		showRemoveBtn: false
 	}
 };
 var newCount = 1;
@@ -69,7 +70,7 @@ function addHoverDom(treeId, treeNode) {
 	var btn = $("#addBtn_"+treeNode.tId);
 	if (btn) btn.bind("click", function(){
 		var zTree = $.fn.zTree.getZTreeObj("menuTree");
-		zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
+		zTree.addNodes(treeNode, {uid:(100 + newCount), parentId:treeNode.id, name:"章节" + (newCount++)});
 		return false;
 	});
 };
