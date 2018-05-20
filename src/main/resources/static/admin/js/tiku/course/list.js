@@ -57,26 +57,35 @@ var setting = {
 	},
 	edit: {
 		enable: true,
-		showRemoveBtn: false
+		showRemoveBtn: showRemoveBtn	
 	}
 };
 var newCount = 1;
 function addHoverDom(treeId, treeNode) {
 	var sObj = $("#" + treeNode.tId + "_span");
-	if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
-	var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
-		+ "' title='add node' onfocus='this.blur();'></span>";
-	sObj.after(addStr);
-	var btn = $("#addBtn_"+treeNode.tId);
-	if (btn) btn.bind("click", function(){
-		var zTree = $.fn.zTree.getZTreeObj("menuTree");
-		zTree.addNodes(treeNode, {uid:(100 + newCount), parentId:treeNode.id, name:"章节" + (newCount++)});
-		return false;
-	});
+	if(treeNode.level <3){
+		if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+		var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+			+ "' title='add node' onfocus='this.blur();'></span>";
+		sObj.after(addStr);
+		var btn = $("#addBtn_"+treeNode.tId);
+		if (btn) btn.bind("click", function(){
+			var zTree = $.fn.zTree.getZTreeObj("menuTree");
+			zTree.addNodes(treeNode, {uid:(100 + newCount), parentId:treeNode.id, name:"章节" + (newCount++)});
+			return false;
+		});
+	}
 };
 function removeHoverDom(treeId, treeNode) {
 	$("#addBtn_"+treeNode.tId).unbind().remove();
 };  
+function showRemoveBtn(treeId, treeNode) { 
+    if(treeNode.courseId != null){
+    	return false;
+    }else{
+    	true;
+    }
+}
 var ztree;
 var vm = new Vue({
 	el:'#rrapp',
@@ -101,11 +110,9 @@ var vm = new Vue({
 		query: function () {
 			vm.reload();
 		},
-		getMenu: function(menuId){
+		getMenu: function(courseId){
 			//加载菜单树
-			$.get(mainHttp + "admin/course/getChapterTree/"+vm.course.uid+".html", function(r){
-				ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
-			})
+			return axios.get(mainHttp + "admin/course/getChapterTree/"+courseId+".html");
 		},
 		getSubjectList: function(){
 			return axios.get(mainHttp + "admin/subject/getSubject.html");
@@ -114,8 +121,9 @@ var vm = new Vue({
 			vm.showList = false;
 			vm.title = "新增";
 			vm.course = {uid:null,name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
-			vm.getMenu();
-			axios.all([vm.getSubjectList()]).then(axios.spread(function (sResponse) {
+			axios.all([vm.getMenu() , vm.getSubjectList()]).then(axios.spread(function (mResponse,sResponse) {
+				ztree = $.fn.zTree.init($("#menuTree"), setting, mResponse.data.result);
+				
 				vm.subjectList = sResponse.data.result;
             }));
 		},
@@ -126,12 +134,12 @@ var vm = new Vue({
 			}
 			vm.showList = false;
             vm.title = "修改";
-			axios.all([this.getSubjectList(), this.getCourse(courseId)]).then(axios.spread(function (sResponse, cResponse) {
+			axios.all([this.getMenu(courseId) , this.getSubjectList(), this.getCourse(courseId)]).then(axios.spread(function (mResponse , sResponse, cResponse) {
+            	ztree = $.fn.zTree.init($("#menuTree"), setting, mResponse.data.result);
+            	
 				vm.subjectList = sResponse.data.result;
             	vm.course = cResponse.data.result;
             }));
-			
-			vm.getMenu();
 		},
 		getCourse:function(courseId){
 			return axios.get(mainHttp + "admin/course/info/"+courseId+".html");
