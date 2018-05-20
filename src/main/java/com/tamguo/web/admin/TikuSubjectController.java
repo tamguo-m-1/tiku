@@ -1,5 +1,6 @@
 package com.tamguo.web.admin;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.Page;
 import com.tamguo.model.SubjectEntity;
@@ -66,6 +68,13 @@ public class TikuSubjectController {
 		} catch (Exception e) {
 			return ExceptionSupport.resolverResult("删除考试", this.getClass(), e);
 		}
+	}
+	
+	@RequestMapping(value = {"admin/subject/getSuject"}, method = RequestMethod.GET)
+	@ResponseBody
+	public Result getSuject(){
+		List<SubjectEntity> list = iSubjectService.getSubjectTree();
+		return Result.successResult(list);
 	}
 
 }

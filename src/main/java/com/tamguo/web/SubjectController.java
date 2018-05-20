@@ -58,5 +58,4 @@ public class SubjectController {
 		JSONArray list = iSubjectService.getCourseTree();
 		return Result.successResult(list);
 	}
-	
 }

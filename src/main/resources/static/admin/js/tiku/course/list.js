@@ -82,6 +82,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
+		subjectList:null,
 		course:{
 			name:null,
 			subjectId:null,
@@ -99,17 +100,27 @@ var vm = new Vue({
 				ztree = $.fn.zTree.init($("#menuTree"), setting, r.result);
 			})
 		},
+		getSubjectList: function(){
+			//加载菜单树
+			$.get(mainHttp + "admin/subject/getSuject.html", function(r){
+				vm.subjectList = r.result;
+			})
+		},
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
 			vm.course = {uid:null,name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
 			vm.getMenu();
+			vm.getSubjectList();
 		},
 		update: function (event) {
 			var courseId = getSelectedRow();
 			if(courseId == null){
 				return ;
 			}
+			
+			vm.getSubjectList();
+			
 			$.ajax({
 				type : "get", 
 				url : mainHttp + "admin/course/info/"+courseId+".html",
@@ -194,5 +205,13 @@ var vm = new Vue({
                 page:page
             }).trigger("reloadGrid");
 		}
+	},
+	watch:{
+		  // 数据修改时触发
+	      subjectList: function() {
+	        this.$nextTick(function(){
+		        $('#subjectId').selectpicker('refresh');
+	        })
+	      }
 	}
 });
