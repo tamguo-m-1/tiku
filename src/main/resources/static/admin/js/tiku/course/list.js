@@ -4,7 +4,7 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: '科目ID', name: 'uid', width: 40, key: true },
-			{ label: '考试ID', name: 'subjectId', width: 60 },
+			{ label: '考试名称', name: 'subjectName', width: 60 },
 			{ label: '科目名称', name: 'name', width: 60 },
 			{ label: '排序', name: 'orders', width: 60 },
 			{ label: '题目数量', name: 'questionNum', width: 60 },
@@ -83,6 +83,9 @@ var vm = new Vue({
 		showList: true,
 		title: null,
 		subjectList:null,
+		q:{
+			name:null
+		},
 		course:{
 			name:null,
 			subjectId:null,
@@ -94,6 +97,9 @@ var vm = new Vue({
 		}
 	},
 	methods: {
+		query: function () {
+			vm.reload();
+		},
 		getMenu: function(menuId){
 			//加载菜单树
 			$.get(mainHttp + "admin/course/getChapterTree/"+vm.course.uid+".html", function(r){
@@ -101,38 +107,33 @@ var vm = new Vue({
 			})
 		},
 		getSubjectList: function(){
-			//加载菜单树
-			$.get(mainHttp + "admin/subject/getSuject.html", function(r){
-				vm.subjectList = r.result;
-			})
+			return axios.get(mainHttp + "admin/subject/getSubject.html");
 		},
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
 			vm.course = {uid:null,name:null,subjectId:null,pointNum:null,questionNum:null,icon:null,orders:0};
 			vm.getMenu();
-			vm.getSubjectList();
+			axios.all([vm.getSubjectList()]).then(axios.spread(function (sResponse) {
+				vm.subjectList = sResponse.data.result;
+            }));
 		},
 		update: function (event) {
 			var courseId = getSelectedRow();
 			if(courseId == null){
 				return ;
 			}
+			vm.showList = false;
+            vm.title = "修改";
+			axios.all([this.getSubjectList(), this.getCourse(courseId)]).then(axios.spread(function (sResponse, cResponse) {
+				vm.subjectList = sResponse.data.result;
+            	vm.course = cResponse.data.result;
+            }));
 			
-			vm.getSubjectList();
-			
-			$.ajax({
-				type : "get", 
-				url : mainHttp + "admin/course/info/"+courseId+".html",
-				async : false,
-				dataType : "json",
-				success : function(data) {
-					vm.showList = false;
-	                vm.title = "修改";
-	                vm.course = data.result;
-				}
-			});
 			vm.getMenu();
+		},
+		getCourse:function(courseId){
+			return axios.get(mainHttp + "admin/course/info/"+courseId+".html");
 		},
 		del: function (event) {
 			var courseIds = getSelectedRows();
@@ -202,6 +203,7 @@ var vm = new Vue({
 			vm.showList = true;
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{ 
+				postData:{'name': vm.q.name},
                 page:page
             }).trigger("reloadGrid");
 		}

@@ -46,7 +46,7 @@
 			      <input type="text" class="form-control" v-model="subject.name" placeholder="考试名称"/>
 			    </div>
 			</div>
-			<div class="form-group">
+			<div class="form-group" v-if="title == '修改'" class="form-group">
 			   	<div class="col-sm-2 control-label">主科目</div>
 			   	<div class="col-sm-10">
 				   	<label v-for="course in subject.courseList" class="radio-inline">

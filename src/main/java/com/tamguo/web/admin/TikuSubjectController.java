@@ -70,7 +70,7 @@ public class TikuSubjectController {
 		}
 	}
 	
-	@RequestMapping(value = {"admin/subject/getSuject"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"admin/subject/getSubject"}, method = RequestMethod.GET)
 	@ResponseBody
 	public Result getSuject(){
 		List<SubjectEntity> list = iSubjectService.getSubjectTree();

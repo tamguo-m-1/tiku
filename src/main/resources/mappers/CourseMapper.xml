@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tamguo.dao.CourseMapper">
 
+	<resultMap id="BaseResultMap" type="com.tamguo.model.CourseEntity" >
+	    <id column="uid" property="uid" jdbcType="VARCHAR" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+	    <result column="point_num" property="pointNum" jdbcType="INTEGER" />
+	    <result column="question_num" property="questionNum" jdbcType="INTEGER" />
+	    <result column="icon" property="icon" jdbcType="VARCHAR" />
+	    <result column="orders" property="orders" jdbcType="INTEGER" />
+	    <result column="seo_title" property="seoTitle" jdbcType="VARCHAR" />
+	    <result column="seo_keywords" property="seoKeywords" jdbcType="VARCHAR" />
+	    <result column="seo_description" property="seoDescription" jdbcType="VARCHAR" />
+	    <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
+	</resultMap>
+
 	<select id="findBySubjectId" resultMap="resultMap">
 		SELECT
 			c.uid,
@@ -18,7 +32,7 @@
 		ORDER BY orders ASC
 	</select>
 	
-	<select id="queryPageByName" resultMap="resultMap">
+	<select id="queryPageByName" resultMap="BaseResultMap">
 		SELECT
 			c.icon,
 			c.`name`,
@@ -26,7 +40,8 @@
 			c.point_num,
 			c.question_num,
 			c.subject_id,
-			c.uid
+			c.uid,
+			(select s.name from tiku_subject s where s.uid = c.subject_id) as subject_name
 		FROM
 			tiku_course c
 		<where>

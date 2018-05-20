@@ -49,6 +49,8 @@ public class CourseEntity implements Serializable {
 	@Column(name="seo_description")
 	private String seoDescription;
 	
+	private String subjectName;
+	
 	private List<ChapterEntity> chapterList;
 
 	public CourseEntity() {
@@ -144,6 +146,14 @@ public class CourseEntity implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
 	}
 
 }
