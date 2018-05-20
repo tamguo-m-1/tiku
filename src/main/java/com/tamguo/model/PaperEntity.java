@@ -60,6 +60,12 @@ public class PaperEntity implements Serializable {
 	@Column(name="seo_description")
 	private String seoDescription;
 	
+	private String courseName;
+	
+	private String areaName;
+	
+	private String schoolName;
+	
 	public JSONArray getQueInfo(){
 		if(StringUtils.isEmpty(getQuestionInfo())){
 			return null;
@@ -181,6 +187,30 @@ public class PaperEntity implements Serializable {
 
 	public void setSeoDescription(String seoDescription) {
 		this.seoDescription = seoDescription;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
+	}
+
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
 	}
 
 
