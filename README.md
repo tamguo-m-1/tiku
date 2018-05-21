@@ -1,5 +1,3 @@
-# tamguo tiku
-
 ## 简介 ##
 `tamguo`是一个题库平台，基于Java语言开发。它使用了springboot,redis,vue,bootstrap等技术栈。实现了权限控制，会员中心，后台管理等等功能。
 
