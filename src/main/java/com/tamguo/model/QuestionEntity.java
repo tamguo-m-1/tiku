@@ -47,6 +47,10 @@ public class QuestionEntity implements Serializable {
 	
 	@Column(name="score")
 	private Integer score;
+	
+	private String courseName;
+	
+	private String chapterName;
 
 	public QuestionEntity() {
 	}
@@ -137,6 +141,22 @@ public class QuestionEntity implements Serializable {
 
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public String getChapterName() {
+		return chapterName;
+	}
+
+	public void setChapterName(String chapterName) {
+		this.chapterName = chapterName;
 	}
 
 }

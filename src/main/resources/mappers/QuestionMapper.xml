@@ -2,6 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tamguo.dao.QuestionMapper">
 
+	<resultMap id="BaseResultMap" type="com.tamguo.model.QuestionEntity" >
+	    <id column="user_id" property="userId" jdbcType="BIGINT" />
+	    <result column="analysis" property="analysis" jdbcType="VARCHAR" />
+	    <result column="paper_id" property="paperId" jdbcType="BIGINT" />
+	    <result column="answer" property="answer" jdbcType="VARCHAR" />
+	    <result column="chapter_id" property="chapterId" jdbcType="BIGINT" />
+	    <result column="chapter_name" property="chapterName" jdbcType="VARCHAR" />
+	    <result column="question_type" property="questionType" jdbcType="VARCHAR" />
+	    <result column="course_id" property="courseId" jdbcType="VARCHAR" />
+	    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+	    <result column="review_point" property="reviewPoint" jdbcType="VARCHAR" />
+	    <result column="year" property="year" jdbcType="VARCHAR" />
+	    <result column="score" property="score" jdbcType="BIGINT" />
+	</resultMap>
+
 	<select id="findByChapterId" resultMap="resultMap">
 		SELECT
 			q.uid,
@@ -39,17 +54,19 @@
 			q.paper_id = #{paperId}
 	</select>
 	
-	<select id="queryPageByName" resultMap="resultMap">
+	<select id="queryPageByName" resultMap="BaseResultMap">
 		SELECT
 			q.analysis,
 			q.answer,
 			q.chapter_id,
+			(select c.name from tiku_chapter c where c.uid = q.chapter_id) as chapter_name,
 			q.content,
 			q.paper_id,
 			q.question_type,
 			q.review_point,
 			q.score,
 			q.course_id,
+			(select c.name from tiku_course c where c.uid = q.course_id) as course_name,
 			q.uid,
 			q.`year`
 		FROM

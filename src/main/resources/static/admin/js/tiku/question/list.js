@@ -3,17 +3,29 @@ $(function () {
         url: mainHttp + 'admin/question/list.html',
         datatype: "json",
         colModel: [			
-            { label: '题目ID', name: 'uid', width: 25, key: true },
-			{ label: '题目类型', name: 'questionType', width: 25},
-			{ label: '考试ID', name: 'subjectId', width: 25 },
-			{ label: '章节ID', name: 'chapterId', width: 25 },
-			{ label: '试卷ID', name: 'paperId', width: 25 },
+            { label: 'ID', name: 'uid', width: 25, key: true },
+			{ label: '题目类型', name: 'questionType', width: 25,formatter: function(value, options, row){
+				if(value === "1"){
+					return '<span>单选题</span>';
+				}else if(value === "2"){
+					return '<span>多选题</span>';
+				}else if(value === "3"){
+					return '<span>判断题</span>';
+				}else if(value === "4"){
+					return '<span>填空题</span>';
+				}else if(value === "5"){
+					return '<span>简答题</span>';
+				}
+			}},
+			{ label: '科目', name: 'courseName', width: 25 },
+			{ label: '章节', name: 'chapterName', width: 25 },
+			{ label: '试卷', name: 'paperId', width: 25 },
 			{ label: '题内容', name: 'content', width: 120 , hidden:true},
 			{ label: '答案', name: 'answer', width: 100  , hidden:true},
 			{ label: '解析', name: 'analysis', width: 50 , hidden:true},
 			{ label: '考察知识点', name: 'reviewPoint', width: 50 , hidden:true}, 
-			{ label: '年份', name: 'year', width: 50}, 
-			{ label: '分数', name: 'score', width: 50}  
+			{ label: '年份', name: 'year', width: 50, hidden:true}, 
+			{ label: '分数', name: 'score', width: 50 , hidden:true}  
         ],
 		viewrecords: true,
         height: 385,
