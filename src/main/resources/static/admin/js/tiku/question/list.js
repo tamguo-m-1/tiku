@@ -62,10 +62,23 @@ var vm = new Vue({
 		},
 		showList: true,
 		title: null,
+		subjectList:{},
+		courseList:{},
 		question:{
 		}
 	},
 	methods: {
+		getSubjectList:function(){
+			return axios.get(mainHttp + "admin/subject/getSubject.html");
+		},
+		getCouseList: function(){
+			return axios.get(mainHttp + "admin/course/findBySubjectId.html?subjectId="+vm.question.subjectId);
+		},
+		changeSubject:function(){
+			axios.all([this.getCouseList()]).then(axios.spread(function (cResponse) {
+				vm.courseList = cResponse.data.result;
+            }));
+		},
 		query: function () {
 			vm.reload();
 		},
@@ -73,6 +86,11 @@ var vm = new Vue({
 			vm.showList = false;
 			vm.title = "新增";
 			vm.question = {courseId:null,schoolId:null,areaId:null,name:null,questionInfo:null,type:null,year:null,downHits:null,openHits:null};
+			
+			axios.all([vm.getSubjectList()]).then(axios.spread(function (sResponse) {
+				vm.subjectList = sResponse.data.result;
+            }));
+			vm.reloadUeditor();
 		},
 		update: function (event) {
 			var questionId = getSelectedRow();
@@ -88,10 +106,8 @@ var vm = new Vue({
 					vm.showList = false;
 	                vm.title = "修改";
 	                vm.question = data.result;
-	                layui.use('layedit', function(){
-	                	var layedit = layui.layedit;
-	                	layedit.build('contentEditor'); //建立编辑器
-                	});
+	                
+	                vm.reloadUeditor();
 				}
 			});
 		},
@@ -141,6 +157,71 @@ var vm = new Vue({
 				postData:{'name': vm.q.name},
                 page:page
             }).trigger("reloadGrid");
+		},
+		// 加载富文本框
+		reloadUeditor:function(event){
+			window.tiganUE =  UE.getEditor('tiganEditor',{
+                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+                toolbars: [
+                    [ 'source','undo', 'redo','fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',
+                        'bold', 'italic', 'underline', 'fontborder','|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','|', 'strikethrough', 'superscript', 'subscript', 'removeformat','|', 'insertorderedlist', 'insertunorderedlist','lineheight', '|',
+                        'link', 'unlink','|',
+                        'simpleupload','imagefloat', 'emotion', 'insertvideo', 'insertaudio', 'attachment','insertframe',
+                        'horizontal', '|',
+                        'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol','|','insertcode',]
+                ],
+                //关闭字数统计
+                wordCount:false,
+                autoFloatEnabled:false,
+                //关闭elementPath
+                elementPathEnabled:false,
+                //默认的编辑区域高度
+                initialFrameHeight:120,
+           });
+           window.daanUE =  UE.getEditor('daanEditor',{
+                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+                toolbars: [
+                    ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
+                ],
+                //focus时自动清空初始化时的内容
+                autoClearinitialContent:true,
+                //关闭字数统计
+                wordCount:false,
+                //关闭elementPath
+                elementPathEnabled:false,
+                autoFloatEnabled:false,
+                //默认的编辑区域高度
+                initialFrameHeight:80,
+
+            });
+            window.jiexiUE =  UE.getEditor('jiexiEditor',{
+                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+                toolbars: [
+                    ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
+                ],
+                //focus时自动清空初始化时的内容
+                autoClearinitialContent:true,
+                //关闭字数统计
+                wordCount:false,
+                //关闭elementPath
+                elementPathEnabled:false,
+                autoFloatEnabled:false,
+                //默认的编辑区域高度
+                initialFrameHeight:80,
+             });
 		}
+	},
+	watch:{
+		  // 数据修改时触发
+	      subjectList: function() {
+	        this.$nextTick(function(){
+		        $('#subjectId').selectpicker('refresh');
+	        })
+	      },
+	      courseList: function() {
+	        this.$nextTick(function(){
+		        $('#courseId').selectpicker('refresh');
+	        })
+	      }
 	}
 });

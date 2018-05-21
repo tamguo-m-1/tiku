@@ -1,4 +1,5 @@
 package com.tamguo.web.admin;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -83,6 +84,17 @@ public class TikuCourseController {
 			return Result.result(0, null, null);
 		} catch (Exception e) {
 			return ExceptionSupport.resolverResult("保存科目", this.getClass(), e);
+		}
+	}
+	
+	@RequestMapping("admin/course/findBySubjectId.html")
+	@ResponseBody
+	public Result getCourse(String subjectId) {
+		try {
+			List<CourseEntity> courseList = iCourseService.findBySubjectId(subjectId);
+			return Result.successResult(courseList);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("获取科目树", this.getClass(), e);
 		}
 	}
 }
