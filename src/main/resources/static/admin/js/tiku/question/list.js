@@ -159,12 +159,15 @@ var vm = new Vue({
 				daanUE.addListener("ready", function () { 
 					daanUE.setContent(vm.question.answer); 
 				});
+				daanUE.setContent(vm.question.answer); 
 				tiganUE.addListener("ready", function () { 
 					tiganUE.setContent(vm.question.content); 
 				});
+				tiganUE.setContent(vm.question.content);
 				jiexiUE.addListener("ready", function () { 
 					jiexiUE.setContent(vm.question.analysis); 
 				});
+				jiexiUE.setContent(vm.question.analysis);
 				
 				// 获取科目
 				axios.all([vm.getCouseList() , vm.getQuestion(questionId)]).then(axios.spread(function (cResponse , qResponse) {
