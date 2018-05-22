@@ -141,7 +141,10 @@ var vm = new Vue({
 			axios.all([vm.getSubjectList()]).then(axios.spread(function (sResponse) {
 				vm.subjectList = sResponse.data.result;
             }));
-			vm.reloadUEditor();
+			
+			daanUE.setContent(''); 
+			tiganUE.setContent(''); 
+			jiexiUE.setContent(''); 
 		},
 		update: function (event) {
 			var questionId = getSelectedRow();
@@ -150,23 +153,13 @@ var vm = new Vue({
 			}
 			vm.showList = false;
             vm.title = "修改";
-            vm.reloadUEditor();
             
             axios.all([vm.getSubjectList() , vm.getQuestion(questionId)]).then(axios.spread(function (sResponse,qResponse) {
 				vm.subjectList = sResponse.data.result;
 				vm.question = qResponse.data.result;
 				
-				daanUE.addListener("ready", function () { 
-					daanUE.setContent(vm.question.answer); 
-				});
 				daanUE.setContent(vm.question.answer); 
-				tiganUE.addListener("ready", function () { 
-					tiganUE.setContent(vm.question.content); 
-				});
 				tiganUE.setContent(vm.question.content);
-				jiexiUE.addListener("ready", function () { 
-					jiexiUE.setContent(vm.question.analysis); 
-				});
 				jiexiUE.setContent(vm.question.analysis);
 				
 				// 获取科目
@@ -228,59 +221,61 @@ var vm = new Vue({
 				postData:{'name': vm.q.name},
                 page:page
             }).trigger("reloadGrid");
-		},
-		// 加载富文本框
-		reloadUEditor:function(event){
-			window.tiganUE =  UE.getEditor('tiganEditor',{
-                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-                toolbars: [
-                    [ 'source','undo', 'redo','fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',
-                        'bold', 'italic', 'underline', 'fontborder','|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','|', 'strikethrough', 'superscript', 'subscript', 'removeformat','|', 'insertorderedlist', 'insertunorderedlist','lineheight', '|',
-                        'link', 'unlink','|',
-                        'simpleupload','imagefloat', 'emotion', 'insertvideo', 'insertaudio', 'attachment','insertframe',
-                        'horizontal', '|',
-                        'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol','|','insertcode',]
-                ],
-                //关闭字数统计
-                wordCount:false,
-                autoFloatEnabled:false,
-                //关闭elementPath
-                elementPathEnabled:false,
-                //默认的编辑区域高度
-                initialFrameHeight:120,
-           });
-           window.daanUE =  UE.getEditor('daanEditor',{
-                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-                toolbars: [
-                    ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
-                ],
-                //focus时自动清空初始化时的内容
-                autoClearinitialContent:true,
-                //关闭字数统计
-                wordCount:false,
-                //关闭elementPath
-                elementPathEnabled:false,
-                autoFloatEnabled:false,
-                //默认的编辑区域高度
-                initialFrameHeight:80,
-
-            });
-            window.jiexiUE =  UE.getEditor('jiexiEditor',{
-                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
-                toolbars: [
-                    ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
-                ],
-                //focus时自动清空初始化时的内容
-                autoClearinitialContent:true,
-                //关闭字数统计
-                wordCount:false,
-                //关闭elementPath
-                elementPathEnabled:false,
-                autoFloatEnabled:false,
-                //默认的编辑区域高度
-                initialFrameHeight:80,
-             });
 		}
+	},
+	mounted() {
+		window.tiganUE =  UE.getEditor('tiganEditor',{
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+            toolbars: [
+                [ 'source','undo', 'redo','fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',
+                    'bold', 'italic', 'underline', 'fontborder','|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','|', 'strikethrough', 'superscript', 'subscript', 'removeformat','|', 'insertorderedlist', 'insertunorderedlist','lineheight', '|',
+                    'link', 'unlink','|',
+                    'simpleupload','imagefloat', 'emotion', 'insertvideo', 'insertaudio', 'attachment','insertframe',
+                    'horizontal', '|',
+                    'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol','|','insertcode',]
+            ],
+            //关闭字数统计
+            wordCount:false,
+            autoFloatEnabled:false,
+            //关闭elementPath
+            elementPathEnabled:false,
+            //默认的编辑区域高度
+            initialFrameHeight:120,
+            initialFrameWidth:900
+       });
+       window.daanUE =  UE.getEditor('daanEditor',{
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+            toolbars: [
+                ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
+            ],
+            //focus时自动清空初始化时的内容
+            autoClearinitialContent:true,
+            //关闭字数统计
+            wordCount:false,
+            //关闭elementPath
+            elementPathEnabled:false,
+            autoFloatEnabled:false,
+            //默认的编辑区域高度
+            initialFrameHeight:80,
+            initialFrameWidth:900
+
+        });
+        window.jiexiUE =  UE.getEditor('jiexiEditor',{
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+            toolbars: [
+                ['fontfamily', 'fontsize','|', 'forecolor', 'backcolor','pasteplain', '|',  'bold', 'italic', 'underline', 'fontborder','|', 'link', 'unlink','|', 'simpleupload','imagefloat', 'insertcode',]
+            ],
+            //focus时自动清空初始化时的内容
+            autoClearinitialContent:true,
+            //关闭字数统计
+            wordCount:false,
+            //关闭elementPath
+            elementPathEnabled:false,
+            autoFloatEnabled:false,
+            //默认的编辑区域高度
+            initialFrameHeight:80,
+            initialFrameWidth:900
+         });
 	},
 	watch:{
 		  // 数据修改时触发
