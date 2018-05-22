@@ -35,6 +35,9 @@ public class QuestionEntity implements Serializable {
 
 	@Column(name="content")
 	private String content;
+	
+	@Column(name="subject_id")
+	private String subjectId;
 
 	@Column(name="course_id")
 	private String courseId;
@@ -51,6 +54,8 @@ public class QuestionEntity implements Serializable {
 	private String courseName;
 	
 	private String chapterName;
+	
+	private String subjectName;
 
 	public QuestionEntity() {
 	}
@@ -157,6 +162,22 @@ public class QuestionEntity implements Serializable {
 
 	public void setChapterName(String chapterName) {
 		this.chapterName = chapterName;
+	}
+
+	public String getSubjectId() {
+		return subjectId;
+	}
+
+	public void setSubjectId(String subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
 	}
 
 }

@@ -1,10 +1,10 @@
 package com.tamguo.web.admin;
 
 import java.util.Map;
-
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.Page;
 import com.tamguo.model.QuestionEntity;
 import com.tamguo.service.IQuestionService;
+import com.tamguo.util.CException;
 import com.tamguo.util.ExceptionSupport;
 import com.tamguo.util.Result;
 
@@ -52,4 +53,36 @@ public class TikuQuestionController {
 		}
 	}
 	
+	@RequestMapping("admin/question/save")
+	@ResponseBody
+	public Result save(@RequestBody QuestionEntity question) {
+		try {
+			verifyForm(question);
+			iQuestionService.save(question);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("保存题目", this.getClass(), e);
+		}
+	}
+	
+	@RequestMapping("admin/question/update")
+	@ResponseBody
+	public Result update(@RequestBody QuestionEntity question) {
+		try {
+			verifyForm(question);
+			iQuestionService.update(question);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("保存题目", this.getClass(), e);
+		}
+	}
+	
+	private void verifyForm(QuestionEntity question) {
+		if (StringUtils.isEmpty(question.getQuestionType())) {
+			throw new CException("请选择题目类型");
+		}
+		if (StringUtils.isEmpty(question.getCourseId())) {
+			throw new CException("请选择科目");
+		}
+	}
 }

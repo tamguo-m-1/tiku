@@ -54,6 +54,21 @@ $(function () {
     });
 });
 
+var setting = {
+	data: {
+		simpleData: {
+			enable: true,
+			idKey: "uid",
+			pIdKey: "parentId",
+			rootPId: -1
+		},
+		key: {
+			url:"nourl"
+		}
+	}
+};
+var ztree;
+
 var vm = new Vue({
 	el:'#rrapp',
 	data:{
@@ -68,13 +83,48 @@ var vm = new Vue({
 		}
 	},
 	methods: {
+		getChapterTree:function(courseId){
+			axios.get(mainHttp + "/chapter/findChapterTreeByCourseId.html?courseId="+courseId).then(function (response) {
+			    ztree = $.fn.zTree.init($("#menuTree"), setting, response.data.result);
+				var node = ztree.getNodeByParam("parentId", "-1");
+				ztree.selectNode(node);
+				Vue.set(vm.question, 'chapterName', node.name);
+			});
+		},
 		getSubjectList:function(){
 			return axios.get(mainHttp + "admin/subject/getSubject.html");
 		},
 		getCouseList: function(){
 			return axios.get(mainHttp + "admin/course/findBySubjectId.html?subjectId="+vm.question.subjectId);
 		},
+		openChapterTree: function(){
+			
+			vm.getChapterTree(vm.question.courseId);
+			
+			layer.open({
+				type: 1,
+				offset: '50px',
+				skin: 'layui-layer-molv',
+				title: "选择章节",
+				area: ['300px', '450px'],
+				shade: 0,
+				shadeClose: false,
+				content: jQuery("#menuLayer"),
+				btn: ['确定', '取消'],
+				btn1: function (index) {
+					var node = ztree.getSelectedNodes();
+					//选择上级菜单
+					vm.question.chapterId = node[0].uid;
+					vm.question.chapterName = node[0].name;
+					layer.close(index);
+					$("#menuLayer").hide();
+	            }
+			});
+		},
 		changeSubject:function(){
+			vm.question.chapterName = null;
+			vm.question.chapterId = null;
+			
 			axios.all([this.getCouseList()]).then(axios.spread(function (cResponse) {
 				vm.courseList = cResponse.data.result;
             }));
@@ -86,30 +136,45 @@ var vm = new Vue({
 			vm.showList = false;
 			vm.title = "新增";
 			vm.question = {courseId:null,schoolId:null,areaId:null,name:null,questionInfo:null,type:null,year:null,downHits:null,openHits:null};
+			vm.courseList = {};
 			
 			axios.all([vm.getSubjectList()]).then(axios.spread(function (sResponse) {
 				vm.subjectList = sResponse.data.result;
             }));
-			vm.reloadUeditor();
+			vm.reloadUEditor();
 		},
 		update: function (event) {
 			var questionId = getSelectedRow();
 			if(questionId == null){
 				return ;
 			}
-			$.ajax({
-				type : "get", 
-				url : mainHttp + "admin/question/info/"+questionId+".html",
-				async : false,
-				dataType : "json",
-				success : function(data) {
-					vm.showList = false;
-	                vm.title = "修改";
-	                vm.question = data.result;
-	                
-	                vm.reloadUeditor();
-				}
-			});
+			vm.showList = false;
+            vm.title = "修改";
+            vm.reloadUEditor();
+            
+            axios.all([vm.getSubjectList() , vm.getQuestion(questionId)]).then(axios.spread(function (sResponse,qResponse) {
+				vm.subjectList = sResponse.data.result;
+				vm.question = qResponse.data.result;
+				
+				daanUE.addListener("ready", function () { 
+					daanUE.setContent(vm.question.answer); 
+				});
+				tiganUE.addListener("ready", function () { 
+					tiganUE.setContent(vm.question.content); 
+				});
+				jiexiUE.addListener("ready", function () { 
+					jiexiUE.setContent(vm.question.analysis); 
+				});
+				
+				// 获取科目
+				axios.all([vm.getCouseList() , vm.getQuestion(questionId)]).then(axios.spread(function (cResponse , qResponse) {
+					vm.courseList = cResponse.data.result;
+					vm.question = qResponse.data.result;
+	            }));
+            }));
+		},
+		getQuestion : function(questionId){
+			return axios.get(mainHttp + "admin/question/info/"+questionId+".html");
 		},
 		del: function (event) {
 			var questionIds = getSelectedRows();
@@ -134,11 +199,14 @@ var vm = new Vue({
 			});
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.paper.uid == null ? mainHttp + "admin/paper/save.html" : mainHttp + "admin/paper/update.html";
+			var url = vm.question.uid == null ? mainHttp + "admin/question/save.html" : mainHttp + "admin/question/update.html";
+			vm.question.content = tiganUE.getContent();
+			vm.question.answer = daanUE.getContent();
+			vm.question.analysis = jiexiUE.getContent();
 			$.ajax({
 				type: "POST",
 			    url: url,
-			    data: JSON.stringify(vm.paper),
+			    data: JSON.stringify(vm.question),
 			    success: function(r){
 			    	if(r.code === 0){
 						alert('操作成功', function(index){
@@ -159,7 +227,7 @@ var vm = new Vue({
             }).trigger("reloadGrid");
 		},
 		// 加载富文本框
-		reloadUeditor:function(event){
+		reloadUEditor:function(event){
 			window.tiganUE =  UE.getEditor('tiganEditor',{
                 //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
                 toolbars: [

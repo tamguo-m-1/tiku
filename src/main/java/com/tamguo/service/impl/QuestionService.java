@@ -47,7 +47,7 @@ public class QuestionService implements IQuestionService{
 
 	@Override
 	public QuestionEntity select(String questionId) {
-		return questionMapper.select(questionId);
+		return questionMapper.selectByUid(questionId);
 	}
 
 	@Override
@@ -70,6 +70,18 @@ public class QuestionService implements IQuestionService{
 			question.setReviewPoint("%" + question.getReviewPoint() + "%");
 		}
 		return questionMapper.queryQuestionList(question.getQuestionType(),question.getUid() ,question.getReviewPoint());
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void save(QuestionEntity question) {
+		questionMapper.insert(question);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void update(QuestionEntity question) {
+		questionMapper.update(question);
 	}
 
 }

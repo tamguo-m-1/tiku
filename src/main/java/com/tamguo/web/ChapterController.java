@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tamguo.model.ChapterEntity;
 import com.tamguo.service.IChapterService;
 import com.tamguo.service.ICourseService;
+import com.tamguo.util.Result;
 
 
 @Controller
@@ -37,5 +38,11 @@ public class ChapterController {
 	@ResponseBody
 	public List<ChapterEntity> findChapterByCourseId(@PathVariable String courseId){
 		return iChapterService.findCourseChapter(courseId);
+	}
+	
+	@RequestMapping(value = {"/chapter/findChapterTreeByCourseId.html"}, method = RequestMethod.GET)
+	@ResponseBody
+	public Result findChapterTreeByCourseId(String courseId){
+		return Result.successResult(iChapterService.getChapterTree(courseId));
 	}
 }

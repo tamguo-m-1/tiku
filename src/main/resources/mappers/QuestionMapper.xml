@@ -15,6 +15,8 @@
 	    <result column="review_point" property="reviewPoint" jdbcType="VARCHAR" />
 	    <result column="year" property="year" jdbcType="VARCHAR" />
 	    <result column="score" property="score" jdbcType="BIGINT" />
+	    <result column="subject_name" property="subjectName" jdbcType="VARCHAR"/>
+	    <result column="subject_id" property="subjectId" jdbcType="VARCHAR"/>
 	</resultMap>
 
 	<select id="findByChapterId" resultMap="resultMap">
@@ -28,7 +30,8 @@
 			q.course_id,
 			q.review_point,
 			q.year,
-			q.score
+			q.score,
+			q.subject_id
 		FROM
 			tiku_question q
 		WHERE
@@ -47,7 +50,8 @@
 			q.score,
 			q.course_id,
 			q.uid,
-			q.`year`
+			q.`year`,
+			q.subject_id
 		FROM
 			tiku_question q
 		WHERE
@@ -68,7 +72,9 @@
 			q.course_id,
 			(select c.name from tiku_course c where c.uid = q.course_id) as course_name,
 			q.uid,
-			q.`year`
+			q.`year`,
+			q.subject_id,
+			(select s.name from tiku_subject s where s.uid = q.subject_id) as subject_name
 		FROM
 			tiku_question q
 		<where>
@@ -90,7 +96,8 @@
 			q.score,
 			q.course_id,
 			q.uid,
-			q.`year`
+			q.`year`,
+			q.subject_id
 		FROM
 			tiku_question q
 		<where>
@@ -106,4 +113,23 @@
 		</where>
 	</select>
 	
+	<select id="selectByUid" resultMap="BaseResultMap">
+		SELECT
+			q.uid,
+			q.analysis,
+			q.answer,
+			q.chapter_id,
+			(select c.name from tiku_chapter c where c.uid = q.chapter_id) as chapter_name,
+			q.content,
+			q.question_type,
+			q.course_id,
+			q.review_point,
+			q.year,
+			q.score,
+			q.subject_id
+		FROM
+			tiku_question q
+		WHERE
+			q.uid = #{uid}
+	</select>
 </mapper>

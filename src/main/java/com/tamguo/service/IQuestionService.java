@@ -23,5 +23,9 @@ public interface IQuestionService {
 	public void addQuestion(QuestionEntity question);
 
 	public Page<QuestionEntity> queryQuestionList(QuestionEntity question , Integer page , Integer limit);
+
+	public void save(QuestionEntity question);
+
+	public void update(QuestionEntity question);
 	
 }
