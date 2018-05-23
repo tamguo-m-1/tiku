@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.tamguo.dao.ChapterMapper;
 import com.tamguo.dao.PaperMapper;
 import com.tamguo.dao.QuestionMapper;
+import com.tamguo.model.ChapterEntity;
 import com.tamguo.model.PaperEntity;
 import com.tamguo.model.QuestionEntity;
 import com.tamguo.service.IQuestionService;
@@ -24,6 +26,8 @@ public class QuestionService implements IQuestionService{
 	private QuestionMapper questionMapper;
 	@Autowired
 	private PaperMapper paperMapper;
+	@Autowired
+	private ChapterMapper chapterMapper;
 
 	@Override
 	public Page<QuestionEntity> findByChapterId(String chapterId  , Integer offset ,  Integer limit) {
@@ -94,8 +98,16 @@ public class QuestionService implements IQuestionService{
 		List<QuestionEntity> questions = questionMapper.selectByIds(Arrays.asList(questionIds));
 		for(int i=0 ; i<questions.size() ; i++) {
 			QuestionEntity question = questions.get(i);
+			if(TamguoConstant.QUESTION_SUCCESS_AUDIT_STATUS.equals(question.getAuditStatus())) {
+				continue;
+			}
 			question.setAuditStatus(TamguoConstant.QUESTION_SUCCESS_AUDIT_STATUS);
 			questionMapper.update(question);
+			
+			// 章节题目数添加
+			ChapterEntity chapter = chapterMapper.select(question.getChapterId().toString());
+			chapter.setQuestionNum(chapter.getQuestionNum().intValue() + 1);
+			chapterMapper.update(chapter);
 		}
 	}
 
@@ -105,8 +117,16 @@ public class QuestionService implements IQuestionService{
 		List<QuestionEntity> questions = questionMapper.selectByIds(Arrays.asList(questionIds));
 		for(int i=0 ; i<questions.size() ; i++) {
 			QuestionEntity question = questions.get(i);
+			if(TamguoConstant.QUESTION_FAILED_AUDIT_STATUS.equals(question.getAuditStatus())) {
+				continue;
+			}
 			question.setAuditStatus(TamguoConstant.QUESTION_FAILED_AUDIT_STATUS);
 			questionMapper.update(question);
+			
+			// 章节题目数添加
+			ChapterEntity chapter = chapterMapper.select(question.getChapterId().toString());
+			chapter.setQuestionNum(chapter.getQuestionNum().intValue() - 1);
+			chapterMapper.update(chapter);
 		}
 	}
 
