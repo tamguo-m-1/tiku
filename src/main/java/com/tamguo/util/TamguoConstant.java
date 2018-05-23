@@ -108,4 +108,13 @@ public class TamguoConstant {
 	/** 登录错误次数*/
 	public static final String LOGIN_FAILURE_COUNT = "loginFailureCount:";
 	
+	/** 题目未审核*/
+	public static final String QUESTION_NOTHING_AUDIT_STATUS = "0";
+	
+	/** 题目审核成功*/
+	public static final String QUESTION_SUCCESS_AUDIT_STATUS = "1";
+
+	/** 题目审核失败*/
+	public static final String QUESTION_FAILED_AUDIT_STATUS = "2";
+	
 }

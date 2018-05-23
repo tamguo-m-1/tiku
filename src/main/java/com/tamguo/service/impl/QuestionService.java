@@ -15,6 +15,7 @@ import com.tamguo.dao.QuestionMapper;
 import com.tamguo.model.PaperEntity;
 import com.tamguo.model.QuestionEntity;
 import com.tamguo.service.IQuestionService;
+import com.tamguo.util.TamguoConstant;
 
 @Service
 public class QuestionService implements IQuestionService{
@@ -30,9 +31,10 @@ public class QuestionService implements IQuestionService{
 		return questionMapper.findByChapterId(chapterId);
 	}
 
+	@Transactional(readOnly=true)
 	@Override
-	public QuestionEntity findById(String uid) {
-		return questionMapper.select(uid);
+	public QuestionEntity findNormalQuestion(String uid) {
+		return questionMapper.findNormalQuestion(uid);
 	}
 
 	@Override
@@ -75,13 +77,37 @@ public class QuestionService implements IQuestionService{
 	@Transactional(readOnly=false)
 	@Override
 	public void save(QuestionEntity question) {
+		question.setAuditStatus(TamguoConstant.QUESTION_NOTHING_AUDIT_STATUS);
 		questionMapper.insert(question);
 	}
 
 	@Transactional(readOnly=false)
 	@Override
 	public void update(QuestionEntity question) {
+		question.setAuditStatus(TamguoConstant.QUESTION_NOTHING_AUDIT_STATUS);
 		questionMapper.update(question);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void audit(String[] questionIds) {
+		List<QuestionEntity> questions = questionMapper.selectByIds(Arrays.asList(questionIds));
+		for(int i=0 ; i<questions.size() ; i++) {
+			QuestionEntity question = questions.get(i);
+			question.setAuditStatus(TamguoConstant.QUESTION_SUCCESS_AUDIT_STATUS);
+			questionMapper.update(question);
+		}
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void notAudit(String[] questionIds) {
+		List<QuestionEntity> questions = questionMapper.selectByIds(Arrays.asList(questionIds));
+		for(int i=0 ; i<questions.size() ; i++) {
+			QuestionEntity question = questions.get(i);
+			question.setAuditStatus(TamguoConstant.QUESTION_FAILED_AUDIT_STATUS);
+			questionMapper.update(question);
+		}
 	}
 
 }

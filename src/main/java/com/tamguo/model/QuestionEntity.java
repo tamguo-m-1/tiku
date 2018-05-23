@@ -51,6 +51,9 @@ public class QuestionEntity implements Serializable {
 	@Column(name="score")
 	private Integer score;
 	
+	@Column(name="audit_status")
+	private String auditStatus;
+	
 	private String courseName;
 	
 	private String chapterName;
@@ -178,6 +181,14 @@ public class QuestionEntity implements Serializable {
 
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
+	}
+
+	public String getAuditStatus() {
+		return auditStatus;
+	}
+
+	public void setAuditStatus(String auditStatus) {
+		this.auditStatus = auditStatus;
 	}
 
 }

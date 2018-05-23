@@ -25,7 +25,16 @@ $(function () {
 			{ label: '解析', name: 'analysis', width: 50 , hidden:true},
 			{ label: '考察知识点', name: 'reviewPoint', width: 50 , hidden:true}, 
 			{ label: '年份', name: 'year', width: 50, hidden:true}, 
-			{ label: '分数', name: 'score', width: 50 , hidden:true}  
+			{ label: '分数', name: 'score', width: 50 , hidden:true},
+			{ label: '状态', name: 'auditStatus', width: 50 ,formatter: function(value, options, row){
+				if(value === "1"){
+					return '<span class="label label-success">审核通过</span>';
+				}else if(value === "2"){
+					return '<span class="label label-danger">审核拒绝</span>';
+				}else{
+					return '<span class="label label-danger">未审核</span>';
+				}
+			}}  
         ],
 		viewrecords: true,
         height: 385,
@@ -212,6 +221,50 @@ var vm = new Vue({
 						alert(r.message);
 					}
 				}
+			});
+		},
+		audit: function(){
+			var questionIds = getSelectedRows();
+			if(questionIds == null){
+				return ;
+			}
+			confirm('确定要审核通过选中的记录？', function(){
+				$.ajax({
+					type: "POST",
+				    url: mainHttp + "admin/question/audit.html",
+				    data: JSON.stringify(questionIds),
+				    success: function(r){
+				    	if(r.code === 0){
+							alert('操作成功', function(index){
+								vm.reload();
+							});
+						}else{
+							alert(r.message);
+						}
+					}
+				});
+			});
+		},
+		notAudit: function(){
+			var questionIds = getSelectedRows();
+			if(questionIds == null){
+				return ;
+			}
+			confirm('确定要审核拒绝选中的记录？', function(){
+				$.ajax({
+					type: "POST",
+				    url: mainHttp + "admin/question/notAudit.html",
+				    data: JSON.stringify(questionIds),
+				    success: function(r){
+				    	if(r.code === 0){
+							alert('操作成功', function(index){
+								vm.reload();
+							});
+						}else{
+							alert(r.message);
+						}
+					}
+				});
 			});
 		},
 		reload: function (event) {

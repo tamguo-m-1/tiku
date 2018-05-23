@@ -40,6 +40,8 @@ public class MenuInterceptor implements HandlerInterceptor {
 	private ISchoolService iSchoolService;
 	@Resource
 	private IAdService iAdService;
+	@Resource
+	private Setting setting;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -96,7 +98,7 @@ public class MenuInterceptor implements HandlerInterceptor {
     	request.setAttribute("adList", adList);
     	
     	// 设置系统变量
-    	request.setAttribute("setting", Setting.getSetting());
+    	request.setAttribute("setting", setting);
     }
 
     @Override

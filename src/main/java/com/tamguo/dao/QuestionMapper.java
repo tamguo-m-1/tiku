@@ -20,4 +20,6 @@ public interface QuestionMapper extends BaseDao<QuestionEntity>{
 
 	QuestionEntity selectByUid(@Param(value="uid")String uid);
 
+	QuestionEntity findNormalQuestion(@Param(value="uid")String uid);
+
 }

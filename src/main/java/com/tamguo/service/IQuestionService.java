@@ -10,7 +10,8 @@ public interface IQuestionService {
 	/** 根据章节获取问题 */
 	public Page<QuestionEntity> findByChapterId(String chapterId ,  Integer offset ,  Integer limit);
 	
-	public QuestionEntity findById(String uid);
+	/** 获取审核通过的题目 */
+	public QuestionEntity findNormalQuestion(String uid);
 
 	public List<QuestionEntity> findPaperQuestion(String paperId);
 
@@ -27,5 +28,9 @@ public interface IQuestionService {
 	public void save(QuestionEntity question);
 
 	public void update(QuestionEntity question);
+
+	public void audit(String[] questionIds);
+
+	public void notAudit(String[] questionIds);
 	
 }

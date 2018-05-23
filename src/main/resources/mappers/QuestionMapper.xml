@@ -17,6 +17,7 @@
 	    <result column="score" property="score" jdbcType="BIGINT" />
 	    <result column="subject_name" property="subjectName" jdbcType="VARCHAR"/>
 	    <result column="subject_id" property="subjectId" jdbcType="VARCHAR"/>
+	    <result column="audit_status" property="auditStatus" jdbcType="VARCHAR"/>
 	</resultMap>
 
 	<select id="findByChapterId" resultMap="resultMap">
@@ -31,7 +32,8 @@
 			q.review_point,
 			q.year,
 			q.score,
-			q.subject_id
+			q.subject_id,
+			q.audit_status
 		FROM
 			tiku_question q
 		WHERE
@@ -51,7 +53,8 @@
 			q.course_id,
 			q.uid,
 			q.`year`,
-			q.subject_id
+			q.subject_id,
+			q.audit_status
 		FROM
 			tiku_question q
 		WHERE
@@ -74,7 +77,8 @@
 			q.uid,
 			q.`year`,
 			q.subject_id,
-			(select s.name from tiku_subject s where s.uid = q.subject_id) as subject_name
+			(select s.name from tiku_subject s where s.uid = q.subject_id) as subject_name,
+			q.audit_status
 		FROM
 			tiku_question q
 		<where>
@@ -97,7 +101,8 @@
 			q.course_id,
 			q.uid,
 			q.`year`,
-			q.subject_id
+			q.subject_id,
+			q.audit_status
 		FROM
 			tiku_question q
 		<where>
@@ -126,10 +131,32 @@
 			q.review_point,
 			q.year,
 			q.score,
-			q.subject_id
+			q.subject_id,
+			q.audit_status
 		FROM
 			tiku_question q
 		WHERE
 			q.uid = #{uid}
+	</select>
+	
+	<select id="findNormalQuestion" resultMap="BaseResultMap">
+		SELECT
+			q.uid,
+			q.analysis,
+			q.answer,
+			q.chapter_id,
+			(select c.name from tiku_chapter c where c.uid = q.chapter_id) as chapter_name,
+			q.content,
+			q.question_type,
+			q.course_id,
+			q.review_point,
+			q.year,
+			q.score,
+			q.subject_id,
+			q.audit_status
+		FROM
+			tiku_question q
+		WHERE
+			q.uid = #{uid} and q.audit_status = '1'
 	</select>
 </mapper>

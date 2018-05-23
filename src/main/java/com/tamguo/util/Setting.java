@@ -1,24 +1,20 @@
 package com.tamguo.util;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  * Setting - 系统
  * 
  * @author candy.tam
  *
  */
+@Component
 public final class Setting {
 
-	private static Setting instance = null; 
-	
-	public static Setting getSetting(){
-		if(instance == null){
-			instance = new Setting();
-		}
-		return instance;
-	}
-	
 	/** 域名 */
-	public final String domain = "http://localhost/";
+	@Value(value="${domain.name}")
+	public String domain;
 	/** 真题 */
 	public final String PAPER_TYPE_ZHENTI = "1";
 	/** 模拟*/

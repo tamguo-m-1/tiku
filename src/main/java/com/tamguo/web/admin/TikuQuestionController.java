@@ -77,6 +77,28 @@ public class TikuQuestionController {
 		}
 	}
 	
+	@RequestMapping("admin/question/audit")
+	@ResponseBody
+	public Result audit(@RequestBody String[] questionIds) {
+		try {
+			iQuestionService.audit(questionIds);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("审核题目", this.getClass(), e);
+		}
+	}
+	
+	@RequestMapping("admin/question/notAudit")
+	@ResponseBody
+	public Result notAudit(@RequestBody String[] questionIds) {
+		try {
+			iQuestionService.notAudit(questionIds);
+			return Result.successResult(null);
+		} catch (Exception e) {
+			return ExceptionSupport.resolverResult("审核题目", this.getClass(), e);
+		}
+	}
+	
 	private void verifyForm(QuestionEntity question) {
 		if (StringUtils.isEmpty(question.getQuestionType())) {
 			throw new CException("请选择题目类型");

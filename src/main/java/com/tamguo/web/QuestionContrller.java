@@ -41,17 +41,23 @@ public class QuestionContrller {
 		return model;
 	}
 	
+	/**
+	 * 直接访问题目
+	 * @param uid
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = {"/question/{uid}.html"}, method = RequestMethod.GET)
 	public ModelAndView question(@PathVariable String uid , ModelAndView model){
 		model.setViewName("question");
-		model.addObject("question", iQuestionService.findById(uid));
+		model.addObject("question", iQuestionService.findNormalQuestion(uid));
 		return model;
 	}
 	
 	@RequestMapping(value = {"/question/getQuestion/{uid}.html"}, method = RequestMethod.GET)
 	@ResponseBody
 	public Result getQuestion(@PathVariable String uid , ModelAndView model){
-		return Result.successResult(iQuestionService.findById(uid));
+		return Result.successResult(iQuestionService.select(uid));
 	}
 	
 }
