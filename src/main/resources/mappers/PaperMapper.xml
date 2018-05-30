@@ -6,6 +6,8 @@
 	    <id column="uid" property="uid" jdbcType="VARCHAR" />
 	    <result column="course_id" property="courseId" jdbcType="VARCHAR" />
 	    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+	    <result column="subject_id" property="subjectId" jdbcType="VARCHAR" />
+	    <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
 	    <result column="school_id" property="schoolId" jdbcType="VARCHAR" />
 	    <result column="school_name" property="schoolName" jdbcType="VARCHAR" />
 	    <result column="area_id" property="areaId" jdbcType="VARCHAR" />
@@ -124,6 +126,7 @@
 		SELECT
 			p.area_id,
 			(select a.name from tiku_area a where a.uid = p.area_id) as area_name,
+			p.subject_id,
 			p.course_id,
 			(select c.name from tiku_course c where c.uid = p.course_id) as course_name,
 			p.down_hits,
@@ -131,6 +134,7 @@
 			p.open_hits,
 			p.question_info,
 			p.school_id,
+			p.type,
 			(select s.name from tiku_school s where s.uid = p.school_id) as school_name,
 			p.type,
 			p.uid,

@@ -21,6 +21,9 @@ public class PaperEntity implements Serializable {
 	@Id
 	private String uid;
 
+	@Column(name="subject_id")
+	private String subjectId;
+	
 	@Column(name="course_id")
 	private String courseId;
 	
@@ -59,6 +62,8 @@ public class PaperEntity implements Serializable {
 	
 	@Column(name="seo_description")
 	private String seoDescription;
+	
+	private String subjectName;
 	
 	private String courseName;
 	
@@ -211,6 +216,22 @@ public class PaperEntity implements Serializable {
 
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
+	}
+
+	public String getSubjectId() {
+		return subjectId;
+	}
+
+	public void setSubjectId(String subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
 	}
 
 
